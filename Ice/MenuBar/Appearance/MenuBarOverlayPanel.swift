@@ -125,11 +125,7 @@ final class MenuBarOverlayPanel: NSPanel {
                     return
                 }
                 updateTaskContext.setTask(for: .desktopWallpaper, timeout: .seconds(5)) {
-                    while true {
-                        try Task.checkCancellation()
-                        self.insertUpdateFlag(.desktopWallpaper)
-                        try await Task.sleep(for: .seconds(1))
-                    }
+                    self.insertUpdateFlag(.desktopWallpaper)
                 }
             }
             .store(in: &c)
@@ -149,22 +145,16 @@ final class MenuBarOverlayPanel: NSPanel {
                 return
             }
             updateTaskContext.setTask(for: .applicationMenuFrame, timeout: .seconds(10)) {
-                var hasDoneInitialUpdate = false
-                while true {
+                for _ in 0 ..< 10 {
                     try Task.checkCancellation()
-                    guard
+                    if
                         let latestFrame = self.owningScreen.getApplicationMenuFrame(),
                         latestFrame != self.applicationMenuFrame
-                    else {
-                        if hasDoneInitialUpdate {
-                            try await Task.sleep(for: .seconds(1))
-                        } else {
-                            try await Task.sleep(for: .milliseconds(1))
-                        }
-                        continue
+                    {
+                        self.insertUpdateFlag(.applicationMenuFrame)
+                        break
                     }
-                    self.insertUpdateFlag(.applicationMenuFrame)
-                    hasDoneInitialUpdate = true
+                    try await Task.sleep(for: .milliseconds(100))
                 }
             }
             Task {
