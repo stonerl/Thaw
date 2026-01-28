@@ -57,6 +57,12 @@ final class AppState: ObservableObject {
     /// Track open windows to prevent duplicates
     private var openWindows = Set<IceWindowIdentifier>()
 
+    /// Track last known screen count to detect disconnects.
+    private var lastKnownScreenCount = NSScreen.screens.count
+
+    /// Prevent repeated restart attempts.
+    private var isRestarting = false
+
     /// Logger for the app state.
     let logger = Logger(category: "AppState")
 
@@ -279,7 +285,45 @@ final class AppState: ObservableObject {
             }
             .store(in: &c)
 
+        NotificationCenter.default.publisher(for: NSApplication.didChangeScreenParametersNotification)
+            .map { _ in NSScreen.screens.count }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] count in
+                guard let self else { return }
+                defer { self.lastKnownScreenCount = count }
+                if count < self.lastKnownScreenCount {
+                    self.logger.warning("Detected display disconnect; restarting app to avoid stale state")
+                    self.restartSelf()
+                }
+            }
+            .store(in: &c)
+
         cancellables = c
+    }
+
+    /// Relaunches the current app instance silently.
+    private func restartSelf() {
+        guard !isRestarting else { return }
+        isRestarting = true
+
+        Task { @MainActor [logger] in
+            let config = NSWorkspace.OpenConfiguration()
+            config.activates = false
+            config.addsToRecentItems = false
+            config.createsNewApplicationInstance = true
+            config.promptsUserIfNeeded = false
+
+            if let url = Bundle.main.bundleURL as URL? {
+                do {
+                    _ = try await NSWorkspace.shared.openApplication(at: url, configuration: config)
+                    try? await Task.sleep(for: .milliseconds(300))
+                    NSApp.terminate(nil)
+                } catch {
+                    logger.error("Failed to relaunch app: \(error.localizedDescription, privacy: .public)")
+                    isRestarting = false
+                }
+            }
+        }
     }
 
     /// Returns a Boolean value indicating whether the app has been
