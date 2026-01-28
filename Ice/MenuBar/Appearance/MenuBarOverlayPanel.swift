@@ -78,14 +78,6 @@ final class MenuBarOverlayPanel: NSPanel {
         func cancelTask(for flag: UpdateFlag) {
             tasks.removeValue(forKey: flag)?.cancel()
         }
-
-        deinit {
-            // Cancel all running tasks
-            for (_, task) in tasks {
-                task.cancel()
-            }
-            tasks.removeAll()
-        }
     }
 
     /// Shared logger for overlay panels.
@@ -463,11 +455,6 @@ final class MenuBarOverlayPanel: NSPanel {
 
     override func isAccessibilityElement() -> Bool {
         return false
-    }
-
-    deinit {
-        // Clean up all cancellables to ensure timers are stopped
-        cancellables.removeAll()
     }
 }
 

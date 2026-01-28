@@ -161,10 +161,4 @@ final class IceBarColorManager: ObservableObject {
         updateWindowImage(for: screen)
         updateColorInfo(with: frame, screen: screen)
     }
-
-    deinit {
-        // Clean up resources
-        windowImage = nil
-        cancellables.removeAll()
-    }
 }

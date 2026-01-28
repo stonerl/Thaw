@@ -319,12 +319,4 @@ final class MenuBarSection {
         rehideTimer = nil
         rehideMonitor = nil
     }
-
-    deinit {
-        // Ensure all resources are cleaned up
-        rehideTimer?.invalidate()
-        rehideMonitor?.stop()
-        rehideTimer = nil
-        rehideMonitor = nil
-    }
 }

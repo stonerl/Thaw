@@ -704,17 +704,6 @@ final class MenuBarItemImageCache: ObservableObject {
         images = images.filter { !tags.contains($0.key) }
     }
 
-    deinit {
-        // Clean up all cached images, failed captures, and cancellables
-        logger.info(
-            "Image cache deinit: cleaning up \(self.images.count) cached images, \(self.failedCaptures.count) failed entries"
-        )
-        images.removeAll()
-        accessOrder.removeAll()
-        failedCaptures.removeAll()
-        cancellables.removeAll()
-    }
-
     // MARK: Cache Failed
 
     /// Returns a Boolean value that indicates whether caching menu bar items

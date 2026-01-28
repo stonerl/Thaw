@@ -27,10 +27,6 @@ private struct LocalEventMonitorModifier: ViewModifier {
                 }
             }
         }
-
-        deinit {
-            monitor.stop()
-        }
     }
 
     @StateObject private var model: Model

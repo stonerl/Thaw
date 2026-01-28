@@ -102,7 +102,8 @@ final class AppState: ObservableObject {
                 logger.info("Memory usage at \(timestamp): \(memoryUsage / 1024 / 1024)MB")
 
                 // Log warnings for specific conditions
-                if memoryUsage > 500 * 1024 * 1024 { // 500MB threshold
+                let memoryWarningThreshold: Int64 = 500 * 1024 * 1024 // 500MB
+                if memoryUsage > memoryWarningThreshold {
                     logger.warning("High memory usage detected: \(memoryUsage / 1024 / 1024)MB")
                 }
 
@@ -119,7 +120,7 @@ final class AppState: ObservableObject {
                     }
                 }
 
-                try? await Task.sleep(for: .seconds(600)) // Check every 10 minutes
+                try? await Task.sleep(for: .seconds(300)) // Check every 5 minutes
             }
         }
     }

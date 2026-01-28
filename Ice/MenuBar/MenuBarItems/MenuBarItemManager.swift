@@ -88,14 +88,6 @@ final class MenuBarItemManager: ObservableObject {
         }
         return timestamp.duration(to: .now) <= duration
     }
-
-    deinit {
-        // Ensure all resources are cleaned up
-        rehideTimer?.invalidate()
-        rehideTimer = nil
-        temporarilyShownItemContexts.removeAll()
-        cancellables.removeAll()
-    }
 }
 
 // MARK: - Item Cache

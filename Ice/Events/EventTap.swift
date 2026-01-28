@@ -155,8 +155,6 @@ final class EventTap {
             return
         }
 
-        // Log EventTap creation for debugging port growth
-        print("EventTap init: creating Mach port for location: \(location), types: \(types.count)")
         guard
             let machPort = EventTap.createMachPort(
                 mask: types.reduce(0) { $0 | (1 << $1.rawValue) },
@@ -223,8 +221,6 @@ final class EventTap {
     }
 
     deinit {
-        // Log EventTap cleanup for debugging port growth
-        print("EventTap deinit: cleaning up Mach port")
         invalidate()
     }
 
