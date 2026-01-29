@@ -25,10 +25,10 @@ extension Bundle {
     /// key, the same check is performed for the "CFBundleName" key. If a valid value
     /// cannot be found for either key, this accessor returns `Thaw`.
     var displayName: String {
-            object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ??
-                object(forInfoDictionaryKey: "CFBundleName") as? String ??
-                "Thaw"
-        }
+        object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ??
+            object(forInfoDictionaryKey: "CFBundleName") as? String ??
+            "Thaw"
+    }
 
     /// The bundle's version string.
     ///
