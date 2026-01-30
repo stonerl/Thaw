@@ -1,8 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
-        <title>Thaw Updates</title>
-        <description>Most recent changes with links to updates.</description>
-        <language>en</language>
-        </channel>
+        <title>Thaw</title>
+        <item>
+            <title>1.0.0-beta.1</title>
+            <pubDate>Fri, 30 Jan 2026 03:38:29 +0100</pubDate>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>1.0.0-beta.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/stonerl/Thaw/releases/download/1.0.0-beta.1/Thaw.zip" length="3964528" type="application/octet-stream" sparkle:edSignature="oOZHzLIVx35jxRBrfKA1y37GLmAfaKCB1ZE/b0Qt18nLFavzRcbm2WiOe0O8NUk3k/t4RhBdGCZByATw/08xDA=="/>
+        </item>
+    </channel>
 </rss>
