@@ -58,6 +58,7 @@ struct GeneralSettingsPane: View {
 
     // MARK: App Options
 
+    @ViewBuilder
     private var appOptions: some View {
         LaunchAtLogin.Toggle()
     }
@@ -72,6 +73,7 @@ struct GeneralSettingsPane: View {
         }
     }
 
+    @ViewBuilder
     private var showIceIcon: some View {
         Toggle("Show \(Bundle.main.displayName) icon", isOn: $settings.showIceIcon)
             .annotation("Click to show hidden menu bar items. Right-click to access \(Bundle.main.displayName)'s settings.")
@@ -150,6 +152,7 @@ struct GeneralSettingsPane: View {
         }
     }
 
+    @ViewBuilder
     private func iceIconMenuItem(for imageSet: ControlItemImageSet) -> some View {
         Label {
             Text(imageSet.name.rawValue)
@@ -177,11 +180,13 @@ struct GeneralSettingsPane: View {
         }
     }
 
+    @ViewBuilder
     private var useIceBar: some View {
         Toggle("Use \(Bundle.main.displayName) Bar", isOn: $settings.useIceBar)
             .annotation("Show hidden menu bar items in a separate bar below the menu bar.")
     }
 
+    @ViewBuilder
     private var iceBarLocationPicker: some View {
         IcePicker("Location", selection: $settings.iceBarLocation) {
             ForEach(IceBarLocation.allCases) { location in
@@ -222,10 +227,12 @@ struct GeneralSettingsPane: View {
         }
     }
 
+    @ViewBuilder
     private var autoRehide: some View {
         Toggle("Automatically rehide", isOn: $settings.autoRehide)
     }
 
+    @ViewBuilder
     private var rehideStrategyPicker: some View {
         VStack {
             IcePicker("Strategy", selection: $settings.rehideStrategy) {
@@ -257,12 +264,13 @@ struct GeneralSettingsPane: View {
 
     // MARK: Spacing Options
 
+    @ViewBuilder
     private var spacingOptions: some View {
         LabeledContent {
             IceSlider(
                 itemSpacingOffsetKey,
                 value: $tempItemSpacingOffset,
-                in: 0...16,
+                in: -16...16,
                 step: 2
             )
             .disabled(isApplyingItemSpacingOffset)
