@@ -39,11 +39,22 @@ final class MenuBarSearchPanel: NSPanel {
     /// Monitor for key down events.
     private lazy var keyDownMonitor = EventMonitor.universal(
         for: [.keyDown]
-    ) { [weak self] event in
-        if KeyCode(rawValue: Int(event.keyCode)) == .escape {
+    ) { [weak self, weak appState] event in
+        let keyCode = KeyCode(rawValue: Int(event.keyCode))
+        let modifiers = Modifiers(nsEventFlags: event.modifierFlags)
+
+        if keyCode == .escape {
             self?.close()
             return nil
         }
+
+        if keyCode == .comma, modifiers.contains(.command), !modifiers.contains(.control), !modifiers.contains(.option), !modifiers.contains(.shift) {
+            self?.close()
+            appState?.activate(withPolicy: .regular)
+            appState?.openWindow(.settings)
+            return nil
+        }
+
         return event
     }
 
