@@ -24,11 +24,11 @@ struct SettingsWindow: Scene {
                         appState.imageCache.logCacheStatus("Settings opened")
                     }
                 }
-                .frame(minWidth: 825, maxWidth: 1150, minHeight: 500, maxHeight: 750)
+                .frame(minWidth: 850, maxWidth: 1150, minHeight: 550, maxHeight: 750)
         }
         .commandsRemoved()
         .windowResizability(.contentSize)
-        .defaultSize(width: 900, height: 625)
+        .defaultSize(width: 850, height: 550)
         .environmentObject(appState)
     }
 }
