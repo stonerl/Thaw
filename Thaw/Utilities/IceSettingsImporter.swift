@@ -113,15 +113,25 @@ struct IceSettingsImporter {
 
     /// Imports hotkeys settings from Ice.
     private func importHotkeysSettings(from iceSettings: [String: Any]) -> Int {
-        var imported = 0
-
-        if let hotkeysData = iceSettings["Hotkeys"] as? Data {
-            Defaults.set(hotkeysData, forKey: .hotkeys)
-            imported += 1
-            logger.debug("Imported hotkeys settings")
+        // Ice stores hotkeys as a dictionary of action identifiers to encoded `KeyCombination` data.
+        if let hotkeysDict = iceSettings["Hotkeys"] as? [String: Any] {
+            let dataDict = hotkeysDict.compactMapValues { $0 as? Data }
+            guard !dataDict.isEmpty else {
+                return 0
+            }
+            Defaults.set(dataDict, forKey: .hotkeys)
+            logger.debug("Imported \(dataDict.count) hotkey settings")
+            return dataDict.count
         }
 
-        return imported
+        // Fallback in case the value is already a data blob.
+        if let hotkeysData = iceSettings["Hotkeys"] as? Data {
+            Defaults.set(hotkeysData, forKey: .hotkeys)
+            logger.debug("Imported hotkeys settings")
+            return 1
+        }
+
+        return 0
     }
 
     /// Imports appearance settings from Ice.
