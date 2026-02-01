@@ -48,6 +48,12 @@ final class MenuBarAppearanceEditorPanel: NSObject, NSPopoverDelegate {
         popover = makePopover(appState: appState, onDone: onDone)
         updateContentSize()
         popover?.show(relativeTo: anchorView.bounds, of: anchorView, preferredEdge: .maxY)
+
+        // Ensure the popover takes focus when shown.
+        DispatchQueue.main.async { [weak self] in
+            NSApp.activate(ignoringOtherApps: true)
+            self?.popover?.contentViewController?.view.window?.makeKeyAndOrderFront(nil)
+        }
     }
 
     /// Closes the popover if it is shown.
