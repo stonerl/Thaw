@@ -54,8 +54,6 @@ private final class SettingsWindowModel: ObservableObject {
             return
         }
 
-        applyTitlebarStyle(to: window)
-
         if #available(macOS 15.0, *) {
             // TODO: Switch to the SwiftUI equivalent once we're targeting macOS 15.
             //
@@ -72,19 +70,11 @@ private final class SettingsWindowModel: ObservableObject {
                 window.publisher(for: \.toolbar?.displayMode),
                 window.publisher(for: \.toolbar?.allowsDisplayModeCustomization)
             )
-            .sink { [weak self] toolbar, _, _ in
+            .sink { toolbar, _, _ in
                 toolbar?.displayMode = .iconOnly
                 toolbar?.allowsDisplayModeCustomization = false
-                self?.applyTitlebarStyle(to: window)
             }
             .store(in: &cancellables)
-        }
-    }
-
-    private func applyTitlebarStyle(to window: NSWindow) {
-        window.titlebarSeparatorStyle = .none
-        if #available(macOS 11.0, *) {
-            window.toolbarStyle = .unified
         }
     }
 }
