@@ -613,10 +613,20 @@ final class MenuBarItemImageCache: ObservableObject {
                 )
             }
 
-            // Clean up access order for any remaining inconsistencies
-            accessOrder = accessOrder.filter { tag in
-                images.contains(where: { $0.key == tag })
-            }
+            // Clean up access order for any remaining inconsistencies and
+            // de-duplicate while preserving most recent usage order
+            var seen = Set<MenuBarItemTag>()
+            accessOrder = accessOrder
+                .reversed()
+                .filter { tag in
+                    guard images.keys.contains(tag) else { return false }
+                    if seen.contains(tag) {
+                        return false
+                    }
+                    seen.insert(tag)
+                    return true
+                }
+                .reversed()
 
             let afterCount = images.count
             let finalAccessOrderCount = accessOrder.count
