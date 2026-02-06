@@ -83,6 +83,12 @@ brew install --cask thaw
 
 </details>
 
+## Translations
+
+If you want to help translate Thaw into your language, you need the latest version of Xcode.
+
+Translations must be added here: `Thaw -> Thaw -> Resources -> Localizable`
+
 ## Why does Thaw only support macOS 14 and later?
 
 Thaw uses a number of system APIs that are available starting in macOS 14. As such, there are no plans to support earlier versions of macOS.
