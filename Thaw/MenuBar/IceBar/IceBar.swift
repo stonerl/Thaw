@@ -353,7 +353,7 @@ private struct IceBarContentView: View {
                 .foregroundStyle(.link)
             }
             .padding(.horizontal, 10)
-        } else if section == .alwaysHidden && items.isEmpty {
+        } else if (section == .alwaysHidden || section == .hidden) && items.isEmpty {
             HStack {
                 Text("No items in this section")
             }
