@@ -14,7 +14,6 @@ import OSLog
 final class LayoutBarPaddingView: NSView {
     private let container: LayoutBarContainer
     private var isStabilizing = false
-    private var overlayLabel: NSTextField?
 
     /// The layout view's arranged views.
     var arrangedViews: [LayoutBarItemView] {
@@ -33,7 +32,6 @@ final class LayoutBarPaddingView: NSView {
         super.init(frame: .zero)
 
         addSubview(container)
-        configureOverlay()
         self.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
@@ -139,24 +137,7 @@ final class LayoutBarPaddingView: NSView {
         }
     }
 
-    private func configureOverlay() {
-        let label = NSTextField(labelWithString: "Please wait, settling changes…")
-        label.alignment = .center
-        label.textColor = .systemRed
-        label.font = .systemFont(ofSize: 12, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isHidden = true
-        addSubview(label)
-        overlayLabel = label
-
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor),
-        ])
-    }
-
     private func showOverlay(_ visible: Bool) {
-        overlayLabel?.isHidden = !visible
         container.alphaValue = visible ? 0.6 : 1.0
     }
 
