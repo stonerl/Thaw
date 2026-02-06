@@ -249,6 +249,7 @@ private struct IceBarContentView: View {
     @ObservedObject var menuBarManager: MenuBarManager
     @State private var frame = CGRect.zero
     @State private var scrollIndicatorsFlashTrigger = 0
+    @State private var cacheGracePeriodActive = true
 
     let screen: NSScreen
     let section: MenuBarSection.Name
@@ -327,6 +328,11 @@ private struct IceBarContentView: View {
         .frame(maxWidth: screen.frame.width)
         .fixedSize()
         .onFrameChange(update: $frame)
+        .task(id: section) {
+            cacheGracePeriodActive = true
+            try? await Task.sleep(for: .milliseconds(600))
+            cacheGracePeriodActive = false
+        }
     }
 
     @ViewBuilder
@@ -355,8 +361,14 @@ private struct IceBarContentView: View {
             }
             .padding(.horizontal, 10)
         } else if imageCache.cacheFailed(for: section) {
-            Text("Unable to display menu bar items")
-                .padding(.horizontal, 10)
+            HStack {
+                Text(cacheGracePeriodActive ? "Loading menu bar items…" : "Unable to display menu bar items")
+                if cacheGracePeriodActive {
+                    ProgressView()
+                        .controlSize(.small)
+                }
+            }
+            .padding(.horizontal, 10)
         } else {
             ScrollView(.horizontal) {
                 HStack(spacing: 0) {
