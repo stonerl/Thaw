@@ -276,9 +276,7 @@ private struct IceBarContentView: View {
     }
 
     private var contentHeight: CGFloat? {
-        guard let menuBarHeight = screen.getMenuBarHeight() else {
-            return nil
-        }
+        let menuBarHeight = screen.getMenuBarHeight() ?? NSStatusBar.system.thickness
         if configuration.shapeKind != .noShape, configuration.isInset, screen.hasNotch {
             return menuBarHeight - appState.appearanceManager.menuBarInsetAmount * 2
         }
