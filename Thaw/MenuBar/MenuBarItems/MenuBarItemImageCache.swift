@@ -722,6 +722,14 @@ final class MenuBarItemImageCache: ObservableObject {
         accessOrder.removeAll { tags.contains($0) }
     }
 
+    /// Clears all cached images and failure tracking.
+    @MainActor
+    func clearAll() {
+        images.removeAll()
+        accessOrder.removeAll()
+        failedCaptures.removeAll()
+    }
+
     // MARK: Cache Failed
 
     /// Returns a Boolean value that indicates whether caching menu bar items

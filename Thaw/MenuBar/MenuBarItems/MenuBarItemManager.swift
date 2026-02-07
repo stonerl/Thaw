@@ -2147,9 +2147,7 @@ extension MenuBarItemManager {
 
         if let appState {
             await MainActor.run {
-                for section in MenuBarSection.Name.allCases {
-                    appState.imageCache.clearImages(for: section)
-                }
+                appState.imageCache.clearAll()
                 appState.imageCache.performCacheCleanup()
             }
             await appState.imageCache.updateCacheWithoutChecks(sections: MenuBarSection.Name.allCases)
