@@ -85,9 +85,24 @@ brew install --cask thaw
 
 ## Translations
 
-If you want to help translate Thaw into your language, you need the latest version of Xcode.
+Thaw is currently available in the following languages:
 
-Translations must be added here: `Thaw -> Thaw -> Resources -> Localizable`
+| Language     | Status   | Flag | Completion                             |
+| :----------- | :------- | :--: | :------------------------------------- |
+| **English**  | Base     |  🇺🇸  | ![100%](https://geps.dev/progress/100) |
+| **Deutsch**  | Complete |  🇩🇪  | ![100%](https://geps.dev/progress/100) |
+| **Français** | Complete |  🇫🇷  | ![100%](https://geps.dev/progress/100) |
+
+### Help Translate Thaw
+
+If you want to help translate Thaw into your language or improve existing ones, you'll need the latest version of Xcode.
+
+1. Open `Thaw.xcodeproj` in Xcode 15 or later.
+2. Navigate to `Thaw -> Resources -> Localizable.xcstrings`.
+3. Add a new language using the **+** button at the bottom or update existing strings.
+4. Submit a Pull Request with your changes!
+
+_Note: You can see the exact completion percentage for each language directly in the Xcode String Catalog editor._
 
 ## Why does Thaw only support macOS 14 and later?
 
