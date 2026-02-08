@@ -128,3 +128,6 @@ Thaw is available under the [GPL-3.0 license](LICENSE).
     <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=stonerl/Thaw&type=Date" width="100%" />
   </picture>
 </a>
+
+### Sponsors
+A huge thank you to the amazing people supporting the development of Thaw! 💖
