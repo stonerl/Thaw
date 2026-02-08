@@ -131,3 +131,5 @@ Thaw is available under the [GPL-3.0 license](LICENSE).
 
 ### Sponsors
 A huge thank you to the amazing people supporting the development of Thaw! 💖
+
+<!-- sponsors --><!-- sponsors -->
