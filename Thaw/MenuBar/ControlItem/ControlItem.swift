@@ -139,6 +139,9 @@ final class ControlItem {
     /// Lazy storage for the control item's underlying status item.
     private lazy var storage = StatusItemStorage(controlItem: self)
 
+    /// Spacer items used to extend hidden/always-hidden width on ultra-wide displays.
+    private var spacerItems = [NSStatusItem]()
+
     /// The shared app state.
     private weak var appState: AppState?
 
@@ -418,7 +421,11 @@ final class ControlItem {
         if isVisible {
             constraint?.isActive = true
             statusItem.length = identifier.length(for: state)
+
+            let shouldUseSpacers = (identifier == .hidden || identifier == .alwaysHidden) && state == .hideSection
+            updateSpacerItems(forHiddenState: shouldUseSpacers)
         } else {
+            updateSpacerItems(forHiddenState: false)
             let showOnDrag = appState.settings.advanced.showAllSectionsOnUserDrag
             let isDragging = appState.isDraggingMenuBarItem
 
@@ -432,6 +439,61 @@ final class ControlItem {
                 window.setContentSize(size)
             }
         }
+    }
+
+    /// Adds or removes spacer items to extend the hidden/always-hidden section width.
+    private func updateSpacerItems(forHiddenState isHiddenState: Bool) {
+        guard identifier != .visible else {
+            removeSpacerItems()
+            return
+        }
+
+        guard isHiddenState else {
+            removeSpacerItems()
+            return
+        }
+
+        let needed = requiredSpacerCount()
+
+        if spacerItems.count != needed {
+            removeSpacerItems()
+
+            spacerItems = (0 ..< needed).map { index in
+                let item = NSStatusBar.system.statusItem(withLength: 0)
+                item.autosaveName = "\(identifier.rawValue).Spacer.\(index)"
+
+                if let button = item.button {
+                    button.title = ""
+                    button.image = nil
+                    button.isEnabled = false
+                    button.appearsDisabled = true
+                    button.alphaValue = 0
+                }
+
+                return item
+            }
+        }
+
+        spacerItems.forEach { $0.length = Lengths.expanded }
+    }
+
+    /// Removes spacer items from the status bar.
+    private func removeSpacerItems() {
+        for item in spacerItems {
+            NSStatusBar.system.removeStatusItem(item)
+        }
+        spacerItems.removeAll()
+    }
+
+    /// Calculates how many spacer items are needed to push hidden items off ultra-wide displays.
+    private func requiredSpacerCount() -> Int {
+        let maxScreenWidth = NSScreen.screens.map { $0.frame.width }.max() ?? 6000
+        guard maxScreenWidth > 5000 else { return 0 }
+
+        let desiredWidth = maxScreenWidth * 3
+        let remaining = desiredWidth - Lengths.expanded
+        guard remaining > 0 else { return 0 }
+        return Int(ceil(remaining / Lengths.expanded))
     }
 
     /// Adds the control item to the menu bar.

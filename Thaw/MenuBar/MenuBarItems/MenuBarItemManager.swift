@@ -1501,9 +1501,22 @@ extension MenuBarItemManager {
         /// The number of attempts that have been made to rehide the item.
         var rehideAttempts = 0
 
+        /// Timestamp for when the item was first shown so we can honor
+        /// a short grace period for menus that use nonstandard windows.
+        private let firstShownDate = Date.now
+
+        /// Minimum time to treat the item as “showing” even if we can’t
+        /// detect a popup window (helps apps with unusual window levels).
+        private let graceInterval: TimeInterval = 1
+
         /// A Boolean value that indicates whether the menu bar item's
         /// interface is showing.
         var isShowingInterface: Bool {
+            // If we just triggered the item, give it a short grace period
+            // before deciding it is closed to avoid instant rehide.
+            if Date.now.timeIntervalSince(firstShownDate) < graceInterval {
+                return true
+            }
             guard
                 let window = shownInterfaceWindow,
                 let current = WindowInfo(windowID: window.windowID)
