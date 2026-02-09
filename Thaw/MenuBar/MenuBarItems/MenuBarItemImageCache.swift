@@ -47,7 +47,7 @@ final class MenuBarItemImageCache: ObservableObject {
     @Published private(set) var images = [MenuBarItemTag: CapturedImage]()
 
     /// Maximum number of images to cache to prevent memory growth
-    private static let maxCacheSize = 50
+    private static let maxCacheSize = 200
 
     /// LRU tracking for cache entries
     private var accessOrder: [MenuBarItemTag] = []
@@ -551,7 +551,7 @@ final class MenuBarItemImageCache: ObservableObject {
             LRU order count: \(lruSize)
             Failed captures: \(failedCount) (blacklisted: \(blacklistedCount))
             Memory impact: ~\(imageSize * 100)KB (estimated)
-            LRU order preview: \(self.accessOrder.prefix(5).map(\.description).joined(separator: ", "))
+            LRU order: \(self.accessOrder.map(\.description).joined(separator: ", "))
             ======================================
             """
         )
@@ -638,22 +638,25 @@ final class MenuBarItemImageCache: ObservableObject {
             // Merge in the new images
             images.merge(newImages) { _, new in new }
 
-            // Enforce cache size limit using proper LRU eviction
+            // Enforce cache size limit using LRU eviction, but never evict
+            // items that belong to the sections we just captured (i.e. the
+            // sections currently being displayed).
             if images.count > Self.maxCacheSize {
+                let protectedTags = Set(newImages.keys)
+                let evictionCandidates = accessOrder.filter { !protectedTags.contains($0) }
                 let excessCount = images.count - Self.maxCacheSize
+                let tagsToRemove = Array(evictionCandidates.prefix(excessCount))
 
-                // Use accessOrder to determine least recently used items
-                let tagsToRemove = Array(accessOrder.prefix(excessCount))
-
-                // Remove from cache and access order
                 for tag in tagsToRemove {
                     images.removeValue(forKey: tag)
                     accessOrder.removeAll { $0 == tag }
                 }
 
-                logger.info(
-                    "LRU cache eviction: removed \(excessCount) least recently used images"
-                )
+                if !tagsToRemove.isEmpty {
+                    logger.info(
+                        "LRU cache eviction: removed \(tagsToRemove.count) least recently used images (\(protectedTags.count) protected)"
+                    )
+                }
             }
 
             // Clean up access order for any remaining inconsistencies and
