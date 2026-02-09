@@ -16,6 +16,17 @@ final class LayoutBarPaddingView: NSView {
     private var isStabilizing = false
     private let layoutMoveWatchdogTimeout: DispatchTimeInterval = .seconds(6)
 
+    private func layoutWatchdogDuration() -> Duration? {
+        switch layoutMoveWatchdogTimeout {
+        case let .seconds(s):
+            return .seconds(s)
+        case let .milliseconds(ms):
+            return .milliseconds(ms)
+        default:
+            return nil
+        }
+    }
+
     /// The layout view's arranged views.
     var arrangedViews: [LayoutBarItemView] {
         get { container.arrangedViews }
@@ -122,6 +133,21 @@ final class LayoutBarPaddingView: NSView {
             isStabilizing = true
             await MainActor.run { self.showOverlay(true) }
             try await Task.sleep(for: .milliseconds(25))
+
+            let watchdogTask = Task { [weak self, weak appState] in
+                guard let duration = self?.layoutWatchdogDuration() else { return }
+                try? await Task.sleep(for: duration + .seconds(1))
+                guard let self, !Task.isCancelled else { return }
+                await MainActor.run {
+                    if self.isStabilizing {
+                        self.isStabilizing = false
+                        self.showOverlay(false)
+                    }
+                }
+                guard let appState else { return }
+                await appState.itemManager.cacheItemsRegardless(skipRecentMoveCheck: true)
+                await appState.imageCache.updateCacheWithoutChecks(sections: MenuBarSection.Name.allCases)
+            }
             do {
                 try await appState.itemManager.move(
                     item: item,
@@ -135,6 +161,7 @@ final class LayoutBarPaddingView: NSView {
                 let alert = NSAlert(error: error)
                 alert.runModal()
             }
+            watchdogTask.cancel()
             await MainActor.run {
                 self.isStabilizing = false
                 self.showOverlay(false)
