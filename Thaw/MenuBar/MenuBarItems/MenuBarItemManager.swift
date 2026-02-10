@@ -1583,6 +1583,10 @@ extension MenuBarItemManager {
         /// The tag associated with the item.
         let tag: MenuBarItemTag
 
+        /// The PID of the application that owns this item, used to detect
+        /// nonstandard popup windows that ``shownInterfaceWindow`` may miss.
+        let sourcePID: pid_t
+
         /// The destination to return the item to.
         let returnDestination: MoveDestination
 
@@ -1596,39 +1600,67 @@ extension MenuBarItemManager {
         /// a short grace period for menus that use nonstandard windows.
         private let firstShownDate = Date.now
 
-        /// Minimum time to treat the item as “showing” even if we can’t
+        /// Minimum time to treat the item as "showing" even if we can't
         /// detect a popup window (helps apps with unusual window levels).
-        private let graceInterval: TimeInterval = 1
+        private let graceInterval: TimeInterval = 2
 
         /// A Boolean value that indicates whether the menu bar item's
         /// interface is showing.
         var isShowingInterface: Bool {
-            // If we just triggered the item, give it a short grace period
-            // before deciding it is closed to avoid instant rehide.
+            // First check the tracked popup window — this is the most
+            // reliable signal when available.
+            if let window = shownInterfaceWindow,
+               let current = WindowInfo(windowID: window.windowID)
+            {
+                if current.layer == CGWindowLevelForKey(.popUpMenuWindow)
+                    || current.layer == CGWindowLevelForKey(.popUpMenuWindow) - 1
+                    || current.layer == CGWindowLevelForKey(.statusWindow)
+                    || current.layer == CGWindowLevelForKey(.mainMenuWindow)
+                {
+                    return current.isOnScreen
+                }
+                if let app = current.owningApplication {
+                    return app.isActive && current.isOnScreen
+                }
+                return current.isOnScreen
+            }
+
+            // The tracked window is gone or was never captured. During the
+            // grace period, assume the interface is still showing to give
+            // apps with nonstandard windows time to create them.
             if Date.now.timeIntervalSince(firstShownDate) < graceInterval {
                 return true
             }
-            guard
-                let window = shownInterfaceWindow,
-                let current = WindowInfo(windowID: window.windowID)
-            else {
-                // Window no longer exists, so assume closed.
-                return false
-            }
-            if
-                current.layer != CGWindowLevelForKey(.popUpMenuWindow),
-                current.layer != CGWindowLevelForKey(.popUpMenuWindow) - 1,
-                current.layer != CGWindowLevelForKey(.statusWindow),
-                current.layer != CGWindowLevelForKey(.mainMenuWindow),
-                let app = current.owningApplication
-            {
-                return app.isActive && current.isOnScreen
-            }
-            return current.isOnScreen
+
+            // Grace period expired and no tracked window. Check whether the
+            // app has any visible popup or overlay window that we missed.
+            return appHasVisiblePopup()
         }
 
-        init(tag: MenuBarItemTag, returnDestination: MoveDestination) {
+        /// Checks whether the item's owning application has any visible
+        /// popup, menu, or overlay window on screen.
+        private func appHasVisiblePopup() -> Bool {
+            let windows = WindowInfo.createWindows(option: .onScreen)
+            return windows.contains { window in
+                guard window.ownerPID == sourcePID else {
+                    return false
+                }
+                // Menu-level or status-level windows are popups.
+                if window.isMenuRelated {
+                    return true
+                }
+                // Above-normal layer windows (overlays, popovers) that
+                // belong to the app also count.
+                if window.layer > CGWindowLevelForKey(.normalWindow) {
+                    return true
+                }
+                return false
+            }
+        }
+
+        init(tag: MenuBarItemTag, sourcePID: pid_t, returnDestination: MoveDestination) {
             self.tag = tag
+            self.sourcePID = sourcePID
             self.returnDestination = returnDestination
         }
     }
@@ -1750,7 +1782,11 @@ extension MenuBarItemManager {
             return
         }
 
-        let context = TemporarilyShownItemContext(tag: item.tag, returnDestination: destination)
+        let context = TemporarilyShownItemContext(
+            tag: item.tag,
+            sourcePID: item.sourcePID ?? item.ownerPID,
+            returnDestination: destination
+        )
         temporarilyShownItemContexts.append(context)
 
         rehideTimer?.invalidate()
