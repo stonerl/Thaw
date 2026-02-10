@@ -1424,8 +1424,18 @@ extension MenuBarItemManager {
                     return
                 }
                 try await postMoveEvents(item: item, destination: destination)
-                logger.debug("Attempt \(n, privacy: .public) succeeded, finished with move")
-                return
+                // Verify the item actually reached the correct position. The
+                // events may have been accepted but the item might not have
+                // landed at the exact destination.
+                if try await itemHasCorrectPosition(item: item, for: destination) {
+                    logger.debug("Attempt \(n, privacy: .public) succeeded and verified, finished with move")
+                    return
+                }
+                logger.debug("Attempt \(n, privacy: .public) events succeeded but item not at destination, retrying")
+                if n < maxAttempts {
+                    try await waitForMoveOperationBuffer()
+                    continue
+                }
             } catch {
                 logger.debug("Attempt \(n, privacy: .public) failed: \(error, privacy: .public)")
                 if n < maxAttempts {
