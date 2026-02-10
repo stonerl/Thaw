@@ -62,7 +62,9 @@ struct GeneralSettingsPane: View {
     // MARK: App Options
 
     private var appOptions: some View {
-        LaunchAtLogin.Toggle()
+        LaunchAtLogin.Toggle {
+            Text("Launch at Login")
+        }
     }
 
     // MARK: Ice Icon Options

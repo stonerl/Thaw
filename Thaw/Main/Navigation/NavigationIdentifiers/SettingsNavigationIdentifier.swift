@@ -6,6 +6,8 @@
 //  Copyright (Thaw) © 2026 Toni Förster
 //  Licensed under the GNU GPLv3
 
+import SwiftUI
+
 /// The navigation identifier type for the "Settings" interface.
 enum SettingsNavigationIdentifier: String, NavigationIdentifier {
     case general = "General"
@@ -14,6 +16,17 @@ enum SettingsNavigationIdentifier: String, NavigationIdentifier {
     case hotkeys = "Hotkeys"
     case advanced = "Advanced"
     case about = "About"
+
+    var localized: LocalizedStringKey {
+        switch self {
+        case .general: "General"
+        case .menuBarLayout: "Menu Bar Layout"
+        case .menuBarAppearance: "Menu Bar Appearance"
+        case .hotkeys: "Hotkeys"
+        case .advanced: "Advanced"
+        case .about: "About"
+        }
+    }
 
     var iconResource: IconResource {
         switch self {
