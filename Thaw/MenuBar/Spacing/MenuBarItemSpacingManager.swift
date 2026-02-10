@@ -8,6 +8,7 @@
 
 import Cocoa
 import Combine
+import os.lock
 import OSLog
 
 /// Manager for menu bar item spacing.
@@ -103,6 +104,7 @@ final class MenuBarItemSpacingManager {
         app.terminate()
 
         var cancellable: AnyCancellable?
+        let didResume = OSAllocatedUnfairLock(initialState: false)
         return try await withCheckedThrowingContinuation { continuation in
             let timeoutTask = Task {
                 try await Task.sleep(for: .seconds(forceTerminateDelay))
@@ -117,8 +119,8 @@ final class MenuBarItemSpacingManager {
 
                     // Failsafe: if KVO doesn't fire after force terminate, resume anyway to prevent hang
                     try? await Task.sleep(for: .seconds(1))
-                    if !Task.isCancelled {
-                        cancellable?.cancel()
+                    cancellable?.cancel()
+                    if didResume.withLock({ let old = $0; $0 = true; return !old }) {
                         continuation.resume()
                     }
                 }
@@ -136,7 +138,9 @@ final class MenuBarItemSpacingManager {
                 logger.debug(
                     "Application \"\(app.logString, privacy: .public)\" terminated successfully"
                 )
-                continuation.resume()
+                if didResume.withLock({ let old = $0; $0 = true; return !old }) {
+                    continuation.resume()
+                }
             }
         }
     }
