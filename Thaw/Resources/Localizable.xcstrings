@@ -59,6 +59,12 @@
             "value" : "Section %1$@ %2$@"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@ 区域"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -81,6 +87,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ Bar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 列"
           }
         },
         "zh-Hant" : {
@@ -113,6 +125,12 @@
             "value" : "%@ fonctionne en mode restreint sans cette autorisation."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 可以在没有此权限的情况下以受限模式运行。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -141,6 +159,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ ne peut pas réorganiser les éléments de la barre des menus lorsque celle-ci est masquée automatiquement."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 无法在自动隐藏菜单栏中排列项目。"
           }
         },
         "zh-Hant" : {
@@ -173,6 +197,12 @@
             "value" : "%@ ne peut pas modifier l'apparence de la barre des menus lorsqu'elle est masquée automatiquement."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 无法修改自动隐藏菜单栏的外观。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -203,6 +233,12 @@
             "value" : "Icône %@"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 图标"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -225,6 +261,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ ne répond pas. Tant que ce dernier n'a pas été redémarré, il ne peut pas être déplacé. Le déplacement des autres éléments de la barre des menus peut également être affecté tant que le problème n'est pas résolu."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 已无响应。在重启之前，无法移动该菜单项。在此问题解决之前，其他菜单栏项目的移动也可能受到影响。"
           }
         },
         "zh-Hant" : {
@@ -257,6 +299,12 @@
             "value" : "%@ a besoin de cette autorisation pour :"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 需要此权限来："
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -287,6 +335,12 @@
             "value" : "%@ a besoin de votre autorisation pour gérer la barre des menus."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 需要您的授权以管理菜单栏。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -309,6 +363,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réglages de %@…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 设置…"
           }
         },
         "zh-Hant" : {
@@ -336,6 +396,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "•"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "•"
@@ -371,6 +437,12 @@
             "value" : "1"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -396,6 +468,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "2"
@@ -431,6 +509,12 @@
             "value" : "3"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -451,6 +535,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une mise à jour est disponible"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新的更新可用"
           }
         },
         "zh-Hant" : {
@@ -483,6 +573,12 @@
             "value" : "Aucune information personnelle n'est collectée ni stockée."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "绝不收集或存储任何个人信息。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -505,6 +601,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Accessibilité"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "辅助功能"
           }
         },
         "zh-Hant" : {
@@ -537,6 +639,12 @@
             "value" : "Remerciements"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "致谢"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -565,6 +673,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Appliquer"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用"
           }
         },
         "zh-Hant" : {
@@ -597,6 +711,12 @@
             "value" : "Appliquer des réglages différents selon l'apparence actuelle du système."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根据目前的系统外观以应用不同的设置。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -625,6 +745,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Appliquer l'espacement sélectionner"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用目前的间距"
           }
         },
         "zh-Hant" : {
@@ -657,6 +783,12 @@
             "value" : "L'application de ce réglage relancera toutes les apps ayant des éléments dans la barre des menus. Certaines apps peuvent nécessiter un redémarrage manuel."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用此设置将重启所有含有菜单栏项目的程序。某些程序可能需要手动重启。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -679,6 +811,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réorganise les éléments de la barre des menus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "排列菜单栏项目。"
           }
         },
         "zh-Hant" : {
@@ -711,6 +849,12 @@
             "value" : "Rechercher automatiquement les mises à jour"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自动检查更新"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -739,6 +883,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Télécharger et installer automatiquement les mises à jour"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自动下载并安装更新"
           }
         },
         "zh-Hant" : {
@@ -771,6 +921,12 @@
             "value" : "Télécharger automatiquement les mises à jour"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自动下载更新"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -801,6 +957,12 @@
             "value" : "Masquer automatiquement"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自动重新隐藏"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -826,6 +988,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BETA"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "BETA"
@@ -861,6 +1029,12 @@
             "value" : "Bordure"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "边框"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -889,6 +1063,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couleur de la bordure"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "边框颜色"
           }
         },
         "zh-Hant" : {
@@ -921,6 +1101,12 @@
             "value" : "Épaisseur de la bordure"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "边框宽度"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -951,6 +1137,12 @@
             "value" : "Annuler"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -973,6 +1165,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Modifie l'apparence de la barre des menus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更改菜单栏的外观。"
           }
         },
         "zh-Hant" : {
@@ -1005,6 +1203,12 @@
             "value" : "Rechercher automatiquement"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自动检查"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1033,6 +1237,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher des mises à jour"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查更新"
           }
         },
         "zh-Hant" : {
@@ -1065,6 +1275,12 @@
             "value" : "Rechercher automatiquement les mises à jour ?"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "是否自动检查更新？"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1089,6 +1305,12 @@
             "value" : "Rechercher des mises à jour…"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查更新…"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1111,6 +1333,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La recherche de mises à jour n'est pas prise en charge en mode débogage."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调试模式下不支持检查更新。"
           }
         },
         "zh-Hant" : {
@@ -1143,6 +1371,12 @@
             "value" : "Chevron"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V 型箭头"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1171,6 +1405,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choisir une icône personnalisée à afficher dans la barre des menus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择要在菜单栏中显示的自定义图标。"
           }
         },
         "zh-Hant" : {
@@ -1203,6 +1443,12 @@
             "value" : "Choisir une image…"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择图片…"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1233,6 +1479,12 @@
             "value" : "Cliquez dans une zone vide de la barre des menus pour afficher les éléments masqués."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击菜单栏空白区域，即可显示隐藏的菜单栏项目。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1253,6 +1505,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cliquer sur l'élément"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击项目"
           }
         },
         "zh-Hant" : {
@@ -1285,6 +1543,12 @@
             "value" : "Cliquez pour afficher la section masquée ou double-cliquez pour afficher la section cachée. Cliquez avec le bouton droit pour accéder aux réglages de %@."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "单击以显示隐藏的菜单栏项目，或双击以显示始终隐藏的菜单栏项目。右键单击以打开 %@ 的设置。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1313,6 +1577,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuer"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续"
           }
         },
         "zh-Hant" : {
@@ -1345,6 +1615,12 @@
             "value" : "Continuer en mode limité"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在受限模式下继续"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1373,6 +1649,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contribuer"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "贡献"
           }
         },
         "zh-Hant" : {
@@ -1405,6 +1687,12 @@
             "value" : "L'icône personnalisée utilise l'apparence dynamique"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义图标使用动态外观"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1433,6 +1721,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apparence sombre"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深色模式"
           }
         },
         "zh-Hant" : {
@@ -1465,6 +1759,12 @@
             "value" : "par défaut"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "默认"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1495,6 +1795,12 @@
             "value" : "Développement"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开发版"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1519,6 +1825,12 @@
             "value" : "Diagnostiques"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "诊断"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1541,6 +1853,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Affiche les images des éléments individuels de la barre des menus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示单个菜单栏项目的图像。"
           }
         },
         "zh-Hant" : {
@@ -1573,6 +1891,12 @@
             "value" : "Afficher l'icône sous forme monochrome et l'adapter dynamiquement à l'apparence de la barre des menus. Ce réglage supprime les couleurs de l'icône, mais garantit un rendu cohérent sur les arrière-plans clairs et foncés."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将图标显示为单色图像，并动态调整以匹配菜单栏的外观。此设置会移除图标的所有颜色，但可确保在浅色和深色背景下呈现一致的效果。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1601,6 +1925,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ne pas vérifier"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无需检查"
           }
         },
         "zh-Hant" : {
@@ -1633,6 +1963,12 @@
             "value" : "Fait"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1663,6 +1999,12 @@
             "value" : "Faites glisser pour organiser les éléments de la barre des menus en différentes sections."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拖动即可将菜单栏项目排列成不同的部分。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1685,6 +2027,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "En raison d'un bug dans une version précédente de l'app, les données des sections de la barre des menus de %@ ont été corrompues et ont dû être réinitialisées."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于该应用的早期版本存在错误，菜单栏部分的数据已损坏，必须重置。"
           }
         },
         "zh-Hant" : {
@@ -1717,6 +2065,12 @@
             "value" : "Dynamique"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "动态"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1741,6 +2095,12 @@
             "value" : "Modifier l'apparence de la barre des menus…"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑菜单栏外观..."
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1763,6 +2123,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activer la création de rapports diagnostiques"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用诊断日志"
           }
         },
         "zh-Hant" : {
@@ -1795,6 +2161,12 @@
             "value" : "Activer le menu contextuel secondaire"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用二级菜单"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1823,6 +2195,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activer la %@ Bar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用 %@ 列"
           }
         },
         "zh-Hant" : {
@@ -1855,6 +2233,12 @@
             "value" : "Activer la section cachée"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用永久隐藏区域"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1883,6 +2267,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ERREUR"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "错误"
           }
         },
         "zh-Hant" : {
@@ -1915,6 +2305,12 @@
             "value" : "Focus"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "焦点"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1945,6 +2341,12 @@
             "value" : "Pleine largeur"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全幅"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1967,6 +2369,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obtenir des informations en temps réel sur la barre des menus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取有关菜单栏的实时信息。"
           }
         },
         "zh-Hant" : {
@@ -1999,6 +2407,12 @@
             "value" : "Accéder aux réglages avancés"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前往高级设置"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2027,6 +2441,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dégradé"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "渐层"
           }
         },
         "zh-Hant" : {
@@ -2059,6 +2479,12 @@
             "value" : "Autoriser"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "授权"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2081,6 +2507,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masquer la section cachée"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏始终隐藏区域"
           }
         },
         "zh-Hant" : {
@@ -2113,6 +2545,12 @@
             "value" : "Masquer les menus des apps lors de l'affichage des éléments de la barre des menus"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示菜单栏项目时隐藏应用菜单"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2135,6 +2573,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masquer la section masquée"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏已隐藏的区域"
           }
         },
         "zh-Hant" : {
@@ -2167,6 +2611,12 @@
             "value" : "Maintenir pour prévisualiser"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住预览"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2197,6 +2647,12 @@
             "value" : "Ce raccourci clavier est affecté à macOS"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此热键被macOS保留"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2223,6 +2679,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Survolez une zone vide de la barre des menus pour afficher les éléments masqués."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将鼠标悬停在菜单栏的空白区域，即可显示隐藏的菜单栏项目。"
           }
         },
         "zh-Hant" : {
@@ -2255,6 +2717,12 @@
             "value" : "Icône Ice"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ice 图标"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2283,6 +2751,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les positions des icônes ne peuvent pas être restaurées."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法还原图标位置。"
           }
         },
         "zh-Hant" : {
@@ -2315,6 +2789,12 @@
             "value" : "Échec de l'importation. Vous pouvez configurer les réglages manuellement."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入失败。您可以手动设置。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2343,6 +2823,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Importer les réglages"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入设置"
           }
         },
         "zh-Hant" : {
@@ -2375,6 +2861,12 @@
             "value" : "Importé"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已导入"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2401,6 +2893,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous pouvez aussi organiser les éléments en maintenant la touche « ⌘ Command » enfoncé et en les faisant glisser dans la barre des menus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "也可以通过按住 ⌘ Command 键并在菜单栏中拖动来排列项目。"
           }
         },
         "zh-Hant" : {
@@ -2433,6 +2931,12 @@
             "value" : "Dernière vérification : %@"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次检查： %@"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2453,6 +2957,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Disposition réinitialisée. Les éléments ont été déplacés vers la section masquée."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "布局重置。 项目已移至已隐藏区域。"
           }
         },
         "zh-Hant" : {
@@ -2485,6 +2995,12 @@
             "value" : "Extrémité de début"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "左侧端盖"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2513,6 +3029,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "clic gauche"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "单击鼠标左键"
           }
         },
         "zh-Hant" : {
@@ -2545,6 +3067,12 @@
             "value" : "Apparence claire"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浅色外观"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2573,6 +3101,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chargement des éléments de la barre des menus…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载菜单栏项目中…"
           }
         },
         "zh-Hant" : {
@@ -2605,6 +3139,12 @@
             "value" : "Emplacement"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "位置"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2627,6 +3167,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "macOS empêche le déplacement de \" %@ \"."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS 禁止移动“%@”。"
           }
         },
         "zh-Hant" : {
@@ -2659,6 +3205,12 @@
             "value" : "Libérer de l'espace dans la barre des menus en masquant, si nécessaire, les menus de l'app active. macOS exige que %@ soit visible dans le Dock tant que ce réglage est activé."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果需要，可以通过隐藏当前应用程序菜单来为菜单栏腾出更多空间。启用此设置后，macOS 会要求 %@ 在 Dock 栏中显示自身。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2685,6 +3237,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "max"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大"
           }
         },
         "zh-Hant" : {
@@ -2717,6 +3275,12 @@
             "value" : "Apparence de la barre des menus"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏外观"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2739,6 +3303,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cet élément de la barre des menus ne peut pas être déplacé."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏项目不可移动。"
           }
         },
         "zh-Hant" : {
@@ -2771,6 +3341,12 @@
             "value" : "Espacement des éléments de la barre des menus"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏项目间距"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2799,6 +3375,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Éléments de la barre des menus"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏项目"
           }
         },
         "zh-Hant" : {
@@ -2831,6 +3413,12 @@
             "value" : "Les éléments de la barre des menus sont masqués après un délai fixe."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏项目会在一段时间后重新隐藏。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2859,6 +3447,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les éléments de la barre des menus sont masqués à l'aide d'un algorithme intelligent."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用智能算法重新隐藏菜单栏项目。"
           }
         },
         "zh-Hant" : {
@@ -2891,6 +3485,12 @@
             "value" : "Les éléments de la barre des menus sont masqués lorsque l'app active change."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当焦点应用切换时，菜单栏项目将被重新隐藏。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2919,6 +3519,12 @@
             "value" : "La gestion de la barre des menus nécessite l'autorisation d'enregistrement de l'écran."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏布局需要屏幕录制权限。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2941,6 +3547,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Calque de la barre des menus"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏叠加"
           }
         },
         "zh-Hant" : {
@@ -2973,6 +3585,12 @@
             "value" : "Sections de la barre des menus"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏区域"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3001,6 +3619,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Forme de la barre des menus"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏形状"
           }
         },
         "zh-Hant" : {
@@ -3033,6 +3657,12 @@
             "value" : "Pointeur de la souris"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "鼠标指针"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3055,6 +3685,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jamais"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "永不"
           }
         },
         "zh-Hant" : {
@@ -3087,6 +3723,12 @@
             "value" : "Aucun élément dans cette section"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此区域没有项目"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3115,6 +3757,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucun type de forme sélectionné"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未选择形状"
           }
         },
         "zh-Hant" : {
@@ -3147,6 +3795,12 @@
             "value" : "aucun"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3177,6 +3831,12 @@
             "value" : "Aucun"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3199,6 +3859,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Espace insuffisant pour afficher \" %@ \"."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "空间不足，无法显示“%@”"
           }
         },
         "zh-Hant" : {
@@ -3231,6 +3897,12 @@
             "value" : "Remarque : vous devrez peut-être vous déconnecter, puis vous reconnecter, pour que ce réglage soit appliqué correctement."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "注意：您可能需要注销并重新登录才能使此设置生效。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3259,6 +3931,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好"
           }
         },
         "zh-Hant" : {
@@ -3291,6 +3969,12 @@
             "value" : "Ouvrir les réglages de %@"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开 %@ 设置"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3319,6 +4003,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autres"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他"
           }
         },
         "zh-Hant" : {
@@ -3351,6 +4041,12 @@
             "value" : "Autorisation accordée"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已授权"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3379,6 +4075,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autorisations"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "权限"
           }
         },
         "zh-Hant" : {
@@ -3411,6 +4113,12 @@
             "value" : "Quitter"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3439,6 +4147,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Quitter %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出 %@"
           }
         },
         "zh-Hant" : {
@@ -3471,6 +4185,12 @@
             "value" : "Enregistrer le raccourci clavier"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录热键"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3499,6 +4219,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signaler un bug"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "报告一个Bug"
           }
         },
         "zh-Hant" : {
@@ -3531,6 +4257,12 @@
             "value" : "Réinitialiser"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3555,6 +4287,12 @@
             "value" : "Réinitialisation terminée, %lld élément(s) n'ont pas pu être déplacé(s). Vérifiez la barre des menus et réessayez si nécessaire."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置完成，但仍有 %lld 个项目无法移动。请检查菜单栏，如有需要请重试。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3577,6 +4315,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Échec de la réinitialisation : %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置失败： %@"
           }
         },
         "zh-Hant" : {
@@ -3609,6 +4353,12 @@
             "value" : "Réinitialiser la disposition"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置布局"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3637,6 +4387,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialiser l'apparence de la barre des menus"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置菜单栏外观"
           }
         },
         "zh-Hant" : {
@@ -3669,6 +4425,12 @@
             "value" : "Réinitialiser la disposition de la barre des menus"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置菜单栏布局"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3697,6 +4459,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialiser la disposition de la barre des menus ?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "是否重置菜单栏布局？"
           }
         },
         "zh-Hant" : {
@@ -3729,6 +4497,12 @@
             "value" : "Rétablir l'espacement par défaut"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置为默认间距"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3757,6 +4531,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialise les séparateurs et déplace tous les éléments déplaçables, à l'exception de l'icône %@, vers les éléments masqués, comme lors d'une nouvelle installation."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置分隔线，并将除 %@ 图标之外的所有可移动项目移至隐藏状态——就像全新安装一样。"
           }
         },
         "zh-Hant" : {
@@ -3789,6 +4569,12 @@
             "value" : "Restaure les séparateurs par défaut et déplace tous les éléments déplaçables, à l'exception de l'icône %@, vers les éléments masqués. À utiliser si la disposition semble incorrecte ou si certains éléments ne se chargent pas."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恢复分隔线默认设置，并将除 %@ 图标外的所有可移动元素隐藏。如果布局显示异常或元素无法加载，请使用此选项。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3817,6 +4603,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "clic droit"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "单击鼠标右键"
           }
         },
         "zh-Hant" : {
@@ -3849,6 +4641,12 @@
             "value" : "Cliquez avec le bouton droit dans une zone vide de la barre des menus pour afficher une mini-version du menu de %@. Désactivez ce réglage si vous rencontrez des conflits avec d'autres apps."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在菜单栏空白处单击鼠标右键，即可显示 %@ 的精简版菜单。如果与其他应用程序发生冲突，请禁用此设置。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3879,6 +4677,12 @@
             "value" : "Extrémité arrondie"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "圆角端盖"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3901,6 +4705,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enregistrement de l'écran"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "屏幕录制"
           }
         },
         "zh-Hant" : {
@@ -3933,6 +4743,12 @@
             "value" : "Faire défiler ou balayer la souris dans la barre des menus pour afficher les éléments masqués."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在菜单栏中滚动或滑动即可显示隐藏的菜单栏项目。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3963,6 +4779,12 @@
             "value" : "Rechercher des éléments de la barre des menus"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索菜单栏项目"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3985,6 +4807,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher des éléments de la barre des menus"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索菜单栏项目中"
           }
         },
         "zh-Hant" : {
@@ -4017,6 +4845,12 @@
             "value" : "Rechercher des éléments de la barre des menus…"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索菜单栏项目中…"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4045,6 +4879,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Style du séparateur de sections"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "区域分割线样式"
           }
         },
         "zh-Hant" : {
@@ -4077,6 +4917,12 @@
             "value" : "Ombre"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "阴影"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4105,6 +4951,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Forme"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "形状类型"
           }
         },
         "zh-Hant" : {
@@ -4137,6 +4989,12 @@
             "value" : "%@ doit-il rechercher automatiquement les mises à jour ? Vous pouvez toujours effectuer une recherche manuelle depuis l'icône Thaw dans la barre des menus ou depuis Réglages → À propos."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 是否应该自动检查更新？您也可以随时通过 Thaw 菜单栏图标或“设置”→“关于”手动检查。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4165,6 +5023,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher l'icône %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "展示 %@ 图标"
           }
         },
         "zh-Hant" : {
@@ -4197,6 +5061,12 @@
             "value" : "Afficher toutes les sections lorsque des éléments de la barre des menus sont déplacé avec ⌘ Command"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 ⌘ Command + 拖动菜单栏项目时显示所有部分"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4219,6 +5089,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher la section cachée"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示始终隐藏的部分"
           }
         },
         "zh-Hant" : {
@@ -4251,6 +5127,12 @@
             "value" : "Afficher les éléments masqués de la barre des menus dans une barre distincte située en dessous."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在菜单栏下方的单独栏中显示隐藏的菜单栏项目。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4275,6 +5157,12 @@
             "value" : "Afficher la section masquée"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示已隐藏的区域"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4295,6 +5183,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher l'élément"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示项目"
           }
         },
         "zh-Hant" : {
@@ -4319,6 +5213,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher les rapports dans le Finder"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Finder 中显示日志文件"
           }
         },
         "zh-Hant" : {
@@ -4351,6 +5251,12 @@
             "value" : "Afficher en cliquant"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击时显示"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4379,6 +5285,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher en survolant"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "悬停时显示"
           }
         },
         "zh-Hant" : {
@@ -4411,6 +5323,12 @@
             "value" : "Temps avant affichage au survol"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "悬停后显示"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4439,6 +5357,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher lors du défilement"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "滚动滚轮时显示"
           }
         },
         "zh-Hant" : {
@@ -4471,6 +5395,12 @@
             "value" : "Intelligent"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "智能"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4501,6 +5431,12 @@
             "value" : "Opaque"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "纯色"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4527,6 +5463,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Segmentée"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分隔"
           }
         },
         "zh-Hant" : {
@@ -4559,6 +5501,12 @@
             "value" : "Extrémité carrée"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "方角端盖"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4587,6 +5535,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stable"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "稳定版"
           }
         },
         "zh-Hant" : {
@@ -4619,6 +5573,12 @@
             "value" : "Stratégie"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "策略"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4647,6 +5607,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réglages de %lld importés avec succès !"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成功导入 %lld 项设置！"
           }
         },
         "zh-Hant" : {
@@ -4679,6 +5645,12 @@
             "value" : "Soutenir %@"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支持 %@"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4707,6 +5679,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Durée d’affichage des éléments temporaires"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时显示项目延迟"
           }
         },
         "zh-Hant" : {
@@ -4745,6 +5723,12 @@
             "value" : "La %1$@ Bar est centrée sous l'icône %2$@."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ 栏位于 %2$@ 图标的正下方。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4773,6 +5757,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La %@ Bar est centrée sous le pointeur de la souris."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 栏位于鼠标指针正下方居中位置。"
           }
         },
         "zh-Hant" : {
@@ -4805,6 +5795,12 @@
             "value" : "La %@ Bar nécessite l'autorisation d'enregistrement de l'écran."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Bar 需要屏幕录制权限。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4833,6 +5829,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "L'emplacement de la %@ Bar varie selon le contexte."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Bar 的位置会根据情景而变化。"
           }
         },
         "zh-Hant" : {
@@ -4865,6 +5867,12 @@
             "value" : "Durée avant le masquage des éléments affichés temporairement."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏临时显示的菜单栏项目前等待的时间。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4893,6 +5901,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Délai d’attente avant affichage suite au survol de la souris. "
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "鼠标悬停前等待的时间。"
           }
         },
         "zh-Hant" : {
@@ -4925,6 +5939,12 @@
             "value" : "Cette action est irréversible."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此操作无法撤销。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4953,6 +5973,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Délais"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "定时"
           }
         },
         "zh-Hant" : {
@@ -4985,6 +6011,12 @@
             "value" : "Teinte"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "色调"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5013,6 +6045,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Astuce : vous pouvez aussi modifier ces réglages en faisant un clic droit dans une zone vide de la barre des menus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提示：您也可以通过在菜单栏的空白区域单击鼠标右键来编辑这些设置。"
           }
         },
         "zh-Hant" : {
@@ -5045,6 +6083,12 @@
             "value" : "Afficher / masquer les menus des applications"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换应用菜单"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5073,6 +6117,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher / masquer la section cachée"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换始终隐藏的区域"
           }
         },
         "zh-Hant" : {
@@ -5105,6 +6155,12 @@
             "value" : "Afficher / masquer la section masquée"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换隐藏区域"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5133,6 +6189,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Extrémité de fin"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "右侧端盖"
           }
         },
         "zh-Hant" : {
@@ -5165,6 +6227,12 @@
             "value" : "Taper le raccourci"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入热键"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5193,6 +6261,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible d'afficher les éléments de la barre des menus"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法显示菜单栏项目"
           }
         },
         "zh-Hant" : {
@@ -5225,6 +6299,12 @@
             "value" : "Impossible de charger les éléments de la barre des menus"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载菜单栏项目"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5253,6 +6333,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Canal de mise à jour"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新频道"
           }
         },
         "zh-Hant" : {
@@ -5285,6 +6371,12 @@
             "value" : "Utiliser la %@ Bar"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 %@ 列"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5315,6 +6407,12 @@
             "value" : "Utiliser l'apparence dynamique"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用动态外观"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5343,6 +6441,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Utiliser une forme adaptée à l'encoche sur les écrans qui en ont une"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在带刘海的屏幕上使用内嵌形状"
           }
         },
         "zh-Hant" : {
@@ -5381,6 +6485,12 @@
             "value" : "Version %1$@ (%2$@)"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本 %1$@ (%2$@)"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5411,6 +6521,12 @@
             "value" : "La version %@ (%@) est désormais disponible"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本 %1$@ (%2$@) 现已推出"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5437,6 +6553,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Des réglages provenant d'Ice (l'application d'origine) ont été détectés."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们找到了 Ice（原版应用）的设置。"
           }
         },
         "zh-Hant" : {
@@ -5469,6 +6591,12 @@
             "value" : "Souhaitez-vous importer votre configuration existante ?"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您想导入现有配置吗？"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5491,6 +6619,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Crée un rapport de débogage détaillé pour faciliter le dépannage. Les rapports sont enregistrés dans ~/Library/Logs/Thaw/. Désactivez cette option lorsqu'elle n'est pas nécessaire afin d'éviter des écritures disque inutiles."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将详细的调试日志写入文件以便进行故障排除。日志文件保存在 ~/Library/Logs/Thaw/ 目录下。如果不需要此功能，请禁用它以避免不必要的磁盘写入。"
           }
         },
         "zh-Hant" : {
