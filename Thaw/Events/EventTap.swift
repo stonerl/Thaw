@@ -158,16 +158,18 @@ final class EventTap {
             return
         }
 
+        let retained = Unmanaged.passRetained(self)
         guard
             let machPort = EventTap.createMachPort(
                 mask: types.reduce(0) { $0 | (1 << $1.rawValue) },
                 location: location,
                 place: placement,
                 options: option,
-                userInfo: Unmanaged.passUnretained(self).toOpaque()
+                userInfo: retained.toOpaque()
             ),
             let source = CFMachPortCreateRunLoopSource(nil, machPort, 0)
         else {
+            retained.release()
             EventTap.logger.error("Error creating event tap \"\(label)\"")
             return
         }
@@ -242,6 +244,7 @@ final class EventTap {
             CGEvent.tapEnable(tap: machPort, enable: false)
             CFMachPortInvalidate(machPort)
             self.machPort = nil
+            Unmanaged.passUnretained(self).release()
         }
     }
 
