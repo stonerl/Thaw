@@ -52,6 +52,12 @@
             "state" : "translated",
             "value" : "Section %1$@ %2$@"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ %@ 區域"
+          }
         }
       }
     },
@@ -69,6 +75,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ Bar"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 列"
           }
         }
       }
@@ -208,6 +220,12 @@
             "state" : "translated",
             "value" : "%@ ne répond pas. Tant que ce dernier n'a pas été redémarré, il ne peut pas être déplacé. Le déplacement des autres éléments de la barre des menus peut également être affecté tant que le problème n'est pas résolu."
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 沒有回應。在重新啟動之前無法移動。其他選單列項目的移動也可能受到影響，直到問題解決為止。"
+          }
         }
       }
     },
@@ -285,6 +303,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réglages de %@…"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 設定⋯"
           }
         }
       }
@@ -422,6 +446,12 @@
             "state" : "translated",
             "value" : "Une mise à jour est disponible"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有新的更新可用"
+          }
         }
       }
     },
@@ -469,6 +499,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Accessibilité"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輔助使用"
           }
         }
       }
@@ -637,6 +673,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réorganise les éléments de la barre des menus."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "排列選單列項目。"
           }
         }
       }
@@ -926,6 +968,12 @@
             "state" : "translated",
             "value" : "Modifie l'apparence de la barre des menus."
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "變更選單列的外觀。"
+          }
         }
       }
     },
@@ -1034,6 +1082,12 @@
             "state" : "translated",
             "value" : "Rechercher des mises à jour…"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檢查更新⋯"
+          }
         }
       }
     },
@@ -1051,6 +1105,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La recherche de mises à jour n'est pas prise en charge en mode débogage."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "除錯模式不支援檢查更新。"
           }
         }
       }
@@ -1187,6 +1247,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cliquer sur l'élément"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點按項目"
           }
         }
       }
@@ -1446,6 +1512,12 @@
             "state" : "translated",
             "value" : "Diagnostiques"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "診斷"
+          }
         }
       }
     },
@@ -1463,6 +1535,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Affiche les images des éléments individuels de la barre des menus."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示各個選單列項目的圖片。"
           }
         }
       }
@@ -1602,6 +1680,12 @@
             "state" : "translated",
             "value" : "En raison d'un bug dans une version précédente de l'app, les données des sections de la barre des menus de %@ ont été corrompues et ont dû être réinitialisées."
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由於先前版本的錯誤，%@ 的選單列區域資料已損毀，必須重置。"
+          }
         }
       }
     },
@@ -1650,6 +1734,12 @@
             "state" : "translated",
             "value" : "Modifier l'apparence de la barre des menus…"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編輯選單列外觀⋯"
+          }
         }
       }
     },
@@ -1667,6 +1757,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activer la création de rapports diagnostiques"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "啟用診斷記錄"
           }
         }
       }
@@ -1866,6 +1962,12 @@
             "state" : "translated",
             "value" : "Obtenir des informations en temps réel sur la barre des menus."
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取得選單列的即時資訊。"
+          }
         }
       }
     },
@@ -1974,6 +2076,12 @@
             "state" : "translated",
             "value" : "Masquer la section cachée"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隱藏永久隱藏區域"
+          }
         }
       }
     },
@@ -2021,6 +2129,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masquer la section masquée"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隱藏已隱藏區域"
           }
         }
       }
@@ -2334,6 +2448,12 @@
             "state" : "translated",
             "value" : "Disposition réinitialisée. Les éléments ont été déplacés vers la section masquée."
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "佈局已重置。項目已移至隱藏區域。"
+          }
         }
       }
     },
@@ -2502,6 +2622,12 @@
             "state" : "translated",
             "value" : "macOS empêche le déplacement de \" %@ \"."
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS 禁止移動「%@」。"
+          }
         }
       }
     },
@@ -2607,6 +2733,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cet élément de la barre des menus ne peut pas être déplacé."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此選單列項目無法移動。"
           }
         }
       }
@@ -2804,6 +2936,12 @@
             "state" : "translated",
             "value" : "Calque de la barre des menus"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選單列覆疊"
+          }
         }
       }
     },
@@ -2911,6 +3049,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jamais"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "從未"
           }
         }
       }
@@ -3049,6 +3193,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Espace insuffisant pour afficher \" %@ \"."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "空間不足，無法顯示「%@」"
           }
         }
       }
@@ -3398,6 +3548,12 @@
             "state" : "translated",
             "value" : "Réinitialisation terminée, %lld élément(s) n'ont pas pu être déplacé(s). Vérifiez la barre des menus et réessayez si nécessaire."
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置完成，有 %lld 個項目無法移動。請檢查選單列，如有需要請重試。"
+          }
         }
       }
     },
@@ -3415,6 +3571,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Échec de la réinitialisation : %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置失敗：%@"
           }
         }
       }
@@ -3734,6 +3896,12 @@
             "state" : "translated",
             "value" : "Enregistrement de l'écran"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "螢幕錄影"
+          }
         }
       }
     },
@@ -3811,6 +3979,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher des éléments de la barre des menus"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜尋選單列項目"
           }
         }
       }
@@ -4040,6 +4214,12 @@
             "state" : "translated",
             "value" : "Afficher la section cachée"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示永久隱藏區域"
+          }
         }
       }
     },
@@ -4088,6 +4268,12 @@
             "state" : "translated",
             "value" : "Afficher la section masquée"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示已隱藏區域"
+          }
         }
       }
     },
@@ -4103,6 +4289,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher l'élément"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示項目"
           }
         }
       }
@@ -4121,6 +4313,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher les rapports dans le Finder"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Finder 中顯示記錄檔"
           }
         }
       }
@@ -5206,6 +5404,12 @@
             "state" : "translated",
             "value" : "La version %@ (%@) est désormais disponible"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本 %1$@ (%2$@) 現已可用"
+          }
         }
       }
     },
@@ -5281,6 +5485,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Crée un rapport de débogage détaillé pour faciliter le dépannage. Les rapports sont enregistrés dans ~/Library/Logs/Thaw/. Désactivez cette option lorsqu'elle n'est pas nécessaire afin d'éviter des écritures disque inutiles."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將詳細的除錯記錄寫入檔案以供疑難排解。記錄檔儲存於 ~/Library/Logs/Thaw/。不需要時請停用，以避免不必要的磁碟寫入。"
           }
         }
       }
