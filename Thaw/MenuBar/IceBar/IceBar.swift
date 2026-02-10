@@ -291,9 +291,12 @@ private struct IceBarContentView: View {
     }
 
     private var itemMaxHeight: CGFloat? {
-        let availableHeight = contentHeight - verticalPadding * 2
-        Self.diagLog.debug("itemMaxHeight: contentHeight=\(contentHeight) verticalPadding=\(verticalPadding) availableHeight=\(availableHeight)")
-        return availableHeight > 0 ? availableHeight : nil
+        // Use the raw menu bar height so icons match their native size,
+        // regardless of any inset or padding applied to the bar shape.
+        // The clip shape trims any overflow.
+        let menuBarHeight = screen.getMenuBarHeightEstimate()
+        Self.diagLog.debug("itemMaxHeight: menuBarHeight=\(menuBarHeight) contentHeight=\(contentHeight) verticalPadding=\(verticalPadding)")
+        return menuBarHeight > 0 ? menuBarHeight : nil
     }
 
     private var clipShape: some InsettableShape {
