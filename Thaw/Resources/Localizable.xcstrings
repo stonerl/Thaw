@@ -732,7 +732,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Appliquer des réglages différents selon l'apparence actuelle du système."
+            "value" : "Applique des réglages différents à la barre des menus en fonction de l'apparence actuelle du système (clair ou sombre). "
           }
         },
         "zh-Hans" : {
@@ -2020,7 +2020,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Faites glisser pour organiser les éléments de la barre des menus en différentes sections."
+            "value" : "Faites glisser les éléments de la barre des menus pour les organiser en différentes sections."
           }
         },
         "zh-Hans" : {
@@ -2146,7 +2146,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Activer la création de rapports diagnostiques"
+            "value" : "Activer la création de rapports de diagnostic"
           }
         },
         "zh-Hans" : {
@@ -2218,7 +2218,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Activer la %@ Bar"
+            "value" : "Activer la « %@ Bar »"
           }
         },
         "zh-Hans" : {
@@ -2476,7 +2476,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dégradé"
+            "value" : "Dégradée"
           }
         },
         "zh-Hans" : {
@@ -2904,7 +2904,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vous pouvez aussi organiser les éléments en maintenant la touche « ⌘ Command » enfoncé et en les faisant glisser dans la barre des menus."
+            "value" : "Vous pouvez aussi maintenir la touche « ⌘ Command » enfoncée en les faisant glisser directement dans la barre des menus."
           }
         },
         "zh-Hans" : {
@@ -3190,7 +3190,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "macOS empêche le déplacement de \" %@ \"."
+            "value" : "macOS empêche le déplacement de « %@ »."
           }
         },
         "zh-Hans" : {
@@ -3864,7 +3864,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aucun"
+            "value" : "Aucune"
           }
         },
         "zh-Hans" : {
@@ -3894,7 +3894,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Espace insuffisant pour afficher \" %@ \"."
+            "value" : "Espace insuffisant pour afficher « %@ »."
           }
         },
         "zh-Hans" : {
@@ -4218,7 +4218,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enregistrer le raccourci clavier"
+            "value" : "Enregistrer"
           }
         },
         "zh-Hans" : {
@@ -4812,7 +4812,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rechercher des éléments de la barre des menus"
+            "value" : "Rechercher parmi les éléments de la barre des menus."
           }
         },
         "zh-Hans" : {
@@ -4842,7 +4842,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rechercher des éléments de la barre des menus"
+            "value" : "Rechercher parmi les éléments de la barre des menus."
           }
         },
         "zh-Hans" : {
@@ -5094,7 +5094,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Afficher toutes les sections lorsque des éléments de la barre des menus sont déplacé avec ⌘ Command"
+            "value" : "Afficher toutes les sections lorsque des éléments de la barre des menus sont déplacé avec « ⌘ Command »"
           }
         },
         "zh-Hans" : {
@@ -5428,7 +5428,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Intelligente"
+            "value" : "Intelligent"
           }
         },
         "zh-Hans" : {
@@ -5534,7 +5534,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Extrémité carrée"
+            "value" : "Extrémité plate"
           }
         },
         "zh-Hans" : {
@@ -6260,7 +6260,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Taper le raccourci"
+            "value" : "Veuillez taper"
           }
         },
         "zh-Hans" : {
@@ -6440,7 +6440,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Utiliser l'apparence dynamique"
+            "value" : "Apparence dynamique selon le mode"
           }
         },
         "zh-Hans" : {
