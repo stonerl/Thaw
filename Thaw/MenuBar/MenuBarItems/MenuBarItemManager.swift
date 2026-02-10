@@ -491,7 +491,19 @@ extension MenuBarItemManager {
         var invalidCount = 0
         var noSectionCount = 0
 
+        // Track which tags have already been cached to avoid duplicates.
+        // macOS can briefly report two windows for the same item during
+        // or shortly after a move operation (e.g. layout reset). We keep
+        // the first occurrence, which is the rightmost (items are reversed
+        // from the Window Server order).
+        var seenTags = Set<MenuBarItemTag>()
+
         for item in items where context.isValidForCaching(item) {
+            guard seenTags.insert(item.tag).inserted else {
+                diagLog.debug("uncheckedCacheItems: skipping duplicate tag \(item.logString)")
+                continue
+            }
+
             validCount += 1
             if item.sourcePID == nil {
                 logger.warning("Missing sourcePID for \(item.logString, privacy: .public)")
@@ -1866,10 +1878,22 @@ extension MenuBarItemManager {
         // correctly position their popup in response to a click.
         await waitForItemPositionToSettle(item: item)
 
+        // Re-fetch the item from the live window list so we click using the
+        // most up-to-date window information. Fall back to the original item
+        // if it can't be found (the window ID is the same after a Cmd+drag,
+        // but some apps recreate their status item in response to the move).
+        let refreshedItems = await MenuBarItem.getMenuBarItems(option: .onScreen)
+        let clickItem = refreshedItems.first(where: { $0.tag == item.tag }) ?? item
+
+        // Give the owning app a little extra time to finish processing the
+        // move internally. Some apps (e.g. OneDrive) need more than just a
+        // stable window position before they can respond to clicks.
+        await eventSleep(for: .milliseconds(75))
+
         let idsBeforeClick = Set(Bridging.getWindowList(option: .onScreen))
 
         do {
-            try await click(item: item, with: mouseButton)
+            try await click(item: clickItem, with: mouseButton)
         } catch {
             logger.error("Error clicking item: \(error, privacy: .public)")
             return
@@ -1878,8 +1902,9 @@ extension MenuBarItemManager {
         await eventSleep(for: .milliseconds(250))
         let windowsAfterClick = WindowInfo.createWindows(option: .onScreen)
 
+        let clickPID = clickItem.sourcePID ?? clickItem.ownerPID
         context.shownInterfaceWindow = windowsAfterClick.first { window in
-            window.ownerPID == item.sourcePID && !idsBeforeClick.contains(window.windowID)
+            window.ownerPID == clickPID && !idsBeforeClick.contains(window.windowID)
         }
     }
 
@@ -2446,12 +2471,46 @@ extension MenuBarItemManager {
             return failed
         }
 
-        var failedMoves = await movePass(items, anchor: controlItems.hidden)
+        _ = await movePass(items, anchor: controlItems.hidden)
 
-        // Re-fetch and try once more after the first pass, in case macOS reorders items mid-reset.
+        // Re-fetch and retry only items that are NOT yet in the hidden
+        // section. This covers items still in the visible section (to the
+        // right of the hidden control item) as well as items stuck in the
+        // always-hidden section (to the left of the always-hidden control
+        // item) when that section is enabled.
         var refreshedItems = await MenuBarItem.getMenuBarItems(option: .activeSpace)
+        var failedMoves = 0
         if let refreshedControls = ControlItemPair(items: &refreshedItems) {
-            failedMoves += await movePass(refreshedItems, anchor: refreshedControls.hidden)
+            let hiddenControlBounds = Bridging.getWindowBounds(for: refreshedControls.hidden.windowID)
+                ?? refreshedControls.hidden.bounds
+            let alwaysHiddenControlBounds = refreshedControls.alwaysHidden.flatMap {
+                Bridging.getWindowBounds(for: $0.windowID) ?? $0.bounds
+            }
+
+            let notYetInHidden = refreshedItems.filter { item in
+                guard item.isMovable, item.canBeHidden, !item.isControlItem,
+                      item.tag != .visibleControlItem
+                else {
+                    return false
+                }
+                let bounds = Bridging.getWindowBounds(for: item.windowID) ?? item.bounds
+
+                // Still in the visible section (to the right of hidden control item).
+                if bounds.minX >= hiddenControlBounds.maxX {
+                    return true
+                }
+                // Still in the always-hidden section (to the left of always-hidden control item).
+                if let ahBounds = alwaysHiddenControlBounds,
+                   bounds.maxX <= ahBounds.minX
+                {
+                    return true
+                }
+                return false
+            }
+            if !notYetInHidden.isEmpty {
+                logger.debug("Layout reset pass 2: \(notYetInHidden.count) items not yet in hidden section")
+                failedMoves = await movePass(notYetInHidden, anchor: refreshedControls.hidden)
+            }
         }
 
         await cacheActor.clearCachedItemWindowIDs()

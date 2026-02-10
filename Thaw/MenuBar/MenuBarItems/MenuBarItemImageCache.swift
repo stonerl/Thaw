@@ -63,7 +63,7 @@ final class MenuBarItemImageCache: ObservableObject {
 
     /// Configuration for failed capture handling
     private static let maxFailuresBeforeBlacklist = 3
-    private static let blacklistCooldownSeconds: TimeInterval = 300 // 5 minutes
+    private static let blacklistCooldownSeconds: TimeInterval = 30 // 30 seconds
 
     /// Logger for the menu bar item image cache.
     private let logger = Logger(
@@ -489,9 +489,12 @@ final class MenuBarItemImageCache: ObservableObject {
     }
 
     /// Validates cache entries and removes items with invalid window IDs.
+    /// Tags in `preserving` are kept even if they are no longer in the item cache.
     /// Returns the number of items removed during cleanup.
     @MainActor
-    private func validateAndCleanupInvalidEntries() -> Int {
+    private func validateAndCleanupInvalidEntries(
+        preserving preservedTags: Set<MenuBarItemTag> = []
+    ) -> Int {
         guard let appState else { return 0 }
 
         var removedCount = 0
@@ -500,9 +503,11 @@ final class MenuBarItemImageCache: ObservableObject {
         )
 
         // Remove cache entries for items that don't exist in the item cache
-        // or have invalid/missing window information
+        // or have invalid/missing window information, but keep entries that
+        // are explicitly preserved (e.g. items with recent capture failures
+        // whose cached image should be retained).
         let invalidTags = images.keys.filter { tag in
-            !allValidTags.contains(tag)
+            !allValidTags.contains(tag) && !preservedTags.contains(tag)
         }
 
         for invalidTag in invalidTags {
@@ -617,11 +622,23 @@ final class MenuBarItemImageCache: ObservableObject {
         await MainActor.run { [newImages, allValidTags] in
             let beforeCount = images.count
 
-            // Remove images for items that no longer exist in the item cache
-            images = images.filter { allValidTags.contains($0.key) }
+            // Tags with recent capture failures should keep their cached images
+            // even if the item temporarily left the item cache (e.g. a transient
+            // menu bar item whose window briefly disappeared). This prevents
+            // the IceBar and search from showing empty icons while the item's
+            // app is still running.
+            let recentlyFailedTags = Set(failedCaptures.keys)
 
-            // Additional cleanup: Remove entries with invalid window information
-            _ = validateAndCleanupInvalidEntries()
+            // Remove images for items that no longer exist in the item cache,
+            // but preserve images for items that have recent capture failures
+            // (they may reappear shortly with a new window ID).
+            images = images.filter {
+                allValidTags.contains($0.key) || recentlyFailedTags.contains($0.key)
+            }
+
+            // Additional cleanup: Remove entries with invalid window information,
+            // but again preserve recently-failed items.
+            _ = validateAndCleanupInvalidEntries(preserving: recentlyFailedTags)
 
             // Update access order for existing items that are being refreshed
             for tag in newImages.keys {
