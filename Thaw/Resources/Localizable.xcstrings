@@ -849,7 +849,7 @@
             "value" : "進階"
           }
         },
-	"ko" : {
+  "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "고급"
@@ -2722,7 +2722,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Activer la « %@ Bar »"
+            "value" : "Activer la « %@ Bar »"
           }
         },
         "zh-Hans" : {
@@ -3576,7 +3576,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vous pouvez aussi maintenir la touche « ⌘ Command » enfoncée en les faisant glisser directement dans la barre des menus."
+            "value" : "Vous pouvez aussi maintenir la touche « ⌘ Command » enfoncée en les faisant glisser directement dans la barre des menus."
           }
         },
         "zh-Hans" : {
@@ -3940,7 +3940,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "macOS empêche le déplacement de « %@ »."
+            "value" : "macOS empêche le déplacement de « %@ »."
           }
         },
         "zh-Hans" : {
@@ -4806,7 +4806,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Espace insuffisant pour afficher « %@ »."
+            "value" : "Espace insuffisant pour afficher « %@ »."
           }
         },
         "zh-Hans" : {
@@ -6228,7 +6228,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Afficher toutes les sections lorsque des éléments de la barre des menus sont déplacé avec « ⌘ Command »"
+            "value" : "Afficher toutes les sections lorsque des éléments de la barre des menus sont déplacé avec « ⌘ Command »"
           }
         },
         "zh-Hans" : {
@@ -7022,7 +7022,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La « %1$@ Bar » est centrée sous l'icône %2$@."
+            "value" : "La « %1$@ Bar » est centrée sous l'icône %2$@."
           }
         },
         "zh-Hans" : {
@@ -7064,7 +7064,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La « %@ Bar » est centrée sous le pointeur de la souris."
+            "value" : "La « %@ Bar » est centrée sous le pointeur de la souris."
           }
         },
         "zh-Hans" : {
@@ -7106,7 +7106,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La « %@ Bar » nécessite l'autorisation « enregistrement de l'écran »."
+            "value" : "La « %@ Bar » nécessite l'autorisation « enregistrement de l'écran »."
           }
         },
         "zh-Hans" : {
@@ -7148,7 +7148,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'emplacement de la « %@ Bar » varie selon le contexte."
+            "value" : "L'emplacement de la « %@ Bar » varie selon le contexte."
           }
         },
         "zh-Hans" : {
@@ -7778,7 +7778,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Utiliser la « %@ Bar »"
+            "value" : "Utiliser la « %@ Bar »"
           }
         },
         "zh-Hans" : {
