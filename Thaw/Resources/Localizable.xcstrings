@@ -9402,7 +9402,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "เวอร์ชั่น %@ (%@) "
+            "value" : "เวอร์ชั่น %1$@ (%2$@)"
           }
         },
         "zh-Hans" : {
