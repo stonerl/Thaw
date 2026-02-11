@@ -146,7 +146,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ fonctionne en mode restreint sans cette autorisation."
+            "value" : "Sans ces autorisations, %@ fonctionnera en mode restreint."
           }
         },
         "ko" : {
@@ -1092,7 +1092,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Réorganise les éléments de la barre des menus."
+            "value" : "Réorganiser les éléments de la barre des menus selon vos préférences."
           }
         },
         "ko" : {
@@ -1536,7 +1536,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Modifie l'apparence de la barre des menus."
+            "value" : "Modifier l'apparence de la barre des menus."
           }
         },
         "ko" : {
@@ -2400,7 +2400,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Affiche les images des éléments individuels de la barre des menus."
+            "value" : "Afficher les images des éléments individuels de la barre des menus."
           }
         },
         "ko" : {
@@ -3144,7 +3144,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Obtenir des informations en temps réel sur la barre des menus."
+            "value" : "Obtenir les informations de la barre des menus en temps réel."
           }
         },
         "ko" : {
