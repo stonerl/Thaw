@@ -23,6 +23,18 @@
             "value" : "%@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30,12 +42,6 @@
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@"
-          }
-        },
-        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -65,6 +71,18 @@
             "value" : "Section %1$@ %2$@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@ 섹션"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ %@ หมวดหมู่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -75,12 +93,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ %2$@ 區域"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ %2$@ 섹션"
           }
         }
       }
@@ -107,6 +119,18 @@
             "value" : "%@ Bar"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 바"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ บาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -117,12 +141,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 列"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 바"
           }
         }
       }
@@ -149,6 +167,18 @@
             "value" : "%@ fonctionne en mode restreint sans cette autorisation."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@은(는) 이 권한 없이도 제한된 모드로 작동할 수 있습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ สามารถทำงานได้อย่างจำกัด หากไม่ได้รับการอนุญาตินี้"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -159,12 +189,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 可以在沒有此權限的情況下以有限模式運作。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@은(는) 이 권한 없이도 제한된 모드로 작동할 수 있습니다."
           }
         }
       }
@@ -191,6 +215,18 @@
             "value" : "%@ ne peut pas réorganiser les éléments de la barre des menus lorsque celle-ci est masquée automatiquement."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@은(는) 자동으로 숨겨진 메뉴 막대에서 항목을 정렬할 수 없습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ไม่สามารถจัดเรียงรายการเมนูบาร์ในเมนูบาร์ที่ซ่อนโดยอัตโนมัติได้"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -201,12 +237,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 無法在自動隱藏的選單列中排列項目。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@은(는) 자동으로 숨겨진 메뉴 막대에서 항목을 정렬할 수 없습니다."
           }
         }
       }
@@ -233,6 +263,18 @@
             "value" : "%@ ne peut pas modifier l'apparence de la barre des menus lorsqu'elle est masquée automatiquement."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@은(는) 자동으로 숨겨진 메뉴 막대의 모양을 편집할 수 없습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ไม่สามารถแก้ไขลักษณะที่ปรากฏของเมนูบาร์ที่ซ่อนโดยอัตโนมัติได้"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -243,12 +285,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 無法編輯自動隱藏選單列的外觀。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@은(는) 자동으로 숨겨진 메뉴 막대의 모양을 편집할 수 없습니다."
           }
         }
       }
@@ -275,6 +311,18 @@
             "value" : "Icône %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 아이콘"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไอคอน %@ "
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -285,12 +333,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 圖示"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 아이콘"
           }
         }
       }
@@ -317,6 +359,18 @@
             "value" : "%@ ne répond pas. Tant que ce dernier n'a pas été redémarré, il ne peut pas être déplacé. Le déplacement des autres éléments de la barre des menus peut également être affecté tant que le problème n'est pas résolu."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@이(가) 응답하지 않습니다. 재시작하기 전까지 이동할 수 없습니다. 이 문제가 해결될 때까지 다른 메뉴 막대 항목의 이동에도 영향을 줄 수 있습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ไม่ตอบสนอง จนกว่าจะรีสตาร์ท จะไม่สามารถย้ายได้ การเคลื่อนย้ายรายการเมนูบาร์อื่นๆ อาจได้รับผลกระทบเช่นกันจนกว่าปัญหานี้จะได้รับการแก้ไข"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -327,12 +381,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 沒有回應。在重新啟動之前，它無法被移動。其他選單列項目的移動也可能受到影響，直到問題解決為止。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@이(가) 응답하지 않습니다. 재시작하기 전까지 이동할 수 없습니다. 이 문제가 해결될 때까지 다른 메뉴 막대 항목의 이동에도 영향을 줄 수 있습니다."
           }
         }
       }
@@ -359,6 +407,18 @@
             "value" : "%@ a besoin de cette autorisation pour :"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@에 필요한 권한:"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ต้องใช้สิ่งนี้เพื่อ:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -369,12 +429,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 需要此權限來："
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@에 필요한 권한:"
           }
         }
       }
@@ -401,6 +455,18 @@
             "value" : "%@ a besoin de votre autorisation pour gérer la barre des menus."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@이(가) 메뉴 막대를 관리하려면 권한이 필요합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ต้องการสิทธิ์จากคุณเพื่อจัดการเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -411,12 +477,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 需要您的許可來管理選單列。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@이(가) 메뉴 막대를 관리하려면 권한이 필요합니다."
           }
         }
       }
@@ -443,6 +503,18 @@
             "value" : "Réglages de %@…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 설정…"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ตั้งค่า…"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -453,12 +525,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 設定⋯"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 설정…"
           }
         }
       }
@@ -485,6 +551,18 @@
             "value" : "•"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "•"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "•"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -492,12 +570,6 @@
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "•"
-          }
-        },
-        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "•"
@@ -527,6 +599,18 @@
             "value" : "1"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -534,12 +618,6 @@
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1"
-          }
-        },
-        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "1"
@@ -569,6 +647,18 @@
             "value" : "2"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -576,12 +666,6 @@
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "2"
-          }
-        },
-        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "2"
@@ -611,6 +695,18 @@
             "value" : "3"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -618,12 +714,6 @@
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "3"
-          }
-        },
-        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "3"
@@ -651,6 +741,18 @@
             "value" : "Une mise à jour est disponible"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새로운 업데이트가 있습니다"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "มีการอัปเดตใหม่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -661,12 +763,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "有新的更新可用"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "새로운 업데이트가 있습니다"
           }
         }
       }
@@ -687,16 +783,22 @@
             "value" : "À propos"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "關於"
-          }
-        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "정보"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เกี่ยวกับ"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關於"
           }
         }
       }
@@ -723,6 +825,18 @@
             "value" : "Aucune information personnelle n'est collectée ni stockée."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개인 정보는 절대 수집되거나 저장되지 않습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่มีการเก็บรวบรวมหรือเก็บรักษาข้อมูลส่วนบุคคลใดๆ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -733,12 +847,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "絕不收集或儲存任何個人資訊。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "개인 정보는 절대 수집되거나 저장되지 않습니다."
           }
         }
       }
@@ -765,6 +873,18 @@
             "value" : "Accessibilité"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "손쉬운 사용"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การเข้าถึง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -775,12 +895,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "輔助使用"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "손쉬운 사용"
           }
         }
       }
@@ -807,6 +921,18 @@
             "value" : "Remerciements"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "감사의 말"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การสนับสนุน"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -817,12 +943,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "致謝"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "감사의 말"
           }
         }
       }
@@ -843,16 +963,22 @@
             "value" : "Avancé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "고급"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ชั้นสูง"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "進階"
-          }
-        },
-  "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "고급"
           }
         }
       }
@@ -879,6 +1005,18 @@
             "value" : "Appliquer"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "적용"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "นำไปใช้"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -889,12 +1027,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "套用"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "적용"
           }
         }
       }
@@ -921,6 +1053,18 @@
             "value" : "Applique des réglages différents à la barre des menus en fonction de l'apparence actuelle du système (clair ou sombre). "
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "현재 시스템 모양에 따라 다른 설정을 적용합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ใช้การตั้งค่าที่แตกต่างกันตามลักษณะที่ปรากฏของระบบในปัจจุบัน"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -931,12 +1075,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "根據目前的系統外觀套用不同設定。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "현재 시스템 모양에 따라 다른 설정을 적용합니다."
           }
         }
       }
@@ -963,6 +1101,18 @@
             "value" : "Appliquer l'espacement sélectionner"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "현재 간격 적용"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ใช้ระยะห่างปัจจุบัน"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -973,12 +1123,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "套用目前的間距"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "현재 간격 적용"
           }
         }
       }
@@ -1005,6 +1149,18 @@
             "value" : "L’application de ce réglage relancera toutes les applications ayant des éléments dans la barre des menus. Certaines applications pourraient nécessiter un redémarrage manuel."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 설정을 적용하면 메뉴 막대 항목이 있는 모든 앱이 다시 실행됩니다. 일부 앱은 수동으로 다시 실행해야 할 수 있습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การใช้การตั้งค่านี้จะรีสตาร์ทแอปพลิเคชันทั้งหมดที่มีรายการเมนูบาร์ บางแอปพลิเคชันอาจต้องรีสตาร์ทด้วยตนเอง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1015,12 +1171,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "套用此設定將重新啟動所有含有選單列項目的應用程式。部分應用程式可能需要手動重新啟動。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이 설정을 적용하면 메뉴 막대 항목이 있는 모든 앱이 다시 실행됩니다. 일부 앱은 수동으로 다시 실행해야 할 수 있습니다."
           }
         }
       }
@@ -1047,6 +1197,18 @@
             "value" : "Réorganise les éléments de la barre des menus."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목을 정렬합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "จัดเรียงรายการเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1057,12 +1219,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "排列選單列項目。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목을 정렬합니다."
           }
         }
       }
@@ -1089,6 +1245,18 @@
             "value" : "Rechercher automatiquement les mises à jour"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동으로 업데이트 확인"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตรวจสอบการอัปเดตโดยอัตโนมัติ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1099,12 +1267,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自動檢查更新"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "자동으로 업데이트 확인"
           }
         }
       }
@@ -1131,6 +1293,18 @@
             "value" : "Télécharger et installer automatiquement les mises à jour"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동으로 업데이트 다운로드 및 설치"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ดาวน์โหลดและติดตั้งการอัปเดตโดยอัตโนมัติ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1141,12 +1315,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自動下載並安裝更新"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "자동으로 업데이트 다운로드 및 설치"
           }
         }
       }
@@ -1173,6 +1341,18 @@
             "value" : "Télécharger automatiquement les mises à jour"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동으로 업데이트 다운로드"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ดาวน์โหลดการอัปเดตโดยอัตโนมัติ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1183,12 +1363,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自動下載更新"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "자동으로 업데이트 다운로드"
           }
         }
       }
@@ -1215,6 +1389,18 @@
             "value" : "Masquer automatiquement les icônes dévoilées"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동으로 다시 숨기기"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ซ่อนอีกครั้งโดยอัตโนมัติ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1225,12 +1411,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自動重新隱藏"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "자동으로 다시 숨기기"
           }
         }
       }
@@ -1257,6 +1437,18 @@
             "value" : "BETA"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "베타"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BETA"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1267,12 +1459,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "BETA"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "베타"
           }
         }
       }
@@ -1299,6 +1485,18 @@
             "value" : "Bordure"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "테두리"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เส้นขอบ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1309,12 +1507,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "邊框"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "테두리"
           }
         }
       }
@@ -1341,6 +1533,18 @@
             "value" : "Couleur de la bordure"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "테두리 색상"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สีของเส้นขอบ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1351,12 +1555,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "邊框顏色"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "테두리 색상"
           }
         }
       }
@@ -1383,6 +1581,18 @@
             "value" : "Épaisseur de la bordure"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "테두리 너비"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ความหนาของเส้นขอบ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1393,12 +1603,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "邊框寬度"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "테두리 너비"
           }
         }
       }
@@ -1425,6 +1629,18 @@
             "value" : "Annuler"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "취소"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ยกเลิก"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1435,12 +1651,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "취소"
           }
         }
       }
@@ -1467,6 +1677,18 @@
             "value" : "Modifie l'apparence de la barre des menus."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대의 모양을 변경합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปลี่ยนลักษณะที่ปรากฏของเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1477,12 +1699,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "更改選單列的外觀。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대의 모양을 변경합니다."
           }
         }
       }
@@ -1509,6 +1725,18 @@
             "value" : "Rechercher automatiquement"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동으로 확인"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตรวจสอบโดยอัตโนมัติ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1519,12 +1747,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自動檢查"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "자동으로 확인"
           }
         }
       }
@@ -1551,6 +1773,18 @@
             "value" : "Rechercher des mises à jour"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트 확인"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตรวจสอบการอัปเดต"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1561,12 +1795,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "檢查更新"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "업데이트 확인"
           }
         }
       }
@@ -1593,6 +1821,18 @@
             "value" : "Rechercher automatiquement les mises à jour ?"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동으로 업데이트를 확인할까요?"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตรวจสอบการอัปเดตโดยอัตโนมัติหรือไม่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1603,12 +1843,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "是否自動檢查更新？"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "자동으로 업데이트를 확인할까요?"
           }
         }
       }
@@ -1635,6 +1869,18 @@
             "value" : "Rechercher des mises à jour…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트 확인…"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตรวจสอบการอัปเดต…"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1645,12 +1891,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "檢查更新⋯"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "업데이트 확인…"
           }
         }
       }
@@ -1677,6 +1917,18 @@
             "value" : "La recherche de mises à jour n'est pas prise en charge en mode débogage."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "디버그 모드에서는 업데이트 확인이 지원되지 않습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การตรวจสอบการอัปเดตไม่รองรับในโหมดดีบัก"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1687,12 +1939,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "除錯模式下不支援檢查更新。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "디버그 모드에서는 업데이트 확인이 지원되지 않습니다."
           }
         }
       }
@@ -1719,6 +1965,18 @@
             "value" : "Chevron"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V자 화살표"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ลูกศร"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1729,12 +1987,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "V 形箭頭"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "V자 화살표"
           }
         }
       }
@@ -1761,6 +2013,18 @@
             "value" : "Choisir une icône personnalisée à afficher dans la barre des menus."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대에 표시할 사용자 지정 아이콘을 선택하세요."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เลือกไอคอนที่กำหนดเองเพื่อแสดงในเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1771,12 +2035,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選擇要在選單列中顯示的自訂圖示。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대에 표시할 사용자 지정 아이콘을 선택하세요."
           }
         }
       }
@@ -1803,6 +2061,18 @@
             "value" : "Choisir une image…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이미지 선택…"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เลือกรูปภาพ…"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1813,12 +2083,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選擇圖片⋯"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이미지 선택…"
           }
         }
       }
@@ -1845,6 +2109,18 @@
             "value" : "Cliquez dans une zone vide de la barre des menus pour afficher les éléments masqués."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대의 빈 영역을 클릭하여 숨겨진 메뉴 막대 항목을 표시합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คลิกในพื้นที่ว่างของเมนูบาร์เพื่อแสดงรายการเมนูบาร์ที่ซ่อนอยู่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1855,12 +2131,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "點按選單列的空白區域以顯示隱藏的選單列項目。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대의 빈 영역을 클릭하여 숨겨진 메뉴 막대 항목을 표시합니다."
           }
         }
       }
@@ -1885,6 +2155,18 @@
             "value" : "Cliquer sur l'élément"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "항목 클릭"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รายการคลิก"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1895,12 +2177,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "點按項目"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "항목 클릭"
           }
         }
       }
@@ -1927,6 +2203,18 @@
             "value" : "Cliquez sur l’icône pour afficher la section masquée ou double-cliquez pour afficher la section cachée. Cliquez avec le bouton droit pour accéder aux réglages de %@."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "클릭하여 숨겨진 항목을 표시하거나 더블 클릭하여 항상 숨겨진 메뉴 막대 항목을 표시합니다. 오른쪽 클릭으로 %@ 설정을 엽니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คลิกเพื่อแสดงสิ่งที่ซ่อนหรือดับเบิลคลิกสำหรับรายการเมนูบาร์ที่ซ่อนอยู่เสมอ คลิกขวาเพื่อเข้าถึงการตั้งค่าของ %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1937,12 +2225,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "點按以顯示隱藏項目，或按兩下顯示永久隱藏項目。右鍵點按開啟 %@ 的設定。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "클릭하여 숨겨진 항목을 표시하거나 더블 클릭하여 항상 숨겨진 메뉴 막대 항목을 표시합니다. 오른쪽 클릭으로 %@ 설정을 엽니다."
           }
         }
       }
@@ -1969,6 +2251,18 @@
             "value" : "Continuer"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계속"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ดำเนินการต่อ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1979,12 +2273,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "繼續"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "계속"
           }
         }
       }
@@ -2011,6 +2299,18 @@
             "value" : "Continuer en mode limité"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "제한된 모드로 계속"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ดำเนินการต่อในโหมดจำกัดการเข้าถึง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2021,12 +2321,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "以有限模式繼續"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "제한된 모드로 계속"
           }
         }
       }
@@ -2053,6 +2347,18 @@
             "value" : "Contribuer"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기여하기"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "มีส่วนร่วม"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2063,12 +2369,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "貢獻"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "기여하기"
           }
         }
       }
@@ -2095,6 +2395,18 @@
             "value" : "Apparence dynamique pour l’icône personnalisée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용자 지정 아이콘이 동적 모양 사용"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "อคอนที่กำหนดเองใช้ลักษณะที่ปรากฏแบบไดนามิก"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2105,12 +2417,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自訂圖示使用動態外觀"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "사용자 지정 아이콘이 동적 모양 사용"
           }
         }
       }
@@ -2137,6 +2443,18 @@
             "value" : "Apparence sombre"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다크 모드"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สีเข้ม"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2147,12 +2465,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "深色外觀"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "다크 모드"
           }
         }
       }
@@ -2179,6 +2491,18 @@
             "value" : "par défaut"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기본값"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ค่าเริ่มต้น"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2189,12 +2513,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "預設"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "기본값"
           }
         }
       }
@@ -2221,6 +2539,18 @@
             "value" : "Développement"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개발"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การพัฒนา"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2231,12 +2561,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "開發版"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "개발"
           }
         }
       }
@@ -2263,6 +2587,18 @@
             "value" : "Diagnostiques"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "진단"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การวินิจฉัย"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2273,12 +2609,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "診斷"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "진단"
           }
         }
       }
@@ -2305,6 +2635,18 @@
             "value" : "Affiche les images des éléments individuels de la barre des menus."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개별 메뉴 막대 항목의 이미지를 표시합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดงรูปภาพของรายการเมนูบาร์แต่ละรายการ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2315,12 +2657,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "顯示個別選單列項目的圖像。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "개별 메뉴 막대 항목의 이미지를 표시합니다."
           }
         }
       }
@@ -2347,6 +2683,18 @@
             "value" : "Afficher l'icône sous forme monochrome et l'adapter dynamiquement à l'apparence de la barre des menus. Ce réglage supprime les couleurs de l'icône, mais garantit un rendu cohérent sur les arrière-plans clairs et foncés."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아이콘을 메뉴 막대의 모양에 맞게 동적으로 조정되는 단색 이미지로 표시합니다. 이 설정은 아이콘에서 모든 색상을 제거하지만 밝은 배경과 어두운 배경 모두에서 일관된 렌더링을 보장합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดงไอคอนเป็นรูปภาพสีเดียว โดยปรับตัวเองแบบไดนามิกเพื่อให้ตรงกับลักษณะที่ปรากฏของเมนูบาร์ การตั้งค่านี้จะลบสีทั้งหมดออกจากไอคอน แต่รับประกันการแสดงผลที่สม่ำเสมอกับพื้นหลังสีอ่อนและสีเข้มทั้งคู่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2357,12 +2705,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "將圖示顯示為單色圖片，動態調整以匹配選單列的外觀。此設定會移除圖示的所有色彩，但可確保在淺色和深色背景下都能一致呈現。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "아이콘을 메뉴 막대의 모양에 맞게 동적으로 조정되는 단색 이미지로 표시합니다. 이 설정은 아이콘에서 모든 색상을 제거하지만 밝은 배경과 어두운 배경 모두에서 일관된 렌더링을 보장합니다."
           }
         }
       }
@@ -2389,6 +2731,18 @@
             "value" : "Ne pas vérifier"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확인 안 함"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่ตรวจสอบ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2399,12 +2753,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "不要檢查"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "확인 안 함"
           }
         }
       }
@@ -2431,6 +2779,18 @@
             "value" : "Fait"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "완료"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เสร็จสิ้น"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2441,12 +2801,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "完成"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "완료"
           }
         }
       }
@@ -2473,6 +2827,18 @@
             "value" : "Faites glisser les éléments de la barre des menus pour les organiser en différentes sections."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "드래그하여 메뉴 막대 항목을 다른 섹션으로 정렬하세요."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ลากเพื่อจัดเรียงรายการเมนูบาร์ของคุณเป็นส่วนต่าง ๆ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2483,12 +2849,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "拖移以將選單列項目排列至不同區域。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "드래그하여 메뉴 막대 항목을 다른 섹션으로 정렬하세요."
           }
         }
       }
@@ -2515,6 +2875,18 @@
             "value" : "En raison d'un bug dans une version précédente de l'app, les données des sections de la barre des menus de %@ ont été corrompues et ont dû être réinitialisées."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이전 버전의 앱 버그로 인해 %@의 메뉴 막대 섹션 데이터가 손상되어 재설정해야 했습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เนื่องจากข้อผิดพลาดในแอปเวอร์ชันก่อนหน้า ข้อมูลสำหรับส่วนต่างๆ ของแถบเมนูของ %@ จึงเสียหายและต้องทำการเริ่มต้นใหม่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2525,12 +2897,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "由於舊版本的錯誤，%@ 的選單列區域資料已損毀，必須重置。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이전 버전의 앱 버그로 인해 %@의 메뉴 막대 섹션 데이터가 손상되어 재설정해야 했습니다."
           }
         }
       }
@@ -2557,6 +2923,18 @@
             "value" : "Dynamique"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "동적"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไดนามิก"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2567,12 +2945,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "動態"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "동적"
           }
         }
       }
@@ -2599,6 +2971,18 @@
             "value" : "Modifier l'apparence de la barre des menus…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 모양 편집…"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แก้ไขลักษณะที่ปรากฏของเมนูบาร์…"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2609,12 +2993,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "編輯選單列外觀⋯"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 모양 편집…"
           }
         }
       }
@@ -2641,6 +3019,18 @@
             "value" : "Activer la création de rapports de diagnostic"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "진단 로깅 활성화"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปิดใช้งานการจัดเก็บบันทึกการวินิจฉัย"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2651,12 +3041,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "啟用診斷記錄"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "진단 로깅 활성화"
           }
         }
       }
@@ -2683,6 +3067,18 @@
             "value" : "Activer le menu contextuel secondaire"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "보조 컨텍스트 메뉴 활성화"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปิดการใช้งานเมนูลำดับที่ 2"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2693,12 +3089,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "啟用次要右鍵選單"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "보조 컨텍스트 메뉴 활성화"
           }
         }
       }
@@ -2725,6 +3115,18 @@
             "value" : "Activer la « %@ Bar »"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 바 활성화"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปิดใช้งานบาร์ด %@ "
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2735,12 +3137,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "啟用 %@ 列"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 바 활성화"
           }
         }
       }
@@ -2767,6 +3163,18 @@
             "value" : "Activer la section cachée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "항상 숨김 섹션 활성화"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปิดการใช้งาน “หมวดหมู่ที่ซ่อนอยู่เสมอ”"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2777,12 +3185,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "啟用永久隱藏區域"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "항상 숨김 섹션 활성화"
           }
         }
       }
@@ -2809,6 +3211,18 @@
             "value" : "ERREUR"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ผิดพลาด"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2819,12 +3233,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "錯誤"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "오류"
           }
         }
       }
@@ -2851,6 +3259,18 @@
             "value" : "Focus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "포커스"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "จดจ่อ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2861,12 +3281,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "焦點"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "포커스"
           }
         }
       }
@@ -2893,6 +3307,18 @@
             "value" : "Pleine largeur"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "전체"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ขยายเต็ม"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2903,12 +3329,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "全幅"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "전체"
           }
         }
       }
@@ -2929,16 +3349,22 @@
             "value" : "Général"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一般"
-          }
-        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "일반"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ทั่วไป"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一般"
           }
         }
       }
@@ -2965,6 +3391,18 @@
             "value" : "Obtenir des informations en temps réel sur la barre des menus."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대에 대한 실시간 정보를 가져옵니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รับข้อมูลแบบเรียลไทม์เกี่ยวกับเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2975,12 +3413,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "取得選單列的即時資訊。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대에 대한 실시간 정보를 가져옵니다."
           }
         }
       }
@@ -3007,6 +3439,18 @@
             "value" : "Accéder aux réglages avancés"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "고급 설정으로 이동"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เข้าสู่การตั้งค่าขั้นสูง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3017,12 +3461,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "前往進階設定"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "고급 설정으로 이동"
           }
         }
       }
@@ -3049,6 +3487,18 @@
             "value" : "Dégradée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "그라데이션"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไล่สี"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3059,12 +3509,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "漸層"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "그라데이션"
           }
         }
       }
@@ -3091,6 +3535,18 @@
             "value" : "Autoriser"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "권한 부여"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ให้สิทธิ์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3101,12 +3557,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "授予權限"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "권한 부여"
           }
         }
       }
@@ -3133,6 +3583,18 @@
             "value" : "Masquer la section cachée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "항상 숨김 섹션 숨기기"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ซ่อน “หมวดหมู่ที่ซ่อนอยู่เสมอ”"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3143,12 +3605,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "隱藏永久隱藏區域"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "항상 숨김 섹션 숨기기"
           }
         }
       }
@@ -3175,6 +3631,18 @@
             "value" : "Masquer les menus des apps lors de l'affichage des éléments de la barre des menus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목 표시 시 앱 메뉴 숨기기"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ซ่อนเมนูแอปเมื่อแสดงรายการเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3185,12 +3653,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "顯示選單列項目時隱藏應用程式選單"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목 표시 시 앱 메뉴 숨기기"
           }
         }
       }
@@ -3217,6 +3679,18 @@
             "value" : "Masquer la section masquée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "숨김 섹션 숨기기"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ซ่อน “หมวดหมู่ที่ซ่อนอยู่”"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3227,12 +3701,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "隱藏已隱藏區域"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "숨김 섹션 숨기기"
           }
         }
       }
@@ -3259,6 +3727,18 @@
             "value" : "Maintenir pour prévisualiser"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "길게 눌러 미리보기"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กดค้างเพื่อแสดงตัวอย่าง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3269,12 +3749,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "按住預覽"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "길게 눌러 미리보기"
           }
         }
       }
@@ -3301,6 +3775,18 @@
             "value" : "Ce raccourci clavier est affecté à macOS"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "단축키가 macOS에 의해 예약되어 있습니다"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ปุ่มลัดถูกจองโดย macOS ไปแล้ว"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3311,12 +3797,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "此快速鍵已被 macOS 保留"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "단축키가 macOS에 의해 예약되어 있습니다"
           }
         }
       }
@@ -3337,16 +3817,22 @@
             "value" : "Raccourcis clavier"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "快速鍵"
-          }
-        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "단축키"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ปุ่มลัด"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "快速鍵"
           }
         }
       }
@@ -3371,6 +3857,18 @@
             "value" : "Survolez une zone vide de la barre des menus pour afficher les éléments masqués."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대의 빈 영역 위에 마우스를 올려 숨겨진 메뉴 막대 항목을 표시합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "วางเมาส์เหนือพื้นที่ว่างบนแถบเมนูเพื่อแสดงรายการเมนูที่ซ่อนอยู่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3381,12 +3879,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "將游標懸停在選單列的空白區域以顯示隱藏的選單列項目。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대의 빈 영역 위에 마우스를 올려 숨겨진 메뉴 막대 항목을 표시합니다."
           }
         }
       }
@@ -3413,6 +3905,18 @@
             "value" : "Les positions des icônes ne peuvent pas être restaurées."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아이콘 위치를 복원할 수 없습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่สามารถคืนค่าตำแหน่งไอคอนได้"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3423,12 +3927,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無法還原圖示位置。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "아이콘 위치를 복원할 수 없습니다."
           }
         }
       }
@@ -3455,6 +3953,18 @@
             "value" : "Échec de l'importation. Vous pouvez configurer les réglages manuellement."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "가져오기에 실패했습니다. 설정을 수동으로 구성할 수 있습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "นำเข้าล้มเหลว คุณสามารถดำเนินการตั้งค่าได้ด้วยตนเอง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3465,12 +3975,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "匯入失敗。您可以手動設定。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "가져오기에 실패했습니다. 설정을 수동으로 구성할 수 있습니다."
           }
         }
       }
@@ -3497,6 +4001,18 @@
             "value" : "Importer les réglages"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정 가져오기"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "นำเข้าการตั้งค่า"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3507,12 +4023,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "匯入設定"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "설정 가져오기"
           }
         }
       }
@@ -3539,6 +4049,18 @@
             "value" : "Importé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "가져옴"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "นำเข้าเสร็จสิ้น"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3549,12 +4071,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已匯入"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "가져옴"
           }
         }
       }
@@ -3579,6 +4095,18 @@
             "value" : "Vous pouvez aussi maintenir la touche « ⌘ Command » enfoncée en les faisant glisser directement dans la barre des menus."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⌘ Command + 드래그로 메뉴 막대에서 항목을 정렬할 수도 있습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สามารถจัดเรียงรายการได้โดยการ ⌘ (Command) + ลากในเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3589,12 +4117,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "也可以透過 ⌘ Command + 拖移來排列選單列中的項目。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⌘ Command + 드래그로 메뉴 막대에서 항목을 정렬할 수도 있습니다."
           }
         }
       }
@@ -3621,6 +4143,18 @@
             "value" : "Dernière vérification : %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "마지막 확인: %@"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตรวจสอบครั้งล่าสุดเมื่อ: %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3631,12 +4165,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "上次檢查：%@"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "마지막 확인: %@"
           }
         }
       }
@@ -3657,16 +4185,22 @@
             "value" : "Ouvrir avec la session"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "登入時啟動"
-          }
-        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "로그인 시 실행"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ทำงานทันทีเมื่อเข้าสู่ระบบ"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登入時啟動"
           }
         }
       }
@@ -3691,6 +4225,18 @@
             "value" : "Disposition réinitialisée. Les éléments ont été déplacés vers la section masquée."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "레이아웃이 재설정되었습니다. 항목이 숨김 섹션으로 이동되었습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เริ่มต้นตั้งค่าเลย์เอาต์ใหม่ รายการจะถูกย้ายไปยัง “หมวดหมู่ที่ซ่อนอยู่”"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3701,12 +4247,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "佈局已重置。項目已移至隱藏區域。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "레이아웃이 재설정되었습니다. 항목이 숨김 섹션으로 이동되었습니다."
           }
         }
       }
@@ -3733,6 +4273,18 @@
             "value" : "Extrémité de début"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "왼쪽 끝 캡"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตัวปลายนำหน้า"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3743,12 +4295,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "左側端蓋"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "왼쪽 끝 캡"
           }
         }
       }
@@ -3775,6 +4321,18 @@
             "value" : "clic gauche"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "왼쪽 클릭"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คลิกซ้าย"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3785,12 +4343,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "左鍵點按"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "왼쪽 클릭"
           }
         }
       }
@@ -3817,6 +4369,18 @@
             "value" : "Apparence claire"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "라이트 모드"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สีอ่อน"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3827,12 +4391,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "淺色外觀"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "라이트 모드"
           }
         }
       }
@@ -3859,6 +4417,18 @@
             "value" : "Chargement des éléments de la barre des menus…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목 로드 중…"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กำลังโหลดรายการเมนูบาร์…"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3869,12 +4439,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在載入選單列項目⋯"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목 로드 중…"
           }
         }
       }
@@ -3901,6 +4465,18 @@
             "value" : "Emplacement"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "위치"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตำแหน่ง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3911,12 +4487,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "位置"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "위치"
           }
         }
       }
@@ -3943,6 +4513,18 @@
             "value" : "macOS empêche le déplacement de « %@ »."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS에서 \"%@\"의 이동을 금지합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS ห้ามไม่ให้ \"%@\" ถูกย้าย"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3953,12 +4535,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "macOS 禁止移動「%@」。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "macOS에서 \"%@\"의 이동을 금지합니다."
           }
         }
       }
@@ -3985,6 +4561,18 @@
             "value" : "Libérer de l'espace dans la barre des menus en masquant, si nécessaire, les menus de l'app active. macOS exige que %@ soit visible dans le Dock tant que ce réglage est activé."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "필요한 경우 현재 앱 메뉴를 숨겨 메뉴 막대에 더 많은 공간을 확보합니다. 이 설정이 적용되는 동안 macOS는 %@이(가) Dock에 표시되도록 요구합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เพิ่มพื้นที่ว่างในเมนูบาร์โดยการซ่อนเมนูแอปปัจจุบัน หากไม่พอ ระบบ macOS จะให้ %@ แสดงตัวเองในด็อก ขณะที่การตั้งค่านี้มีผลอยู่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3995,12 +4583,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在需要時隱藏目前的應用程式選單以騰出更多選單列空間。啟用此設定時，macOS 要求 %@ 在 Dock 中保持可見。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "필요한 경우 현재 앱 메뉴를 숨겨 메뉴 막대에 더 많은 공간을 확보합니다. 이 설정이 적용되는 동안 macOS는 %@이(가) Dock에 표시되도록 요구합니다."
           }
         }
       }
@@ -4025,6 +4607,18 @@
             "value" : "max"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "최대"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สูงสุด"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4035,12 +4629,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最大"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "최대"
           }
         }
       }
@@ -4067,6 +4655,18 @@
             "value" : "Apparence"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 모양"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ลักษณะที่ปรากฏของเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4077,12 +4677,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選單列外觀"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 모양"
           }
         }
       }
@@ -4109,6 +4703,18 @@
             "value" : "Cet élément de la barre des menus ne peut pas être déplacé."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목을 이동할 수 없습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รายการเมนูบาร์ไม่สามารถย้ายได้"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4119,12 +4725,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選單列項目無法移動。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목을 이동할 수 없습니다."
           }
         }
       }
@@ -4151,6 +4751,18 @@
             "value" : "Espacement entre les éléments de la barre des menus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목 간격"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ระยะห่างของรายการเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4161,12 +4773,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選單列項目間距"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목 간격"
           }
         }
       }
@@ -4193,6 +4799,18 @@
             "value" : "Éléments de la barre des menus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รายการเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4203,12 +4821,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選單列項目"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목"
           }
         }
       }
@@ -4235,6 +4847,18 @@
             "value" : "Les éléments de la barre des menus sont masqués automatiquement après un délai fixe."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목이 일정 시간 후에 다시 숨겨집니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รายการเมนูบาร์จะทำการซ่อนอีกครั้ง เมื่อผ่านช่วงเวลาหนึ่ง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4245,12 +4869,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選單列項目會在固定時間後重新隱藏。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목이 일정 시간 후에 다시 숨겨집니다."
           }
         }
       }
@@ -4277,6 +4895,18 @@
             "value" : "Les éléments de la barre des menus sont automatiquement masqués à l'aide d'un algorithme intelligent."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스마트 알고리즘을 사용하여 메뉴 막대 항목이 다시 숨겨집니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รายการเมนูบาร์จะทำการซ่อนอีกครั้ง โดยการใช้ smart algorithm"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4287,12 +4917,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選單列項目會透過智慧演算法重新隱藏。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "스마트 알고리즘을 사용하여 메뉴 막대 항목이 다시 숨겨집니다."
           }
         }
       }
@@ -4319,6 +4943,18 @@
             "value" : "Les éléments de la barre des menus sont masqués automatiquement lorsque l'application active change."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "포커스된 앱이 변경되면 메뉴 막대 항목이 다시 숨겨집니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รายการเมนูบาร์จะทำการซ่อนอีกครั้ง เมื่อแอปที่ใช้งานอยู่เปลี่ยนไป"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4329,12 +4965,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "當焦點應用程式變更時，選單列項目會重新隱藏。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "포커스된 앱이 변경되면 메뉴 막대 항목이 다시 숨겨집니다."
           }
         }
       }
@@ -4355,16 +4985,22 @@
             "value" : "Disposition"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "選單列佈局"
-          }
-        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 레이아웃"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เค้าโครงเมนูบาร์"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選單列佈局"
           }
         }
       }
@@ -4389,6 +5025,18 @@
             "value" : "La gestion de la barre des menus nécessite l'autorisation d'enregistrement de l'écran."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 레이아웃에는 화면 기록 권한이 필요합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เค้าโครงเมนูบาร์ต้องการใช้สิทธิ์ในการเข้าถึงการบันทึกหน้าจอ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4399,12 +5047,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選單列佈局需要螢幕錄影權限。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 레이아웃에는 화면 기록 권한이 필요합니다."
           }
         }
       }
@@ -4431,6 +5073,18 @@
             "value" : "Calque de la barre des menus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 오버레이"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การซ้อนทับเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4441,12 +5095,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選單列覆疊"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 오버레이"
           }
         }
       }
@@ -4473,6 +5121,18 @@
             "value" : "Sections de la barre des menus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 섹션"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หมวดหมู่ เมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4483,12 +5143,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選單列區域"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 섹션"
           }
         }
       }
@@ -4515,6 +5169,18 @@
             "value" : "Forme de la barre des menus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 모양"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รูปร่าง เมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4525,12 +5191,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選單列形狀"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 모양"
           }
         }
       }
@@ -4557,6 +5217,18 @@
             "value" : "Pointeur souris"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "마우스 포인터"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตัวชี้เม้าส์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4567,12 +5239,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "滑鼠游標"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "마우스 포인터"
           }
         }
       }
@@ -4599,6 +5265,18 @@
             "value" : "Jamais"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "안 함"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่เคย"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4609,12 +5287,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "從未"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "안 함"
           }
         }
       }
@@ -4641,6 +5313,18 @@
             "value" : "Aucun élément dans cette section"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 섹션에 항목이 없습니다"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่มีรายการใดในหมวดหมู่นี้"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4651,12 +5335,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "此區域中沒有項目"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이 섹션에 항목이 없습니다"
           }
         }
       }
@@ -4683,6 +5361,18 @@
             "value" : "Aucun type de forme sélectionné"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "선택된 모양 종류 없음"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่ได้เลือกประเภทรูปร่าง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4693,12 +5383,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未選擇形狀類型"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "선택된 모양 종류 없음"
           }
         }
       }
@@ -4725,6 +5409,18 @@
             "value" : "aucun"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "없음"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่มี"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4735,12 +5431,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "없음"
           }
         }
       }
@@ -4767,6 +5457,18 @@
             "value" : "Aucune"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "없음"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่มี"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4777,12 +5479,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "없음"
           }
         }
       }
@@ -4809,6 +5505,18 @@
             "value" : "Espace insuffisant pour afficher « %@ »."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"%@\"을(를) 표시할 공간이 부족합니다"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "พื้นที่ไม่เพียงพอสำหรับแสดง \"%@\""
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4819,12 +5527,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "沒有足夠空間顯示「%@」"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "\"%@\"을(를) 표시할 공간이 부족합니다"
           }
         }
       }
@@ -4851,6 +5553,18 @@
             "value" : "Remarque : vous devrez peut-être vous déconnecter, puis vous reconnecter, pour que ce réglage soit appliqué correctement."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "참고: 이 설정을 올바르게 적용하려면 로그아웃 후 다시 로그인해야 할 수 있습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หมายเหตุ: คุณอาจต้องออกจากระบบแล้วเข้าสู่ระบบใหม่อีกครั้งเพื่อให้การตั้งค่านี้มีผลอย่างถูกต้อง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4861,12 +5575,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "注意：您可能需要登出並重新登入才能正確套用此設定。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "참고: 이 설정을 올바르게 적용하려면 로그아웃 후 다시 로그인해야 할 수 있습니다."
           }
         }
       }
@@ -4893,6 +5601,18 @@
             "value" : "OK"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확인"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตกลง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4903,12 +5623,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "好"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "확인"
           }
         }
       }
@@ -4935,6 +5649,18 @@
             "value" : "Ouvrir les réglages de %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 설정 열기"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปิดการตั้งค่า %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4945,12 +5671,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "開啟 %@ 設定"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 설정 열기"
           }
         }
       }
@@ -4977,6 +5697,18 @@
             "value" : "Autres"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기타"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "อื่น ๆ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4987,12 +5719,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "其他"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "기타"
           }
         }
       }
@@ -5019,6 +5745,18 @@
             "value" : "Autorisation accordée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "권한 부여됨"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ได้รับอนุญาตแล้ว"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5029,12 +5767,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "權限已授予"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "권한 부여됨"
           }
         }
       }
@@ -5061,6 +5793,18 @@
             "value" : "Autorisations"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "권한"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สิทธิ์การเข้าถึง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5071,12 +5815,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "權限"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "권한"
           }
         }
       }
@@ -5103,6 +5841,18 @@
             "value" : "Quitter"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "종료"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ออก"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5113,12 +5863,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "結束"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "종료"
           }
         }
       }
@@ -5145,6 +5889,18 @@
             "value" : "Quitter %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 종료"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quit %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5155,12 +5911,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "結束 %@"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 종료"
           }
         }
       }
@@ -5187,6 +5937,18 @@
             "value" : "Enregistrer"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "단축키 기록"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "บันทึกคีย์ลัด"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5197,12 +5959,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "記錄快速鍵"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "단축키 기록"
           }
         }
       }
@@ -5229,6 +5985,18 @@
             "value" : "Signaler un bug"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "버그 신고"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รายงานบัค"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5239,12 +6007,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "回報錯誤"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "버그 신고"
           }
         }
       }
@@ -5271,6 +6033,18 @@
             "value" : "Réinitialiser"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "재설정"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เริ่มใหม่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5281,12 +6055,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "재설정"
           }
         }
       }
@@ -5313,6 +6081,18 @@
             "value" : "Réinitialisation terminée, %lld élément(s) n'ont pas pu être déplacé(s). Vérifiez la barre des menus et réessayez si nécessaire."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld개 항목을 이동할 수 없어 재설정이 완료되었습니다. 메뉴 막대를 확인하고 필요한 경우 다시 시도하세요."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การเริ่มใหม่สร็จสมบูรณ์แล้ว โดยมีรายการที่ไม่สามารถเคลื่อนย้ายได้ %lld รายการ โปรดตรวจสอบแถบเมนูและลองอีกครั้งหากจำต้องการ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5323,12 +6103,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置完成，有 %lld 個項目無法移動。請檢查選單列，如有需要請重試。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld개 항목을 이동할 수 없어 재설정이 완료되었습니다. 메뉴 막대를 확인하고 필요한 경우 다시 시도하세요."
           }
         }
       }
@@ -5355,6 +6129,18 @@
             "value" : "Échec de la réinitialisation : %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "재설정 실패: %@"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การเริ่มใหม่ล้มเหลว: %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5365,12 +6151,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置失敗：%@"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "재설정 실패: %@"
           }
         }
       }
@@ -5397,6 +6177,18 @@
             "value" : "Réinitialiser la disposition"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "레이아웃 재설정"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เริ่มเค้าโครงใหม่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5407,12 +6199,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置佈局"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "레이아웃 재설정"
           }
         }
       }
@@ -5439,6 +6225,18 @@
             "value" : "Réinitialiser l'apparence de la barre des menus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 모양 재설정"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เริ่มลักษณะการแสดงผลเมนูบาร์ใหม่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5449,12 +6247,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置選單列外觀"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 모양 재설정"
           }
         }
       }
@@ -5481,6 +6273,18 @@
             "value" : "Réinitialiser la disposition de la barre des menus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 레이아웃 재설정"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เริ่มเค้าโครงเมนูบาร์ใหม่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5491,12 +6295,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置選單列佈局"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 레이아웃 재설정"
           }
         }
       }
@@ -5523,6 +6321,18 @@
             "value" : "Réinitialiser la disposition de la barre des menus ?"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 레이아웃을 재설정할까요?"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เริ่มเค้าโครงเมนูบาร์ใหม่?"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5533,12 +6343,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置選單列佈局？"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 레이아웃을 재설정할까요?"
           }
         }
       }
@@ -5565,6 +6369,18 @@
             "value" : "Rétablir l'espacement par défaut"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기본 간격으로 재설정"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตั้งค่าระยะห่างเริ่มต้นใหม่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5575,12 +6391,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置為預設間距"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "기본 간격으로 재설정"
           }
         }
       }
@@ -5607,6 +6417,18 @@
             "value" : "Réinitialise les séparateurs et déplace tous les éléments déplaçables, à l'exception de l'icône %@, vers les éléments masqués, comme lors d'une nouvelle installation."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "구분선을 재설정하고 %@ 아이콘을 제외한 모든 이동 가능한 항목을 숨김으로 이동합니다 — 새로 설치한 것처럼."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เริ่มต้นตัวแบ่งและย้ายรายการที่สามารถย้ายได้ทั้งหมด ยกเว้นไอคอน %@ ไปยังส่วนที่ซ่อนอยู่ - เสมือนการติดตั้งใหม่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5617,12 +6439,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置分隔線並將除 %@ 圖示外的所有可移動項目移至隱藏區域，就像全新安裝一樣。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "구분선을 재설정하고 %@ 아이콘을 제외한 모든 이동 가능한 항목을 숨김으로 이동합니다 — 새로 설치한 것처럼."
           }
         }
       }
@@ -5647,6 +6463,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Restaure les séparateurs par défaut et déplace tous les éléments déplaçables, à l'exception de l'icône %@, vers les éléments masqués. À utiliser si la disposition semble incorrecte ou si certains éléments ne se chargent pas."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คืนค่าเริ่มต้นของตัวแบ่งและย้ายรายการที่สามารถย้ายได้ทั้งหมด ยกเว้นไอคอน %@ ไปยังส่วนที่ซ่อนอยู่ ใช้สิ่งนี้หากเค้าโครงดูเหมือนจะเสียหายหรือรายการไม่โหลด"
           }
         },
         "zh-Hans" : {
@@ -5685,6 +6507,18 @@
             "value" : "clic droit"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오른쪽 클릭"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คลิกขวา"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5695,12 +6529,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "右鍵點按"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "오른쪽 클릭"
           }
         }
       }
@@ -5727,6 +6555,18 @@
             "value" : "Cliquez avec le bouton droit dans une zone vide de la barre des menus pour afficher une mini-version du menu de %@. Désactivez ce réglage si vous rencontrez des conflits avec d'autres apps."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대의 빈 영역을 오른쪽 클릭하여 %@의 간소화된 메뉴를 표시합니다. 다른 앱과 충돌이 발생하면 이 설정을 비활성화하세요."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คลิกขวาในพื้นที่ว่างของเมนูบาร์เพื่อแสดงเมนูรุ่นขั้นต่ำของ %@ ควรปิดใช้งานการตั้งค่านี้ หากคุณพบความขัดแย้งกับแอปอื่น"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5737,12 +6577,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在選單列的空白區域右鍵點按以顯示 %@ 選單的精簡版本。如果與其他應用程式發生衝突，請停用此設定。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대의 빈 영역을 오른쪽 클릭하여 %@의 간소화된 메뉴를 표시합니다. 다른 앱과 충돌이 발생하면 이 설정을 비활성화하세요."
           }
         }
       }
@@ -5769,6 +6603,18 @@
             "value" : "Extrémité arrondie"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "둥근 캡"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตัวปลายโค้ง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5779,12 +6625,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "圓角端蓋"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "둥근 캡"
           }
         }
       }
@@ -5811,6 +6651,18 @@
             "value" : "Enregistrement de l'écran"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "화면 기록"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การบันทึกหน้าจอ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5821,12 +6673,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "螢幕錄影"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "화면 기록"
           }
         }
       }
@@ -5853,6 +6699,18 @@
             "value" : "Faites défiler ou balayez la souris dans la barre des menus pour afficher les éléments masqués."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대에서 스크롤하거나 스와이프하여 숨겨진 메뉴 막대 항목을 표시합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เลื่อนหรือปัดในเมนูบาร์เพื่อแสดงรายการเมนูบาร์ที่ซ่อนอยู่"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5863,12 +6721,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在選單列中捲動或滑動以顯示隱藏的選單列項目。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대에서 스크롤하거나 스와이프하여 숨겨진 메뉴 막대 항목을 표시합니다."
           }
         }
       }
@@ -5895,6 +6747,18 @@
             "value" : "Rechercher parmi les éléments de la barre des menus."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목 검색"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ค้นหารายการเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5905,12 +6769,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "搜尋選單列項目"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목 검색"
           }
         }
       }
@@ -5937,6 +6795,18 @@
             "value" : "Rechercher parmi les éléments de la barre des menus."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목 검색"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ค้นหารายการเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5947,12 +6817,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "搜尋選單列項目"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목 검색"
           }
         }
       }
@@ -5979,6 +6843,18 @@
             "value" : "Rechercher des éléments de la barre des menus…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목 검색…"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ค้นหารายการเมนูบาร์…"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5989,12 +6865,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "搜尋選單列項目⋯"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목 검색…"
           }
         }
       }
@@ -6021,6 +6891,18 @@
             "value" : "Style du séparateur de sections"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "섹션 구분선 스타일"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ลักษณะตัวแบ่งส่วน"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6031,12 +6913,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "區域分隔線樣式"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "섹션 구분선 스타일"
           }
         }
       }
@@ -6063,6 +6939,18 @@
             "value" : "Ombre"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "그림자"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เงา"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6073,12 +6961,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "陰影"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "그림자"
           }
         }
       }
@@ -6105,6 +6987,18 @@
             "value" : "Forme"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모양 종류"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ประเภทรูปร่าง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6115,12 +7009,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "形狀類型"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "모양 종류"
           }
         }
       }
@@ -6147,6 +7035,18 @@
             "value" : "%@ doit-il rechercher automatiquement les mises à jour ? Vous pouvez toujours effectuer une recherche manuelle depuis l'icône Thaw dans la barre des menus ou depuis Réglages → À propos."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@이(가) 자동으로 업데이트를 확인할까요? Thaw 메뉴 막대 아이콘 또는 설정 → 정보에서 언제든지 수동으로 확인할 수 있습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ควร %@ ตรวจสอบการอัปเดตโดยอัตโนมัติหรือไม่ คุณสามารถตรวจสอบด้วยตนเองได้จากไอคอนเมนูบาร์ Thaw หรือ การตั้งค่า → เกี่ยวกับ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6157,12 +7057,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 是否應自動檢查更新？您可以隨時透過 Thaw 選單列圖示或「設定」→「關於」手動檢查。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@이(가) 자동으로 업데이트를 확인할까요? Thaw 메뉴 막대 아이콘 또는 설정 → 정보에서 언제든지 수동으로 확인할 수 있습니다."
           }
         }
       }
@@ -6189,6 +7083,18 @@
             "value" : "Afficher l'icône %@ dans la barre des menus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 아이콘 표시"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดงไอคอน %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6199,12 +7105,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "顯示 %@ 圖示"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 아이콘 표시"
           }
         }
       }
@@ -6231,6 +7131,18 @@
             "value" : "Afficher toutes les sections lorsque des éléments de la barre des menus sont déplacé avec « ⌘ Command »"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⌘ Command + 드래그로 메뉴 막대 항목 이동 시 모든 섹션 표시"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดงทุกส่วนเมื่อ ⌘ Command + ลากรายการเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6241,12 +7153,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用 ⌘ Command + 拖移選單列項目時顯示所有區域"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⌘ Command + 드래그로 메뉴 막대 항목 이동 시 모든 섹션 표시"
           }
         }
       }
@@ -6273,6 +7179,18 @@
             "value" : "Afficher la section cachée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "항상 숨김 섹션 표시"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดง “หมวดหมู่ที่ซ่อนอยู่เสมอ”"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6283,12 +7201,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "顯示永久隱藏區域"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "항상 숨김 섹션 표시"
           }
         }
       }
@@ -6315,6 +7227,18 @@
             "value" : "Afficher les éléments masqués de la barre des menus dans une barre distincte située en dessous."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 아래의 별도 바에 숨겨진 메뉴 막대 항목을 표시합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดงรายการเมนูบาร์ที่ซ่อนอยู่ในแถบแยกต่างหาก ตรงด้านล่างเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6325,12 +7249,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在選單列下方的獨立列中顯示隱藏的選單列項目。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 아래의 별도 바에 숨겨진 메뉴 막대 항목을 표시합니다."
           }
         }
       }
@@ -6357,6 +7275,18 @@
             "value" : "Afficher la section masquée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "숨김 섹션 표시"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดง “หมวดหมู่ที่ซ่อนอยู่”"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6367,12 +7297,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "顯示已隱藏區域"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "숨김 섹션 표시"
           }
         }
       }
@@ -6397,6 +7321,18 @@
             "value" : "Afficher l'élément"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "항목 표시"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดงรายการ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6407,12 +7343,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "顯示項目"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "항목 표시"
           }
         }
       }
@@ -6439,6 +7369,18 @@
             "value" : "Afficher les rapports dans le Finder"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finder에서 로그 파일 표시"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดงไฟล์บันทึกใน Finder"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6449,12 +7391,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在 Finder 中顯示記錄檔"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Finder에서 로그 파일 표시"
           }
         }
       }
@@ -6481,6 +7417,18 @@
             "value" : "Afficher en cliquant"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "클릭 시 표시"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดงเมื่อคลิก"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6491,12 +7439,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "點按時顯示"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "클릭 시 표시"
           }
         }
       }
@@ -6523,6 +7465,18 @@
             "value" : "Afficher en survolant"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "마우스 오버 시 표시"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดงเมื่อเลื่อนเมาส์ทับซ้อน"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6533,12 +7487,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "懸停時顯示"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "마우스 오버 시 표시"
           }
         }
       }
@@ -6565,6 +7513,18 @@
             "value" : "Temps avant affichage au survol"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "마우스 오버 표시 지연"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หน่วงเวลาแสดงเมื่อเลื่อนเมาส์ทับซ้อน"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6575,12 +7535,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "懸停顯示延遲"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "마우스 오버 표시 지연"
           }
         }
       }
@@ -6607,6 +7561,18 @@
             "value" : "Afficher en défilant"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스크롤 시 표시"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แสดงเมื่อทำการเลื่อน"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6617,12 +7583,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "捲動時顯示"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "스크롤 시 표시"
           }
         }
       }
@@ -6649,6 +7609,18 @@
             "value" : "Intelligent"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스마트"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smart"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6659,12 +7631,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "智慧"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "스마트"
           }
         }
       }
@@ -6691,6 +7657,18 @@
             "value" : "Opaque"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "단색"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ทึบ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6701,12 +7679,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "純色"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "단색"
           }
         }
       }
@@ -6731,6 +7703,18 @@
             "value" : "Segmentée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "분할"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แบ่ง"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6741,12 +7725,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "分段"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "분할"
           }
         }
       }
@@ -6773,6 +7751,18 @@
             "value" : "Extrémité plate"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사각 캡"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตัวปลายสี่เหลี่ยม"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6783,12 +7773,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "方角端蓋"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "사각 캡"
           }
         }
       }
@@ -6815,6 +7799,18 @@
             "value" : "Stable"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "안정"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เสถียร"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6825,12 +7821,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "穩定版"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "안정"
           }
         }
       }
@@ -6857,6 +7847,18 @@
             "value" : "Mode"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "전략"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กลยุทธ์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6867,12 +7869,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "策略"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "전략"
           }
         }
       }
@@ -6899,6 +7895,18 @@
             "value" : "Réglages de %lld importés avec succès !"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld개 설정을 성공적으로 가져왔습니다!"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "นำเข้าการตั้งค่า %lld รายการได้สำเร็จ!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6909,12 +7917,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已成功匯入 %lld 項設定！"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld개 설정을 성공적으로 가져왔습니다!"
           }
         }
       }
@@ -6941,6 +7943,18 @@
             "value" : "Soutenir %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 지원하기"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สนับสนุน %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6951,12 +7965,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "支持 %@"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 지원하기"
           }
         }
       }
@@ -6983,6 +7991,18 @@
             "value" : "Durée d’affichage des éléments temporaires"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "임시 표시 항목 지연"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หน่วงการแสดงของรายการชั่วคราว"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6993,12 +8013,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "暫時顯示項目延遲"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "임시 표시 항목 지연"
           }
         }
       }
@@ -7025,6 +8039,18 @@
             "value" : "La « %1$@ Bar » est centrée sous l'icône %2$@."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ 바가 %2$@ 아이콘 아래 중앙에 위치합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ บาร์อยู่ตรงกลางด้านล่างไอคอน %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7035,12 +8061,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ 列會置中顯示在 %2$@ 圖示下方。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ 바가 %2$@ 아이콘 아래 중앙에 위치합니다."
           }
         }
       }
@@ -7067,6 +8087,18 @@
             "value" : "La « %@ Bar » est centrée sous le pointeur de la souris."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 바가 마우스 포인터 아래 중앙에 위치합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ บาร์อยู่ตรงกลางด้านล่างตัวชี้เมาส์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7077,12 +8109,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ 列會置中顯示在滑鼠游標下方。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 바가 마우스 포인터 아래 중앙에 위치합니다."
           }
         }
       }
@@ -7109,6 +8135,18 @@
             "value" : "La « %@ Bar » nécessite l'autorisation « enregistrement de l'écran »."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 바에는 화면 기록 권한이 필요합니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Bar ต้องใช้สิทธิ์ในการบันทึกหน้าจอ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7119,12 +8157,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ 列需要螢幕錄影權限。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 바에는 화면 기록 권한이 필요합니다."
           }
         }
       }
@@ -7151,6 +8183,18 @@
             "value" : "L'emplacement de la « %@ Bar » varie selon le contexte."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 바의 위치가 상황에 따라 변경됩니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตำแหน่งของ %@ บาร์ดเปลี่ยนแปลงตามบริบท"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7161,12 +8205,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ 列的位置會根據情境動態調整。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 바의 위치가 상황에 따라 변경됩니다."
           }
         }
       }
@@ -7193,6 +8231,18 @@
             "value" : "Durée avant le masquage des éléments affichés temporairement."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "임시로 표시된 메뉴 막대 항목을 숨기기 전에 대기할 시간입니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ระยะเวลาที่ต้องรอ ก่อนซ่อนรายการเมนูบาร์ที่แสดงชั่วคราว"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7203,12 +8253,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在隱藏暫時顯示的選單列項目之前等待的時間。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "임시로 표시된 메뉴 막대 항목을 숨기기 전에 대기할 시간입니다."
           }
         }
       }
@@ -7235,6 +8279,18 @@
             "value" : "Délai d’attente avant affichage suite au survol de la souris. "
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "마우스 오버 시 표시하기 전에 대기할 시간입니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ระยะเวลาที่ต้องรอ ก่อนแสดงเมื่อเลื่อนเมาส์ทับซ้อน"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7245,12 +8301,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "懸停後顯示前的等待時間。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "마우스 오버 시 표시하기 전에 대기할 시간입니다."
           }
         }
       }
@@ -7277,6 +8327,18 @@
             "value" : "Cette action est irréversible."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 작업은 실행 취소할 수 없습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่สามารถยกเลิกการดำเนินการนี้ได้"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7287,12 +8349,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "此操作無法復原。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이 작업은 실행 취소할 수 없습니다."
           }
         }
       }
@@ -7319,6 +8375,18 @@
             "value" : "Délai"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시간 기반"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กำหนดเวลา"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7329,12 +8397,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "定時"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "시간 기반"
           }
         }
       }
@@ -7361,6 +8423,18 @@
             "value" : "Teinte"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "색조"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เฉดสี"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7371,12 +8445,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "色調"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "색조"
           }
         }
       }
@@ -7403,6 +8471,18 @@
             "value" : "Astuce : vous pouvez aussi modifier ces réglages en faisant un clic droit dans une zone vide de la barre des menus."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "팁: 메뉴 막대의 빈 영역을 오른쪽 클릭하여 이 설정을 편집할 수도 있습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เคล็ดลับ: คุณสามารถแก้ไขการตั้งค่านี้ได้โดยคลิกขวาในพื้นที่ว่างของเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7413,12 +8493,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "提示：您也可以在選單列的空白區域右鍵點按來編輯這些設定。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "팁: 메뉴 막대의 빈 영역을 오른쪽 클릭하여 이 설정을 편집할 수도 있습니다."
           }
         }
       }
@@ -7445,6 +8519,18 @@
             "value" : "Afficher / masquer les menus des applications"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 메뉴 전환"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สลับเมนูแอปพลิเคชัน"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7455,12 +8541,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "切換應用程式選單"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "앱 메뉴 전환"
           }
         }
       }
@@ -7487,6 +8567,18 @@
             "value" : "Afficher / masquer la section cachée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "항상 숨김 섹션 전환"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สลับ “หมวดหมู่ที่ซ่อนอยู่เสมอ”"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7497,12 +8589,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "切換永久隱藏區域"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "항상 숨김 섹션 전환"
           }
         }
       }
@@ -7529,6 +8615,18 @@
             "value" : "Afficher / masquer la section masquée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "숨김 섹션 전환"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สลับ “หมวดหมู่ที่ซ่อนอยู่”"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7539,12 +8637,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "切換隱藏區域"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "숨김 섹션 전환"
           }
         }
       }
@@ -7571,6 +8663,18 @@
             "value" : "Extrémité de fin"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오른쪽 끝 캡"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตัวปลายตามท้าย"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7581,12 +8685,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "右側端蓋"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "오른쪽 끝 캡"
           }
         }
       }
@@ -7613,6 +8711,18 @@
             "value" : "Veuillez taper"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "단축키 입력"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "พิมพ์คีย์ลัด"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7623,12 +8733,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "輸入快速鍵"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "단축키 입력"
           }
         }
       }
@@ -7655,6 +8759,18 @@
             "value" : "Impossible d'afficher les éléments de la barre des menus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목을 표시할 수 없습니다"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่สามารถแสดงรายการเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7665,12 +8781,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無法顯示選單列項目"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목을 표시할 수 없습니다"
           }
         }
       }
@@ -7697,6 +8807,18 @@
             "value" : "Impossible de charger les éléments de la barre des menus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대 항목을 로드할 수 없습니다"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่สามารถโหลดรายการเมนูบาร์"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7707,12 +8829,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無法載入選單列項目"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메뉴 막대 항목을 로드할 수 없습니다"
           }
         }
       }
@@ -7739,6 +8855,18 @@
             "value" : "Canal de mise à jour"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트 채널"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ช่องทางการอัปเดต"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7749,12 +8877,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "更新頻道"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "업데이트 채널"
           }
         }
       }
@@ -7781,6 +8903,18 @@
             "value" : "Utiliser la « %@ Bar »"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 바 사용"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ใช้บาร์ %@ "
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7791,12 +8925,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用 %@ 列"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 바 사용"
           }
         }
       }
@@ -7823,6 +8951,18 @@
             "value" : "Apparence dynamique selon le mode"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "동적 모양 사용"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ใช้ลักษณะที่ปรากฏแบบไดนามิก"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7833,12 +8973,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用動態外觀"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "동적 모양 사용"
           }
         }
       }
@@ -7865,6 +8999,18 @@
             "value" : "Utiliser une forme adaptée à l'encoche sur les écrans qui en ont une"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "노치가 있는 화면에서 인셋 모양 사용"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ใช้รูปร่างแบบเยื้องบนหน้าจอที่มีรอยหัวโขว"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7875,12 +9021,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在有瀏海的螢幕上使用內縮形狀"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "노치가 있는 화면에서 인셋 모양 사용"
           }
         }
       }
@@ -7907,6 +9047,18 @@
             "value" : "Version %1$@ (%2$@)"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "버전 %1$@ (%2$@)"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เวอร์ชั่น %@ (%@) "
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7917,12 +9069,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "版本 %1$@ (%2$@)"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "버전 %1$@ (%2$@)"
           }
         }
       }
@@ -7949,6 +9095,18 @@
             "value" : "La version %@ (%@) est désormais disponible"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "버전 %1$@ (%2$@)을(를) 사용할 수 있습니다"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เวอร์ชั่น %@ (%@) พร้อมใช้งานแล้ว"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7959,12 +9117,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "版本 %1$@ (%2$@) 現已推出"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "버전 %1$@ (%2$@)을(를) 사용할 수 있습니다"
           }
         }
       }
@@ -7989,6 +9141,18 @@
             "value" : "Des réglages provenant d'Ice (l'application d'origine) ont été détectés."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ice(원본 앱)의 설정을 찾았습니다."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เราพบการตั้งค่าจากแอป Ice (แอปต้นฉบับ)"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7999,12 +9163,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "我們發現了來自 Ice（原始應用程式）的設定。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ice(원본 앱)의 설정을 찾았습니다."
           }
         }
       }
@@ -8031,6 +9189,18 @@
             "value" : "Souhaitez-vous importer votre configuration existante ?"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기존 구성을 가져오시겠습니까?"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คุณต้องการนำเข้าการตั้งค่าที่มีอยู่แล้วหรือไม่?"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8041,12 +9211,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "是否要匯入您現有的設定？"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "기존 구성을 가져오시겠습니까?"
           }
         }
       }
@@ -8073,6 +9237,18 @@
             "value" : "Crée un rapport de débogage détaillé pour faciliter le dépannage. Les rapports sont enregistrés dans ~/Library/Logs/Thaw/. Désactivez cette option lorsqu'elle n'est pas nécessaire afin d'éviter des écritures disque inutiles."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문제 해결을 위해 자세한 디버그 로그를 파일에 기록합니다. 로그 파일은 ~/Library/Logs/Thaw/에 저장됩니다. 불필요한 디스크 쓰기를 방지하려면 필요하지 않을 때 비활성화하세요."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "บันทึกข้อมูลการแก้ไขข้อผิดพลาดอย่างละเอียดลงในไฟล์เพื่อใช้ในการแก้ไขปัญหา ไฟล์บันทึกจะถูกบันทึกไว้ที่ ~/Library/Logs/Thaw/. ให้ปิดใช้งานในส่วนนี้เมื่อไม่จำเป็น เพื่อหลีกเลี่ยงการเขียนข้อมูลลงดิสก์โดยไม่จำเป็น"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8083,12 +9259,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "將詳細的除錯記錄寫入檔案以進行疑難排解。記錄檔儲存於 ~/Library/Logs/Thaw/。不需要時請停用，以避免不必要的磁碟寫入。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "문제 해결을 위해 자세한 디버그 로그를 파일에 기록합니다. 로그 파일은 ~/Library/Logs/Thaw/에 저장됩니다. 불필요한 디스크 쓰기를 방지하려면 필요하지 않을 때 비활성화하세요."
           }
         }
       }
