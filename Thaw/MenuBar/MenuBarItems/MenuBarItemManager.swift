@@ -2275,10 +2275,9 @@ extension MenuBarItemManager {
         let hiddenBounds = bestBounds(for: controlItems.hidden)
         let leftmostItems = items
             .filter {
-                // Must be left of hidden divider, movable, hideable, non-control, and on-screen.
+                // Must be left of hidden divider, movable, non-control.
                 $0.bounds.maxX <= hiddenBounds.minX &&
                     $0.isMovable &&
-                    $0.canBeHidden &&
                     !$0.isControlItem
             }
             .sorted { $0.bounds.minX < $1.bounds.minX }
@@ -2287,9 +2286,27 @@ extension MenuBarItemManager {
             return false
         }
 
-        // Identify a candidate that is new (windowID or tag/namespace) and not already placed/pinned in hidden areas.
+        // Non-hideable system items (screen recording, mic, camera indicators)
+        // must always appear in the visible section. If macOS placed one to the
+        // left of our hidden control item, move it back immediately — no
+        // newness check needed since these items should never be in a hidden
+        // section.
+        if let systemItem = leftmostItems.first(where: { !$0.canBeHidden }) {
+            diagLog.info("Relocating non-hideable system item \(systemItem.logString) to visible section")
+            do {
+                try await move(item: systemItem, to: .rightOfItem(controlItems.hidden))
+            } catch {
+                diagLog.error("Failed to relocate system item \(systemItem.logString): \(error)")
+                return false
+            }
+            return true
+        }
+
+        // For hideable items, identify a candidate that is new (windowID or
+        // tag/namespace) and not already placed/pinned in hidden areas.
+        let hideableLeftmost = leftmostItems.filter { $0.canBeHidden }
         let previousIDs = Set(previousWindowIDs)
-        let candidate = leftmostItems.first { item in
+        let candidate = hideableLeftmost.first { item in
             let identifier = "\(item.tag.namespace):\(item.tag.title)"
             let isNewIdentity = !knownItemIdentifiers.contains(identifier)
             let isNewID = previousIDs.isEmpty ? isNewIdentity : !previousIDs.contains(item.windowID)
