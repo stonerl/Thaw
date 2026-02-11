@@ -68,7 +68,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ %@ 區域"
+            "value" : "%1$@ %2$@ 區域"
           }
         }
       }
@@ -272,7 +272,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ 沒有回應。在重新啟動之前無法移動。其他選單列項目的移動也可能受到影響，直到問題解決為止。"
+            "value" : "%@ 沒有回應。在重新啟動之前，它無法被移動。其他選單列項目的移動也可能受到影響，直到問題解決為止。"
           }
         }
       }
@@ -1200,7 +1200,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "變更選單列的外觀。"
+            "value" : "更改選單列的外觀。"
           }
         }
       }
@@ -1368,7 +1368,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "除錯模式不支援檢查更新。"
+            "value" : "除錯模式下不支援檢查更新。"
           }
         }
       }
@@ -1888,7 +1888,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示各個選單列項目的圖片。"
+            "value" : "顯示個別選單列項目的圖像。"
           }
         }
       }
@@ -2062,7 +2062,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "由於先前版本的錯誤，%@ 的選單列區域資料已損毀，必須重置。"
+            "value" : "由於舊版本的錯誤，%@ 的選單列區域資料已損毀，必須重置。"
           }
         }
       }
@@ -3338,7 +3338,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "此選單列項目無法移動。"
+            "value" : "選單列項目無法移動。"
           }
         }
       }
@@ -3594,7 +3594,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "選單列覆疊"
+            "value" : "選單列覆蓋層"
           }
         }
       }
@@ -3906,7 +3906,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "空間不足，無法顯示「%@」"
+            "value" : "沒有足夠空間顯示「%@」"
           }
         }
       }
@@ -6566,7 +6566,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "版本 %1$@ (%2$@) 現已可用"
+            "value" : "版本 %1$@ (%2$@) 現已推出"
           }
         }
       }
@@ -6666,7 +6666,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "將詳細的除錯記錄寫入檔案以供疑難排解。記錄檔儲存於 ~/Library/Logs/Thaw/。不需要時請停用，以避免不必要的磁碟寫入。"
+            "value" : "將詳細的除錯記錄寫入檔案以進行疑難排解。記錄檔儲存於 ~/Library/Logs/Thaw/。不需要時請停用，以避免不必要的磁碟寫入。"
           }
         }
       }
