@@ -1146,7 +1146,7 @@
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selalu-Sembunyi"
+            "value" : "Selalu-Tersembunyi"
           }
         },
         "th" : {
@@ -1983,6 +1983,12 @@
             "value" : "Modifier l'apparence de la barre des menus."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rubah tampilan menu bar."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2029,6 +2035,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher automatiquement"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Periksa secara otomatis"
           }
         },
         "ko" : {
@@ -2079,6 +2091,12 @@
             "value" : "Rechercher des mises à jour"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Periksa pembaruan"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2125,6 +2143,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher automatiquement les mises à jour ?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Periksa pembaruan secara otomatis?"
           }
         },
         "ko" : {
@@ -2175,6 +2199,12 @@
             "value" : "Rechercher des mises à jour…"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Periksa pembaruan…"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2223,6 +2253,12 @@
             "value" : "La recherche de mises à jour n'est pas prise en charge en mode débogage."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Periksa pembaruan tidak dapat dilakukan di mode debug."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2266,6 +2302,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chevron"
+          }
+        },
+        "id" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chevron"
@@ -2319,6 +2361,12 @@
             "value" : "Choisir l’icône à afficher dans la barre des menus."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pilih ikon kustom di bar menu."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2365,6 +2413,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choisir une image…"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pilih gambar…"
           }
         },
         "ko" : {
@@ -2415,6 +2469,12 @@
             "value" : "Cliquez dans une zone vide de la barre des menus pour afficher les éléments masqués."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik area kosong di bar menu untuk menampilkan item yang tersembunyi."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2461,6 +2521,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cliquer sur l'élément"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik item"
           }
         },
         "ko" : {
@@ -2511,6 +2577,12 @@
             "value" : "Cliquez sur l’icône pour afficher la section masquée ou double-cliquez pour afficher la section cachée. Cliquez avec le bouton droit pour accéder aux réglages de %@."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik untuk menampilkan item yang tersembunyi. Klik dua kali untuk menampilkan item yang selalu-tersembunyi. Klik kanan untuk pengaturan %@."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2557,6 +2629,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuer"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lanjutkan"
           }
         },
         "ko" : {
@@ -2607,6 +2685,12 @@
             "value" : "Continuer en mode limité"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lanjutkan di mode terbatas"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2655,6 +2739,12 @@
             "value" : "Contribuer"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontribusi"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2689,6 +2779,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Personnalisé"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kustom"
           }
         },
         "th" : {
@@ -2731,6 +2827,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apparence dynamique pour l’icône personnalisée"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ikon kustom mengikuti tampilan otomatis"
           }
         },
         "ko" : {
@@ -2781,6 +2883,12 @@
             "value" : "Apparence sombre"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tampilan gelap"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2827,6 +2935,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "par défaut"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bawaan"
           }
         },
         "ko" : {
@@ -2877,6 +2991,12 @@
             "value" : "Développement"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pengembangan"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2923,6 +3043,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Diagnostiques"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostik"
           }
         },
         "ko" : {
@@ -2973,6 +3099,12 @@
             "value" : "Afficher les images des éléments individuels de la barre des menus."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tampilkan gambar untuk setiap item bar menu."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3019,6 +3151,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher l'icône sous forme monochrome et l'adapter dynamiquement à l'apparence de la barre des menus. Ce réglage supprime les couleurs de l'icône, mais garantit un rendu cohérent sur les arrière-plans clairs et foncés."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tampilkan ikon sebagai gambar monokrom yang menyesuaikan dengan tampilan bar menu. Pengaturan ini akan menghapus semua warna dari ikon untuk memastikan tampilan tetap konsisten pada latar belakang terang dan gelap."
           }
         },
         "ko" : {
@@ -3069,6 +3207,12 @@
             "value" : "Ne pas vérifier"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jangan periksa"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3117,6 +3261,12 @@
             "value" : "Fait"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutup"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3153,6 +3303,12 @@
             "value" : "Porte"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pintu"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3181,6 +3337,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Puce"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titik"
           }
         },
         "th" : {
