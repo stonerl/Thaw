@@ -6557,6 +6557,12 @@
             "value" : "Espace insuffisant pour afficher « %@ »."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak ada cukup ruang untuk menampilkan \"%@\"."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6605,6 +6611,12 @@
             "value" : "Remarque : vous devrez peut-être vous déconnecter, puis vous reconnecter, pour que ce réglage soit appliqué correctement."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Catatan: Anda mungkin perlu keluar lalu masuk kembali agar pengaturan ini berlaku dengan benar."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6648,6 +6660,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "id" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -6701,6 +6719,12 @@
             "value" : "Ouvrir les réglages de %@"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka Pengaturan %@"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6747,6 +6771,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autres"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lainnya"
           }
         },
         "ko" : {
@@ -6797,6 +6827,12 @@
             "value" : "Autorisation accordée"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izin Diberikan"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6843,6 +6879,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autorisations"
+          }
+        },
+       "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perizinan"
           }
         },
         "ko" : {
@@ -6893,6 +6935,12 @@
             "value" : "Quitter"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keluar"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6941,6 +6989,12 @@
             "value" : "Quitter %@"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keluar %@"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6987,6 +7041,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enregistrer"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rekam Pintasan"
           }
         },
         "ko" : {
