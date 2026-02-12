@@ -80,7 +80,7 @@
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bagan %1$@ %2$@"
+            "value" : "Bagian %1$@ %2$@"
           }
         },
         "ko" : {
@@ -3435,6 +3435,12 @@
             "value" : "En raison d'un bug dans une version précédente de l'app, les données des sections de la barre des menus de %@ ont été corrompues et ont dû être réinitialisées."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karena bug di versi aplikasi sebelumnya, data bar menu %@ rusak dan harus diatur ulang."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3481,6 +3487,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dynamique"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otomatis"
           }
         },
         "ko" : {
@@ -3531,6 +3543,12 @@
             "value" : "Modifier l'apparence de la barre des menus…"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ubah Tampilan Bar Menu…"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3565,6 +3583,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ellipse"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elipsis"
           }
         },
         "th" : {
@@ -3607,6 +3631,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activer la création de rapports de diagnostic"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktifkan pencatatan diagnostik"
           }
         },
         "ko" : {
@@ -3657,6 +3687,12 @@
             "value" : "Activer le menu contextuel secondaire"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktifkan menu konteks sekunder"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3703,6 +3739,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activer la « %@ Bar »"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktifkan bar %@"
           }
         },
         "ko" : {
@@ -3753,6 +3795,12 @@
             "value" : "Activer la section cachée"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktifkan bagian yang selalu-tersembunyi"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3799,6 +3847,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ERREUR"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "KESALAHAN"
           }
         },
         "ko" : {
@@ -3849,6 +3903,12 @@
             "value" : "Focus"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fokus"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3895,6 +3955,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pleine largeur"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Penuh"
           }
         },
         "ko" : {
@@ -3945,6 +4011,12 @@
             "value" : "Général"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umum"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3991,6 +4063,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obtenir les informations de la barre des menus en temps réel."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dapatkan informasi waktu nyata pada bar menu."
           }
         },
         "ko" : {
@@ -4041,6 +4119,12 @@
             "value" : "Accéder aux réglages avancés"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka Pengaturan Lanjutan"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4087,6 +4171,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dégradée"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gradiasi"
           }
         },
         "ko" : {
@@ -4137,6 +4227,12 @@
             "value" : "Autoriser"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izinkan"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4171,6 +4267,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masqué"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tersembunyi"
           }
         },
         "th" : {
@@ -4213,6 +4315,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masquer la section cachée"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sembunyikan Bagian Selalu-Tersembunyi"
           }
         },
         "ko" : {
@@ -4263,6 +4371,12 @@
             "value" : "Masquer les menus des apps lors de l'affichage des éléments de la barre des menus"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sembunyikan menu aplikasi saat menampilkan item bar menu"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4309,6 +4423,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masquer la section masquée"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sembunyikan Bagian Tersembunyi"
           }
         },
         "ko" : {
@@ -4359,6 +4479,12 @@
             "value" : "Maintenir pour prévisualiser"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tahan untuk Pratinjau"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4405,6 +4531,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ce raccourci clavier est affecté à macOS"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pintasan ini sudah digunakan oleh macOS"
           }
         },
         "ko" : {
@@ -4455,6 +4587,12 @@
             "value" : "Raccourcis clavier"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pintasan"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4501,6 +4639,12 @@
             "value" : "Survolez une zone vide de la barre des menus pour afficher les éléments masqués."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arahkan kursor ke area kosong bar menu untuk menampilkan item menu bar yang tersembunyi."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4535,6 +4679,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cube"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es Batu"
           }
         },
         "th" : {
@@ -4577,6 +4727,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les positions des icônes ne peuvent pas être restaurées."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posisi ikon tidak dapat dipulihkan."
           }
         },
         "ko" : {
@@ -4627,6 +4783,12 @@
             "value" : "Échec de l'importation. Vous pouvez configurer les réglages manuellement."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proses impor gagal. Silahkan atur pengaturan secara manual."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4673,6 +4835,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Importer les réglages"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impor Pengaturan"
           }
         },
         "ko" : {
@@ -4723,6 +4891,12 @@
             "value" : "Importé"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diimpor"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4767,6 +4941,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous pouvez aussi maintenir la touche « ⌘ Command » enfoncée en les faisant glisser directement dans la barre des menus."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item juga dapat diatur dengan menahan tombol ⌘ Command lalu menyeretnya di bar menu."
           }
         },
         "ko" : {
@@ -4817,6 +4997,12 @@
             "value" : "Dernière vérification : %@"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terakhir diperiksa: %@"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4865,6 +5051,12 @@
             "value" : "Ouvrir avec la session"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka saat login"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4909,6 +5101,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Disposition réinitialisée. Les éléments ont été déplacés vers la section masquée."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tata Letak diatur ulang. Item dipindahkan ke Bagian Tersembunyi."
           }
         },
         "ko" : {
@@ -4959,6 +5157,12 @@
             "value" : "Extrémité de début"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ujung Awal"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5005,6 +5209,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "clic gauche"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "klik kiri"
           }
         },
         "ko" : {
@@ -5055,6 +5265,12 @@
             "value" : "Apparence claire"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tampilan Terang"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5101,6 +5317,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chargement des éléments de la barre des menus…"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Memuat item bar menu…"
           }
         },
         "ko" : {
@@ -5151,6 +5373,12 @@
             "value" : "Emplacement"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokasi"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5197,6 +5425,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "macOS empêche le déplacement de « %@ »."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS melarang \"%@\" untuk digerakkan."
           }
         },
         "ko" : {
@@ -5247,6 +5481,12 @@
             "value" : "Libérer de l'espace dans la barre des menus en masquant, si nécessaire, les menus de l'app active. macOS exige que %@ soit visible dans le Dock tant que ce réglage est activé."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buat lebih banyak ruang di bar menu dengan menyembunyikan menu aplikasi saat ini jika perlu. macOS memerlukan %@ agar tetap terlihat di Dock saat pengaturan ini aktif."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5291,6 +5531,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "max"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "maks"
           }
         },
         "ko" : {
@@ -5341,6 +5587,12 @@
             "value" : "Apparence"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tampilan Bar Menu"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5387,6 +5639,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cet élément de la barre des menus ne peut pas être déplacé."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item menu bar tidak dapat digerakkan."
           }
         },
         "ko" : {
@@ -5437,6 +5695,12 @@
             "value" : "Espacement entre les éléments de la barre des menus"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jarak item bar menu"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5483,6 +5747,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Éléments de la barre des menus"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item Bar Menu"
           }
         },
         "ko" : {
@@ -5533,6 +5803,12 @@
             "value" : "Les éléments de la barre des menus sont masqués automatiquement après un délai fixe."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item bar menu akan kembali disembunyikan setelah beberapa waktu."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5579,6 +5855,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les éléments de la barre des menus sont automatiquement masqués à l'aide d'un algorithme intelligent."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item bar menu akan kembali disembunyikan menggunakan algoritma cerdas."
           }
         },
         "ko" : {
@@ -5629,6 +5911,12 @@
             "value" : "Les éléments de la barre des menus sont masqués automatiquement lorsque l'application active change."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Item menu bar akan kembali disembunyikan saat aplikasi yang aktif berubah."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5677,6 +5965,12 @@
             "value" : "Disposition"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tata Letak Bar Menu"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5721,6 +6015,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La gestion de la barre des menus nécessite l'autorisation d'enregistrement de l'écran."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tata letak bar menu membutuhkan izin Perekaman Layar."
           }
         },
         "ko" : {
@@ -5771,6 +6071,12 @@
             "value" : "Calque de la barre des menus"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hamparan Bar Menu"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5817,6 +6123,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sections de la barre des menus"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bagian Menu Bar"
           }
         },
         "ko" : {
@@ -5867,6 +6179,12 @@
             "value" : "Forme de la barre des menus"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bentuk Bar Menu"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5913,6 +6231,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pointeur souris"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Penunjuk"
           }
         },
         "ko" : {
@@ -5963,6 +6287,12 @@
             "value" : "Jamais"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak Pernah"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6009,6 +6339,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucun élément dans cette section"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak ada item di bagian ini"
           }
         },
         "ko" : {
@@ -6059,6 +6395,12 @@
             "value" : "Aucun type de forme sélectionné"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jenis bentuk belum dipilih"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6107,6 +6449,12 @@
             "value" : "aucun"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "kosong"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6153,6 +6501,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucune"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak Ada"
           }
         },
         "ko" : {
