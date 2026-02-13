@@ -91,7 +91,19 @@ final class MenuBarSearchPanel: NSPanel {
         self.collectionBehavior = [
             .fullScreenAuxiliary, .ignoresCycle, .moveToActiveSpace,
         ]
+        // Close panel when it loses key focus (e.g., another app gets focus)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(panelResignedKey),
+            name: NSWindow.didResignKeyNotification,
+            object: self
+        )
         // setFrameAutosaveName("MenuBarSearchPanel") // Manual persistence is used instead.
+    }
+
+    /// Called when the panel loses key focus.
+    @objc private func panelResignedKey(_: Notification) {
+        close()
     }
 
     /// Performs the initial setup of the panel.
