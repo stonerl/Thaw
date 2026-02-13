@@ -344,6 +344,9 @@ final class AppState: ObservableObject {
         isRestarting = true
 
         Task { @MainActor [diagLog] in
+            // Save image cache to disk before restarting so new instance can load it
+            imageCache.saveToDisk()
+
             let config = NSWorkspace.OpenConfiguration()
             config.activates = false
             config.addsToRecentItems = false

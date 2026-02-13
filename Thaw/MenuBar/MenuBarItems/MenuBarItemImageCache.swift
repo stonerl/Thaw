@@ -89,6 +89,117 @@ final class MenuBarItemImageCache: ObservableObject {
     func performSetup(with appState: AppState) {
         self.appState = appState
         configureCancellables()
+
+        // Try to load cached images from disk
+        loadFromDisk()
+    }
+
+    // MARK: Disk Persistence
+
+    /// Path to the cache file in Caches directory.
+    private static var cacheFileURL: URL? {
+        let cacheDir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+        return cacheDir?.appendingPathComponent("com.stonerl.thaw/imageCache.json")
+    }
+
+    /// Maximum age of disk cache before it's considered stale (30 seconds).
+    private static let maxCacheAgeSeconds: TimeInterval = 30
+
+    /// Saves the image cache to disk for faster restart.
+    func saveToDisk() {
+        guard !images.isEmpty else { return }
+
+        guard let url = Self.cacheFileURL else { return }
+
+        Task.detached(priority: .background) { [weak self] in
+            guard let self else { return }
+
+            let cacheData = self.images.map { tag, image -> (String, Data)? in
+                let nsImage = NSImage(cgImage: image.cgImage, size: image.scaledSize)
+                guard let tiffData = nsImage.tiffRepresentation,
+                      let bitmap = NSBitmapImageRep(data: tiffData),
+                      let pngData = bitmap.representation(using: .png, properties: [:])
+                else { return nil }
+
+                let tagString = "\(tag.namespace):\(tag.title)"
+                return (tagString, pngData)
+            }.compactMap { $0 }
+
+            guard cacheData.count == self.images.count else { return }
+
+            do {
+                let directoryURL = url.deletingLastPathComponent()
+                try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+
+                let json: [String: Any] = [
+                    "timestamp": Date().timeIntervalSince1970,
+                    "images": Dictionary(uniqueKeysWithValues: cacheData.map { ($0.0, $0.1.base64EncodedString()) }),
+                ]
+                let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+                try jsonData.write(to: url)
+
+                MenuBarItemImageCache.diagLog.debug("Saved \(cacheData.count) images to disk cache")
+            } catch {
+                MenuBarItemImageCache.diagLog.error("Failed to save image cache to disk: \(error)")
+            }
+        }
+    }
+
+    /// Loads cached images from disk.
+    @MainActor
+    private func loadFromDisk() {
+        guard let url = Self.cacheFileURL,
+              FileManager.default.fileExists(atPath: url.path)
+        else { return }
+
+        Task.detached(priority: .background) { [weak self] in
+            guard let self else { return }
+
+            do {
+                let jsonData = try Data(contentsOf: url)
+                guard let json = try JSONSerialization.jsonObject(with: jsonData) as? [String: Any],
+                      let timestamp = json["timestamp"] as? TimeInterval,
+                      let imagesDict = json["images"] as? [String: String] else { return }
+
+                // Check if cache is stale (older than 30 seconds)
+                let cacheAge = Date().timeIntervalSince1970 - timestamp
+                if cacheAge > Self.maxCacheAgeSeconds {
+                    MenuBarItemImageCache.diagLog.debug("Disk cache is \(Int(cacheAge))s old, deleting stale cache")
+                    try? FileManager.default.removeItem(at: url)
+                    return
+                }
+
+                var loadedImages = [MenuBarItemTag: CapturedImage]()
+
+                for (tagString, base64) in imagesDict {
+                    guard let data = Data(base64Encoded: base64),
+                          let image = NSImage(data: data),
+                          let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil)
+                    else { continue }
+
+                    let parts = tagString.split(separator: ":", maxSplits: 1)
+                    guard parts.count == 2 else { continue }
+
+                    let namespace = String(parts[0])
+                    let title = String(parts[1])
+                    let tag = MenuBarItemTag(namespace: .string(namespace), title: title)
+
+                    let captured = CapturedImage(cgImage: cgImage, scale: image.size.width > 0 ? CGFloat(cgImage.width) / image.size.width : 1.0)
+                    loadedImages[tag] = captured
+                }
+
+                if !loadedImages.isEmpty {
+                    await MainActor.run {
+                        for (tag, image) in loadedImages {
+                            self.images[tag] = image
+                        }
+                        MenuBarItemImageCache.diagLog.debug("Loaded \(loadedImages.count) images from disk cache (\(Int(cacheAge))s old)")
+                    }
+                }
+            } catch {
+                MenuBarItemImageCache.diagLog.error("Failed to load image cache from disk: \(error)")
+            }
+        }
     }
 
     /// Configures the internal observers for the cache.
