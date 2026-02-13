@@ -142,6 +142,11 @@ final class MenuBarItemManager: ObservableObject {
     /// the app relaunches, this allows us to move the item back to its original section.
     private var pendingRelocations = [String: String]()
 
+    /// Persisted mapping of item tag identifiers to their return destination for
+    /// temporarily shown items. Stores the neighbor tag and position to restore
+    /// the original ordering when the app relaunches.
+    private var pendingReturnDestinations = [String: [String: String]]() // [tagIdentifier: ["neighbor": tag, "position": "left"|"right"]]
+
     /// Loads persisted known item identifiers.
     private func loadKnownItemIdentifiers() {
         let key = "MenuBarItemManager.knownItemIdentifiers"
@@ -183,12 +188,18 @@ final class MenuBarItemManager: ObservableObject {
         if let stored = UserDefaults.standard.dictionary(forKey: key) as? [String: String] {
             pendingRelocations = stored
         }
+        let destKey = "MenuBarItemManager.pendingReturnDestinations"
+        if let stored = UserDefaults.standard.dictionary(forKey: destKey) as? [String: [String: String]] {
+            pendingReturnDestinations = stored
+        }
     }
 
     /// Persists pending relocations.
     private func persistPendingRelocations() {
         let key = "MenuBarItemManager.pendingRelocations"
         UserDefaults.standard.set(pendingRelocations, forKey: key)
+        let destKey = "MenuBarItemManager.pendingReturnDestinations"
+        UserDefaults.standard.set(pendingReturnDestinations, forKey: destKey)
     }
 
     /// Returns a persistable string key for the given section name.
@@ -238,19 +249,19 @@ final class MenuBarItemManager: ObservableObject {
     private func configureCancellables(with appState: AppState) {
         var c = Set<AnyCancellable>()
 
-        NSWorkspace.shared.publisher(for: \.runningApplications)
-            .delay(for: 0.25, scheduler: DispatchQueue.main)
-            .discardMerge(Timer.publish(every: 0.5, on: .main, in: .default).autoconnect())
-            .debounce(for: 1, scheduler: DispatchQueue.main)
-            .sink { [weak self] in
-                guard let self else {
-                    return
-                }
-                Task {
-                    await self.cacheItemsIfNeeded()
-                }
+        NSWorkspace.shared.notificationCenter.publisher(
+            for: NSWorkspace.didActivateApplicationNotification
+        )
+        .debounce(for: 0.5, scheduler: DispatchQueue.main)
+        .sink { [weak self] _ in
+            guard let self else {
+                return
             }
-            .store(in: &c)
+            Task {
+                await self.cacheItemsIfNeeded()
+            }
+        }
+        .store(in: &c)
 
         appState.navigationState.$settingsNavigationIdentifier
             .sink { [weak self] identifier in
@@ -1995,6 +2006,18 @@ extension MenuBarItemManager {
         // physical position set by the Cmd+drag, so on relaunch the icon
         // would otherwise stay in the visible section).
         pendingRelocations[tagIdentifier] = sectionKey(for: originalSection)
+
+        // Also store the return destination to preserve ordering
+        let neighborTag = returnInfo.destination.targetItem.tag
+        let position: String
+        switch returnInfo.destination {
+        case .leftOfItem: position = "left"
+        case .rightOfItem: position = "right"
+        }
+        pendingReturnDestinations[tagIdentifier] = [
+            "neighbor": "\(neighborTag.namespace):\(neighborTag.title)",
+            "position": position,
+        ]
         persistPendingRelocations()
 
         appState.hidEventManager.stopAll()
@@ -2009,6 +2032,7 @@ extension MenuBarItemManager {
         } catch {
             MenuBarItemManager.diagLog.error("Error showing item: \(error)")
             pendingRelocations.removeValue(forKey: tagIdentifier)
+            pendingReturnDestinations.removeValue(forKey: tagIdentifier)
             persistPendingRelocations()
             return
         }
@@ -2247,6 +2271,7 @@ extension MenuBarItemManager {
                 // Successfully rehidden — remove the pending relocation entry.
                 let tagIdentifier = "\(context.tag.namespace):\(context.tag.title)"
                 pendingRelocations.removeValue(forKey: tagIdentifier)
+                pendingReturnDestinations.removeValue(forKey: tagIdentifier)
             } catch {
                 context.rehideAttempts += 1
                 MenuBarItemManager.diagLog.warning(
@@ -2303,6 +2328,7 @@ extension MenuBarItemManager {
         // placed the item in a new position.
         let tagIdentifier = "\(tag.namespace):\(tag.title)"
         if pendingRelocations.removeValue(forKey: tagIdentifier) != nil {
+            pendingReturnDestinations.removeValue(forKey: tagIdentifier)
             persistPendingRelocations()
         }
     }
@@ -2460,6 +2486,7 @@ extension MenuBarItemManager {
             else {
                 // Nothing to do if the original section was visible.
                 pendingRelocations.removeValue(forKey: tagIdentifier)
+                pendingReturnDestinations.removeValue(forKey: tagIdentifier)
                 continue
             }
 
@@ -2477,23 +2504,39 @@ extension MenuBarItemManager {
             guard itemBounds.minX >= hiddenBounds.maxX else {
                 // Item is already in a hidden section — clean up.
                 pendingRelocations.removeValue(forKey: tagIdentifier)
+                pendingReturnDestinations.removeValue(forKey: tagIdentifier)
                 continue
             }
 
-            // Move the item back to the left of the hidden control item
-            // (into the hidden section).
+            // Move the item back to its original section.
+            // Try to use the stored destination from the persisted data to preserve ordering.
             let destination: MoveDestination
-            switch targetSection {
-            case .hidden:
-                destination = .leftOfItem(controlItems.hidden)
-            case .alwaysHidden:
-                if let alwaysHidden = controlItems.alwaysHidden {
-                    destination = .leftOfItem(alwaysHidden)
+            if let destInfo = pendingReturnDestinations[tagIdentifier],
+               let neighborTagString = destInfo["neighbor"],
+               let neighborItem = items.first(where: { neighborTagString == "\($0.tag.namespace):\($0.tag.title)" })
+            {
+                if destInfo["position"] == "left" {
+                    destination = .leftOfItem(neighborItem)
                 } else {
-                    destination = .leftOfItem(controlItems.hidden)
+                    destination = .rightOfItem(neighborItem)
                 }
-            case .visible:
-                continue
+            } else if let fallbackTagString = temporarilyShownItemContexts.first(where: { tagIdentifier == "\($0.tag.namespace):\($0.tag.title)" })?.fallbackNeighborTag,
+                      let fallbackItem = items.first(matching: fallbackTagString)
+            {
+                destination = .rightOfItem(fallbackItem)
+            } else {
+                switch targetSection {
+                case .hidden:
+                    destination = .leftOfItem(controlItems.hidden)
+                case .alwaysHidden:
+                    if let alwaysHidden = controlItems.alwaysHidden {
+                        destination = .leftOfItem(alwaysHidden)
+                    } else {
+                        destination = .leftOfItem(controlItems.hidden)
+                    }
+                case .visible:
+                    continue
+                }
             }
 
             MenuBarItemManager.diagLog.info(
@@ -2506,6 +2549,7 @@ extension MenuBarItemManager {
             do {
                 try await move(item: item, to: destination, skipInputPause: true)
                 pendingRelocations.removeValue(forKey: tagIdentifier)
+                pendingReturnDestinations.removeValue(forKey: tagIdentifier)
                 didRelocate = true
             } catch {
                 MenuBarItemManager.diagLog.error(
@@ -2704,6 +2748,7 @@ extension MenuBarItemManager {
         pinnedHiddenBundleIDs.removeAll()
         pinnedAlwaysHiddenBundleIDs.removeAll()
         pendingRelocations.removeAll()
+        pendingReturnDestinations.removeAll()
         persistKnownItemIdentifiers()
         persistPinnedBundleIDs()
         persistPendingRelocations()
