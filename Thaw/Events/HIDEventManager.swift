@@ -71,7 +71,7 @@ final class HIDEventManager: ObservableObject {
         }
         switch event.type {
         case .leftMouseDown:
-            handleShowOnClick(appState: appState, screen: screen)
+            handleShowOnClick(appState: appState, screen: screen, isDoubleClick: event.clickCount > 1)
             handleSmartRehide(with: event, appState: appState, screen: screen)
         case .rightMouseDown:
             handleSecondaryContextMenu(appState: appState, screen: screen)
@@ -265,7 +265,7 @@ final class HIDEventManager: ObservableObject {
 extension HIDEventManager {
     // MARK: Handle Show On Click
 
-    private func handleShowOnClick(appState: AppState, screen: NSScreen) {
+    private func handleShowOnClick(appState: AppState, screen: NSScreen, isDoubleClick: Bool = false) {
         guard
             appState.settings.general.showOnClick,
             isMouseInsideEmptyMenuBarSpace(appState: appState, screen: screen)
@@ -274,30 +274,34 @@ extension HIDEventManager {
         }
 
         Task {
+            if isDoubleClick {
+                if let alwaysHiddenSection = appState.menuBarManager.section(withName: .alwaysHidden),
+                   alwaysHiddenSection.isEnabled
+                {
+                    alwaysHiddenSection.show()
+                    return
+                }
+            }
+
             if NSEvent.modifierFlags == .control {
                 handleSecondaryContextMenu(appState: appState, screen: screen)
                 return
             }
 
-            let targetSection: MenuBarSection
-
-            if NSEvent.modifierFlags == .option, let alwaysHiddenSection = appState.menuBarManager.section(
-                withName: .alwaysHidden
-            ),
-                alwaysHiddenSection.isEnabled
-            {
-                targetSection = alwaysHiddenSection
-            } else if let hiddenSection = appState.menuBarManager.section(
-                withName: .hidden
-            ),
-                hiddenSection.isEnabled
-            {
-                targetSection = hiddenSection
-            } else {
-                return
+            if NSEvent.modifierFlags == .option {
+                if let alwaysHiddenSection = appState.menuBarManager.section(withName: .alwaysHidden),
+                   alwaysHiddenSection.isEnabled
+                {
+                    alwaysHiddenSection.show()
+                    return
+                }
             }
 
-            targetSection.toggle()
+            if let hiddenSection = appState.menuBarManager.section(withName: .hidden),
+               hiddenSection.isEnabled
+            {
+                hiddenSection.toggle()
+            }
         }
     }
 
