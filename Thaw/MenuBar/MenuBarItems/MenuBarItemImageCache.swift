@@ -663,7 +663,7 @@ final class MenuBarItemImageCache: ObservableObject {
             LRU order count: \(lruSize)
             Failed captures: \(failedCount) (blacklisted: \(blacklistedCount))
             Memory impact: ~\(imageSize * 100)KB (estimated)
-            LRU order: \(self.accessOrder.map(\.description).joined(separator: ", "))
+            LRU order: \(accessOrder.map(\.description).joined(separator: ", "))
             ======================================
             """
         )
@@ -929,7 +929,7 @@ final class MenuBarItemImageCache: ObservableObject {
         for item in items where keys.contains(item.tag) {
             return false
         }
-        MenuBarItemImageCache.diagLog.debug("cacheFailed(\(section.logString)): no cached images found for \(items.count) items in section (total cached images: \(self.images.count))")
+        MenuBarItemImageCache.diagLog.debug("cacheFailed(\(section.logString)): no cached images found for \(items.count) items in section (total cached images: \(images.count))")
         return true
     }
 }

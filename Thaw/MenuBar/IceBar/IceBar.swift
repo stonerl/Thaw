@@ -40,7 +40,7 @@ final class IceBarPanel: NSPanel {
         self.isFloatingPanel = true
         self.animationBehavior = .none
         self.backgroundColor = .clear
-        self.hasShadow = false
+        self.hasShadow = true
         self.level = .mainMenu + 1
         self.collectionBehavior = [.fullScreenAuxiliary, .ignoresCycle, .moveToActiveSpace, .stationary]
         self.hidesOnDeactivate = false
@@ -194,8 +194,9 @@ final class IceBarPanel: NSPanel {
     }
 
     override func close() {
-        super.close()
         contentView = nil
+        orderOut(nil)
+        super.close()
         currentSection = nil
         appState?.navigationState.isIceBarPresented = false
     }
@@ -309,10 +310,6 @@ private struct IceBarContentView: View {
         }
     }
 
-    private var shadowOpacity: CGFloat {
-        configuration.current.hasShadow ? 0.5 : 0.33
-    }
-
     var body: some View {
         ZStack {
             content
@@ -322,7 +319,6 @@ private struct IceBarContentView: View {
                 .menuBarItemContainer(appState: appState, colorInfo: colorManager.colorInfo)
                 .foregroundStyle(colorManager.colorInfo?.color.brightness ?? 0 > 0.67 ? .black : .white)
                 .clipShape(clipShape)
-                .shadow(color: .black.opacity(shadowOpacity), radius: 2.5)
 
             if configuration.current.hasBorder {
                 clipShape

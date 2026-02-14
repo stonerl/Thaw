@@ -216,6 +216,9 @@ struct MenuBarLayoutSettingsPane: View {
                     resetStatus = .partialFailure(failedMoves)
                 }
                 isResettingLayout = false
+
+                await manager.cacheItemsRegardless(skipRecentMoveCheck: true)
+                await appState.imageCache.updateCacheWithoutChecks(sections: MenuBarSection.Name.allCases)
             } catch {
                 resetStatus = .failure(error.localizedDescription)
                 isResettingLayout = false

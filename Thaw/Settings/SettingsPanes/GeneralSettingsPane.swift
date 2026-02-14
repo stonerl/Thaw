@@ -210,7 +210,7 @@ struct GeneralSettingsPane: View {
     @ViewBuilder
     private var showOptions: some View {
         Toggle("Show on click", isOn: $settings.showOnClick)
-            .annotation("Click inside an empty area of the menu bar to show hidden menu bar items.")
+            .annotation("Click an empty area of the menu bar to show hidden items, or double-click for always-hidden.")
         Toggle("Show on hover", isOn: $settings.showOnHover)
             .annotation("Hover over an empty area of the menu bar to show hidden menu bar items.")
         Toggle("Show on scroll", isOn: $settings.showOnScroll)

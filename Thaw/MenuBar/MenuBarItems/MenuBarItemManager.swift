@@ -132,6 +132,8 @@ final class MenuBarItemManager: ObservableObject {
     private var knownItemIdentifiers = Set<String>()
     /// Suppresses the next automatic relocation of newly seen leftmost items.
     private var suppressNextNewLeftmostItemRelocation = false
+    /// Continuation to signal when background cache task completes.
+    private var backgroundCacheContinuation: CheckedContinuation<Void, Never>?
     /// Suppresses image cache updates during layout reset to prevent stale cache during moves.
     var isResettingLayout = false
     /// Persisted bundle identifiers explicitly placed in hidden section.
@@ -721,6 +723,8 @@ extension MenuBarItemManager {
                 Task { [weak self] in
                     try? await Task.sleep(for: .milliseconds(300))
                     await self?.cacheItemsRegardless(skipRecentMoveCheck: true)
+                    self?.backgroundCacheContinuation?.resume()
+                    self?.backgroundCacheContinuation = nil
                 }
                 return
             }
@@ -730,12 +734,16 @@ extension MenuBarItemManager {
                 Task { [weak self] in
                     try? await Task.sleep(for: .milliseconds(300))
                     await self?.cacheItemsRegardless(skipRecentMoveCheck: true)
+                    self?.backgroundCacheContinuation?.resume()
+                    self?.backgroundCacheContinuation = nil
                 }
                 return
             }
 
             await uncheckedCacheItems(items: items, controlItems: controlItems, displayID: displayID)
             MenuBarItemManager.diagLog.debug("cacheItemsRegardless: finished, cache now has \(self.itemCache.managedItems.count) managed items")
+            self.backgroundCacheContinuation?.resume()
+            self.backgroundCacheContinuation = nil
         }
     }
 
@@ -2880,14 +2888,25 @@ extension MenuBarItemManager {
 
         await cacheActor.clearCachedItemWindowIDs()
         itemCache = ItemCache(displayID: nil)
-        await cacheItemsRegardless(skipRecentMoveCheck: true)
+        await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
+            self.backgroundCacheContinuation = continuation
+            Task { [weak self] in
+                await self?.cacheItemsRegardless(skipRecentMoveCheck: true)
+            }
+        }
         suppressNextNewLeftmostItemRelocation = false
 
         await MainActor.run {
             appState.imageCache.clearAll()
             appState.imageCache.performCacheCleanup()
         }
-        await appState.imageCache.updateCacheWithoutChecks(sections: MenuBarSection.Name.allCases)
+
+        if itemCache.displayID != nil {
+            await appState.imageCache.updateCacheWithoutChecks(sections: MenuBarSection.Name.allCases)
+        } else {
+            try? await Task.sleep(for: .milliseconds(350))
+            await appState.imageCache.updateCacheWithoutChecks(sections: MenuBarSection.Name.allCases)
+        }
 
         await MainActor.run {
             appState.objectWillChange.send()
