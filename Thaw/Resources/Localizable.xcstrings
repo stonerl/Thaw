@@ -1359,6 +1359,12 @@
             "value" : "L’application de ce réglage relancera toutes les applications ayant des éléments dans la barre des menus. Certaines applications pourraient nécessiter un redémarrage manuel."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menerapkan pengaturan ini akan memulai ulang semua aplikasi yang memiliki item bar menu. Beberapa aplikasi mungkin perlu dibuka ulang secara manual."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3332,6 +3338,12 @@
             "value" : "Porte"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pintu"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3420,6 +3432,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Faites glisser les éléments de la barre des menus pour les organiser en différentes sections."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seret untuk mengatur item bar menu ke bagian yang berbeda."
           }
         },
         "ko" : {
