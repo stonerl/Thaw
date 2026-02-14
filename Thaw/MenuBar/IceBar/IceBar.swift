@@ -194,9 +194,6 @@ final class IceBarPanel: NSPanel {
     }
 
     override func close() {
-        if let appState, let section = currentSection {
-            appState.imageCache.clearImages(for: section)
-        }
         super.close()
         contentView = nil
         currentSection = nil

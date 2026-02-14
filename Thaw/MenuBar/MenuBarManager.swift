@@ -322,6 +322,7 @@ final class MenuBarManager: ObservableObject {
             action: #selector(showAppearanceEditorPanel),
             keyEquivalent: ""
         )
+        editAppearanceItem.image = NSImage(systemSymbolName: "paintbrush", accessibilityDescription: "Edit Appearance")
         editAppearanceItem.target = self
         menu.addItem(editAppearanceItem)
 
@@ -332,6 +333,7 @@ final class MenuBarManager: ObservableObject {
             action: #selector(AppDelegate.openSettingsWindow),
             keyEquivalent: ","
         )
+        settingsItem.image = NSImage(systemSymbolName: "gear", accessibilityDescription: "Settings")
         menu.addItem(settingsItem)
 
         menu.popUp(positioning: nil, at: point, in: nil)

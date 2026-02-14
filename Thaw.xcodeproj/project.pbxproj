@@ -218,15 +218,14 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				"zh-Hans",
 				"zh-Hant",
 				de,
 				fr,
 				id,
-				it,
 				es,
 				th,
+				ko,
 			);
 			mainGroup = 716683212A767E6A006ABF84;
 			packageReferences = (

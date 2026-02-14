@@ -56,15 +56,7 @@ final class ControlItem {
     /// A namespace for control item lengths.
     private enum Lengths {
         static let standard: CGFloat = NSStatusItem.variableLength
-
-        /// The width used to hide sections by pushing items off-screen.
-        /// This is calculated dynamically based on the largest connected screen.
-        static var expanded: CGFloat {
-            let maxWidth = NSScreen.screens.map { $0.frame.width }.max() ?? 2560
-            // Ensure the items are pushed entirely off the largest screen.
-            // A 500pt buffer handles the width of the items themselves.
-            return maxWidth + 500
-        }
+        static let expanded: CGFloat = 10000
     }
 
     /// Storage for a control item's underlying status item.
@@ -336,14 +328,6 @@ final class ControlItem {
                     }
                     .store(in: &c)
             }
-
-            // Update item widths if screen parameters (resolution, monitors) change.
-            NotificationCenter.default.publisher(for: NSApplication.didChangeScreenParametersNotification)
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] _ in
-                    self?.updateStatusItem()
-                }
-                .store(in: &c)
         }
 
         cancellables = c
@@ -503,15 +487,13 @@ final class ControlItem {
 
     /// Calculates how many spacer items are needed to push hidden items off ultra-wide displays.
     private func requiredSpacerCount() -> Int {
-        let maxScreenWidth = NSScreen.screens.map { $0.frame.width }.max() ?? 2560
-        let expandedWidth = Lengths.expanded
+        let maxScreenWidth = NSScreen.screens.map { $0.frame.width }.max() ?? 6000
+        guard maxScreenWidth > 5120 else { return 0 }
 
-        // We aim for a total "push" of 3x the screen width to ensure items are
-        // completely unreachable even during rapid layout shifts or dragging.
-        let desiredTotalWidth = maxScreenWidth * 3
-        let remaining = desiredTotalWidth - expandedWidth
+        let desiredWidth = maxScreenWidth * 3
+        let remaining = desiredWidth - Lengths.expanded
         guard remaining > 0 else { return 0 }
-        return Int(ceil(remaining / expandedWidth))
+        return Int(ceil(remaining / Lengths.expanded))
     }
 
     /// Adds the control item to the menu bar.
@@ -629,6 +611,7 @@ final class ControlItem {
             keyEquivalent: ","
         )
         settingsItem.keyEquivalentModifierMask = .command
+        settingsItem.image = NSImage(systemSymbolName: "gear", accessibilityDescription: "Settings")
         menu.addItem(settingsItem)
 
         menu.addItem(.separator())
@@ -638,6 +621,7 @@ final class ControlItem {
             action: #selector(showSearchPanel),
             keyEquivalent: ""
         )
+        searchItem.image = NSImage(systemSymbolName: "magnifyingglass", accessibilityDescription: "Search")
         if
             let hotkey = hotkey(withAction: .searchMenuBarItems),
             let keyCombination = hotkey.keyCombination
@@ -658,23 +642,31 @@ final class ControlItem {
             else {
                 continue
             }
-            let sectionTitle = switch (section.isHidden, name) {
+            let sectionTitle: String
+            let iconName: String
+            switch (section.isHidden, name) {
             case (true, .hidden):
-                String(localized: "Show Hidden Section")
+                sectionTitle = String(localized: "Show Hidden Section")
+                iconName = "eye"
             case (false, .hidden):
-                String(localized: "Hide Hidden Section")
+                sectionTitle = String(localized: "Hide Hidden Section")
+                iconName = "eye.slash"
             case (true, .alwaysHidden):
-                String(localized: "Show Always-Hidden Section")
+                sectionTitle = String(localized: "Show Always-Hidden Section")
+                iconName = "eye"
             case (false, .alwaysHidden):
-                String(localized: "Hide Always-Hidden Section")
+                sectionTitle = String(localized: "Hide Always-Hidden Section")
+                iconName = "eye.slash"
             default:
-                String(localized: "\(section.isHidden ? "Show" : "Hide") \(name.displayString) Section")
+                sectionTitle = String(localized: "\(section.isHidden ? "Show" : "Hide") \(name.displayString) Section")
+                iconName = section.isHidden ? "eye" : "eye.slash"
             }
             let item = NSMenuItem(
                 title: sectionTitle,
                 action: #selector(toggleMenuBarSection),
                 keyEquivalent: ""
             )
+            item.image = NSImage(systemSymbolName: iconName, accessibilityDescription: sectionTitle)
             if
                 let hotkey = section.hotkey,
                 let keyCombination = hotkey.keyCombination
@@ -694,6 +686,7 @@ final class ControlItem {
             action: #selector(checkForUpdates),
             keyEquivalent: ""
         )
+        checkForUpdatesItem.image = NSImage(systemSymbolName: "arrow.triangle.2.circlepath", accessibilityDescription: "Check for Updates")
         checkForUpdatesItem.target = self
         menu.addItem(checkForUpdatesItem)
 
@@ -705,6 +698,7 @@ final class ControlItem {
             keyEquivalent: "q"
         )
         quitItem.keyEquivalentModifierMask = .command
+        quitItem.image = NSImage(systemSymbolName: "power", accessibilityDescription: "Quit")
         menu.addItem(quitItem)
 
         return menu
@@ -828,7 +822,7 @@ enum ControlItemDefaults {
     /// Resets chevron section divider positions to their defaults.
     static func resetChevronPositions() {
         ControlItemDefaults[.preferredPosition, ControlItem.Identifier.hidden.rawValue] = 1
-        ControlItemDefaults[.preferredPosition, ControlItem.Identifier.alwaysHidden.rawValue] = nil
+        // Always-hidden position is handled dynamically
     }
 }
 

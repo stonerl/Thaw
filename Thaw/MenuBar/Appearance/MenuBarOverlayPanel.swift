@@ -460,6 +460,10 @@ private final class MenuBarOverlayPanelContentView: NSView {
 
     private var cancellables = Set<AnyCancellable>()
 
+    /// Cached menu bar item windows, updated by publishers instead of
+    /// being queried synchronously during each `draw(_:)` call.
+    private var cachedItemWindows: [WindowInfo] = []
+
     /// The overlay panel that contains the content view.
     private var overlayPanel: MenuBarOverlayPanel? {
         window as? MenuBarOverlayPanel
@@ -512,6 +516,7 @@ private final class MenuBarOverlayPanelContentView: NSView {
                     section.controlItem.$onScreenFrame
                         .receive(on: DispatchQueue.main)
                         .sink { [weak self] _ in
+                            self?.updateCachedItemWindows()
                             self?.needsDisplay = true
                         }
                         .store(in: &c)
@@ -519,8 +524,11 @@ private final class MenuBarOverlayPanelContentView: NSView {
             }
 
             // Redraw whenever the application menu frame changes.
+            // Also refresh cached item windows to pick up items added/removed
+            // by other apps (e.g. status bar icons appearing or disappearing).
             overlayPanel.$applicationMenuFrame
                 .sink { [weak self] _ in
+                    self?.updateCachedItemWindows()
                     self?.needsDisplay = true
                 }
                 .store(in: &c)
@@ -541,6 +549,21 @@ private final class MenuBarOverlayPanelContentView: NSView {
             .store(in: &c)
 
         cancellables = c
+
+        // Populate the cache immediately so the first draw has data.
+        updateCachedItemWindows()
+    }
+
+    /// Refreshes the cached menu bar item windows from the Window Server.
+    private func updateCachedItemWindows() {
+        guard let screen = overlayPanel?.owningScreen else {
+            cachedItemWindows = []
+            return
+        }
+        cachedItemWindows = MenuBarItem.getMenuBarItemWindows(
+            on: screen.displayID,
+            option: .onScreen
+        )
     }
 
     /// Returns a path in the given rectangle, with the given end caps,
@@ -700,10 +723,7 @@ private final class MenuBarOverlayPanelContentView: NSView {
             )
         }()
         let trailingPathBounds: CGRect = {
-            let itemWindows = MenuBarItem.getMenuBarItemWindows(
-                on: screen.displayID,
-                option: .onScreen
-            )
+            let itemWindows = cachedItemWindows
             guard !itemWindows.isEmpty else {
                 return .zero
             }

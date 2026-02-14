@@ -1135,6 +1135,10 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Siempre oculto"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Immer-Versteckt"
           }
         },
         "fr" : {
@@ -1441,6 +1445,10 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Flecha"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pfeil"
           }
         },
         "fr" : {
@@ -2238,6 +2246,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activa %@ en Configuración del sistema → Barra de menús"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Systemeinstellungen > Menüleiste überprüfen und %@ aktivieren"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請檢查系統設定 > 選單列，並啟用 %@"
           }
         }
       }
@@ -2790,6 +2808,10 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Personalizado"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzerdefiniert"
           }
         },
         "fr" : {
@@ -3318,6 +3340,10 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Puerta"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tür"
           }
         },
         "fr" : {
@@ -3354,6 +3380,10 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Punto"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Punkt"
           }
         },
         "fr" : {
@@ -3606,6 +3636,10 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Elipse"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auslassungszeichen"
           }
         },
         "fr" : {
@@ -4296,6 +4330,10 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Oculto"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versteckt"
           }
         },
         "fr" : {
@@ -4714,6 +4752,10 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cubo de Ice"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eiswürfel"
           }
         },
         "fr" : {
@@ -6746,6 +6788,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Uno o más separadores de sección están ocultos por macOS"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine oder mehrere Bereichstrennungen werden von macOS versteckt."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一個或多個區段分隔線已被 macOS 隱藏"
           }
         }
       }
@@ -9342,6 +9394,10 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lentes de sol"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonnenbrille"
           }
         },
         "fr" : {
@@ -10734,6 +10790,10 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Visible"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sichtbar"
           }
         },
         "fr" : {

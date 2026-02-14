@@ -132,6 +132,8 @@ final class MenuBarItemManager: ObservableObject {
     private var knownItemIdentifiers = Set<String>()
     /// Suppresses the next automatic relocation of newly seen leftmost items.
     private var suppressNextNewLeftmostItemRelocation = false
+    /// Suppresses image cache updates during layout reset to prevent stale cache during moves.
+    var isResettingLayout = false
     /// Persisted bundle identifiers explicitly placed in hidden section.
     private var pinnedHiddenBundleIDs = Set<String>()
     /// Persisted bundle identifiers explicitly placed in always-hidden section.
@@ -141,6 +143,11 @@ final class MenuBarItemManager: ObservableObject {
     /// temporarily shown items whose apps quit before they could be rehidden. When
     /// the app relaunches, this allows us to move the item back to its original section.
     private var pendingRelocations = [String: String]()
+
+    /// Persisted mapping of item tag identifiers to their return destination for
+    /// temporarily shown items. Stores the neighbor tag and position to restore
+    /// the original ordering when the app relaunches.
+    private var pendingReturnDestinations = [String: [String: String]]() // [tagIdentifier: ["neighbor": tag, "position": "left"|"right"]]
 
     /// Loads persisted known item identifiers.
     private func loadKnownItemIdentifiers() {
@@ -183,12 +190,18 @@ final class MenuBarItemManager: ObservableObject {
         if let stored = UserDefaults.standard.dictionary(forKey: key) as? [String: String] {
             pendingRelocations = stored
         }
+        let destKey = "MenuBarItemManager.pendingReturnDestinations"
+        if let stored = UserDefaults.standard.dictionary(forKey: destKey) as? [String: [String: String]] {
+            pendingReturnDestinations = stored
+        }
     }
 
     /// Persists pending relocations.
     private func persistPendingRelocations() {
         let key = "MenuBarItemManager.pendingRelocations"
         UserDefaults.standard.set(pendingRelocations, forKey: key)
+        let destKey = "MenuBarItemManager.pendingReturnDestinations"
+        UserDefaults.standard.set(pendingReturnDestinations, forKey: destKey)
     }
 
     /// Returns a persistable string key for the given section name.
@@ -223,15 +236,14 @@ final class MenuBarItemManager: ObservableObject {
         loadKnownItemIdentifiers()
         loadPinnedBundleIDs()
         loadPendingRelocations()
-        MenuBarItemManager.diagLog.debug("performSetup: loaded \(self.knownItemIdentifiers.count) known identifiers, \(self.pinnedHiddenBundleIDs.count) pinned hidden, \(self.pinnedAlwaysHiddenBundleIDs.count) pinned always-hidden")
+        MenuBarItemManager.diagLog.debug("performSetup: loaded \(knownItemIdentifiers.count) known identifiers, \(pinnedHiddenBundleIDs.count) pinned hidden, \(pinnedAlwaysHiddenBundleIDs.count) pinned always-hidden")
         // On first launch (no known identifiers), avoid auto-relocating the leftmost item
         // so everything remains in the hidden section until the user interacts.
         suppressNextNewLeftmostItemRelocation = knownItemIdentifiers.isEmpty
         MenuBarItemManager.diagLog.debug("performSetup: calling initial cacheItemsRegardless")
         await cacheItemsRegardless()
-        MenuBarItemManager.diagLog.debug("performSetup: initial cache complete, items in cache: visible=\(self.itemCache[.visible].count), hidden=\(self.itemCache[.hidden].count), alwaysHidden=\(self.itemCache[.alwaysHidden].count), managedItems=\(self.itemCache.managedItems.count)")
+        MenuBarItemManager.diagLog.debug("performSetup: initial cache complete, items in cache: visible=\(itemCache[.visible].count), hidden=\(itemCache[.hidden].count), alwaysHidden=\(itemCache[.alwaysHidden].count), managedItems=\(itemCache.managedItems.count)")
         configureCancellables(with: appState)
-        configureCacheTick()
         MenuBarItemManager.diagLog.debug("performSetup: MenuBarItemManager setup complete")
     }
 
@@ -239,19 +251,19 @@ final class MenuBarItemManager: ObservableObject {
     private func configureCancellables(with appState: AppState) {
         var c = Set<AnyCancellable>()
 
-        NSWorkspace.shared.publisher(for: \.runningApplications)
-            .delay(for: 0.25, scheduler: DispatchQueue.main)
-            .discardMerge(Timer.publish(every: 0.5, on: .main, in: .default).autoconnect())
-            .debounce(for: 1, scheduler: DispatchQueue.main)
-            .sink { [weak self] in
-                guard let self else {
-                    return
-                }
-                Task {
-                    await self.cacheItemsIfNeeded()
-                }
+        NSWorkspace.shared.notificationCenter.publisher(
+            for: NSWorkspace.didActivateApplicationNotification
+        )
+        .debounce(for: 0.5, scheduler: DispatchQueue.main)
+        .sink { [weak self] _ in
+            guard let self else {
+                return
             }
-            .store(in: &c)
+            Task {
+                await self.cacheItemsIfNeeded()
+            }
+        }
+        .store(in: &c)
 
         appState.navigationState.$settingsNavigationIdentifier
             .sink { [weak self] identifier in
@@ -259,7 +271,7 @@ final class MenuBarItemManager: ObservableObject {
                     return
                 }
                 Task {
-                    await self.cacheItemsRegardless()
+                    await self.appState?.imageCache.updateCache(sections: MenuBarSection.Name.allCases)
                 }
             }
             .store(in: &c)
@@ -278,25 +290,12 @@ final class MenuBarItemManager: ObservableObject {
                     return
                 }
                 Task {
-                    await self.cacheItemsRegardless()
+                    await self.appState?.imageCache.updateCache(sections: MenuBarSection.Name.allCases)
                 }
             }
             .store(in: &c)
 
         cancellables = c
-    }
-
-    /// Sets up a lightweight periodic cache tick to catch new items promptly.
-    private func configureCacheTick() {
-        cacheTickCancellable?.cancel()
-        cacheTickCancellable = Timer.publish(every: 3, on: .main, in: .common)
-            .autoconnect()
-            .sink { [weak self] _ in
-                guard let self else { return }
-                Task {
-                    await self.cacheItemsIfNeeded()
-                }
-            }
     }
 
     /// Returns a Boolean value that indicates whether the most recent
@@ -508,7 +507,7 @@ extension MenuBarItemManager {
 
         init(controlItems: ControlItemPair, displayID: CGDirectDisplayID?) {
             self.controlItems = controlItems
-            cache = ItemCache(displayID: displayID)
+            self.cache = ItemCache(displayID: displayID)
         }
 
         func bestBounds(for item: MenuBarItem) -> CGRect {
@@ -1251,9 +1250,9 @@ extension MenuBarItemManager {
         if item.isBentoBox {
             // Bento Boxes (i.e. Control Center groups) generally
             // take a little longer to respond.
-            return .milliseconds(100)
+            return .milliseconds(200)
         }
-        return .milliseconds(50)
+        return .milliseconds(100)
     }
 
     /// Returns the cached timeout for move operations associated
@@ -1270,7 +1269,7 @@ extension MenuBarItemManager {
     private func updateMoveOperationTimeout(_ timeout: Duration, for item: MenuBarItem) {
         let current = getMoveOperationTimeout(for: item)
         let average = (timeout + current) / 2
-        let clamped = average.clamped(min: .milliseconds(25), max: .milliseconds(150))
+        let clamped = average.clamped(min: .milliseconds(25), max: .milliseconds(500))
         moveOperationTimeouts[item.tag] = clamped
     }
 
@@ -1290,75 +1289,21 @@ extension MenuBarItemManager {
         let itemBounds = try await getCurrentBounds(for: item)
         let targetBounds = try await getCurrentBounds(for: destination.targetItem)
 
-        var start: CGPoint
-        var end: CGPoint
+        let start: CGPoint
+        let end: CGPoint
 
         switch destination {
         case .leftOfItem:
             start = CGPoint(x: targetBounds.minX, y: targetBounds.minY)
             end = start
-            if itemBounds.maxX <= targetBounds.minX {
-                // Direction of movement: ->
-                end.x -= itemBounds.width
-            } else {
-                // Direction of movement: <-
-                start.x -= 1
-            }
         case .rightOfItem:
             start = CGPoint(x: targetBounds.maxX, y: targetBounds.minY)
             end = start
-            if itemBounds.minX <= targetBounds.maxX {
-                // Direction of movement: ->
-                end.x -= itemBounds.width
-            } else {
-                // Direction of movement: <-
-                start.x += 1
-            }
         }
 
-        // Keep the initial press away from the Apple menu hit region.
-        if let screen = NSScreen.screens.first(where: { $0.displayID == displayID }) {
-            let padding: CGFloat = 6
-            let displayBounds = CGDisplayBounds(displayID)
-
-            var clampSource = "none"
-            if #available(macOS 16.0, *) {
-                var safeMaxX: CGFloat?
-                if let menuFrame = screen.getApplicationMenuFrame() {
-                    safeMaxX = menuFrame.maxX
-                    clampSource = "axMenuFrame"
-                }
-                if safeMaxX == nil {
-                    let items = await MenuBarItem.getMenuBarItems(on: displayID, option: .onScreen)
-                    if let minX = items
-                        .filter({ $0.bounds.intersects(displayBounds) })
-                        .map(\.bounds.minX)
-                        .min()
-                    {
-                        safeMaxX = max(displayBounds.minX + 60, minX - padding)
-                        clampSource = "leftmostItem"
-                    }
-                }
-                let fallback = displayBounds.minX + 80
-                start.x = max(start.x, (safeMaxX ?? fallback) + padding)
-            } else {
-                // macOS 14/15: avoid over-estimating the Apple menu region; clamp only within the target display band.
-                let guardMin = displayBounds.minX + 80
-                let guardMax = targetBounds.minX - 2
-                start.x = min(max(start.x, guardMin), guardMax)
-                clampSource = "guardBand"
-            }
-
-            // Keep event coordinates away from screen corners to avoid
-            // triggering macOS hot corners.
-            let cornerInset: CGFloat = 10
-            start.y = max(start.y, displayBounds.minY + cornerInset)
-            end.y = max(end.y, displayBounds.minY + cornerInset)
-
-            MenuBarItemManager.diagLog.debug(
-                "Move clamp source=\(clampSource) startX=\(start.x) targetMinX=\(targetBounds.minX) itemMinX=\(itemBounds.minX) targetTag=\(destination.targetItem.tag) itemTag=\(item.tag) display=\(displayID)"
-            )
-        }
+        MenuBarItemManager.diagLog.debug(
+            "Move points: startX=\(start.x) endX=\(end.x) startY=\(start.y) targetMinX=\(targetBounds.minX) itemMinX=\(itemBounds.minX) targetTag=\(destination.targetItem.tag) itemTag=\(item.tag) display=\(displayID)"
+        )
         return (start, end)
     }
 
@@ -1552,23 +1497,6 @@ extension MenuBarItemManager {
             resolvedDisplayID = window.displayID
         } else {
             resolvedDisplayID = Bridging.getActiveMenuBarDisplayID() ?? CGMainDisplayID()
-        }
-
-        // If the target display is not the one with the active menu bar, nudge it.
-        // This is crucial when a fullscreen app is on another monitor.
-        if Bridging.getActiveMenuBarDisplayID() != resolvedDisplayID {
-            let displayBounds = CGDisplayBounds(resolvedDisplayID)
-            // Target a neutral spot in the menu bar background (far left, just past the Apple menu).
-            let nudgePoint = CGPoint(x: displayBounds.minX + 60, y: displayBounds.minY + 10)
-            let source = try? getEventSource()
-            if let down = CGEvent(mouseEventSource: source, mouseType: .leftMouseDown, mouseCursorPosition: nudgePoint, mouseButton: .left),
-               let up = CGEvent(mouseEventSource: source, mouseType: .leftMouseUp, mouseCursorPosition: nudgePoint, mouseButton: .left)
-            {
-                down.post(to: .sessionEventTap)
-                up.post(to: .sessionEventTap)
-                // Give the system a micro-moment to register the focus change.
-                try? await Task.sleep(for: .milliseconds(50))
-            }
         }
 
         if !skipInputPause {
@@ -2063,6 +1991,18 @@ extension MenuBarItemManager {
         // physical position set by the Cmd+drag, so on relaunch the icon
         // would otherwise stay in the visible section).
         pendingRelocations[tagIdentifier] = sectionKey(for: originalSection)
+
+        // Also store the return destination to preserve ordering
+        let neighborTag = returnInfo.destination.targetItem.tag
+        let position: String
+        switch returnInfo.destination {
+        case .leftOfItem: position = "left"
+        case .rightOfItem: position = "right"
+        }
+        pendingReturnDestinations[tagIdentifier] = [
+            "neighbor": "\(neighborTag.namespace):\(neighborTag.title)",
+            "position": position,
+        ]
         persistPendingRelocations()
 
         appState.hidEventManager.stopAll()
@@ -2077,6 +2017,7 @@ extension MenuBarItemManager {
         } catch {
             MenuBarItemManager.diagLog.error("Error showing item: \(error)")
             pendingRelocations.removeValue(forKey: tagIdentifier)
+            pendingReturnDestinations.removeValue(forKey: tagIdentifier)
             persistPendingRelocations()
             return
         }
@@ -2315,6 +2256,7 @@ extension MenuBarItemManager {
                 // Successfully rehidden — remove the pending relocation entry.
                 let tagIdentifier = "\(context.tag.namespace):\(context.tag.title)"
                 pendingRelocations.removeValue(forKey: tagIdentifier)
+                pendingReturnDestinations.removeValue(forKey: tagIdentifier)
             } catch {
                 context.rehideAttempts += 1
                 MenuBarItemManager.diagLog.warning(
@@ -2371,6 +2313,7 @@ extension MenuBarItemManager {
         // placed the item in a new position.
         let tagIdentifier = "\(tag.namespace):\(tag.title)"
         if pendingRelocations.removeValue(forKey: tagIdentifier) != nil {
+            pendingReturnDestinations.removeValue(forKey: tagIdentifier)
             persistPendingRelocations()
         }
     }
@@ -2528,6 +2471,7 @@ extension MenuBarItemManager {
             else {
                 // Nothing to do if the original section was visible.
                 pendingRelocations.removeValue(forKey: tagIdentifier)
+                pendingReturnDestinations.removeValue(forKey: tagIdentifier)
                 continue
             }
 
@@ -2545,23 +2489,39 @@ extension MenuBarItemManager {
             guard itemBounds.minX >= hiddenBounds.maxX else {
                 // Item is already in a hidden section — clean up.
                 pendingRelocations.removeValue(forKey: tagIdentifier)
+                pendingReturnDestinations.removeValue(forKey: tagIdentifier)
                 continue
             }
 
-            // Move the item back to the left of the hidden control item
-            // (into the hidden section).
+            // Move the item back to its original section.
+            // Try to use the stored destination from the persisted data to preserve ordering.
             let destination: MoveDestination
-            switch targetSection {
-            case .hidden:
-                destination = .leftOfItem(controlItems.hidden)
-            case .alwaysHidden:
-                if let alwaysHidden = controlItems.alwaysHidden {
-                    destination = .leftOfItem(alwaysHidden)
+            if let destInfo = pendingReturnDestinations[tagIdentifier],
+               let neighborTagString = destInfo["neighbor"],
+               let neighborItem = items.first(where: { neighborTagString == "\($0.tag.namespace):\($0.tag.title)" })
+            {
+                if destInfo["position"] == "left" {
+                    destination = .leftOfItem(neighborItem)
                 } else {
-                    destination = .leftOfItem(controlItems.hidden)
+                    destination = .rightOfItem(neighborItem)
                 }
-            case .visible:
-                continue
+            } else if let fallbackTagString = temporarilyShownItemContexts.first(where: { tagIdentifier == "\($0.tag.namespace):\($0.tag.title)" })?.fallbackNeighborTag,
+                      let fallbackItem = items.first(matching: fallbackTagString)
+            {
+                destination = .rightOfItem(fallbackItem)
+            } else {
+                switch targetSection {
+                case .hidden:
+                    destination = .leftOfItem(controlItems.hidden)
+                case .alwaysHidden:
+                    if let alwaysHidden = controlItems.alwaysHidden {
+                        destination = .leftOfItem(alwaysHidden)
+                    } else {
+                        destination = .leftOfItem(controlItems.hidden)
+                    }
+                case .visible:
+                    continue
+                }
             }
 
             MenuBarItemManager.diagLog.info(
@@ -2574,6 +2534,7 @@ extension MenuBarItemManager {
             do {
                 try await move(item: item, to: destination, skipInputPause: true)
                 pendingRelocations.removeValue(forKey: tagIdentifier)
+                pendingReturnDestinations.removeValue(forKey: tagIdentifier)
                 didRelocate = true
             } catch {
                 MenuBarItemManager.diagLog.error(
@@ -2758,6 +2719,8 @@ extension MenuBarItemManager {
     /// - Returns: The number of items that failed to move.
     func resetLayoutToFreshState() async throws -> Int {
         MenuBarItemManager.diagLog.info("Resetting menu bar layout to fresh state")
+        isResettingLayout = true
+        defer { isResettingLayout = false }
 
         guard let appState else {
             throw LayoutResetError.missingAppState
@@ -2772,6 +2735,7 @@ extension MenuBarItemManager {
         pinnedHiddenBundleIDs.removeAll()
         pinnedAlwaysHiddenBundleIDs.removeAll()
         pendingRelocations.removeAll()
+        pendingReturnDestinations.removeAll()
         persistKnownItemIdentifiers()
         persistPinnedBundleIDs()
         persistPendingRelocations()
