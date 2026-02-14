@@ -1506,7 +1506,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rechercher automatiquement les mises à jour"
+            "value" : "Vérifier automatiquement les mises à jour"
           }
         },
         "id" : {
@@ -2046,7 +2046,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rechercher automatiquement"
+            "value" : "Vérifier automatiquement"
           }
         },
         "id" : {
@@ -2100,7 +2100,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rechercher des mises à jour"
+            "value" : "Vérifier les mises à jour"
           }
         },
         "id" : {
@@ -2154,7 +2154,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rechercher automatiquement les mises à jour ?"
+            "value" : "Vérifier automatiquement les mises à jour ?"
           }
         },
         "id" : {
@@ -2208,7 +2208,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rechercher des mises à jour…"
+            "value" : "Vérifier les mises à jour…"
           }
         },
         "id" : {
@@ -2256,6 +2256,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activa %@ en Configuración del sistema → Barra de menús"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez vérifier dans Réglages Système > Barre des menus > Autoriser %@"
           }
         },
         "id" : {
@@ -2496,6 +2502,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Einen leeren Bereich der Menüleiste anklicken, um versteckte Einträge anzuzeigen oder doppelklicken um sie immer zu verstecken."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliquez dans une zone vide de la barre des menus pour afficher les éléments masqués ou double-cliquez pour afficher la section cachée."
           }
         },
         "id" : {
@@ -6784,6 +6796,12 @@
             "value" : "Uno o más separadores de sección están ocultos por macOS"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un ou plusieurs séparateurs sont cachés par macOS"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8377,7 +8395,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ doit-il rechercher automatiquement les mises à jour ? Vous pouvez toujours effectuer une recherche manuelle depuis l'icône Thaw dans la barre des menus ou depuis Réglages → À propos."
+            "value" : "%@ doit-il vérifier automatiquement les mises à jour ? Vous pouvez toujours effectuer une vérification manuelle depuis l'icône Thaw dans la barre des menus ou depuis Réglages → À propos."
           }
         },
         "id" : {
