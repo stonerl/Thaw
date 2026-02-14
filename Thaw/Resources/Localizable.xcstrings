@@ -2239,6 +2239,12 @@
             "state" : "translated",
             "value" : "Systemeinstellungen > Menüleiste überprüfen und %@ aktivieren"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請檢查系統設定 > 選單列，並啟用 %@"
+          }
         }
       }
     },
@@ -6746,6 +6752,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eine oder mehrere Bereichstrennungen werden von macOS versteckt."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一個或多個區段分隔線已被 macOS 隱藏"
           }
         }
       }
