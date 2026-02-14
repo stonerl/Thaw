@@ -152,7 +152,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ 列"
+            "value" : "%@ 工具栏"
           }
         },
         "zh-Hant" : {
@@ -422,7 +422,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ 已无响应。在重启之前，无法移动该菜单项。在此问题解决之前，其他菜单栏项目的移动也可能受到影响。"
+            "value" : "%@ 无响应。在重启之前，无法移动该菜单项。在此问题解决之前，其他菜单栏项目的移动也可能受到影响。"
           }
         },
         "zh-Hant" : {
@@ -846,7 +846,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "新的更新可用"
+            "value" : "您有新的更新可用"
           }
         },
         "zh-Hant" : {
@@ -2258,6 +2258,12 @@
             "value" : "Activa %@ en Configuración del sistema → Barra de menús"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请您检查系统设置>菜单栏并且启动%@"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2490,6 +2496,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Einen leeren Bereich der Menüleiste anklicken, um versteckte Einträge anzuzeigen oder doppelklicken um sie immer zu verstecken."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在菜单栏空白区域点击来显示隐藏项目，或者双击来显示永久隐藏项目。"
           }
         }
       }
@@ -3797,7 +3809,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "启用 %@ 列"
+            "value" : "启用 %@ 工具栏"
           }
         },
         "zh-Hant" : {
@@ -6772,6 +6784,12 @@
             "value" : "Uno o más separadores de sección están ocultos por macOS"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS系统隐藏了一个或者多个区域分割图标"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7309,7 +7327,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重置完成，但仍有 %lld 个项目无法移动。请检查菜单栏，如有需要请重试。"
+            "value" : "重置完成，但仍有 %lld 个项目无法移动。如有需要请重试， 请检查菜单栏。"
           }
         },
         "zh-Hant" : {
@@ -7687,7 +7705,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重置分隔线，并将除 %@ 图标之外的所有可移动项目移至隐藏状态——就像全新安装一样。"
+            "value" : "重置分隔线，并将除 %@ 图标之外的所有可移动项目移至隐藏状态，跟原版本菜单栏一样。"
           }
         },
         "zh-Hant" : {
