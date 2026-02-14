@@ -2258,6 +2258,12 @@
             "value" : "Activa %@ en Configuración del sistema → Barra de menús"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka Pengaturan Sistem > Bar Menu, lalu aktifkan %@"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2490,6 +2496,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Einen leeren Bereich der Menüleiste anklicken, um versteckte Einträge anzuzeigen oder doppelklicken um sie immer zu verstecken."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik area kosong di bar menu untuk menampilkan item yang tersembunyi, atau klik dua kali untuk menampilkan item yang selalu-tersembunyi."
           }
         }
       }
@@ -6770,6 +6782,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Uno o más separadores de sección están ocultos por macOS"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Satu atau lebih pembagi bagian disembunyikan oleh macOS"
           }
         },
         "zh-Hant" : {
