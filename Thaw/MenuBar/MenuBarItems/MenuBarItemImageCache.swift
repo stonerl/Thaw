@@ -252,6 +252,7 @@ final class MenuBarItemImageCache: ObservableObject {
                 colorChangePublisher,
                 itemCacheChangePublisher,
             ])
+            .debounce(for: .milliseconds(200), scheduler: DispatchQueue.main)
             .sink { [weak self] _ in
                 guard let self else {
                     return
