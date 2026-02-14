@@ -524,8 +524,11 @@ private final class MenuBarOverlayPanelContentView: NSView {
             }
 
             // Redraw whenever the application menu frame changes.
+            // Also refresh cached item windows to pick up items added/removed
+            // by other apps (e.g. status bar icons appearing or disappearing).
             overlayPanel.$applicationMenuFrame
                 .sink { [weak self] _ in
+                    self?.updateCachedItemWindows()
                     self?.needsDisplay = true
                 }
                 .store(in: &c)
@@ -546,6 +549,9 @@ private final class MenuBarOverlayPanelContentView: NSView {
             .store(in: &c)
 
         cancellables = c
+
+        // Populate the cache immediately so the first draw has data.
+        updateCachedItemWindows()
     }
 
     /// Refreshes the cached menu bar item windows from the Window Server.
