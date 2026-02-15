@@ -94,16 +94,15 @@ final class IceBarColorManager: ObservableObject {
                 guard
                     let self,
                     let iceBarPanel,
+                    iceBarPanel.isVisible,
                     let screen = iceBarPanel.screen,
                     screen == .main
                 else {
                     return
                 }
                 updateWindowImage(for: screen)
-                if iceBarPanel.isVisible {
-                    withAnimation {
-                        self.updateColorInfo(with: iceBarPanel.frame, screen: screen)
-                    }
+                withAnimation {
+                    self.updateColorInfo(with: iceBarPanel.frame, screen: screen)
                 }
             }
             .store(in: &c)

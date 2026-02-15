@@ -78,7 +78,12 @@ class Permission: ObservableObject, Identifiable {
                 guard let self else {
                     return
                 }
-                hasPermission = check()
+                let granted = check()
+                hasPermission = granted
+                if granted {
+                    timerCancellable?.cancel()
+                    timerCancellable = nil
+                }
             }
     }
 

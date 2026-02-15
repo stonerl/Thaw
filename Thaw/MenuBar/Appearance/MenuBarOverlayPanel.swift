@@ -250,14 +250,20 @@ final class MenuBarOverlayPanel: NSPanel {
         Timer.publish(every: 30, on: .main, in: .default)
             .autoconnect()
             .sink { [weak self] _ in
-                self?.insertUpdateFlag(.desktopWallpaper)
+                guard let self, self.isOnActiveSpace else {
+                    return
+                }
+                self.insertUpdateFlag(.desktopWallpaper)
             }
             .store(in: &c)
 
         Timer.publish(every: 10, on: .main, in: .default)
             .autoconnect()
             .sink { [weak self] _ in
-                self?.insertUpdateFlag(.applicationMenuFrame)
+                guard let self, self.isOnActiveSpace else {
+                    return
+                }
+                self.insertUpdateFlag(.applicationMenuFrame)
             }
             .store(in: &c)
 
