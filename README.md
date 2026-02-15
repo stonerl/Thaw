@@ -26,10 +26,16 @@ Download the `Thaw_1.x.x.zip` file from the [latest release](https://github.com/
 
 ### Homebrew
 
-Install Thaw using the following command:
+Install the latest stable release:
 
 ```sh
-brew install --cask thaw
+brew install thaw
+```
+
+To get the latest beta (or stable, whichever is newer):
+
+```sh
+brew install thaw@beta
 ```
 
 ## Features/Roadmap
