@@ -34,6 +34,10 @@ final class GeneralSettings: ObservableObject {
     /// in a separate bar below the menu bar.
     @Published var useIceBar = false
 
+    /// A Boolean value that indicates whether to use the Ice Bar
+    /// only on displays with a notch.
+    @Published var useIceBarOnlyOnNotchedDisplay = false
+
     /// The location where the Ice Bar appears.
     @Published var iceBarLocation: IceBarLocation = .dynamic
 
@@ -90,6 +94,7 @@ final class GeneralSettings: ObservableObject {
         Defaults.ifPresent(key: .showIceIcon, assign: &showIceIcon)
         Defaults.ifPresent(key: .customIceIconIsTemplate, assign: &customIceIconIsTemplate)
         Defaults.ifPresent(key: .useIceBar, assign: &useIceBar)
+        Defaults.ifPresent(key: .useIceBarOnlyOnNotchedDisplay, assign: &useIceBarOnlyOnNotchedDisplay)
         Defaults.ifPresent(key: .showOnClick, assign: &showOnClick)
         Defaults.ifPresent(key: .showOnHover, assign: &showOnHover)
         Defaults.ifPresent(key: .showOnScroll, assign: &showOnScroll)
@@ -160,6 +165,13 @@ final class GeneralSettings: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { useIceBar in
                 Defaults.set(useIceBar, forKey: .useIceBar)
+            }
+            .store(in: &c)
+
+        $useIceBarOnlyOnNotchedDisplay
+            .receive(on: DispatchQueue.main)
+            .sink { useIceBarOnlyOnNotchedDisplay in
+                Defaults.set(useIceBarOnlyOnNotchedDisplay, forKey: .useIceBarOnlyOnNotchedDisplay)
             }
             .store(in: &c)
 

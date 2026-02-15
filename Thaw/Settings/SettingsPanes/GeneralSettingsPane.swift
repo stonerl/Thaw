@@ -178,13 +178,25 @@ struct GeneralSettingsPane: View {
     private var iceBarOptions: some View {
         useIceBar
         if settings.useIceBar {
+            if hasNotchedDisplay {
+                useIceBarOnlyOnNotchedDisplay
+            }
             iceBarLocationPicker
         }
+    }
+
+    private var hasNotchedDisplay: Bool {
+        NSScreen.screens.contains { $0.hasNotch }
     }
 
     private var useIceBar: some View {
         Toggle("Use \(Constants.displayName) Bar", isOn: $settings.useIceBar)
             .annotation("Show hidden menu bar items in a separate bar below the menu bar.")
+    }
+
+    private var useIceBarOnlyOnNotchedDisplay: some View {
+        Toggle("Only on displays with notch", isOn: $settings.useIceBarOnlyOnNotchedDisplay)
+            .annotation("Use \(Constants.displayName) Bar only on displays with a notch. On other displays, show icons in the menu bar.")
     }
 
     private var iceBarLocationPicker: some View {

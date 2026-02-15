@@ -66,7 +66,14 @@ final class MenuBarSection {
 
     /// A Boolean value that indicates whether the Ice Bar should be used.
     private var useIceBar: Bool {
-        appState?.settings.general.useIceBar ?? false
+        guard let settings = appState?.settings.general, settings.useIceBar else {
+            return false
+        }
+        if settings.useIceBarOnlyOnNotchedDisplay {
+            let screen = screenForIceBar
+            return screen?.hasNotch ?? false
+        }
+        return true
     }
 
     /// A weak reference to the menu bar manager.
