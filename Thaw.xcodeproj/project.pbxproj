@@ -51,13 +51,6 @@
 			);
 			target = 7188A6822E27F9ED008F131D /* MenuBarItemService */;
 		};
-		E2B484022F364D60002B2694 /* Exceptions for "Thaw" folder in "MenuBarItemService" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Resources/Localizable.xcstrings,
-			);
-			target = 7188A6822E27F9ED008F131D /* MenuBarItemService */;
-		};
 		E2B782F92F2BF98100CF0BBD /* Exceptions for "Thaw" folder in "Thaw" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -85,7 +78,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				E2B782F92F2BF98100CF0BBD /* Exceptions for "Thaw" folder in "Thaw" target */,
-				E2B484022F364D60002B2694 /* Exceptions for "Thaw" folder in "MenuBarItemService" target */,
 			);
 			path = Thaw;
 			sourceTree = "<group>";

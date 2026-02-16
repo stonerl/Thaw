@@ -8,6 +8,22 @@
 
 import SwiftUI
 
+struct SecondsLabel: View {
+    let value: Double
+
+    private var formatted: String {
+        let localized = String(localized: "\(value) seconds")
+        return localized
+            .replacingOccurrences(of: #"(\d+)\.0+(\s)"#, with: "$1$2", options: .regularExpression)
+            .replacingOccurrences(of: #"(\d+)\,0+(\s)"#, with: "$1$2", options: .regularExpression)
+            .replacingOccurrences(of: #"(\d+[\.,]\d*?)0+(\s)"#, with: "$1$2", options: .regularExpression)
+    }
+
+    var body: Text {
+        Text(formatted)
+    }
+}
+
 struct AdvancedSettingsPane: View {
     @EnvironmentObject var appState: AppState
     @ObservedObject var settings: AdvancedSettings
@@ -16,15 +32,6 @@ struct AdvancedSettingsPane: View {
 
     private var menuBarManager: MenuBarManager {
         appState.menuBarManager
-    }
-
-    private func formattedToSeconds(_ interval: TimeInterval) -> LocalizedStringKey {
-        let formatted = interval.formatted()
-        return if interval == 1 {
-            LocalizedStringKey(formatted + " second")
-        } else {
-            LocalizedStringKey(formatted + " seconds")
-        }
     }
 
     var body: some View {
@@ -107,11 +114,12 @@ struct AdvancedSettingsPane: View {
     private var showOnHoverDelay: some View {
         LabeledContent {
             IceSlider(
-                formattedToSeconds(settings.showOnHoverDelay),
                 value: $settings.showOnHoverDelay,
                 in: 0 ... 1,
                 step: 0.1
-            )
+            ) {
+                SecondsLabel(value: settings.showOnHoverDelay)
+            }
         } label: {
             Text("Show on hover delay")
                 .frame(minWidth: maxSliderLabelWidth, alignment: .leading)

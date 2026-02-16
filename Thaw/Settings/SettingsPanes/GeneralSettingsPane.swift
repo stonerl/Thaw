@@ -28,12 +28,8 @@ struct GeneralSettingsPane: View {
     }
 
     private var rehideIntervalKey: LocalizedStringKey {
-        let formatted = settings.rehideInterval.formatted()
-        if settings.rehideInterval == 1 {
-            return LocalizedStringKey(formatted + " second")
-        } else {
-            return LocalizedStringKey(formatted + " seconds")
-        }
+        let count = Int(settings.rehideInterval)
+        return LocalizedStringKey(String(localized: "\(count) seconds"))
     }
 
     var body: some View {
