@@ -786,12 +786,24 @@
           }
         },
         "th" : {
+            "variations" : {
+                "plural" : {
+                    "other" : {
+                        "stringUnit" : {
+                            "state" : "translated",
+                            "value" : "%lf วินาที"
+                        }
+                    }
+                }
+            }
+        },
+        "zh-Hant" : {
           "variations" : {
             "plural" : {
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lf วินาที"
+                  "value" : "%lf 秒"
                 }
               }
             }
@@ -858,12 +870,24 @@
           }
         },
         "th" : {
+            "variations" : {
+                "plural" : {
+                    "other" : {
+                        "stringUnit" : {
+                            "state" : "translated",
+                            "value" : "%lld วินาที"
+                        }
+                    }
+                }
+            }
+        },
+        "zh-Hant" : {
           "variations" : {
             "plural" : {
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld วินาที"
+                  "value" : "%lld 秒"
                 }
               }
             }
