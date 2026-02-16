@@ -8496,6 +8496,12 @@
             "value" : "Solo en pantallas con notch"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seulement sur les écrans avec une encoche"
+          }
+        },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13033,6 +13039,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Usa %@ Bar solo en pantallas con notch. En otras pantallas, muestra los íconos en la barra de menús."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser la « %@ Bar » uniquement sur les écrans avec une encoche. Sur les autres écrans, afficher les icônes dans la barre des menus."
           }
         },
         "hu" : {
