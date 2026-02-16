@@ -1160,6 +1160,12 @@
             "value" : "Selalu-Tersembunyi"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "항상 숨김"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1476,6 +1482,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Panah"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "화살표"
           }
         },
         "th" : {
@@ -2281,6 +2293,12 @@
             "value" : "Buka Pengaturan Sistem > Bar Menu, lalu aktifkan %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시스템 설정 > 메뉴 막대에서 %@를 활성화하세요."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2537,6 +2555,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Klik area kosong di bar menu untuk menampilkan item yang tersembunyi, atau klik dua kali untuk menampilkan item yang selalu-tersembunyi."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 막대의 빈 영역을 클릭하면 숨겨진 항목이 표시되고, 두 번 클릭하면 항상 숨겨집니다."
           }
         },
         "zh-Hans" : {
@@ -2849,6 +2873,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kustom"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용자 지정"
           }
         },
         "th" : {
@@ -3385,6 +3415,12 @@
             "value" : "Pintu"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3431,6 +3467,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Titik"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "점"
           }
         },
         "th" : {
@@ -3695,6 +3737,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Elipsis"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "말줄임표"
           }
         },
         "th" : {
@@ -4393,6 +4441,12 @@
             "value" : "Tersembunyi"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "숨김"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4815,6 +4869,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Es Batu"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "얼음 큐브"
           }
         },
         "th" : {
@@ -6855,6 +6915,12 @@
             "value" : "Satu atau lebih pembagi bagian disembunyikan oleh macOS"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS에서 하나 이상의 섹션 구분선이 숨겨져 있습니다."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6888,6 +6954,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hanya di layar dengan notch"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "노치가 있는 디스플레이에서만 가능합니다."
           }
         }
       }
@@ -7836,6 +7908,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pulihkan pembagi bawaan dan pindahkan semua item yang dapat dipindahkan ke bagian tersembunyi kecuali ikon %@. Gunakan bila tata letak terlihat bermasalah atau item tidak dimuat."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "구분선 기본 설정을 복원하고 %@ 아이콘을 제외한 모든 이동 가능한 항목을 숨김으로 이동합니다. 레이아웃이 깨져 보이거나 항목이 로드되지 않는 경우 사용하세요."
           }
         },
         "th" : {
@@ -9504,6 +9582,12 @@
             "value" : "Kacamata"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "선글라스"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10570,6 +10654,12 @@
             "state" : "translated",
             "value" : "Gunakan Bar %@ hanya di layar dengan notch. Di layar lain, tampilkan ikon di bar menu."
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 바는 노치가 있는 디스플레이에서만 사용됩니다. 다른 디스플레이에서는 메뉴 막대에 아이콘이 표시됩니다."
+          }
         }
       }
     },
@@ -10815,6 +10905,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terlihat"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "보임"
           }
         },
         "th" : {
