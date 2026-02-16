@@ -6882,12 +6882,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Solo en pantallas con notch"
-         }
-       },
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hanya di layar dengan notch"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅在带刘海的显示器上"
           }
         }
       }
@@ -10565,10 +10571,16 @@
             "value" : "Usa %@ Bar solo en pantallas con notch. En otras pantallas, muestra los íconos en la barra de menús."
           }
         },
-		"id" : {
+        "id" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gunakan Bar %@ hanya di layar dengan notch. Di layar lain, tampilkan ikon di bar menu."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅在带有刘海的显示器上使用 %@ 栏。在其他显示器上，请在菜单栏中显示图标。"
           }
         }
       }
