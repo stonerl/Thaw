@@ -222,6 +222,7 @@
 				"zh-Hant",
 				de,
 				fr,
+				hu,
 				id,
 				es,
 				th,

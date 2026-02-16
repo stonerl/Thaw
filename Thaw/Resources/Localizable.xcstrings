@@ -23,6 +23,12 @@
             "value" : "%@"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -81,6 +87,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Section %1$@ %2$@"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@ Szakasz"
           }
         },
         "id" : {
@@ -143,6 +155,12 @@
             "value" : "%@ Bar"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Sáv"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -201,6 +219,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sans ces autorisations, %@ fonctionnera en mode restreint."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ korlátozott módban is működhet ezen engedély nélkül."
           }
         },
         "id" : {
@@ -263,6 +287,12 @@
             "value" : "%@ ne peut pas réorganiser les éléments de la barre des menus lorsque celle-ci est masquée automatiquement."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ nem tudja rendezni a menüsor elemeit az automatikusan elrejtett menüsorokban."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -321,6 +351,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ ne peut pas modifier l'apparence de la barre des menus lorsqu'elle est masquée automatiquement."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ nem tudja szerkeszteni az automatikusan elrejtett menüsorok megjelenését."
           }
         },
         "id" : {
@@ -383,6 +419,12 @@
             "value" : "Icône %@"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ikon"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -441,6 +483,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ ne répond pas. Tant que ce dernier n'a pas été redémarré, il ne peut pas être déplacé. Le déplacement des autres éléments de la barre des menus peut également être affecté tant que le problème n'est pas résolu."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ nem válaszol. Amíg újra nem indul, nem mozgatható. Más menüsor elemek mozgatása is érintett lehet, amíg ez meg nem oldódik."
           }
         },
         "id" : {
@@ -503,6 +551,12 @@
             "value" : "%@ a besoin de cette autorisation pour :"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ehhez van szüksége erre:"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -561,6 +615,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ a besoin de votre autorisation pour gérer la barre des menus."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A(z) %@ engedélyt kér a menüsor kezeléséhez."
           }
         },
         "id" : {
@@ -623,6 +683,12 @@
             "value" : "Réglages de %@…"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Beállítások…"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -683,6 +749,12 @@
             "value" : "•"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "•"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -737,6 +809,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1"
+          }
+        },
+        "hu" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "1"
@@ -802,6 +880,12 @@
             "value" : "2"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -857,6 +941,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3"
+          }
+        },
+        "hu" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "3"
@@ -920,6 +1010,12 @@
             "value" : "Une mise à jour est disponible"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Új frissítés érhető el"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -978,6 +1074,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "À propos"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Névjegy"
           }
         },
         "id" : {
@@ -1040,6 +1142,12 @@
             "value" : "Aucune information personnelle n'est collectée ni stockée."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semmilyen személyes adat nem kerül gyűjtésre vagy tárolásra."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1098,6 +1206,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Accessibilité"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kisegítő lehetőségek"
           }
         },
         "id" : {
@@ -1160,6 +1274,12 @@
             "value" : "Remerciements"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Köszönetnyilvánítás"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1218,6 +1338,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avancé"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haladó"
           }
         },
         "id" : {
@@ -1280,6 +1406,12 @@
             "value" : "Caché"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mindig rejtett"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1338,6 +1470,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Appliquer"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alkalmaz"
           }
         },
         "id" : {
@@ -1400,6 +1538,12 @@
             "value" : "Applique des réglages différents à la barre des menus en fonction de l'apparence actuelle du système (clair ou sombre). "
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Különböző beállítások alkalmazása az aktuális rendszermegjelenés alapján."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1458,6 +1602,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Appliquer l'espacement sélectionner"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktuális térköz alkalmazása"
           }
         },
         "id" : {
@@ -1520,6 +1670,12 @@
             "value" : "L’application de ce réglage relancera toutes les applications ayant des éléments dans la barre des menus. Certaines applications pourraient nécessiter un redémarrage manuel."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ennek a beállításnak az alkalmazása újraindítja az összes menüsor elemekkel rendelkező alkalmazást. Egyes alkalmazásokat manuálisan kell újraindítani."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1578,6 +1734,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réorganiser les éléments de la barre des menus selon vos préférences."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor elemek rendezése."
           }
         },
         "id" : {
@@ -1640,6 +1802,12 @@
             "value" : "Flèche"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nyíl"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1698,6 +1866,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vérifier automatiquement les mises à jour"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frissítések automatikus keresése"
           }
         },
         "id" : {
@@ -1760,6 +1934,12 @@
             "value" : "Télécharger et installer automatiquement les mises à jour"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frissítések automatikus letöltése és telepítése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1818,6 +1998,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Télécharger automatiquement les mises à jour"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frissítések automatikus letöltése"
           }
         },
         "id" : {
@@ -1880,6 +2066,12 @@
             "value" : "Masquer automatiquement les icônes dévoilées"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatikus újraelrejtés"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1935,6 +2127,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BETA"
+          }
+        },
+        "hu" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "BETA"
@@ -2000,6 +2198,12 @@
             "value" : "Bordure"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szegély"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2058,6 +2262,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couleur de la bordure"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szegély színe"
           }
         },
         "id" : {
@@ -2120,6 +2330,12 @@
             "value" : "Épaisseur de la bordure"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szegély vastagsága"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2178,6 +2394,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annuler"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mégse"
           }
         },
         "id" : {
@@ -2240,6 +2462,12 @@
             "value" : "Modifier l'apparence de la barre des menus."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor megjelenésének módosítása."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2298,6 +2526,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vérifier automatiquement"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatikus ellenőrzés"
           }
         },
         "id" : {
@@ -2360,6 +2594,12 @@
             "value" : "Vérifier les mises à jour"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frissítések keresése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2418,6 +2658,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vérifier automatiquement les mises à jour ?"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatikus frissítéskeresés?"
           }
         },
         "id" : {
@@ -2480,6 +2726,12 @@
             "value" : "Vérifier les mises à jour…"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frissítések keresése…"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2539,6 +2791,12 @@
             "value" : "Veuillez vérifier dans Réglages Système > Barre des menus > Autoriser %@"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ellenőrizze a Rendszerbeállítások > Menüsor menüpontot, és engedélyezze a(z) %@ lehetőséget"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2591,6 +2849,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La recherche de mises à jour n'est pas prise en charge en mode débogage."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A frissítések keresése hibakeresési módban nem támogatott."
           }
         },
         "id" : {
@@ -2653,6 +2917,12 @@
             "value" : "Chevron"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nyílhegy"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2711,6 +2981,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choisir l’icône à afficher dans la barre des menus."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Válasszon egyéni ikont a menüsorban való megjelenítéshez."
           }
         },
         "id" : {
@@ -2773,6 +3049,12 @@
             "value" : "Choisir une image…"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kép kiválasztása…"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2833,6 +3115,12 @@
             "value" : "Cliquez dans une zone vide de la barre des menus pour afficher les éléments masqués ou double-cliquez pour afficher la section cachée."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kattintson a menüsor üres területére a rejtett elemek megjelenítéséhez, vagy kattintson duplán a mindig rejtett elemekhez."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2885,6 +3173,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cliquer sur l'élément"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kattintás az elemre"
           }
         },
         "id" : {
@@ -2947,6 +3241,12 @@
             "value" : "Cliquez sur l’icône pour afficher la section masquée ou double-cliquez pour afficher la section cachée. Cliquez avec le bouton droit pour accéder aux réglages de %@."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kattintson a rejtett elemek megjelenítéséhez, vagy kattintson duplán a mindig rejtett menüsor elemekhez. Jobb kattintás a(z) %@ beállításaihoz."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3005,6 +3305,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuer"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Folytatás"
           }
         },
         "id" : {
@@ -3067,6 +3373,12 @@
             "value" : "Continuer en mode limité"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Folytatás korlátozott módban"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3125,6 +3437,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contribuer"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Közreműködés"
           }
         },
         "id" : {
@@ -3187,6 +3505,12 @@
             "value" : "Personnalisé"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Egyéni"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3245,6 +3569,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apparence dynamique pour l’icône personnalisée"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az egyéni ikon dinamikus megjelenést használ"
           }
         },
         "id" : {
@@ -3307,6 +3637,12 @@
             "value" : "Apparence sombre"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sötét megjelenés"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3365,6 +3701,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "par défaut"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "alapértelmezett"
           }
         },
         "id" : {
@@ -3427,6 +3769,12 @@
             "value" : "Développement"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fejlesztés"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3485,6 +3833,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Diagnostiques"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnosztika"
           }
         },
         "id" : {
@@ -3547,6 +3901,12 @@
             "value" : "Afficher les images des éléments individuels de la barre des menus."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az egyes menüsor elemek képeinek megjelenítése."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3605,6 +3965,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher l'icône sous forme monochrome et l'adapter dynamiquement à l'apparence de la barre des menus. Ce réglage supprime les couleurs de l'icône, mais garantit un rendu cohérent sur les arrière-plans clairs et foncés."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az ikon megjelenítése monokróm képként, amely dinamikusan alkalmazkodik a menüsor megjelenéséhez. Ez a beállítás eltávolítja az összes színt az ikonból, de egységes megjelenítést biztosít világos és sötét háttéren egyaránt."
           }
         },
         "id" : {
@@ -3667,6 +4033,12 @@
             "value" : "Ne pas vérifier"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne ellenőrizze"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3725,6 +4097,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fait"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kész"
           }
         },
         "id" : {
@@ -3787,6 +4165,12 @@
             "value" : "Porte"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajtó"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3845,6 +4229,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Puce"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pont"
           }
         },
         "id" : {
@@ -3907,6 +4297,12 @@
             "value" : "Faites glisser les éléments de la barre des menus pour les organiser en différentes sections."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Húzza az elemeket a menüsor különböző szakaszaiba való rendezéshez."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3965,6 +4361,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "En raison d'un bug dans une version précédente de l'app, les données des sections de la barre des menus de %@ ont été corrompues et ont dû être réinitialisées."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az alkalmazás egy korábbi verziójának hibája miatt a(z) %@ menüsor szakaszainak adatai megsérültek, és vissza kellett állítani őket."
           }
         },
         "id" : {
@@ -4027,6 +4429,12 @@
             "value" : "Dynamique"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dinamikus"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4085,6 +4493,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Modifier l'apparence de la barre des menus…"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor megjelenésének szerkesztése…"
           }
         },
         "id" : {
@@ -4147,6 +4561,12 @@
             "value" : "Ellipse"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Három pont"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4205,6 +4625,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activer la création de rapports de diagnostic"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnosztikai naplózás engedélyezése"
           }
         },
         "id" : {
@@ -4267,6 +4693,12 @@
             "value" : "Activer le menu contextuel secondaire"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Másodlagos helyi menü engedélyezése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4325,6 +4757,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activer la « %@ Bar »"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A(z) %@ sáv engedélyezése"
           }
         },
         "id" : {
@@ -4387,6 +4825,12 @@
             "value" : "Activer la section cachée"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A mindig rejtett szakasz engedélyezése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4445,6 +4889,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ERREUR"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ERROR"
           }
         },
         "id" : {
@@ -4507,6 +4957,12 @@
             "value" : "Focus"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fókusz"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4565,6 +5021,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pleine largeur"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teljes"
           }
         },
         "id" : {
@@ -4627,6 +5089,12 @@
             "value" : "Général"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Általános"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4685,6 +5153,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obtenir les informations de la barre des menus en temps réel."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valós idejű információk lekérése a menüsorról."
           }
         },
         "id" : {
@@ -4747,6 +5221,12 @@
             "value" : "Accéder aux réglages avancés"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ugrás a haladó beállításokhoz"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4805,6 +5285,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dégradée"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Színátmenet"
           }
         },
         "id" : {
@@ -4867,6 +5353,12 @@
             "value" : "Autoriser"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engedély megadása"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4925,6 +5417,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masqué"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejtett"
           }
         },
         "id" : {
@@ -4987,6 +5485,12 @@
             "value" : "Masquer la section cachée"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mindig rejtett szakasz elrejtése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5045,6 +5549,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masquer les menus des apps lors de l'affichage des éléments de la barre des menus"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alkalmazásmenük elrejtése a menüsor elemeinek megjelenítésekor"
           }
         },
         "id" : {
@@ -5107,6 +5617,12 @@
             "value" : "Masquer la section masquée"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejtett szakasz elrejtése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5165,6 +5681,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maintenir pour prévisualiser"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tartsa lenyomva az előnézethez"
           }
         },
         "id" : {
@@ -5227,6 +5749,12 @@
             "value" : "Ce raccourci clavier est affecté à macOS"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A gyorsbillentyűt a macOS foglalja"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5287,6 +5815,12 @@
             "value" : "Raccourcis clavier"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gyorsbillentyűk"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5343,6 +5877,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Survolez une zone vide de la barre des menus pour afficher les éléments masqués."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vigye az egeret a menüsor üres területére a rejtett menüsor elemek megjelenítéséhez."
           }
         },
         "id" : {
@@ -5405,6 +5945,12 @@
             "value" : "Cube"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jégkocka"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5463,6 +6009,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les positions des icônes ne peuvent pas être restaurées."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az ikonpozíciók nem állíthatók vissza."
           }
         },
         "id" : {
@@ -5525,6 +6077,12 @@
             "value" : "Échec de l'importation. Vous pouvez configurer les réglages manuellement."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az importálás sikertelen. A beállításokat manuálisan is konfigurálhatja."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5583,6 +6141,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Importer les réglages"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beállítások importálása"
           }
         },
         "id" : {
@@ -5645,6 +6209,12 @@
             "value" : "Importé"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importálva"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5703,6 +6273,12 @@
             "value" : "Vous pouvez aussi maintenir la touche « ⌘ Command » enfoncée en les faisant glisser directement dans la barre des menus."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az elemeket a ⌘ Command + húzással is rendezheti a menüsorban."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5755,6 +6331,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dernière vérification : %@"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utolsó ellenőrzés: %@"
           }
         },
         "id" : {
@@ -5817,6 +6399,12 @@
             "value" : "Ouvrir avec la session"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indítás bejelentkezéskor"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5873,6 +6461,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Disposition réinitialisée. Les éléments ont été déplacés vers la section masquée."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elrendezés visszaállítva. Az elemek a Rejtett szakaszba kerültek."
           }
         },
         "id" : {
@@ -5935,6 +6529,12 @@
             "value" : "Extrémité de début"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kezdő lezárás"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5993,6 +6593,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "clic gauche"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "bal kattintás"
           }
         },
         "id" : {
@@ -6055,6 +6661,12 @@
             "value" : "Apparence claire"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Világos megjelenés"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6113,6 +6725,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chargement des éléments de la barre des menus…"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor elemek betöltése…"
           }
         },
         "id" : {
@@ -6175,6 +6793,12 @@
             "value" : "Emplacement"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hely"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6233,6 +6857,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "macOS empêche le déplacement de « %@ »."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A macOS megtiltja a(z) „%@” mozgatását."
           }
         },
         "id" : {
@@ -6295,6 +6925,12 @@
             "value" : "Libérer de l'espace dans la barre des menus en masquant, si nécessaire, les menus de l'app active. macOS exige que %@ soit visible dans le Dock tant que ce réglage est activé."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Több hely a menüsorban az aktuális alkalmazásmenük elrejtésével, ha szükséges. A macOS megköveteli, hogy a(z) %@ megjelenjen a Dockban, amíg ez a beállítás aktív."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6348,6 +6984,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "max"
+          }
+        },
+        "hu" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "max"
@@ -6413,6 +7055,12 @@
             "value" : "Apparence"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor megjelenése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6471,6 +7119,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cet élément de la barre des menus ne peut pas être déplacé."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A menüsor elem nem mozgatható."
           }
         },
         "id" : {
@@ -6533,6 +7187,12 @@
             "value" : "Espacement entre les éléments de la barre des menus"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor elemek térköze"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6591,6 +7251,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Éléments de la barre des menus"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor elemek"
           }
         },
         "id" : {
@@ -6653,6 +7319,12 @@
             "value" : "Les éléments de la barre des menus sont masqués automatiquement après un délai fixe."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A menüsor elemek egy meghatározott idő elteltével újra elrejtődnek."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6711,6 +7383,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les éléments de la barre des menus sont automatiquement masqués à l'aide d'un algorithme intelligent."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A menüsor elemek intelligens algoritmus segítségével rejtődnek el újra."
           }
         },
         "id" : {
@@ -6773,6 +7451,12 @@
             "value" : "Les éléments de la barre des menus sont masqués automatiquement lorsque l'application active change."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A menüsor elemek elrejtődnek, amikor az aktív alkalmazás megváltozik."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6833,6 +7517,12 @@
             "value" : "Disposition"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor elrendezése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6889,6 +7579,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La gestion de la barre des menus nécessite l'autorisation d'enregistrement de l'écran."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A menüsor elrendezéséhez képernyőfelvételi engedély szükséges."
           }
         },
         "id" : {
@@ -6951,6 +7647,12 @@
             "value" : "Calque de la barre des menus"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor rátét"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7009,6 +7711,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sections de la barre des menus"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor szakaszok"
           }
         },
         "id" : {
@@ -7071,6 +7779,12 @@
             "value" : "Forme de la barre des menus"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor alakja"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7129,6 +7843,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pointeur souris"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Egérmutató"
           }
         },
         "id" : {
@@ -7191,6 +7911,12 @@
             "value" : "Jamais"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soha"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7249,6 +7975,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucun élément dans cette section"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nincsenek elemek ebben a szakaszban"
           }
         },
         "id" : {
@@ -7311,6 +8043,12 @@
             "value" : "Aucun type de forme sélectionné"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nincs kiválasztott alakzattípus"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7369,6 +8107,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "aucun"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "nincs"
           }
         },
         "id" : {
@@ -7431,6 +8175,12 @@
             "value" : "Aucune"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nincs"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7489,6 +8239,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Espace insuffisant pour afficher « %@ »."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nincs elég hely a(z) „%@” megjelenítéséhez"
           }
         },
         "id" : {
@@ -7551,6 +8307,12 @@
             "value" : "Remarque : vous devrez peut-être vous déconnecter, puis vous reconnecter, pour que ce réglage soit appliqué correctement."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Megjegyzés: Előfordulhat, hogy ki kell jelentkeznie és újra be kell jelentkeznie a beállítás megfelelő alkalmazásához."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7606,6 +8368,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "hu" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -7671,6 +8439,12 @@
             "value" : "Un ou plusieurs séparateurs sont cachés par macOS"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Egy vagy több szakaszelválasztót a macOS elrejt"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7716,6 +8490,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Solo en pantallas con notch"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Csak bemetszéses kijelzőkön"
           }
         },
         "id" : {
@@ -7770,6 +8550,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvrir les réglages de %@"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ beállítások megnyitása"
           }
         },
         "id" : {
@@ -7832,6 +8618,12 @@
             "value" : "Autres"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Egyéb"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7890,6 +8682,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autorisation accordée"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engedély megadva"
           }
         },
         "id" : {
@@ -7952,6 +8750,12 @@
             "value" : "Autorisations"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engedélyek"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8010,6 +8814,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Quitter"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilépés"
           }
         },
         "id" : {
@@ -8072,6 +8882,12 @@
             "value" : "Quitter %@"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilépés: %@"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8130,6 +8946,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enregistrer"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gyorsbillentyű rögzítése"
           }
         },
         "id" : {
@@ -8192,6 +9014,12 @@
             "value" : "Signaler un bug"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hiba bejelentése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8250,6 +9078,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialiser"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visszaállítás"
           }
         },
         "id" : {
@@ -8312,6 +9146,12 @@
             "value" : "Réinitialisation terminée, %lld élément(s) n'ont pas pu être déplacé(s). Vérifiez la barre des menus et réessayez si nécessaire."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visszaállítás befejezve, %lld elem nem volt mozgatható. Ellenőrizze a menüsort, és szükség esetén próbálja újra."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8370,6 +9210,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Échec de la réinitialisation : %@"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visszaállítás sikertelen: %@"
           }
         },
         "id" : {
@@ -8432,6 +9278,12 @@
             "value" : "Réinitialiser la disposition"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elrendezés visszaállítása"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8490,6 +9342,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialiser l'apparence de la barre des menus"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor megjelenésének visszaállítása"
           }
         },
         "id" : {
@@ -8552,6 +9410,12 @@
             "value" : "Réinitialiser la disposition de la barre des menus"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor elrendezésének visszaállítása"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8610,6 +9474,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialiser la disposition de la barre des menus ?"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visszaállítja a menüsor elrendezését?"
           }
         },
         "id" : {
@@ -8672,6 +9542,12 @@
             "value" : "Rétablir l'espacement par défaut"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visszaállítás az alapértelmezett térközre"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8730,6 +9606,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialise les séparateurs et déplace tous les éléments déplaçables, à l'exception de l'icône %@, vers les éléments masqués, comme lors d'une nouvelle installation."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visszaállítja az elválasztókat és minden mozgatható elemet a Rejtett szakaszba helyez a(z) %@ ikon kivételével – mint egy friss telepítésnél."
           }
         },
         "id" : {
@@ -8792,6 +9674,12 @@
             "value" : "Restaure les séparateurs par défaut et déplace tous les éléments déplaçables, à l'exception de l'icône %@, vers les éléments masqués. À utiliser si la disposition semble incorrecte ou si certains éléments ne se chargent pas."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restores divider defaults and moves every movable item except the %@ icon to Hidden. Use this if the layout looks broken or items won’t load."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8850,6 +9738,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "clic droit"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "jobb kattintás"
           }
         },
         "id" : {
@@ -8912,6 +9806,12 @@
             "value" : "Cliquez avec le bouton droit dans une zone vide de la barre des menus pour afficher une mini-version du menu de %@. Désactivez ce réglage si vous rencontrez des conflits avec d'autres apps."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kattintson jobb gombbal a menüsor üres területére a(z) %@ menüjének egyszerűsített változatának megjelenítéséhez. Kapcsolja ki ezt a beállítást, ha más alkalmazásokkal ütközést tapasztal."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8970,6 +9870,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Extrémité arrondie"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lekerekített lezárás"
           }
         },
         "id" : {
@@ -9032,6 +9938,12 @@
             "value" : "Enregistrement de l'écran"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Képernyőfelvétel"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9090,6 +10002,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Faites défiler ou balayez la souris dans la barre des menus pour afficher les éléments masqués."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Görgessen vagy húzzon a menüsorban a rejtett menüsor elemek megjelenítéséhez."
           }
         },
         "id" : {
@@ -9152,6 +10070,12 @@
             "value" : "Rechercher parmi les éléments de la barre des menus."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor elemek keresése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9210,6 +10134,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher parmi les éléments de la barre des menus."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor elemek keresése"
           }
         },
         "id" : {
@@ -9272,6 +10202,12 @@
             "value" : "Rechercher des éléments de la barre des menus…"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüsor elemek keresése…"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9330,6 +10266,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Style du séparateur de sections"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szakaszelválasztó stílusa"
           }
         },
         "id" : {
@@ -9392,6 +10334,12 @@
             "value" : "Ombre"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Árnyék"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9450,6 +10398,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Forme"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alakzattípus"
           }
         },
         "id" : {
@@ -9512,6 +10466,12 @@
             "value" : "%@ doit-il vérifier automatiquement les mises à jour ? Vous pouvez toujours effectuer une vérification manuelle depuis l'icône Thaw dans la barre des menus ou depuis Réglages → À propos."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatikusan keressen a(z) %@ frissítéseket? Bármikor ellenőrizheti manuálisan a Thaw menüsor ikonból vagy a Beállítások → Névjegy menüpontból."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9570,6 +10530,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher l'icône %@ dans la barre des menus"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ikon megjelenítése"
           }
         },
         "id" : {
@@ -9632,6 +10598,12 @@
             "value" : "Afficher toutes les sections lorsque des éléments de la barre des menus sont déplacé avec « ⌘ Command »"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minden szakasz megjelenítése a menüsor elemek ⌘ Command + húzásakor"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9690,6 +10662,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher la section cachée"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mindig rejtett szakasz megjelenítése"
           }
         },
         "id" : {
@@ -9752,6 +10730,12 @@
             "value" : "Afficher les éléments masqués de la barre des menus dans une barre distincte située en dessous."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejtett menüsor elemek megjelenítése egy külön sávban a menüsor alatt."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9810,6 +10794,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher la section masquée"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejtett szakasz megjelenítése"
           }
         },
         "id" : {
@@ -9872,6 +10862,12 @@
             "value" : "Afficher l'élément"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elem megjelenítése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9930,6 +10926,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher les rapports dans le Finder"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naplófájlok megjelenítése a Finderben"
           }
         },
         "id" : {
@@ -9992,6 +10994,12 @@
             "value" : "Afficher en cliquant"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Megjelenítés kattintásra"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10050,6 +11058,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher en survolant"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Megjelenítés rámutatásra"
           }
         },
         "id" : {
@@ -10112,6 +11126,12 @@
             "value" : "Temps avant affichage au survol"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rámutatásos megjelenítés késleltetése"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10170,6 +11190,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher en défilant"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Megjelenítés görgetésre"
           }
         },
         "id" : {
@@ -10232,6 +11258,12 @@
             "value" : "Intelligent"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intelligens"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10292,6 +11324,12 @@
             "value" : "Opaque"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Egyszínű"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10348,6 +11386,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Segmentée"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Osztott"
           }
         },
         "id" : {
@@ -10410,6 +11454,12 @@
             "value" : "Extrémité plate"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szögletes lezárás"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10468,6 +11518,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stable"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stabil"
           }
         },
         "id" : {
@@ -10530,6 +11586,12 @@
             "value" : "Mode"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stratégia"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10588,6 +11650,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réglages de %lld importés avec succès !"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sikeresen importálva: %lld beállítás!"
           }
         },
         "id" : {
@@ -10650,6 +11718,12 @@
             "value" : "Lunettes"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Napszemüveg"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10708,6 +11782,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Soutenir %@"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ támogatása"
           }
         },
         "id" : {
@@ -10770,6 +11850,12 @@
             "value" : "La « %1$@ Bar » est centrée sous l'icône %2$@."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A(z) %1$@ sáv a(z) %2$@ ikon alatt van középre igazítva."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10828,6 +11914,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La « %@ Bar » est centrée sous le pointeur de la souris."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A(z) %@ sáv az egérmutató alatt van középre igazítva."
           }
         },
         "id" : {
@@ -10890,6 +11982,12 @@
             "value" : "La « %@ Bar » nécessite l'autorisation « enregistrement de l'écran »."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A(z) %@ sávhoz képernyőfelvételi engedély szükséges."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10948,6 +12046,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "L'emplacement de la « %@ Bar » varie selon le contexte."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A(z) %@ sáv helye a kontextus alapján változik."
           }
         },
         "id" : {
@@ -11010,6 +12114,12 @@
             "value" : "Délai d’attente avant affichage suite au survol de la souris. "
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A várakozási idő a rámutatásos megjelenítés előtt."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11068,6 +12178,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cette action est irréversible."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ez a művelet nem vonható vissza."
           }
         },
         "id" : {
@@ -11130,6 +12246,12 @@
             "value" : "Délai"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Időzített"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11188,6 +12310,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Teinte"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Színezés"
           }
         },
         "id" : {
@@ -11250,6 +12378,12 @@
             "value" : "Astuce : vous pouvez aussi modifier ces réglages en faisant un clic droit dans une zone vide de la barre des menus."
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipp: Ezeket a beállításokat a menüsor üres területén jobb kattintással is szerkesztheti."
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11308,6 +12442,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher / masquer les menus des applications"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alkalmazásmenük ki-/bekapcsolása"
           }
         },
         "id" : {
@@ -11370,6 +12510,12 @@
             "value" : "Afficher / masquer la section cachée"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mindig rejtett szakasz ki-/bekapcsolása"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11428,6 +12574,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher / masquer la section masquée"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejtett szakasz ki-/bekapcsolása"
           }
         },
         "id" : {
@@ -11490,6 +12642,12 @@
             "value" : "Extrémité de fin"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Záró lezárás"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11548,6 +12706,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Veuillez taper"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gyorsbillentyű beírása"
           }
         },
         "id" : {
@@ -11610,6 +12774,12 @@
             "value" : "Impossible d'afficher les éléments de la barre des menus"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nem sikerült megjeleníteni a menüsor elemeket"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11668,6 +12838,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de charger les éléments de la barre des menus"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nem sikerült betölteni a menüsor elemeket"
           }
         },
         "id" : {
@@ -11730,6 +12906,12 @@
             "value" : "Canal de mise à jour"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frissítési csatorna"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11790,6 +12972,12 @@
             "value" : "Utiliser la « %@ Bar »"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A(z) %@ sáv használata"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11841,6 +13029,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Usa %@ Bar solo en pantallas con notch. En otras pantallas, muestra los íconos en la barra de menús."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A(z) %@ sáv használata csak bemetszéses kijelzőkön. Más kijelzőkön az ikonok a menüsorban jelennek meg."
           }
         },
         "id" : {
@@ -11895,6 +13089,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apparence dynamique selon le mode"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dinamikus megjelenés használata"
           }
         },
         "id" : {
@@ -11957,6 +13157,12 @@
             "value" : "Utiliser une forme adaptée à l'encoche sur les écrans qui en ont une"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bemélyesztett alakzat használata bemetszéses képernyőkön"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12015,6 +13221,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version %1$@ (%2$@)"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ verzió (%2$@)"
           }
         },
         "id" : {
@@ -12077,6 +13289,12 @@
             "value" : "La version %@ (%@) est désormais disponible"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A(z) %1$@ (%2$@) verzió már elérhető"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12137,6 +13355,12 @@
             "value" : "Visible"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Látható"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12193,6 +13417,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Des réglages provenant d'Ice (l'application d'origine) ont été détectés."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az Ice (az eredeti alkalmazás) beállításait találtuk."
           }
         },
         "id" : {
@@ -12255,6 +13485,12 @@
             "value" : "Souhaitez-vous importer votre configuration existante ?"
           }
         },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szeretné importálni a meglévő konfigurációt?"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12313,6 +13549,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Crée un rapport de débogage détaillé pour faciliter le dépannage. Les rapports sont enregistrés dans ~/Library/Logs/Thaw/. Désactivez cette option lorsqu'elle n'est pas nécessaire afin d'éviter des écritures disque inutiles."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Részletes hibakeresési naplókat ír fájlba a hibaelhárításhoz. A naplófájlok a ~/Library/Logs/Thaw/ könyvtárba kerülnek mentésre. Kapcsolja ki, ha nincs rá szükség, a felesleges lemezírások elkerülése érdekében."
           }
         },
         "id" : {
