@@ -98,14 +98,14 @@ Thaw is currently available in the following languages:
 | **English**          | Base     |  🇺🇸   | ![100%](https://geps.dev/progress/100) |
 | **简体中文**         | Complete |  🇨🇳   | ![100%](https://geps.dev/progress/100) |
 | **正體中文**         | Complete |  🇹🇼   | ![100%](https://geps.dev/progress/100) |
-| **Français**         | Partial  |  🇫🇷   | ![99%](https://geps.dev/progress/99)   |
+| **Français**         | Partial  |  🇫🇷   | ![100%](https://geps.dev/progress/100) |
 | **Deutsch**          | Complete |  🇩🇪   | ![100%](https://geps.dev/progress/100) |
 | **Magyar**           | Complete |  🇭🇺   | ![100%](https://geps.dev/progress/100) |
 | **Bahasa Indonesia** | Complete |  🇮🇩   | ![100%](https://geps.dev/progress/100) |
-| **Italiano**         | Partial  |  🇮🇹   | ![99%](https://geps.dev/progress/99)   |
+| **Italiano**         | Partial  |  🇮🇹   | ![100%](https://geps.dev/progress/100) |
 | **한국어**           | Complete |  🇰🇷   | ![100%](https://geps.dev/progress/100) |
 | **Español**          | Complete | 🇪🇸/🇲🇽 | ![100%](https://geps.dev/progress/100) |
-| **ภาษาไทย**          | Partial  |  🇹🇭   | ![97%](https://geps.dev/progress/97)   |
+| **ภาษาไทย**          | Complete |  🇹🇭   | ![100%](https://geps.dev/progress/100) |
 
 _Note: Translations are currently only available in the development build._
 
