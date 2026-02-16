@@ -6871,6 +6871,12 @@
             "state" : "translated",
             "value" : "Nur auf Bildschirmen mit Notch"
           }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hanya di layar dengan notch"
+          }
         }
       }
     },
@@ -10539,6 +10545,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@-Leiste nur auf Bildschirmen mit Notch verwenden. Auf anderen Bildschirmen Symbole in der Menüleiste anzeigen."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gunakan Bar %@ hanya di layar dengan notch. Di layar lain, tampilkan ikon di bar menu."
           }
         }
       }
