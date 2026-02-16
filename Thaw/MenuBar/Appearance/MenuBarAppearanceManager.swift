@@ -97,6 +97,11 @@ final class MenuBarAppearanceManager: ObservableObject {
                 // properties on the manager might call for them, try to configure now.
                 if overlayPanels.isEmpty {
                     configureOverlayPanels(with: configuration)
+                } else if !needsOverlayPanels(for: configuration) {
+                    // Configuration no longer needs panels, close them
+                    while let panel = overlayPanels.popFirst() {
+                        panel.close()
+                    }
                 }
             }
             .store(in: &c)
