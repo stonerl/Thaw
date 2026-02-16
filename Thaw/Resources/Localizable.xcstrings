@@ -2521,6 +2521,12 @@
             "value" : "Leeren Bereich der Menüleiste anklicken, um versteckte – oder doppelklicken, um immer versteckte Einträge anzuzeigen."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz clic en un área vacía de la barra de menús para mostrar los iconos ocultos, o haz doble clic para mostrar los que están siempre ocultos."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2560,7 +2566,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Click en el elemento"
+            "value" : "Clic en el elemento"
           }
         },
         "fr" : {
@@ -5326,7 +5332,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "click izquierdo"
+            "value" : "clic izquierdo"
           }
         },
         "fr" : {
@@ -5702,7 +5708,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apariencia de la barra de menús"
+            "value" : "Apariencia"
           }
         },
         "fr" : {
@@ -6080,7 +6086,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Disposición de la barra de menús"
+            "value" : "Disposición"
           }
         },
         "fr" : {
@@ -6871,6 +6877,12 @@
             "state" : "translated",
             "value" : "Nur auf Bildschirmen mit Notch"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solo en pantallas con notch"
+          }
         }
       }
     },
@@ -7211,7 +7223,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Grabar atajo de teclado"
+            "value" : "Grabar atajo"
           }
         },
         "fr" : {
@@ -7853,7 +7865,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "click derecho"
+            "value" : "clic derecho"
           }
         },
         "fr" : {
@@ -10539,6 +10551,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@-Leiste nur auf Bildschirmen mit Notch verwenden. Auf anderen Bildschirmen Symbole in der Menüleiste anzeigen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa %@ Bar solo en pantallas con notch. En otras pantallas, muestra los íconos en la barra de menús."
           }
         }
       }
