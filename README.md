@@ -58,9 +58,9 @@ Thaw is currently available in the following languages:
 | **한국어**           | Complete |  🇰🇷   | ![100%](https://geps.dev/progress/100) |
 | **ภาษาไทย**          | Complete |  🇹🇭   | ![100%](https://geps.dev/progress/100) |
 
-### Help Translate Thaw
-
 _Note: languages marked with (\*) are currently only available in the development branch._
+
+### Help Translate Thaw
 
 If you want to help translate Thaw into your language or improve existing ones, you'll need the latest version of Xcode.
 
