@@ -941,25 +941,7 @@ private final class MenuBarOverlayPanelContentView: NSView {
                     context.restoreGraphicsState()
                 }
 
-                let borderPath =
-                    switch fullConfiguration.shapeKind {
-                    case .noShape:
-                        NSBezierPath(rect: drawableBounds)
-                    case .full:
-                        pathForFullShape(
-                            in: drawableBounds,
-                            info: fullConfiguration.fullShapeInfo,
-                            isInset: fullConfiguration.isInset,
-                            screen: overlayPanel.owningScreen
-                        )
-                    case .split:
-                        pathForSplitShape(
-                            in: drawableBounds,
-                            info: fullConfiguration.splitShapeInfo,
-                            isInset: fullConfiguration.isInset,
-                            screen: overlayPanel.owningScreen
-                        )
-                    }
+                let borderPath = shapePath
 
                 // HACK: Insetting a path to get an "inside" stroke is surprisingly
                 // difficult. We can fake the correct line width by doubling it, as
