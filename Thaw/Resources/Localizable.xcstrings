@@ -3604,7 +3604,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ลูกศร"
+            "value" : "เชฟรอน"
           }
         },
         "zh-Hans" : {
@@ -4684,7 +4684,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "แสดงรูปภาพของรายการแถบเมนูแต่ละรายการ"
+            "value" : "แสดงภาพของไอคอนแต่ละรายการในแถบเมนู"
           }
         },
         "zh-Hans" : {
@@ -5404,7 +5404,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "จุไข่ปลา"
+            "value" : "จุดไข่ปลา"
           }
         },
         "zh-Hans" : {
@@ -5836,7 +5836,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "จดจ่อ"
+            "value" : "โฟกัส"
           }
         },
         "zh-Hans" : {
@@ -6052,7 +6052,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "รับข้อมูลแบบเรียลไทม์เกี่ยวกับแถบเมนู"
+            "value" : "รับข้อมูลแถบเมนูแบบเรียลไทม์"
           }
         },
         "zh-Hans" : {
@@ -6700,7 +6700,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ปุ่มลัดถูกจองโดย macOS ไปแล้ว"
+            "value" : "คีย์ลัดถูกใช้โดยระบบ macOS ไปแล้ว"
           }
         },
         "zh-Hans" : {
@@ -6772,7 +6772,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ปุ่มลัด"
+            "value" : "คีย์ลัด"
           }
         },
         "zh-Hans" : {
@@ -7420,7 +7420,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ทำงานทันทีเมื่อเข้าสู่ระบบ"
+            "value" : "เปิดใช้งานอัตโนมัติเมื่อเข้าระบบ"
           }
         },
         "zh-Hans" : {
@@ -7562,7 +7562,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ตัวปลายนำหน้า"
+            "value" : "ส่วนปลายด้านหน้า"
           }
         },
         "zh-Hans" : {
@@ -8710,7 +8710,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "เค้าโครงแถบเมนูต้องการใช้สิทธิ์ในการเข้าถึงการบันทึกหน้าจอ"
+            "value" : "การจัดเรียงแถบเมนูต้องการสิทธิ์ในการบันทึกหน้าจอ"
           }
         },
         "zh-Hans" : {
@@ -8998,7 +8998,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "เมาส์"
+            "value" : "ตามตัวชี้เมาส์"
           }
         },
         "zh-Hans" : {
@@ -12597,7 +12597,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "หน่วงเวลาแสดงเมื่อเลื่อนเมาส์ทับซ้อน"
+            "value" : "หน่วงเวลาแสดงเมื่อวางเมาส์ทับซ้อน"
           }
         },
         "zh-Hans" : {
@@ -12741,7 +12741,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Smart"
+            "value" : "อัจฉริยะ"
           }
         },
         "zh-Hans" : {
@@ -13675,7 +13675,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ระยะเวลาที่ต้องรอ ก่อนแสดงเมื่อเลื่อนเมาส์ทับซ้อน"
+            "value" : "ระยะเวลาที่รอ ก่อนแสดงเมื่อวางเมาส์ทับซ้อน"
           }
         },
         "zh-Hans" : {
@@ -13819,7 +13819,7 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "กำหนดเวลา"
+            "value" : "ตามเวลา"
           }
         },
         "zh-Hans" : {
