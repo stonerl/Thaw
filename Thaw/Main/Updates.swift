@@ -27,6 +27,10 @@ final class UpdatesManager: NSObject, ObservableObject {
     /// Tracks whether the updater has been started.
     private var hasStartedUpdater = false
 
+    private var debugUpdateMessage: String {
+        String(localized: "Checking for updates is not supported in debug mode.")
+    }
+
     /// The underlying updater controller.
     private(set) lazy var updaterController = SPUStandardUpdaterController(
         startingUpdater: false,
@@ -110,7 +114,7 @@ final class UpdatesManager: NSObject, ObservableObject {
         #if DEBUG
             // Checking for updates hangs in debug mode.
             let alert = NSAlert()
-            alert.messageText = String(localized: "Checking for updates is not supported in debug mode.")
+            alert.messageText = debugUpdateMessage
             alert.runModal()
         #else
             guard let appState else {

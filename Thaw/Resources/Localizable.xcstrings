@@ -47,6 +47,12 @@
             "value" : "%@"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -111,6 +117,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ %2$@ 섹션"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ %@ Sectie"
           }
         },
         "th" : {
@@ -179,6 +191,12 @@
             "value" : "%@ 바"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Balk"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -243,6 +261,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@은(는) 이 권한 없이도 제한된 모드로 작동할 수 있습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ kan zonder deze toestemming in een beperkte modus werken."
           }
         },
         "th" : {
@@ -311,6 +335,12 @@
             "value" : "%@은(는) 자동으로 숨겨진 메뉴 막대에서 항목을 정렬할 수 없습니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ kan geen menubalkitems rangschikken in automatisch verborgen menubalken."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -375,6 +405,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@은(는) 자동으로 숨겨진 메뉴 막대의 모양을 편집할 수 없습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ kan het uiterlijk van automatisch verborgen menubalken niet bewerken"
           }
         },
         "th" : {
@@ -443,6 +479,12 @@
             "value" : "%@ 아이콘"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ icoon"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -507,6 +549,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@이(가) 응답하지 않습니다. 재시작하기 전까지 이동할 수 없습니다. 이 문제가 해결될 때까지 다른 메뉴 막대 항목의 이동에도 영향을 줄 수 있습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ reageert niet. Totdat het opnieuw is opgestart, kan het niet worden verplaatst. Het verplaatsen van andere menu-items kan ook worden beïnvloed totdat dit is opgelost."
           }
         },
         "th" : {
@@ -575,6 +623,12 @@
             "value" : "%@에 필요한 권한:"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ heeft dit nodig om:"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -639,6 +693,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@이(가) 메뉴 막대를 관리하려면 권한이 필요합니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ heeft uw toestemming nodig om de menubalk te beheren."
           }
         },
         "th" : {
@@ -707,6 +767,12 @@
             "value" : "%@ 설정…"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Instellingen…"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -767,6 +833,72 @@
             }
           }
         },
+        "es" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf segundo"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf segundos"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf seconde"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf secondes"
+                }
+              }
+            }
+          }
+        },
+        "hu" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf másodperc"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf másodperc"
+                }
+              }
+            }
+          }
+        },
+        "id" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf detik"
+                }
+              }
+            }
+          }
+        },
         "it" : {
           "variations" : {
             "plural" : {
@@ -785,17 +917,59 @@
             }
           }
         },
-        "th" : {
-            "variations" : {
-                "plural" : {
-                    "other" : {
-                        "stringUnit" : {
-                            "state" : "translated",
-                            "value" : "%lf วินาที"
-                        }
-                    }
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf 초"
                 }
+              }
             }
+          }
+        },
+        "nl" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf seconde"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf seconden"
+                }
+              }
+            }
+          }
+        },
+        "th" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf วินาที"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lf 秒"
+                }
+              }
+            }
+          }
         },
         "zh-Hant" : {
           "variations" : {
@@ -851,6 +1025,72 @@
             }
           }
         },
+        "es" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld segundo"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld segundos"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld seconde"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld secondes"
+                }
+              }
+            }
+          }
+        },
+        "hu" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld másodperc"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld másodperc"
+                }
+              }
+            }
+          }
+        },
+        "id" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld detik"
+                }
+              }
+            }
+          }
+        },
         "it" : {
           "variations" : {
             "plural" : {
@@ -869,17 +1109,59 @@
             }
           }
         },
-        "th" : {
-            "variations" : {
-                "plural" : {
-                    "other" : {
-                        "stringUnit" : {
-                            "state" : "translated",
-                            "value" : "%lld วินาที"
-                        }
-                    }
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld 초"
                 }
+              }
             }
+          }
+        },
+        "nl" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld seconde"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld seconden"
+                }
+              }
+            }
+          }
+        },
+        "th" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld วินาที"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld 秒"
+                }
+              }
+            }
+          }
         },
         "zh-Hant" : {
           "variations" : {
@@ -936,6 +1218,12 @@
           }
         },
         "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "•"
+          }
+        },
+        "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "•"
@@ -1001,6 +1289,12 @@
           }
         },
         "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1"
+          }
+        },
+        "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "1"
@@ -1072,6 +1366,12 @@
             "value" : "2"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1133,6 +1433,12 @@
           }
         },
         "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3"
+          }
+        },
+        "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "3"
@@ -1202,6 +1508,12 @@
             "value" : "새로운 업데이트가 있습니다"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Een nieuwe update is beschikbaar"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1266,6 +1578,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "정보"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Over"
           }
         },
         "th" : {
@@ -1334,6 +1652,12 @@
             "value" : "개인 정보는 절대 수집되거나 저장되지 않습니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Er wordt absoluut geen persoonlijke informatie verzameld of opgeslagen."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1398,6 +1722,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "손쉬운 사용"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toegankelijkheid"
           }
         },
         "th" : {
@@ -1466,6 +1796,12 @@
             "value" : "감사의 말"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dankwoord"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1530,6 +1866,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "고급"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geavanceerd"
           }
         },
         "th" : {
@@ -1598,6 +1940,12 @@
             "value" : "항상 숨김"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altijd verborgen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1662,6 +2010,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "적용"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toepassen"
           }
         },
         "th" : {
@@ -1730,6 +2084,12 @@
             "value" : "현재 시스템 모양에 따라 다른 설정을 적용합니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas verschillende instellingen toe op basis van het huidige uiterlijk van het systeem."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1794,6 +2154,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "현재 간격 적용"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas de huidige afstand toe"
           }
         },
         "th" : {
@@ -1862,6 +2228,12 @@
             "value" : "이 설정을 적용하면 메뉴 막대 항목이 있는 모든 앱이 다시 실행됩니다. 일부 앱은 수동으로 다시 실행해야 할 수 있습니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als je deze instelling toepast, worden alle apps met menubalkitems opnieuw gestart. Sommige apps moeten mogelijk handmatig opnieuw worden gestart."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1926,6 +2298,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 항목을 정렬합니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu-items ordenen."
           }
         },
         "th" : {
@@ -1994,6 +2372,12 @@
             "value" : "화살표"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pijl"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2058,6 +2442,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "자동으로 업데이트 확인"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisch naar updates controleren"
           }
         },
         "th" : {
@@ -2126,6 +2516,12 @@
             "value" : "자동으로 업데이트 다운로드 및 설치"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisch downloaden en installeren van updates"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2190,6 +2586,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "자동으로 업데이트 다운로드"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisch downloaden van updates"
           }
         },
         "th" : {
@@ -2258,6 +2660,12 @@
             "value" : "자동으로 다시 숨기기"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisch opnieuw verbergen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2322,6 +2730,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "베타"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BETA"
           }
         },
         "th" : {
@@ -2390,6 +2804,12 @@
             "value" : "테두리"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rand"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2454,6 +2874,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "테두리 색상"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rand kleur"
           }
         },
         "th" : {
@@ -2522,6 +2948,12 @@
             "value" : "테두리 너비"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Randbreedte"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2586,6 +3018,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "취소"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuleren"
           }
         },
         "th" : {
@@ -2654,6 +3092,12 @@
             "value" : "메뉴 막대의 모양을 변경합니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wijzig het uiterlijk van de menubalk."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2718,6 +3162,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "자동으로 확인"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Controleer automatisch"
           }
         },
         "th" : {
@@ -2786,6 +3236,12 @@
             "value" : "업데이트 확인"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Controleer op updates"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2850,6 +3306,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "자동으로 업데이트를 확인할까요?"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisch controleren op updates?"
           }
         },
         "th" : {
@@ -2918,6 +3380,12 @@
             "value" : "업데이트 확인…"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Controleer op updates"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2981,6 +3449,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "시스템 설정 > 메뉴 막대에서 %@를 활성화하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Controleer Systeeminstellingen > Menubalk en schakel %@ in."
           }
         },
         "th" : {
@@ -3049,6 +3523,12 @@
             "value" : "디버그 모드에서는 업데이트 확인이 지원되지 않습니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het controleren op updates wordt niet ondersteund in de debugmodus."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3113,6 +3593,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "V자 화살표"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chevron"
           }
         },
         "th" : {
@@ -3181,6 +3667,12 @@
             "value" : "메뉴 막대에 표시할 사용자 지정 아이콘을 선택하세요."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kies een aangepast pictogram dat in de menubalk moet worden weergegeven."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3245,6 +3737,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "이미지 선택…"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kies afbeelding…"
           }
         },
         "th" : {
@@ -3313,6 +3811,12 @@
             "value" : "메뉴 막대의 빈 영역을 클릭하면 숨겨진 항목이 표시되고, 두 번 클릭하면 항상 숨겨집니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik op een leeg gebied van de menubalk om verborgen items weer te geven, of dubbelklik voor altijd verborgen."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3377,6 +3881,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "항목 클릭"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik op item"
           }
         },
         "th" : {
@@ -3445,6 +3955,12 @@
             "value" : "클릭하여 숨겨진 항목을 표시하거나 더블 클릭하여 항상 숨겨진 메뉴 막대 항목을 표시합니다. 오른쪽 클릭으로 %@ 설정을 엽니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik op een leeg gedeelte van de menubalk om verborgen items weer te geven, of dubbelklik voor altijd verborgen."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3509,6 +4025,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "계속"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doorgaan"
           }
         },
         "th" : {
@@ -3577,6 +4099,12 @@
             "value" : "제한된 모드로 계속"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doorgaan in beperkte modus"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3641,6 +4169,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "기여하기"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bijdragen"
           }
         },
         "th" : {
@@ -3709,6 +4243,12 @@
             "value" : "사용자 지정"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aangepast"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3773,6 +4313,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "사용자 지정 아이콘이 동적 모양 사용"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aangepast icoon gebruikt dynamisch uiterlijk"
           }
         },
         "th" : {
@@ -3841,6 +4387,12 @@
             "value" : "다크 모드"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Donkere modus"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3905,6 +4457,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "기본값"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standaard"
           }
         },
         "th" : {
@@ -3973,6 +4531,12 @@
             "value" : "개발"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ontwikkeling"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4037,6 +4601,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "진단"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostiek"
           }
         },
         "th" : {
@@ -4105,6 +4675,12 @@
             "value" : "개별 메뉴 막대 항목의 이미지를 표시합니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afbeeldingen van afzonderlijke menubalkitems weergeven."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4169,6 +4745,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "아이콘을 메뉴 막대의 모양에 맞게 동적으로 조정되는 단색 이미지로 표시합니다. 이 설정은 아이콘에서 모든 색상을 제거하지만 밝은 배경과 어두운 배경 모두에서 일관된 렌더링을 보장합니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geef het pictogram weer als een monochrome afbeelding die zich dynamisch aanpast aan het uiterlijk van de menubalk. Deze instelling verwijdert alle kleur uit het pictogram, maar zorgt voor een consistente weergave op zowel lichte als donkere achtergronden."
           }
         },
         "th" : {
@@ -4237,6 +4819,12 @@
             "value" : "확인 안 함"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Niet controleren"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4301,6 +4889,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "완료"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uitgevoerd"
           }
         },
         "th" : {
@@ -4369,6 +4963,12 @@
             "value" : "문"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deur"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4433,6 +5033,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "점"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Punt"
           }
         },
         "th" : {
@@ -4501,6 +5107,12 @@
             "value" : "드래그하여 메뉴 막대 항목을 다른 섹션으로 정렬하세요."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sleep om de items in uw menubalk in verschillende secties te ordenen."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4565,6 +5177,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "이전 버전의 앱 버그로 인해 %@의 메뉴 막대 섹션 데이터가 손상되어 재설정해야 했습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Door een bug in een eerdere versie van de app waren de gegevens voor de menubalkonderdelen van %@ beschadigd en moesten ze worden gereset."
           }
         },
         "th" : {
@@ -4633,6 +5251,12 @@
             "value" : "동적"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dynamisch"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4697,6 +5321,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 모양 편집…"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uiterlijk van menubalk bewerken…"
           }
         },
         "th" : {
@@ -4765,6 +5395,12 @@
             "value" : "말줄임표"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ellips"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4829,6 +5465,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "진단 로깅 활성화"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostische logboekregistratie inschakelen"
           }
         },
         "th" : {
@@ -4897,6 +5539,12 @@
             "value" : "보조 컨텍스트 메뉴 활성화"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Secundair contextmenu inschakelen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4961,6 +5609,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 바 활성화"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schakel de %@-balk in"
           }
         },
         "th" : {
@@ -5029,6 +5683,12 @@
             "value" : "항상 숨김 섹션 활성화"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schakel het ‘altijd verborgen’ gedeelte in"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5093,6 +5753,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "오류"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FOUT"
           }
         },
         "th" : {
@@ -5161,6 +5827,12 @@
             "value" : "포커스"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Focus"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5225,6 +5897,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "전체"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volledig"
           }
         },
         "th" : {
@@ -5293,6 +5971,12 @@
             "value" : "일반"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algemeen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5357,6 +6041,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대에 대한 실시간 정보를 가져옵니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Krijg realtime informatie over de menubalk."
           }
         },
         "th" : {
@@ -5425,6 +6115,12 @@
             "value" : "고급 설정으로 이동"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ga naar Geavanceerde instellingen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5489,6 +6185,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "그라데이션"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kleurverloop"
           }
         },
         "th" : {
@@ -5557,6 +6259,12 @@
             "value" : "권한 부여"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toestemming verlenen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5621,6 +6329,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "숨김"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verborgen"
           }
         },
         "th" : {
@@ -5689,6 +6403,12 @@
             "value" : "항상 숨김 섹션 숨기기"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "‘Altijd verborgen’ sectie verbergen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5753,6 +6473,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 항목 표시 시 앱 메뉴 숨기기"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verberg app-menu's bij het weergeven van menubalkitems"
           }
         },
         "th" : {
@@ -5821,6 +6547,12 @@
             "value" : "숨김 섹션 숨기기"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verborgen sectie verbergen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5885,6 +6617,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "길게 눌러 미리보기"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingedrukt houden om te bekijken"
           }
         },
         "th" : {
@@ -5953,6 +6691,12 @@
             "value" : "단축키가 macOS에 의해 예약되어 있습니다"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sneltoets is gereserveerd door macOS"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6017,6 +6761,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "단축키"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sneltoets"
           }
         },
         "th" : {
@@ -6085,6 +6835,12 @@
             "value" : "메뉴 막대의 빈 영역 위에 마우스를 올려 숨겨진 메뉴 막대 항목을 표시합니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beweeg de muis over een leeg gedeelte van de menubalk om verborgen menu-items weer te geven."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6149,6 +6905,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "얼음 큐브"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ijsklontje"
           }
         },
         "th" : {
@@ -6217,6 +6979,12 @@
             "value" : "아이콘 위치를 복원할 수 없습니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De posities van pictogrammen kunnen niet worden hersteld."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6281,6 +7049,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "가져오기에 실패했습니다. 설정을 수동으로 구성할 수 있습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importeren is mislukt. U kunt de instellingen handmatig configureren."
           }
         },
         "th" : {
@@ -6349,6 +7123,12 @@
             "value" : "설정 가져오기"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importeer instellingen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6413,6 +7193,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "가져옴"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geïmporteerd"
           }
         },
         "th" : {
@@ -6481,6 +7267,12 @@
             "value" : "⌘ Command + 드래그로 메뉴 막대에서 항목을 정렬할 수도 있습니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Items kunnen ook worden gerangschikt door ⌘ Command + ze in de menubalk te slepen."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6545,6 +7337,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "마지막 확인: %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laatst gecontroleerd: %@"
           }
         },
         "th" : {
@@ -6613,6 +7411,12 @@
             "value" : "로그인 시 실행"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starten bij aanmelden"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6675,6 +7479,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "레이아웃이 재설정되었습니다. 항목이 숨김 섹션으로 이동되었습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lay-out opnieuw ingesteld. Items zijn verplaatst naar de verborgen sectie."
           }
         },
         "th" : {
@@ -6743,6 +7553,12 @@
             "value" : "왼쪽 끝 캡"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voorste eindstuk"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6807,6 +7623,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "왼쪽 클릭"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "linkermuisknop"
           }
         },
         "th" : {
@@ -6875,6 +7697,12 @@
             "value" : "라이트 모드"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lichte modus"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6939,6 +7767,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 항목 로드 중…"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu-items worden geladen..."
           }
         },
         "th" : {
@@ -7007,6 +7841,12 @@
             "value" : "위치"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locatie"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7071,6 +7911,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "macOS에서 \"%@\"의 이동을 금지합니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS verbiedt het verplaatsen van “%@”."
           }
         },
         "th" : {
@@ -7139,6 +7985,12 @@
             "value" : "필요한 경우 현재 앱 메뉴를 숨겨 메뉴 막대에 더 많은 공간을 확보합니다. 이 설정이 적용되는 동안 macOS는 %@이(가) Dock에 표시되도록 요구합니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maak meer ruimte in de menubalk door de huidige app-menu's indien nodig te verbergen. macOS vereist %@ om zichzelf zichtbaar te maken in het Dock terwijl deze instelling van kracht is."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7201,6 +8053,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "최대"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "max"
           }
         },
         "th" : {
@@ -7269,6 +8127,12 @@
             "value" : "메뉴 막대 모양"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uiterlijk van de menubalk"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7333,6 +8197,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 항목을 이동할 수 없습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het menu-item kan niet worden verplaatst."
           }
         },
         "th" : {
@@ -7401,6 +8271,12 @@
             "value" : "메뉴 막대 항목 간격"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afstand tussen menu-items"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7465,6 +8341,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 항목"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menubalkitems"
           }
         },
         "th" : {
@@ -7533,6 +8415,12 @@
             "value" : "메뉴 막대 항목이 일정 시간 후에 다시 숨겨집니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De items in de menubalk worden na een bepaalde tijd weer verborgen."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7597,6 +8485,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "스마트 알고리즘을 사용하여 메뉴 막대 항목이 다시 숨겨집니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De items in de menubalk worden opnieuw verborgen met behulp van een slim algoritme."
           }
         },
         "th" : {
@@ -7665,6 +8559,12 @@
             "value" : "포커스된 앱이 변경되면 메뉴 막대 항목이 다시 숨겨집니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De items in de menubalk worden weer verborgen wanneer de app waarop de focus ligt verandert."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7731,6 +8631,12 @@
             "value" : "메뉴 막대 레이아웃"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu balk lay-out"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7793,6 +8699,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 레이아웃에는 화면 기록 권한이 필요합니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voor de indeling van de menubalk zijn machtigingen voor schermopnames vereist."
           }
         },
         "th" : {
@@ -7861,6 +8773,12 @@
             "value" : "메뉴 막대 오버레이"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menubalk-overlay"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7925,6 +8843,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 섹션"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu balk secties"
           }
         },
         "th" : {
@@ -7993,6 +8917,12 @@
             "value" : "메뉴 막대 모양"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorm van de menubalk"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8057,6 +8987,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "마우스 포인터"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muis cursor"
           }
         },
         "th" : {
@@ -8125,6 +9061,12 @@
             "value" : "안 함"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nooit"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8189,6 +9131,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "이 섹션에 항목이 없습니다"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geen items in deze sectie"
           }
         },
         "th" : {
@@ -8257,6 +9205,12 @@
             "value" : "선택된 모양 종류 없음"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geen vorm geselecteerd"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8321,6 +9275,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "없음"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "geen"
           }
         },
         "th" : {
@@ -8389,6 +9349,12 @@
             "value" : "없음"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8453,6 +9419,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "\"%@\"을(를) 표시할 공간이 부족합니다"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onvoldoende ruimte om “%@” weer te geven"
           }
         },
         "th" : {
@@ -8521,6 +9493,12 @@
             "value" : "참고: 이 설정을 올바르게 적용하려면 로그아웃 후 다시 로그인해야 할 수 있습니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opmerking: Mogelijk moet u zich afmelden en opnieuw aanmelden om deze instelling correct toe te passen."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8585,6 +9563,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "확인"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
         "th" : {
@@ -8653,6 +9637,12 @@
             "value" : "macOS에서 하나 이상의 섹션 구분선이 숨겨져 있습니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Een of meer sectiescheiders worden verborgen door macOS"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8716,6 +9706,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "노치가 있는 디스플레이에서만 가능합니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alleen op beeldschermen met notch"
           }
         },
         "th" : {
@@ -8784,6 +9780,12 @@
             "value" : "%@ 설정 열기"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open %@ Instellingen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8848,6 +9850,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "기타"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ander"
           }
         },
         "th" : {
@@ -8916,6 +9924,12 @@
             "value" : "권한 부여됨"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verleende toestemmingen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8980,6 +9994,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "권한"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toestemmingen"
           }
         },
         "th" : {
@@ -9048,6 +10068,12 @@
             "value" : "종료"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afsluiten"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9112,6 +10138,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 종료"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afsluiten %@"
           }
         },
         "th" : {
@@ -9180,6 +10212,12 @@
             "value" : "단축키 기록"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sneltoets opnemen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9244,6 +10282,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "버그 신고"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Een bug melden"
           }
         },
         "th" : {
@@ -9312,6 +10356,12 @@
             "value" : "재설정"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9376,6 +10426,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld개 항목을 이동할 수 없어 재설정이 완료되었습니다. 메뉴 막대를 확인하고 필요한 경우 다시 시도하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset voltooid met %lld item(s) dat/die niet kon/konden worden verplaatst. Controleer de menubalk en probeer het indien nodig opnieuw."
           }
         },
         "th" : {
@@ -9444,6 +10500,12 @@
             "value" : "재설정 실패: %@"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset gefaald: %@"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9508,6 +10570,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "레이아웃 재설정"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset indeling"
           }
         },
         "th" : {
@@ -9576,6 +10644,12 @@
             "value" : "메뉴 막대 모양 재설정"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu-balkindeling resetten"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9640,6 +10714,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 레이아웃 재설정"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu-balkindeling resetten"
           }
         },
         "th" : {
@@ -9708,6 +10788,12 @@
             "value" : "메뉴 막대 레이아웃을 재설정할까요?"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu-balkindeling resetten?"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9772,6 +10858,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "기본 간격으로 재설정"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terugzetten naar de standaardafstand"
           }
         },
         "th" : {
@@ -9840,6 +10932,12 @@
             "value" : "구분선을 재설정하고 %@ 아이콘을 제외한 모든 이동 가능한 항목을 숨김으로 이동합니다 — 새로 설치한 것처럼."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset de scheidingslijnen en verplaats alle verplaatsbare items behalve het %@-pictogram naar verborgen — net als bij een nieuwe installatie."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9904,6 +11002,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "구분선 기본 설정을 복원하고 %@ 아이콘을 제외한 모든 이동 가능한 항목을 숨김으로 이동합니다. 레이아웃이 깨져 보이거나 항목이 로드되지 않는 경우 사용하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Herstelt de standaardinstellingen van de scheidingslijn en verplaatst alle verplaatsbare items, behalve het %@-pictogram, naar Verborgen. Gebruik deze optie als de lay-out er verkeerd uitziet of als items niet worden geladen."
           }
         },
         "th" : {
@@ -9972,6 +11076,12 @@
             "value" : "오른쪽 클릭"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechter muisklik"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10036,6 +11146,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대의 빈 영역을 오른쪽 클릭하여 %@의 간소화된 메뉴를 표시합니다. 다른 앱과 충돌이 발생하면 이 설정을 비활성화하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik met de rechtermuisknop op een leeg gedeelte van de menubalk om een minimale versie van het menu van %@ weer te geven. Schakel deze instelling uit als u conflicten met andere apps ondervindt."
           }
         },
         "th" : {
@@ -10104,6 +11220,12 @@
             "value" : "둥근 캡"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rond afsluitstuk"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10168,6 +11290,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "화면 기록"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schermopname"
           }
         },
         "th" : {
@@ -10236,6 +11364,12 @@
             "value" : "메뉴 막대에서 스크롤하거나 스와이프하여 숨겨진 메뉴 막대 항목을 표시합니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scroll of veeg in de menubalk om verborgen menu-items weer te geven."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10300,6 +11434,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 항목 검색"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoekmenu-items"
           }
         },
         "th" : {
@@ -10368,6 +11508,12 @@
             "value" : "메뉴 막대 항목 검색"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoekmenu-items"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10432,6 +11578,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 항목 검색…"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoekmenu-items..."
           }
         },
         "th" : {
@@ -10500,6 +11652,12 @@
             "value" : "섹션 구분선 스타일"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stijl van sectie-indeling"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10564,6 +11722,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "그림자"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schaduw"
           }
         },
         "th" : {
@@ -10632,6 +11796,12 @@
             "value" : "모양 종류"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soort vorm"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10696,6 +11866,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@이(가) 자동으로 업데이트를 확인할까요? Thaw 메뉴 막대 아이콘 또는 설정 → 정보에서 언제든지 수동으로 확인할 수 있습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moet %@ automatisch controleren op updates? U kunt dit altijd handmatig controleren via het pictogram in de menubalk van Thaw of via Instellingen → Over."
           }
         },
         "th" : {
@@ -10764,6 +11940,12 @@
             "value" : "%@ 아이콘 표시"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toon %@ icoon"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10828,6 +12010,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "⌘ Command + 드래그로 메뉴 막대 항목 이동 시 모든 섹션 표시"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toon alle secties wanneer ⌘ Command + menu-items versleept worden"
           }
         },
         "th" : {
@@ -10896,6 +12084,12 @@
             "value" : "항상 숨김 섹션 표시"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "‘Altijd verborgen’ gedeelte weergeven"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10960,6 +12154,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 아래의 별도 바에 숨겨진 메뉴 막대 항목을 표시합니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verborgen menubalkitems weergeven in een aparte balk onder de menubalk."
           }
         },
         "th" : {
@@ -11028,6 +12228,12 @@
             "value" : "숨김 섹션 표시"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toon verborgen gedeelte"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11092,6 +12298,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "항목 표시"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toon item"
           }
         },
         "th" : {
@@ -11160,6 +12372,12 @@
             "value" : "Finder에서 로그 파일 표시"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toon log bestanden in Finder"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11224,6 +12442,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "클릭 시 표시"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toon bij klikken"
           }
         },
         "th" : {
@@ -11292,6 +12516,12 @@
             "value" : "마우스 오버 시 표시"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toon bij muis aanwijzen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11356,6 +12586,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "마우스 오버 표시 지연"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toon bij muis aanwijzen vertraging"
           }
         },
         "th" : {
@@ -11424,6 +12660,12 @@
             "value" : "스크롤 시 표시"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toon bij scrollen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11488,6 +12730,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "스마트"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slim"
           }
         },
         "th" : {
@@ -11556,6 +12804,12 @@
             "value" : "단색"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vast"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11618,6 +12872,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "분할"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Splits"
           }
         },
         "th" : {
@@ -11686,6 +12946,12 @@
             "value" : "사각 캡"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vierkant afsluitstuk"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11750,6 +13016,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "안정"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stabiel"
           }
         },
         "th" : {
@@ -11818,6 +13090,12 @@
             "value" : "전략"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strategie"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11882,6 +13160,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld개 설정을 성공적으로 가져왔습니다!"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld-instellingen succesvol geïmporteerd!"
           }
         },
         "th" : {
@@ -11950,6 +13234,12 @@
             "value" : "선글라스"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zonnebrillen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12014,6 +13304,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 지원하기"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ondersteuning %@"
           }
         },
         "th" : {
@@ -12082,6 +13378,12 @@
             "value" : "%1$@ 바가 %2$@ 아이콘 아래 중앙에 위치합니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De %@-balk staat onder het %@-pictogram gecentreerd."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12146,6 +13448,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 바가 마우스 포인터 아래 중앙에 위치합니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De %@-balk wordt onder de muisaanwijzer gecentreerd."
           }
         },
         "th" : {
@@ -12214,6 +13522,12 @@
             "value" : "%@ 바에는 화면 기록 권한이 필요합니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De %@ Balk vereist toestemming voor schermopnames."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12278,6 +13592,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 바의 위치가 상황에 따라 변경됩니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De locatie van de %@-balk verandert afhankelijk van de context."
           }
         },
         "th" : {
@@ -12346,6 +13666,12 @@
             "value" : "마우스 오버 시 표시하기 전에 대기할 시간입니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De tijd die moet worden gewacht voordat het wordt weergegeven bij het aanwijzen met de muis."
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12410,6 +13736,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "이 작업은 실행 취소할 수 없습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deze actie kan niet ongedaan worden gemaakt."
           }
         },
         "th" : {
@@ -12478,6 +13810,12 @@
             "value" : "시간 기반"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getimed"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12542,6 +13880,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "색조"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tint"
           }
         },
         "th" : {
@@ -12610,6 +13954,12 @@
             "value" : "팁: 메뉴 막대의 빈 영역을 오른쪽 클릭하여 이 설정을 편집할 수도 있습니다."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tip: Je kunt deze instellingen ook bewerken door met de rechtermuisknop op een leeg gedeelte van de menubalk te klikken"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12674,6 +14024,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "앱 메뉴 전환"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schakel de applicatie menu’s in of uit"
           }
         },
         "th" : {
@@ -12742,6 +14098,12 @@
             "value" : "항상 숨김 섹션 전환"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schakel het ‘altijd verborgen’ gedeelte in of uit"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12806,6 +14168,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "숨김 섹션 전환"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schakel het verborgen gedeelte in of uit"
           }
         },
         "th" : {
@@ -12874,6 +14242,12 @@
             "value" : "오른쪽 끝 캡"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achterste eindstuk"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12938,6 +14312,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "단축키 입력"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type sneltoets"
           }
         },
         "th" : {
@@ -13006,6 +14386,12 @@
             "value" : "메뉴 막대 항목을 표시할 수 없습니다"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kan menubalkitems niet tonen"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13070,6 +14456,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴 막대 항목을 로드할 수 없습니다"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kan menubalkitems niet laden"
           }
         },
         "th" : {
@@ -13138,6 +14530,12 @@
             "value" : "업데이트 채널"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update kanaal"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13204,6 +14602,12 @@
             "value" : "%@ 바 사용"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gebruik %@ Balk"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13267,6 +14671,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 바는 노치가 있는 디스플레이에서만 사용됩니다. 다른 디스플레이에서는 메뉴 막대에 아이콘이 표시됩니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gebruik %@ Balk alleen op beeldschermen met een noch. Op andere beeldschermen toon pictogrammen in de menubalk."
           }
         },
         "th" : {
@@ -13335,6 +14745,12 @@
             "value" : "동적 모양 사용"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gebruik dynamische weergave"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13399,6 +14815,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "노치가 있는 화면에서 인셋 모양 사용"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gebruik inset-vorm op schermen met notch."
           }
         },
         "th" : {
@@ -13467,6 +14889,12 @@
             "value" : "버전 %1$@ (%2$@)"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versie %@ (%@)"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13531,6 +14959,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "버전 %1$@ (%2$@)을(를) 사용할 수 있습니다"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versie %@ (%@) is nu beschikbaar"
           }
         },
         "th" : {
@@ -13599,6 +15033,12 @@
             "value" : "보임"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zichtbaar"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13661,6 +15101,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ice(원본 앱)의 설정을 찾았습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We hebben instellingen gevonden van Ice (de originele app)."
           }
         },
         "th" : {
@@ -13729,6 +15175,12 @@
             "value" : "기존 구성을 가져오시겠습니까?"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wilt u uw bestaande configuratie importeren?"
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13793,6 +15245,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "문제 해결을 위해 자세한 디버그 로그를 파일에 기록합니다. 로그 파일은 ~/Library/Logs/Thaw/에 저장됩니다. 불필요한 디스크 쓰기를 방지하려면 필요하지 않을 때 비활성화하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schrijft gedetailleerde foutopsporingslogboeken naar een bestand voor probleemoplossing. Logbestanden worden opgeslagen in ~/Library/Logs/Thaw/. Schakel deze functie uit wanneer deze niet nodig is om onnodige schrijfbewerkingen op de schijf te voorkomen."
           }
         },
         "th" : {

@@ -527,7 +527,7 @@ extension NSScreen {
 
     /// A Boolean value that indicates whether the screen has a notch.
     var hasNotch: Bool {
-        safeAreaInsets.top != 0
+        auxiliaryTopLeftArea != nil
     }
 
     /// The frame of the screen's notch, if it has one.
