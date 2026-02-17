@@ -470,7 +470,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ icona"
+            "value" : "Icona %@"
           }
         },
         "ko" : {
@@ -758,7 +758,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ Impostazioni…"
+            "value" : "Impostazioni %@…"
           }
         },
         "ko" : {
@@ -1859,7 +1859,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Avanzato"
+            "value" : "Avanzate"
           }
         },
         "ko" : {
@@ -5458,7 +5458,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abilita logs di diagnostica"
+            "value" : "Abilita i log di diagnostica"
           }
         },
         "ko" : {
@@ -6538,7 +6538,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nascondi sezione nascosta"
+            "value" : "Nascondi la sezione nascosta"
           }
         },
         "ko" : {
@@ -12075,7 +12075,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostra sezione sempre nascosta"
+            "value" : "Mostra la sezione sempre nascosta"
           }
         },
         "ko" : {
@@ -13009,7 +13009,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sabile"
+            "value" : "Stabile"
           }
         },
         "ko" : {
@@ -14521,7 +14521,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aggiorna canale"
+            "value" : "Canale di aggiornamento"
           }
         },
         "ko" : {
