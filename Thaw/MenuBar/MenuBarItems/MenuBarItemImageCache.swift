@@ -114,10 +114,10 @@ final class MenuBarItemImageCache: ObservableObject {
 
         guard let url = Self.cacheFileURL else { return }
 
-        Task.detached(priority: .background) { [weak self] in
-            guard let self else { return }
+        let snapshot = images
 
-            let cacheData = self.images.map { tag, image -> (String, Data)? in
+        Task.detached(priority: .background) {
+            let cacheData = snapshot.map { tag, image -> (String, Data)? in
                 let nsImage = NSImage(cgImage: image.cgImage, size: image.scaledSize)
                 guard let tiffData = nsImage.tiffRepresentation,
                       let bitmap = NSBitmapImageRep(data: tiffData),
@@ -128,7 +128,7 @@ final class MenuBarItemImageCache: ObservableObject {
                 return (tagString, pngData)
             }.compactMap { $0 }
 
-            guard cacheData.count == self.images.count else { return }
+            guard cacheData.count == snapshot.count else { return }
 
             do {
                 let directoryURL = url.deletingLastPathComponent()
