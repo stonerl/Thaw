@@ -32,6 +32,25 @@ final class MenuBarItemImageCache: ObservableObject {
         var nsImage: NSImage {
             NSImage(cgImage: cgImage, size: scaledSize)
         }
+
+        /// Returns whether two optional captured images have equivalent visual content.
+        ///
+        /// Uses pointer equality on `CGImage` as a fast path, falling back to
+        /// dimension and pixel-data comparison when instances differ.
+        static func isVisuallyEqual(_ old: CapturedImage?, _ new: CapturedImage?) -> Bool {
+            guard let old, let new else { return old == nil && new == nil }
+            if old.cgImage === new.cgImage { return true }
+            guard old.scale == new.scale,
+                  old.cgImage.width == new.cgImage.width,
+                  old.cgImage.height == new.cgImage.height else {
+                return false
+            }
+            guard let oldData = old.cgImage.dataProvider?.data,
+                  let newData = new.cgImage.dataProvider?.data else {
+                return false
+            }
+            return oldData == newData
+        }
     }
 
     /// The result of an image capture operation.

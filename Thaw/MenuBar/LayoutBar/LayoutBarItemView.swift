@@ -91,13 +91,7 @@ final class LayoutBarItemView: NSView {
                 .map { images -> MenuBarItemImageCache.CapturedImage? in images[tag] }
 
             imageForTag
-                .removeDuplicates(by: { (old: MenuBarItemImageCache.CapturedImage?, new: MenuBarItemImageCache.CapturedImage?) in
-                    guard let old, let new else { return old == nil && new == nil }
-                    return old.scale == new.scale
-                        && old.cgImage.width == new.cgImage.width
-                        && old.cgImage.height == new.cgImage.height
-                        && old.cgImage.dataProvider?.data == new.cgImage.dataProvider?.data
-                })
+                .removeDuplicates(by: MenuBarItemImageCache.CapturedImage.isVisuallyEqual)
                 .sink { [weak self] image in
                     guard let self else {
                         return
