@@ -29,13 +29,13 @@ Download the `Thaw_1.x.x.zip` file from the [latest release](https://github.com/
 Install the latest stable release:
 
 ```sh
-brew install thaw
+brew install --cask thaw
 ```
 
 To get the latest beta (or stable, whichever is newer):
 
 ```sh
-brew install thaw@beta
+brew install --cask thaw@beta
 ```
 
 ## Translations
