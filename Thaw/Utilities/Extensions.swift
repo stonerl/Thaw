@@ -546,6 +546,22 @@ extension NSScreen {
         )
     }
 
+    /// Per-display cache of the last known application menu frame.
+    @MainActor private static var applicationMenuFrameCache = [CGDirectDisplayID: CGRect]()
+
+    /// The pid of the frontmost application when the cache was last populated.
+    @MainActor private static var applicationMenuFrameCachePID: pid_t?
+
+    /// Invalidates the cached application menu frame when the frontmost app changes.
+    @MainActor
+    private static func invalidateApplicationMenuFrameCacheIfNeeded() {
+        let currentPID = NSWorkspace.shared.frontmostApplication?.processIdentifier
+        if currentPID != applicationMenuFrameCachePID {
+            applicationMenuFrameCache.removeAll()
+            applicationMenuFrameCachePID = currentPID
+        }
+    }
+
     /// Per-display cache of the last known menu bar height.
     private static var menuBarHeightCache = [CGDirectDisplayID: CGFloat]()
 
@@ -578,7 +594,25 @@ extension NSScreen {
     }
 
     /// Returns the frame of the application menu on this screen.
+    ///
+    /// Results are cached per-display and invalidated when the frontmost
+    /// application changes, avoiding repeated Accessibility API round-trips.
     func getApplicationMenuFrame() -> CGRect? {
+        NSScreen.invalidateApplicationMenuFrameCacheIfNeeded()
+        if let cached = NSScreen.applicationMenuFrameCache[displayID] {
+            return cached
+        }
+
+        let result = computeApplicationMenuFrame()
+        if let result {
+            NSScreen.applicationMenuFrameCache[displayID] = result
+        }
+        return result
+    }
+
+    /// Performs the actual Accessibility API queries to determine the
+    /// application menu frame. Called only on cache miss.
+    private func computeApplicationMenuFrame() -> CGRect? {
         let displayBounds = CGDisplayBounds(displayID)
 
         // Accessibility API has trouble with secondary screens.
