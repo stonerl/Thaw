@@ -30,6 +30,9 @@ final class HIDEventManager: ObservableObject {
     /// valid and attempts to recreate it if the Mach port was invalidated.
     private var healthCheckTimer: Timer?
 
+    /// The currently pending show-on-hover delay task.
+    private var hoverTask: Task<Void, any Error>?
+
     /// The number of times the manager has been told to stop.
     private var disableCount = 0
 
@@ -469,6 +472,8 @@ extension HIDEventManager {
 
         let delay = appState.settings.advanced.showOnHoverDelay
 
+        hoverTask?.cancel()
+
         if hiddenSection.isHidden {
             guard
                 isMouseInsideEmptyMenuBarSpace(
@@ -478,7 +483,8 @@ extension HIDEventManager {
             else {
                 return
             }
-            Task {
+            hoverTask = Task {
+                defer { hoverTask = nil }
                 try await Task.sleep(for: .seconds(delay))
                 // Make sure the mouse is still inside.
                 guard
@@ -498,7 +504,8 @@ extension HIDEventManager {
             else {
                 return
             }
-            Task {
+            hoverTask = Task {
+                defer { hoverTask = nil }
                 try await Task.sleep(for: .seconds(delay))
                 // Make sure the mouse is still outside.
                 guard
