@@ -87,6 +87,11 @@ final class MenuBarItemImageCache: ObservableObject {
     /// The currently running cache update task, if any.
     private var currentUpdateTask: Task<Void, Never>?
 
+    deinit {
+        memoryPressureSource?.cancel()
+        currentUpdateTask?.cancel()
+    }
+
     // MARK: Setup
 
     /// Sets up the cache.
