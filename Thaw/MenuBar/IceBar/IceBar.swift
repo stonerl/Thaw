@@ -22,6 +22,11 @@ final class IceBarPanel: NSPanel {
     /// The currently displayed section.
     private(set) var currentSection: MenuBarSection.Name?
 
+    /// A Boolean value that indicates whether to show the panel at
+    /// the mouse pointer's location, regardless of the user's
+    /// settings.
+    private var hotkeyLocationOverride = false
+
     /// Storage for internal observers.
     private var cancellables = Set<AnyCancellable>()
 
@@ -90,10 +95,22 @@ final class IceBarPanel: NSPanel {
 
         func getOrigin(for iceBarLocation: IceBarLocation) -> CGPoint {
             let menuBarHeight = screen.getMenuBarHeight() ?? 0
-            let originY = ((screen.frame.maxY - 1) - menuBarHeight) - frame.height
+            let defaultOriginY = ((screen.frame.maxY - 1) - menuBarHeight) - frame.height
 
             var originForRightOfScreen: CGPoint {
-                CGPoint(x: screen.frame.maxX - frame.width, y: originY)
+                CGPoint(x: screen.frame.maxX - frame.width, y: defaultOriginY)
+            }
+
+            if hotkeyLocationOverride, let location = MouseHelpers.locationAppKit {
+                let lowerBoundX = screen.frame.minX
+                let upperBoundX = screen.frame.maxX - frame.width
+                let lowerBoundY = screen.frame.minY
+                let upperBoundY = screen.frame.maxY - frame.height
+
+                let x = (location.x - frame.width / 2).clamped(to: lowerBoundX ... (upperBoundX > lowerBoundX ? upperBoundX : lowerBoundX))
+                let y = (location.y - frame.height / 2).clamped(to: lowerBoundY ... (upperBoundY > lowerBoundY ? upperBoundY : lowerBoundY))
+
+                return CGPoint(x: x, y: y)
             }
 
             switch iceBarLocation {
@@ -107,14 +124,16 @@ final class IceBarPanel: NSPanel {
                     return getOrigin(for: .iceIcon)
                 }
 
-                let lowerBound = screen.frame.minX
-                let upperBound = screen.frame.maxX - frame.width
+                let lowerBoundX = screen.frame.minX
+                let upperBoundX = screen.frame.maxX - frame.width
 
-                guard lowerBound <= upperBound else {
+                guard lowerBoundX <= upperBoundX else {
                     return originForRightOfScreen
                 }
 
-                return CGPoint(x: (location.x - frame.width / 2).clamped(to: lowerBound ... upperBound), y: originY)
+                let x = (location.x - frame.width / 2).clamped(to: lowerBoundX ... upperBoundX)
+
+                return CGPoint(x: x, y: defaultOriginY)
             case .iceIcon:
                 let lowerBound = screen.frame.minX
                 let upperBound = screen.frame.maxX - frame.width
@@ -129,7 +148,7 @@ final class IceBarPanel: NSPanel {
                     return originForRightOfScreen
                 }
 
-                return CGPoint(x: (itemBounds.midX - frame.width / 2).clamped(to: lowerBound ... upperBound), y: originY)
+                return CGPoint(x: (itemBounds.midX - frame.width / 2).clamped(to: lowerBound ... upperBound), y: defaultOriginY)
             }
         }
 
@@ -138,10 +157,16 @@ final class IceBarPanel: NSPanel {
 
     /// Shows the panel on the given screen, displaying the given
     /// menu bar section.
-    func show(section: MenuBarSection.Name, on screen: NSScreen) async {
+    func show(
+        section: MenuBarSection.Name,
+        on screen: NSScreen,
+        triggeredByHotkey: Bool = false
+    ) async {
         guard let appState else {
             return
         }
+
+        hotkeyLocationOverride = triggeredByHotkey && appState.settings.general.iceBarLocationOnHotkey
 
         // Rehide any temporarily shown items as soon as the IceBar opens.
         await appState.itemManager.rehideTemporarilyShownItems(force: true)
@@ -194,6 +219,7 @@ final class IceBarPanel: NSPanel {
     }
 
     override func close() {
+        CustomTooltipPanel.shared.dismiss()
         contentView = nil
         orderOut(nil)
         super.close()
@@ -402,7 +428,8 @@ private struct IceBarContentView: View {
                             item: item,
                             section: section,
                             displayID: screen.displayID,
-                            maxHeight: itemMaxHeight
+                            maxHeight: itemMaxHeight,
+                            tooltipDelay: appState.settings.advanced.tooltipDelay
                         )
                     }
                 }
@@ -430,6 +457,7 @@ private struct IceBarItemView: View {
     let section: MenuBarSection.Name
     let displayID: CGDirectDisplayID
     let maxHeight: CGFloat?
+    let tooltipDelay: TimeInterval
 
     private var leftClickAction: () -> Void {
         return { [weak itemManager, weak menuBarManager] in
@@ -504,6 +532,7 @@ private struct IceBarItemView: View {
                 .overlay {
                     IceBarItemClickView(
                         item: item,
+                        tooltipDelay: tooltipDelay,
                         leftClickAction: leftClickAction,
                         rightClickAction: rightClickAction
                     )
@@ -520,6 +549,7 @@ private struct IceBarItemView: View {
 private struct IceBarItemClickView: NSViewRepresentable {
     private final class Represented: NSView {
         let item: MenuBarItem
+        let tooltipDelay: TimeInterval
 
         let leftClickAction: () -> Void
         let rightClickAction: () -> Void
@@ -530,16 +560,20 @@ private struct IceBarItemClickView: NSViewRepresentable {
         private var lastLeftMouseDownLocation = CGPoint.zero
         private var lastRightMouseDownLocation = CGPoint.zero
 
+        private lazy var tooltipController = CustomTooltipController(text: item.displayName, view: self)
+        private var tooltipTrackingArea: NSTrackingArea?
+
         init(
             item: MenuBarItem,
+            tooltipDelay: TimeInterval,
             leftClickAction: @escaping () -> Void,
             rightClickAction: @escaping () -> Void
         ) {
             self.item = item
+            self.tooltipDelay = tooltipDelay
             self.leftClickAction = leftClickAction
             self.rightClickAction = rightClickAction
             super.init(frame: .zero)
-            self.toolTip = item.displayName
         }
 
         @available(*, unavailable)
@@ -547,14 +581,41 @@ private struct IceBarItemClickView: NSViewRepresentable {
             fatalError("init(coder:) has not been implemented")
         }
 
+        override func updateTrackingAreas() {
+            super.updateTrackingAreas()
+            if let tooltipTrackingArea {
+                removeTrackingArea(tooltipTrackingArea)
+            }
+            let area = NSTrackingArea(
+                rect: bounds,
+                options: [.mouseEnteredAndExited, .activeAlways],
+                owner: self,
+                userInfo: nil
+            )
+            addTrackingArea(area)
+            tooltipTrackingArea = area
+        }
+
+        override func mouseEntered(with event: NSEvent) {
+            super.mouseEntered(with: event)
+            tooltipController.scheduleShow(delay: tooltipDelay)
+        }
+
+        override func mouseExited(with event: NSEvent) {
+            super.mouseExited(with: event)
+            tooltipController.cancel()
+        }
+
         override func mouseDown(with event: NSEvent) {
             super.mouseDown(with: event)
+            tooltipController.cancel()
             lastLeftMouseDownDate = .now
             lastLeftMouseDownLocation = NSEvent.mouseLocation
         }
 
         override func rightMouseDown(with event: NSEvent) {
             super.rightMouseDown(with: event)
+            tooltipController.cancel()
             lastRightMouseDownDate = .now
             lastRightMouseDownLocation = NSEvent.mouseLocation
         }
@@ -583,6 +644,7 @@ private struct IceBarItemClickView: NSViewRepresentable {
     }
 
     let item: MenuBarItem
+    let tooltipDelay: TimeInterval
 
     let leftClickAction: () -> Void
     let rightClickAction: () -> Void
@@ -590,6 +652,7 @@ private struct IceBarItemClickView: NSViewRepresentable {
     func makeNSView(context _: Context) -> NSView {
         Represented(
             item: item,
+            tooltipDelay: tooltipDelay,
             leftClickAction: leftClickAction,
             rightClickAction: rightClickAction
         )

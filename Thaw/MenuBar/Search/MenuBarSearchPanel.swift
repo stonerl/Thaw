@@ -10,6 +10,17 @@ import Combine
 import Ifrit
 import SwiftUI
 
+private struct MenuBarSearchPanelKey: EnvironmentKey {
+    static let defaultValue: MenuBarSearchPanel? = nil
+}
+
+extension EnvironmentValues {
+    var menuBarSearchPanel: MenuBarSearchPanel? {
+        get { self[MenuBarSearchPanelKey.self] }
+        set { self[MenuBarSearchPanelKey.self] = newValue }
+    }
+}
+
 /// A panel that contains the menu bar search interface.
 final class MenuBarSearchPanel: NSPanel {
     private static nonisolated let diagLog = DiagLog(category: "MenuBarSearchPanel")
@@ -47,11 +58,6 @@ final class MenuBarSearchPanel: NSPanel {
         let keyCode = KeyCode(rawValue: Int(event.keyCode))
         let modifiers = Modifiers(nsEventFlags: event.modifierFlags)
 
-        if keyCode == .escape {
-            self?.close()
-            return nil
-        }
-
         if keyCode == .comma, modifiers.contains(.command), !modifiers.contains(.control), !modifiers.contains(.option), !modifiers.contains(.shift) {
             self?.close()
             appState?.activate(withPolicy: .regular)
@@ -59,7 +65,71 @@ final class MenuBarSearchPanel: NSPanel {
             return nil
         }
 
+        if keyCode == .e, modifiers.contains(.command), !modifiers.contains(.control), !modifiers.contains(.option), !modifiers.contains(.shift) {
+            self?.startEditingSelectedItem()
+            return nil
+        }
+
         return event
+    }
+
+    @MainActor
+    private func startEditingSelectedItem() {
+        guard let selection = model.selection, case let .item(tag, windowID) = selection,
+              let item = menuBarItem(for: selection)
+        else {
+            return
+        }
+        model.editingName = item.customName ?? ""
+        model.editingItemTag = tag
+        model.editingItemWindowID = windowID
+    }
+
+    func menuBarItem(for selection: MenuBarSearchModel.ItemID)
+        -> MenuBarItem?
+    {
+        switch selection {
+        case let .item(tag, windowID):
+            if let windowID = windowID {
+                return appState?.itemManager.itemCache.managedItems.first(where: { $0.windowID == windowID })
+            }
+            return appState?.itemManager.itemCache.managedItems.first(matching: tag)
+        case .header:
+            return nil
+        }
+    }
+
+    @MainActor
+    func saveEditingName() {
+        guard let tag = model.editingItemTag else {
+            return
+        }
+        Self.diagLog.debug("Saving editing name for tag: \(tag)")
+        defer {
+            model.editingItemTag = nil
+            model.editingItemWindowID = nil
+            model.editingName = ""
+        }
+        let item = if let windowID = model.editingItemWindowID {
+            appState?.itemManager.itemCache.managedItems.first(where: { $0.windowID == windowID })
+        } else {
+            appState?.itemManager.itemCache.managedItems.first(matching: tag)
+        }
+
+        guard let item = item else {
+            Self.diagLog.error("Cannot save editing name, no matching item")
+            return
+        }
+        let uniqueIdentifier = item.uniqueIdentifier
+        var names = Defaults.dictionary(forKey: .menuBarItemCustomNames) as? [String: String] ?? [:]
+        let newName = model.editingName.trimmingCharacters(in: .whitespaces)
+        if newName.isEmpty {
+            names.removeValue(forKey: uniqueIdentifier)
+        } else {
+            names[uniqueIdentifier] = newName
+        }
+        Defaults.set(names, forKey: .menuBarItemCustomNames)
+        model.objectWillChange.send()
     }
 
     /// The default screen to show the panel on.
@@ -228,11 +298,21 @@ final class MenuBarSearchPanel: NSPanel {
             saveFrameForDisplay(screen)
         }
         model.searchText = ""
+        model.editingItemTag = nil
         super.close()
         contentView = nil
         mouseDownMonitor.stop()
         keyDownMonitor.stop()
         appState?.navigationState.isSearchPresented = false
+    }
+
+    override func cancelOperation(_: Any?) {
+        if model.editingItemTag != nil {
+            model.editingItemTag = nil
+            model.editingName = ""
+        } else {
+            close()
+        }
     }
 
     /// Saves the frame for a specific display.
@@ -294,7 +374,7 @@ private final class MenuBarSearchHostingView: NSHostingView<AnyView> {
         panel: MenuBarSearchPanel
     ) {
         super.init(
-            rootView: MenuBarSearchContentView(displayID: displayID) { [weak panel] in
+            rootView: MenuBarSearchContentView(displayID: displayID, panel: panel) { [weak panel] in
                 panel?.close()
             }
             .environmentObject(appState)
@@ -324,6 +404,7 @@ private struct MenuBarSearchContentView: View {
     @FocusState private var searchFieldIsFocused: Bool
 
     let displayID: CGDirectDisplayID
+    let panel: MenuBarSearchPanel
     let closePanel: () -> Void
 
     private var hasItems: Bool {
@@ -340,6 +421,7 @@ private struct MenuBarSearchContentView: View {
             mainContent
             bottomBar
         }
+        .environment(\.menuBarSearchPanel, panel)
         .background {
             VisualEffectView(material: .sheet, blendingMode: .behindWindow)
                 .opacity(0.5)
@@ -375,6 +457,8 @@ private struct MenuBarSearchContentView: View {
             .font(.system(size: 18))
             .padding(15)
             .focused($searchFieldIsFocused)
+            .textContentType(.none)
+            .autocorrectionDisabled(true)
 
             Divider()
         }
@@ -385,7 +469,8 @@ private struct MenuBarSearchContentView: View {
         if hasItems {
             SectionedList(
                 selection: $model.selection,
-                items: $model.displayedItems
+                items: $model.displayedItems,
+                isEditing: model.editingItemTag != nil
             )
             .contentPadding(8)
             .scrollContentBackground(.hidden)
@@ -410,7 +495,7 @@ private struct MenuBarSearchContentView: View {
 
             Spacer()
 
-            if let selection = model.selection, let item = menuBarItem(for: selection) {
+            if let selection = model.selection, let item = panel.menuBarItem(for: selection) {
                 ShowItemButton(item: item) {
                     performAction(for: item)
                 }
@@ -466,7 +551,7 @@ private struct MenuBarSearchContentView: View {
                     guard !item.isControlItem else {
                         continue
                     }
-                    let listItem = ListItem.item(id: .item(item.tag)) {
+                    let listItem = ListItem.item(id: .item(item.tag, windowID: item.windowID)) {
                         performAction(for: item)
                     } content: {
                         MenuBarSearchItemView(item: item)
@@ -497,18 +582,10 @@ private struct MenuBarSearchContentView: View {
         }
     }
 
-    private func menuBarItem(for selection: MenuBarSearchModel.ItemID)
-        -> MenuBarItem?
-    {
-        switch selection {
-        case let .item(tag):
-            return itemManager.itemCache.managedItems.first(matching: tag)
-        case .header:
-            return nil
-        }
-    }
-
     private func performAction(for item: MenuBarItem) {
+        if model.editingItemTag == item.tag, model.editingItemWindowID == item.windowID {
+            return
+        }
         closePanel()
         Task {
             try await Task.sleep(for: .milliseconds(25))
@@ -627,11 +704,13 @@ private let controlCenterIcon: NSImage? = {
 }()
 
 private struct MenuBarSearchItemView: View {
+    @Environment(\.menuBarSearchPanel) var panel
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var imageCache: MenuBarItemImageCache
     @EnvironmentObject var model: MenuBarSearchModel
 
     let item: MenuBarItem
+    @FocusState private var isEditing: Bool
 
     private var itemImage: NSImage {
         guard
@@ -679,10 +758,36 @@ private struct MenuBarSearchItemView: View {
 
     var body: some View {
         HStack {
-            Label {
-                labelText
-            } icon: {
-                labelIcon
+            if model.editingItemTag == item.tag, model.editingItemWindowID == item.windowID {
+                HStack(spacing: 8) {
+                    labelIcon
+                    TextField(item.autoDetectedName, text: $model.editingName)
+                        .textFieldStyle(.plain)
+                        .foregroundColor(.primary)
+                        .focused($isEditing)
+                        .textContentType(.none)
+                        .autocorrectionDisabled(true)
+                        .onSubmit {
+                            panel?.saveEditingName()
+                        }
+                        .onExitCommand {
+                            model.editingItemTag = nil
+                            model.editingItemWindowID = nil
+                            model.editingName = ""
+                        }
+                        .onAppear {
+                            isEditing = true
+                        }
+                        .onDisappear {
+                            isEditing = false
+                        }
+                }
+            } else {
+                Label {
+                    labelText
+                } icon: {
+                    labelIcon
+                }
             }
             Spacer()
             itemView

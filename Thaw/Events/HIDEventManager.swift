@@ -30,12 +30,22 @@ final class HIDEventManager: ObservableObject {
     /// valid and attempts to recreate it if the Mach port was invalidated.
     private var healthCheckTimer: Timer?
 
+    /// The currently pending show-on-hover delay task.
+    private var hoverTask: Task<Void, any Error>?
+
     /// The number of times the manager has been told to stop.
     private var disableCount = 0
 
     /// Timestamp of the last `stopAll()` call, used by the health check
     /// to detect a stuck disabled state.
     private var lastStopTimestamp: ContinuousClock.Instant?
+
+    /// The window ID of the menu bar item the mouse is currently hovering over,
+    /// used to detect when the cursor moves to a different item.
+    private var tooltipHoveredWindowID: CGWindowID?
+
+    /// The pending tooltip show task.
+    private var tooltipTask: Task<Void, any Error>?
 
     /// A Boolean value that indicates whether the manager is enabled.
     private var isEnabled = false {
@@ -47,7 +57,7 @@ final class HIDEventManager: ObservableObject {
                 for monitor in allMonitors {
                     monitor.start()
                 }
-                if let appState, appState.settings.general.showOnHover {
+                if let appState, needsMouseMovedTap(appState: appState) {
                     mouseMovedTap.start()
                 }
             } else {
@@ -83,6 +93,7 @@ final class HIDEventManager: ObservableObject {
             appState: appState,
             screen: screen
         )
+        dismissMenuBarTooltip()
         return event
     }
 
@@ -133,6 +144,7 @@ final class HIDEventManager: ObservableObject {
 
         if let appState, let screen = bestScreen(appState: appState) {
             handleShowOnHover(appState: appState, screen: screen)
+            handleMenuBarTooltip(appState: appState, screen: screen)
         }
         return event
     }
@@ -166,23 +178,33 @@ final class HIDEventManager: ObservableObject {
         configureCancellables()
     }
 
+    /// Whether the mouse-moved event tap should be active based on current settings.
+    private func needsMouseMovedTap(appState: AppState) -> Bool {
+        appState.settings.general.showOnHover || appState.settings.advanced.showMenuBarTooltips
+    }
+
     /// Configures the internal observers for the manager.
     private func configureCancellables() {
         var c = Set<AnyCancellable>()
 
         if let appState {
-            appState.settings.general.$showOnHover
-                .sink { [weak self] showOnHover in
-                    guard let self, isEnabled else {
-                        return
-                    }
-                    if showOnHover {
-                        mouseMovedTap.start()
-                    } else {
-                        mouseMovedTap.stop()
-                    }
+            // Start or stop the mouse-moved tap when either show-on-hover
+            // or menu-bar-tooltips changes.
+            Publishers.CombineLatest(
+                appState.settings.general.$showOnHover,
+                appState.settings.advanced.$showMenuBarTooltips
+            )
+            .sink { [weak self] _, _ in
+                guard let self, isEnabled else {
+                    return
                 }
-                .store(in: &c)
+                if needsMouseMovedTap(appState: appState) {
+                    mouseMovedTap.start()
+                } else {
+                    mouseMovedTap.stop()
+                }
+            }
+            .store(in: &c)
         }
 
         cancellables = c
@@ -225,8 +247,8 @@ final class HIDEventManager: ObservableObject {
 
         guard isEnabled else { return }
 
-        // Check the mouseMovedTap if show-on-hover is active.
-        if let appState, appState.settings.general.showOnHover {
+        // Check the mouseMovedTap if it should be active.
+        if let appState, needsMouseMovedTap(appState: appState) {
             if mouseMovedTap.ensureValid() {
                 // Tap is valid. Make sure it's enabled.
                 if !mouseMovedTap.isEnabled {
@@ -257,6 +279,7 @@ final class HIDEventManager: ObservableObject {
         }
         disableCount += 1
         lastStopTimestamp = .now
+        dismissMenuBarTooltip()
     }
 }
 
@@ -469,6 +492,8 @@ extension HIDEventManager {
 
         let delay = appState.settings.advanced.showOnHoverDelay
 
+        hoverTask?.cancel()
+
         if hiddenSection.isHidden {
             guard
                 isMouseInsideEmptyMenuBarSpace(
@@ -478,7 +503,8 @@ extension HIDEventManager {
             else {
                 return
             }
-            Task {
+            hoverTask = Task {
+                defer { hoverTask = nil }
                 try await Task.sleep(for: .seconds(delay))
                 // Make sure the mouse is still inside.
                 guard
@@ -498,7 +524,8 @@ extension HIDEventManager {
             else {
                 return
             }
-            Task {
+            hoverTask = Task {
+                defer { hoverTask = nil }
                 try await Task.sleep(for: .seconds(delay))
                 // Make sure the mouse is still outside.
                 guard
@@ -599,6 +626,98 @@ extension HIDEventManager {
     func bestScreen(appState _: AppState) -> NSScreen? {
         NSScreen.screenWithActiveMenuBar ?? NSScreen.main
     }
+
+    // MARK: Menu Bar Tooltips
+
+    /// Shows a tooltip for the menu bar item under the cursor, if enabled.
+    private func handleMenuBarTooltip(appState: AppState, screen: NSScreen) {
+        guard appState.settings.advanced.showMenuBarTooltips else {
+            return
+        }
+
+        guard isMouseInsideMenuBar(appState: appState, screen: screen) else {
+            dismissMenuBarTooltip()
+            return
+        }
+
+        guard let mouseLocation = MouseHelpers.locationCoreGraphics else {
+            dismissMenuBarTooltip()
+            return
+        }
+
+        // Use the same cached window list as isMouseInsideMenuBarItem.
+        let windowIDs = Bridging.getMenuBarWindowList(option: [
+            .onScreen, .activeSpace, .itemsOnly,
+        ])
+
+        // Find the specific window under the cursor.
+        var hoveredID: CGWindowID?
+        for windowID in windowIDs {
+            guard let bounds = Bridging.getWindowBounds(for: windowID) else {
+                continue
+            }
+            if bounds.contains(mouseLocation) {
+                hoveredID = windowID
+                break
+            }
+        }
+
+        guard let hoveredID else {
+            dismissMenuBarTooltip()
+            return
+        }
+
+        // If we're still over the same item, nothing to do.
+        if hoveredID == tooltipHoveredWindowID {
+            return
+        }
+
+        // Moved to a different item — cancel the old tooltip and start a new delay.
+        dismissMenuBarTooltip()
+        tooltipHoveredWindowID = hoveredID
+
+        let delay = appState.settings.advanced.tooltipDelay
+        tooltipTask = Task {
+            if delay > 0 {
+                try await Task.sleep(for: .seconds(delay))
+            }
+            try Task.checkCancellation()
+
+            // Look up the item from the cache by window ID.
+            let allItems = appState.itemManager.itemCache.managedItems
+            guard let item = allItems.first(where: { $0.windowID == hoveredID }) else {
+                return
+            }
+
+            // Position the tooltip below the item, centered horizontally.
+            // Item bounds are in CoreGraphics coordinates (top-left origin);
+            // convert to AppKit (bottom-left origin) for the panel.
+            guard let screen = NSScreen.main ?? NSScreen.screens.first else { return }
+            let screenHeight = screen.frame.maxY
+            let appKitOrigin = CGPoint(
+                x: item.bounds.midX,
+                y: screenHeight - item.bounds.maxY
+            )
+
+            CustomTooltipPanel.shared.show(
+                text: item.displayName,
+                near: appKitOrigin,
+                in: screen,
+                owner: "menuBar"
+            )
+        }
+    }
+
+    /// Cancels any pending tooltip and hides the tooltip panel.
+    /// Only dismisses the panel if it was shown by the menu bar tooltip handler.
+    private func dismissMenuBarTooltip() {
+        tooltipTask?.cancel()
+        tooltipTask = nil
+        tooltipHoveredWindowID = nil
+        CustomTooltipPanel.shared.dismiss(owner: "menuBar")
+    }
+
+    // MARK: Mouse Location Helpers
 
     /// A Boolean value that indicates whether the mouse pointer is within
     /// the bounds of the menu bar.

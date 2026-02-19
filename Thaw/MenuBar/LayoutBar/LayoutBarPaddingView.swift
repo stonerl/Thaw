@@ -93,6 +93,24 @@ final class LayoutBarPaddingView: NSView {
             return false
         }
 
+        if draggingSource.item.tag == .visibleControlItem && container.section != .visible {
+            let alert = NSAlert()
+            alert.alertStyle = .warning
+            alert.messageText = String(localized: "Cannot move \(Constants.displayName) icon.")
+            alert.informativeText = String(localized: "The \(Constants.displayName) icon must always remain in the visible section.")
+
+            if let window = window {
+                alert.beginSheetModal(for: window)
+            }
+
+            // Revert the visual state: remove the item from the container it was dropped into
+            // and set hasContainer to false so it snaps back to its original container.
+            container.updateArrangedViewsForDrag(with: sender, phase: .exited)
+            draggingSource.hasContainer = false
+
+            return false
+        }
+
         if let index = arrangedViews.firstIndex(of: draggingSource) {
             if arrangedViews.count == 1 {
                 Task {

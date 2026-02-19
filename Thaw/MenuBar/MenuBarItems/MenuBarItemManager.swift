@@ -513,6 +513,9 @@ extension MenuBarItemManager {
         }
 
         func isValidForCaching(_ item: MenuBarItem) -> Bool {
+            if item.tag == .visibleControlItem {
+                return true
+            }
             if !item.canBeHidden {
                 return false
             }
@@ -581,11 +584,29 @@ extension MenuBarItemManager {
                 MenuBarItemManager.diagLog.warning("Missing sourcePID for \(item.logString)")
             }
 
-            if let temp = temporarilyShownItemContexts.first(where: { $0.tag == item.tag }) {
+            let matchingContext: TemporarilyShownItemContext? = {
+                // 1. Try exact tag match (includes windowID for non-system items).
+                if let temp = temporarilyShownItemContexts.first(where: { $0.tag == item.tag }) {
+                    return temp
+                }
+                // 2. Fallback: tag and PID match, but ONLY if the item is physically in the visible section
+                //    (identifying it as the 'shown' instance) and it originally belonged elsewhere.
+                if let temp = temporarilyShownItemContexts.first(where: {
+                    $0.tag.matchesIgnoringWindowID(item.tag) &&
+                        $0.sourcePID == (item.sourcePID ?? item.ownerPID)
+                }) {
+                    if context.findSection(for: item) == .visible, temp.originalSection != .visible {
+                        return temp
+                    }
+                }
+                return nil
+            }()
+
+            if let matchingContext {
                 // Cache temporarily shown items as if they were in their original locations.
                 // Keep track of them separately and use their return destinations to insert
                 // them into the cache once all other items have been handled.
-                context.temporarilyShownItems.append((item, temp.returnDestination))
+                context.temporarilyShownItems.append((item, matchingContext.returnDestination))
                 continue
             }
 
@@ -894,8 +915,8 @@ extension MenuBarItemManager {
         // Fallback: refresh on-screen items and pick the matching tag (prefer same windowID, then non-clone).
         let refreshed = await MenuBarItem.getMenuBarItems(option: .onScreen)
         if let refreshedItem = refreshed.first(where: { $0.windowID == item.windowID && $0.tag == item.tag }) ??
-            refreshed.first(where: { $0.tag == item.tag && !$0.isSystemClone }) ??
-            refreshed.first(where: { $0.tag == item.tag })
+            refreshed.first(where: { $0.tag.matchesIgnoringWindowID(item.tag) && !$0.isSystemClone }) ??
+            refreshed.first(where: { $0.tag.matchesIgnoringWindowID(item.tag) })
         {
             return refreshedItem.bounds
         }
@@ -1732,6 +1753,9 @@ extension MenuBarItemManager {
         /// relative ordering when the primary target is gone.
         let fallbackNeighborTag: MenuBarItemTag?
 
+        /// The PID of the neighbor on the opposite side.
+        let fallbackNeighborPID: pid_t?
+
         /// The original section the item belonged to before being temporarily
         /// shown. Used as a last-resort fallback when both neighbor-based
         /// destinations are stale.
@@ -1817,6 +1841,7 @@ extension MenuBarItemManager {
             displayID: CGDirectDisplayID,
             returnDestination: MoveDestination,
             fallbackNeighborTag: MenuBarItemTag?,
+            fallbackNeighborPID: pid_t?,
             originalSection: MenuBarSection.Name
         ) {
             self.tag = tag
@@ -1824,17 +1849,18 @@ extension MenuBarItemManager {
             self.displayID = displayID
             self.returnDestination = returnDestination
             self.fallbackNeighborTag = fallbackNeighborTag
+            self.fallbackNeighborPID = fallbackNeighborPID
             self.originalSection = originalSection
         }
     }
 
     /// Gets the destination to return the given item to after it is
-    /// temporarily shown, along with the tag of the neighbor on the
+    /// temporarily shown, along with the tag and PID of the neighbor on the
     /// opposite side (if any) for fallback ordering.
     private func getReturnDestination(
         for item: MenuBarItem,
         in items: [MenuBarItem]
-    ) -> (destination: MoveDestination, fallbackNeighborTag: MenuBarItemTag?)? {
+    ) -> (destination: MoveDestination, fallbackNeighbor: (tag: MenuBarItemTag, pid: pid_t)?)? {
         guard let index = items.firstIndex(matching: item.tag) else {
             return nil
         }
@@ -1842,11 +1868,17 @@ extension MenuBarItemManager {
         // right in macOS menu bar coordinates). The fallback is the item on
         // the opposite side.
         if items.indices.contains(index + 1) {
-            let fallback = items.indices.contains(index - 1) ? items[index - 1].tag : nil
-            return (.leftOfItem(items[index + 1]), fallback)
+            let neighbor = items[index + 1]
+            let fallback: (MenuBarItemTag, pid_t)? = if items.indices.contains(index - 1) {
+                (items[index - 1].tag, items[index - 1].sourcePID ?? items[index - 1].ownerPID)
+            } else {
+                nil
+            }
+            return (.leftOfItem(neighbor), fallback)
         }
         if items.indices.contains(index - 1) {
-            return (.rightOfItem(items[index - 1]), nil)
+            let neighbor = items[index - 1]
+            return (.rightOfItem(neighbor), nil)
         }
         return nil
     }
@@ -1949,7 +1981,7 @@ extension MenuBarItemManager {
             // If some items failed to rehide (e.g. move timed out), don't remove
             // them from the contexts list. They will be retried by the rehide timer
             // or the next temporarilyShow call.
-            if temporarilyShownItemContexts.contains(where: { $0.tag == item.tag }) {
+            if temporarilyShownItemContexts.contains(where: { $0.tag.matchesIgnoringWindowID(item.tag) }) {
                 // The item we want to show is already in the temporary list.
                 // This can happen if the user clicks the same item twice very fast.
                 // Remove the old context so we can create a fresh one with new bounds.
@@ -2022,7 +2054,8 @@ extension MenuBarItemManager {
             sourcePID: item.sourcePID ?? item.ownerPID,
             displayID: resolvedDisplayID,
             returnDestination: returnInfo.destination,
-            fallbackNeighborTag: returnInfo.fallbackNeighborTag,
+            fallbackNeighborTag: returnInfo.fallbackNeighbor?.tag,
+            fallbackNeighborPID: returnInfo.fallbackNeighbor?.pid,
             originalSection: originalSection
         )
         temporarilyShownItemContexts.append(context)
@@ -2038,8 +2071,13 @@ extension MenuBarItemManager {
         await waitForItemPositionToSettle(item: item)
 
         // Re-fetch the item from the live window list specifically for this display.
+        // Prefer an exact windowID match, then fall back to namespace+title with PID matching.
         let refreshedItems = await MenuBarItem.getMenuBarItems(on: resolvedDisplayID, option: .onScreen)
-        let clickItem = refreshedItems.first(where: { $0.tag == item.tag }) ?? item
+        let clickItem = refreshedItems.first(where: { $0.windowID == item.windowID }) ??
+            refreshedItems.first(where: {
+                $0.tag.matchesIgnoringWindowID(item.tag) &&
+                    ($0.sourcePID ?? $0.ownerPID) == (item.sourcePID ?? item.ownerPID)
+            }) ?? item
 
         // Give the owning app a little extra time to finish processing the
         // move internally. Some apps (e.g. OneDrive) need more than just a
@@ -2082,7 +2120,11 @@ extension MenuBarItemManager {
         // 1. Try the primary neighbor-based destination.
         //    Re-wrap with the fresh item so the move uses current bounds.
         let targetTag = context.returnDestination.targetItem.tag
-        if let freshTarget = items.first(matching: targetTag) {
+        let targetPID = context.returnDestination.targetItem.sourcePID ?? context.returnDestination.targetItem.ownerPID
+        if let freshTarget = items.first(where: {
+            $0.tag.matchesIgnoringWindowID(targetTag) &&
+                ($0.sourcePID ?? $0.ownerPID) == targetPID
+        }) {
             switch context.returnDestination {
             case .leftOfItem:
                 return .leftOfItem(freshTarget)
@@ -2091,23 +2133,20 @@ extension MenuBarItemManager {
             }
         }
 
-        // 2. Try the fallback neighbor (opposite side). The primary
-        //    destination was .leftOfItem (right neighbor), so the fallback
-        //    is the left neighbor — use .rightOfItem to place after it.
-        //    If the primary was .rightOfItem (left neighbor), we have no
-        //    fallback (it was already the last resort from getReturnDestination).
+        // 2. Try the fallback neighbor (opposite side).
         if let fallbackTag = context.fallbackNeighborTag,
-           let freshFallback = items.first(matching: fallbackTag)
+           let fallbackPID = context.fallbackNeighborPID
         {
-            switch context.returnDestination {
-            case .leftOfItem:
-                // Primary was "left of right-neighbor", so fallback neighbor
-                // was on the left — place to the right of it.
-                return .rightOfItem(freshFallback)
-            case .rightOfItem:
-                // Primary was "right of left-neighbor", fallback was on the
-                // right — place to the left of it.
-                return .leftOfItem(freshFallback)
+            if let freshFallback = items.first(where: {
+                $0.tag.matchesIgnoringWindowID(fallbackTag) &&
+                    ($0.sourcePID ?? $0.ownerPID) == fallbackPID
+            }) {
+                switch context.returnDestination {
+                case .leftOfItem:
+                    return .rightOfItem(freshFallback)
+                case .rightOfItem:
+                    return .leftOfItem(freshFallback)
+                }
             }
         }
 
@@ -2194,7 +2233,10 @@ extension MenuBarItemManager {
         }
 
         while let context = currentContexts.popLast() {
-            guard let item = items.first(matching: context.tag) else {
+            guard let item = items.first(where: {
+                $0.tag.matchesIgnoringWindowID(context.tag) &&
+                    ($0.sourcePID ?? $0.ownerPID) == context.sourcePID
+            }) else {
                 context.notFoundAttempts += 1
                 MenuBarItemManager.diagLog.debug(
                     """
@@ -2282,7 +2324,7 @@ extension MenuBarItemManager {
     /// Removes a temporarily shown item from the cache, ensuring that
     /// the item is _not_ returned to its original location.
     func removeTemporarilyShownItemFromCache(with tag: MenuBarItemTag) {
-        while let index = temporarilyShownItemContexts.firstIndex(where: { $0.tag == tag }) {
+        while let index = temporarilyShownItemContexts.firstIndex(where: { $0.tag.matchesIgnoringWindowID(tag) }) {
             MenuBarItemManager.diagLog.debug(
                 """
                 Removing temporarily shown item from cache: \
@@ -2352,15 +2394,32 @@ extension MenuBarItemManager {
         let hiddenBounds = bestBounds(for: controlItems.hidden)
         let leftmostItems = items
             .filter {
-                // Must be left of hidden divider, movable, non-control.
+                // Must be left of hidden divider, movable.
+                // Include normal items AND the Thaw icon (which is a control item).
                 $0.bounds.maxX <= hiddenBounds.minX &&
                     $0.isMovable &&
-                    !$0.isControlItem
+                    (!$0.isControlItem || $0.tag == .visibleControlItem)
             }
             .sorted { $0.bounds.minX < $1.bounds.minX }
 
         guard !leftmostItems.isEmpty else {
             return false
+        }
+
+        // The Thaw icon must always appear in the visible section.
+        if let thawIcon = leftmostItems.first(where: { $0.tag == .visibleControlItem }) {
+            MenuBarItemManager.diagLog.info("Relocating Thaw icon \(thawIcon.logString) to visible section")
+            do {
+                try await move(
+                    item: thawIcon,
+                    to: .rightOfItem(controlItems.hidden),
+                    skipInputPause: true
+                )
+            } catch {
+                MenuBarItemManager.diagLog.error("Failed to relocate Thaw icon \(thawIcon.logString): \(error)")
+                return false
+            }
+            return true
         }
 
         // Non-hideable system items (screen recording, mic, camera indicators)

@@ -36,6 +36,13 @@ final class AdvancedSettings: ObservableObject {
     /// The delay before showing on hover.
     @Published var showOnHoverDelay: TimeInterval = 0.2
 
+    /// The delay before showing a tooltip when hovering over a menu bar item.
+    @Published var tooltipDelay: TimeInterval = 0.5
+
+    /// A Boolean value that indicates whether tooltips are shown when hovering
+    /// over menu bar items in the actual menu bar (not just in the IceBar or settings).
+    @Published var showMenuBarTooltips = false
+
     /// A Boolean value that indicates whether diagnostic logging to file is enabled.
     @Published var enableDiagnosticLogging = false
 
@@ -59,6 +66,8 @@ final class AdvancedSettings: ObservableObject {
         Defaults.ifPresent(key: .hideApplicationMenus, assign: &hideApplicationMenus)
         Defaults.ifPresent(key: .enableSecondaryContextMenu, assign: &enableSecondaryContextMenu)
         Defaults.ifPresent(key: .showOnHoverDelay, assign: &showOnHoverDelay)
+        Defaults.ifPresent(key: .tooltipDelay, assign: &tooltipDelay)
+        Defaults.ifPresent(key: .showMenuBarTooltips, assign: &showMenuBarTooltips)
         Defaults.ifPresent(key: .enableDiagnosticLogging, assign: &enableDiagnosticLogging)
 
         Defaults.ifPresent(key: .sectionDividerStyle) { rawValue in
@@ -111,6 +120,20 @@ final class AdvancedSettings: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { delay in
                 Defaults.set(delay, forKey: .showOnHoverDelay)
+            }
+            .store(in: &c)
+
+        $tooltipDelay
+            .receive(on: DispatchQueue.main)
+            .sink { delay in
+                Defaults.set(delay, forKey: .tooltipDelay)
+            }
+            .store(in: &c)
+
+        $showMenuBarTooltips
+            .receive(on: DispatchQueue.main)
+            .sink { show in
+                Defaults.set(show, forKey: .showMenuBarTooltips)
             }
             .store(in: &c)
 

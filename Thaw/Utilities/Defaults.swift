@@ -148,6 +148,7 @@ extension Defaults {
         case useIceBar = "UseIceBar"
         case useIceBarOnlyOnNotchedDisplay = "UseIceBarOnlyOnNotchedDisplay"
         case iceBarLocation = "IceBarLocation"
+        case iceBarLocationOnHotkey = "IceBarLocationOnHotkey"
         case showOnClick = "ShowOnClick"
         case showOnHover = "ShowOnHover"
         case showOnScroll = "ShowOnScroll"
@@ -168,12 +169,18 @@ extension Defaults {
         case hideApplicationMenus = "HideApplicationMenus"
         case enableSecondaryContextMenu = "EnableSecondaryContextMenu"
         case showOnHoverDelay = "ShowOnHoverDelay"
+        case tooltipDelay = "TooltipDelay"
+        case showMenuBarTooltips = "ShowMenuBarTooltips"
         case enableDiagnosticLogging = "EnableDiagnosticLogging"
 
         // MARK: Internal
 
         case menuBarSearchPanelFrame = "MenuBarSearchPanelFrame"
         case menuBarSearchPanelFrameWithConfig = "MenuBarSearchPanelFrame_"
+
+        // MARK: Menu Bar Item Custom Names
+
+        case menuBarItemCustomNames = "MenuBarItemCustomNames"
 
         // MARK: Appearance Settings
 

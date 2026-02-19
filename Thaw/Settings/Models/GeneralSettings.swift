@@ -41,6 +41,10 @@ final class GeneralSettings: ObservableObject {
     /// The location where the Ice Bar appears.
     @Published var iceBarLocation: IceBarLocation = .dynamic
 
+    /// A Boolean value that indicates whether the Ice Bar should
+    /// appear at the mouse pointer's location when shown by a hotkey.
+    @Published var iceBarLocationOnHotkey = false
+
     /// A Boolean value that indicates whether the hidden section
     /// should be shown when the mouse pointer clicks in an empty
     /// area of the menu bar.
@@ -95,6 +99,7 @@ final class GeneralSettings: ObservableObject {
         Defaults.ifPresent(key: .customIceIconIsTemplate, assign: &customIceIconIsTemplate)
         Defaults.ifPresent(key: .useIceBar, assign: &useIceBar)
         Defaults.ifPresent(key: .useIceBarOnlyOnNotchedDisplay, assign: &useIceBarOnlyOnNotchedDisplay)
+        Defaults.ifPresent(key: .iceBarLocationOnHotkey, assign: &iceBarLocationOnHotkey)
         Defaults.ifPresent(key: .showOnClick, assign: &showOnClick)
         Defaults.ifPresent(key: .showOnHover, assign: &showOnHover)
         Defaults.ifPresent(key: .showOnScroll, assign: &showOnScroll)
@@ -179,6 +184,13 @@ final class GeneralSettings: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { location in
                 Defaults.set(location.rawValue, forKey: .iceBarLocation)
+            }
+            .store(in: &c)
+
+        $iceBarLocationOnHotkey
+            .receive(on: DispatchQueue.main)
+            .sink { iceBarLocationOnHotkey in
+                Defaults.set(iceBarLocationOnHotkey, forKey: .iceBarLocationOnHotkey)
             }
             .store(in: &c)
 

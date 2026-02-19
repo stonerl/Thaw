@@ -125,6 +125,7 @@ final class MenuBarManager: ObservableObject {
                     let hiddenSection = section(withName: .hidden),
                     let screen = appState.hidEventManager.bestScreen(appState: appState),
                     !appState.hidEventManager.isMouseInsideMenuBar(appState: appState, screen: screen),
+                    !appState.hidEventManager.isMouseInsideIceBar(appState: appState),
                     appState.settings.general.autoRehide
                 {
                     // Handle both focusedApp and smart strategies for focus changes

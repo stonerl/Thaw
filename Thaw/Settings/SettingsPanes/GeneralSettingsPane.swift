@@ -178,6 +178,7 @@ struct GeneralSettingsPane: View {
                 useIceBarOnlyOnNotchedDisplay
             }
             iceBarLocationPicker
+            showIceBarAtMouseLocationOnHotkey
         }
     }
 
@@ -211,6 +212,11 @@ struct GeneralSettingsPane: View {
                 Text("The \(Constants.displayName) Bar is centered below the \(Constants.displayName) icon.")
             }
         }
+    }
+
+    private var showIceBarAtMouseLocationOnHotkey: some View {
+        Toggle("Show at mouse pointer on hotkey", isOn: $settings.iceBarLocationOnHotkey)
+            .annotation("Always show the \(Constants.displayName) Bar at the mouse pointer's location when it is shown using a hotkey.")
     }
 
     // MARK: Show Options

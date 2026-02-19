@@ -92,6 +92,7 @@ final class LayoutBarContainer: NSView {
                 .store(in: &c)
 
             appState.imageCache.$images
+                .debounce(for: .milliseconds(50), scheduler: DispatchQueue.main)
                 .sink { [weak self] _ in
                     guard let self else {
                         return

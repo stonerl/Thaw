@@ -22,6 +22,7 @@ struct SectionedList<ItemID: Hashable>: View {
     @State private var scrollIndicatorsFlashTrigger = 0
 
     let spacing: CGFloat
+    let isEditing: Bool
 
     private(set) var contentPadding = EdgeInsets()
 
@@ -46,10 +47,11 @@ struct SectionedList<ItemID: Hashable>: View {
     }
 
     /// Creates a sectioned list with the given selection, spacing, and items.
-    init(selection: Binding<ItemID?>, items: Binding<[SectionedListItem<ItemID>]>, spacing: CGFloat = 0) {
+    init(selection: Binding<ItemID?>, items: Binding<[SectionedListItem<ItemID>]>, spacing: CGFloat = 0, isEditing: Bool = false) {
         self._selection = selection
         self._items = items
         self.spacing = spacing
+        self.isEditing = isEditing
     }
 
     var body: some View {
@@ -73,7 +75,7 @@ struct SectionedList<ItemID: Hashable>: View {
             }
         }
         .scrollIndicatorsFlash(trigger: scrollIndicatorsFlashTrigger)
-        .onKeyDown(key: .downArrow, isEnabled: selection != nil) {
+        .onKeyDown(key: .downArrow, isEnabled: selection != nil && !isEditing) {
             DispatchQueue.main.async {
                 if let nextSelectableItem {
                     selection = nextSelectableItem.id
@@ -81,7 +83,7 @@ struct SectionedList<ItemID: Hashable>: View {
             }
             return .handled
         }
-        .onKeyDown(key: .upArrow, isEnabled: selection != nil) {
+        .onKeyDown(key: .upArrow, isEnabled: selection != nil && !isEditing) {
             DispatchQueue.main.async {
                 if let previousSelectableItem {
                     selection = previousSelectableItem.id
@@ -89,7 +91,7 @@ struct SectionedList<ItemID: Hashable>: View {
             }
             return .handled
         }
-        .onKeyDown(key: .return, isEnabled: selection != nil) {
+        .onKeyDown(key: .return, isEnabled: selection != nil && !isEditing) {
             DispatchQueue.main.async {
                 items.first { $0.id == selection }?.action?()
             }

@@ -29,34 +29,35 @@ Download the `Thaw_1.x.x.zip` file from the [latest release](https://github.com/
 Install the latest stable release:
 
 ```sh
-brew install --cask thaw
+brew install thaw
 ```
 
 To get the latest beta (or stable, whichever is newer):
 
 ```sh
-brew install --cask thaw@beta
+brew install thaw@beta
 ```
 
 ## Translations
 
 Thaw is currently available in the following languages:
 
-| Language             | Status   | Flag  | Completion                             |
-| :------------------- | :------- | :---: | :------------------------------------- |
-| **English**          | Base     |  🇺🇸   | ![100%](https://geps.dev/progress/100) |
-| **Bahasa Indonesia** | Complete |  🇮🇩   | ![100%](https://geps.dev/progress/100) |
-| **Deutsch**          | Complete |  🇩🇪   | ![100%](https://geps.dev/progress/100) |
-| **Español**          | Complete | 🇪🇸/🇲🇽 | ![100%](https://geps.dev/progress/100) |
-| **Français**         | Complete |  🇫🇷   | ![100%](https://geps.dev/progress/100) |
-| **Italiano**         | Complete |  🇮🇹   | ![100%](https://geps.dev/progress/100) |
-| **Magyar**           | Complete |  🇭🇺   | ![100%](https://geps.dev/progress/100) |
-| **Nederlands**       | Complete |  🇳🇱   | ![100%](https://geps.dev/progress/100) |
-| **Русский(\*)**      | Complete |  🇷🇺   | ![100%](https://geps.dev/progress/100) |
-| **简体中文**         | Complete |  🇨🇳   | ![100%](https://geps.dev/progress/100) |
-| **正體中文**         | Complete |  🇹🇼   | ![100%](https://geps.dev/progress/100) |
-| **한국어**           | Complete |  🇰🇷   | ![100%](https://geps.dev/progress/100) |
-| **ภาษาไทย**          | Complete |  🇹🇭   | ![100%](https://geps.dev/progress/100) |
+| Language                   | Status   | Flag  | Completion                             |
+| :------------------------- | :------- | :---: | :------------------------------------- |
+| **English**                | Base     |  🇺🇸   | ![100%](https://geps.dev/progress/100) |
+| **Bahasa Indonesia**       | Complete |  🇮🇩   | ![100%](https://geps.dev/progress/100) |
+| **Deutsch**                | Complete |  🇩🇪   | ![100%](https://geps.dev/progress/100) |
+| **Español**                | Complete | 🇪🇸/🇲🇽 | ![100%](https://geps.dev/progress/100) |
+| **Français**               | Complete |  🇫🇷   | ![100%](https://geps.dev/progress/100) |
+| **Italiano**               | Complete |  🇮🇹   | ![100%](https://geps.dev/progress/100) |
+| **Magyar**                 | Complete |  🇭🇺   | ![100%](https://geps.dev/progress/100) |
+| **Nederlands**             | Complete |  🇳🇱   | ![100%](https://geps.dev/progress/100) |
+| **Português (Brasil)(\*)** | Complete |  🇧🇷   | ![100%](https://geps.dev/progress/100) |
+| **Русский(\*)**            | Complete |  🇷🇺   | ![100%](https://geps.dev/progress/100) |
+| **简体中文**               | Complete |  🇨🇳   | ![100%](https://geps.dev/progress/100) |
+| **正體中文**               | Complete |  🇹🇼   | ![100%](https://geps.dev/progress/100) |
+| **한국어**                 | Complete |  🇰🇷   | ![100%](https://geps.dev/progress/100) |
+| **ภาษาไทย**                | Complete |  🇹🇭   | ![100%](https://geps.dev/progress/100) |
 
 _Note: languages marked with (\*) are currently only available in the development branch._
 
