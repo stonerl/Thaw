@@ -547,13 +547,12 @@ extension NSScreen {
     }
 
     /// Per-display cache of the last known application menu frame.
-    @MainActor private static var applicationMenuFrameCache = [CGDirectDisplayID: CGRect]()
+    private static var applicationMenuFrameCache = [CGDirectDisplayID: CGRect]()
 
     /// The pid of the frontmost application when the cache was last populated.
-    @MainActor private static var applicationMenuFrameCachePID: pid_t?
+    private static var applicationMenuFrameCachePID: pid_t?
 
     /// Invalidates the cached application menu frame when the frontmost app changes.
-    @MainActor
     private static func invalidateApplicationMenuFrameCacheIfNeeded() {
         let currentPID = NSWorkspace.shared.frontmostApplication?.processIdentifier
         if currentPID != applicationMenuFrameCachePID {
