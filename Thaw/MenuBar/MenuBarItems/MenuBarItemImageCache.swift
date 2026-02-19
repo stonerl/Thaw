@@ -68,8 +68,12 @@ final class MenuBarItemImageCache: ObservableObject {
     /// Maximum number of images to cache to prevent memory growth
     private static let maxCacheSize = 200
 
-    /// LRU tracking for cache entries
-    private var accessOrder: [MenuBarItemTag] = []
+    /// LRU tracking: maps each tag to a monotonic counter value.
+    /// Lower values are least recently used. O(1) update vs O(n) array removal.
+    private var accessTimestamps: [MenuBarItemTag: UInt64] = [:]
+
+    /// Monotonic counter incremented on each access, used for LRU ordering.
+    private var accessCounter: UInt64 = 0
 
     /// Failed capture tracking to skip repeatedly failing items
     private struct FailedCapture: Hashable {
@@ -583,13 +587,12 @@ final class MenuBarItemImageCache: ObservableObject {
         // Clear half the cache on memory warning
         if !images.isEmpty {
             let targetSize = images.count / 2
-            let tagsToRemove = Array(
-                accessOrder.prefix(images.count - targetSize)
-            )
+            let removeCount = images.count - targetSize
+            let tagsToRemove = leastRecentlyUsedTags(count: removeCount)
 
             for tag in tagsToRemove {
                 images.removeValue(forKey: tag)
-                accessOrder.removeAll { $0 == tag }
+                accessTimestamps.removeValue(forKey: tag)
             }
             MenuBarItemImageCache.diagLog.info(
                 "Memory pressure: Cleared \(tagsToRemove.count) items from cache"
@@ -597,12 +600,31 @@ final class MenuBarItemImageCache: ObservableObject {
         }
     }
 
+    /// Returns the `count` least recently used tags, sorted by access time (oldest first).
+    private func leastRecentlyUsedTags(
+        count: Int,
+        excluding excludedTags: Set<MenuBarItemTag> = []
+    ) -> [MenuBarItemTag] {
+        let candidates: [(tag: MenuBarItemTag, timestamp: UInt64)]
+        if excludedTags.isEmpty {
+            candidates = images.keys.map { ($0, accessTimestamps[$0] ?? 0) }
+        } else {
+            candidates = images.keys
+                .filter { !excludedTags.contains($0) }
+                .map { ($0, accessTimestamps[$0] ?? 0) }
+        }
+        return candidates
+            .sorted { $0.timestamp < $1.timestamp }
+            .prefix(count)
+            .map(\.tag)
+    }
+
     // MARK: Cache Access
 
     /// Updates the access order for a given tag to mark it as most recently used.
     private func updateAccessOrder(for tag: MenuBarItemTag) {
-        accessOrder.removeAll { $0 == tag }
-        accessOrder.append(tag)
+        accessCounter += 1
+        accessTimestamps[tag] = accessCounter
     }
 
     /// Gets an image from the cache and updates its access order.
@@ -631,9 +653,9 @@ final class MenuBarItemImageCache: ObservableObject {
         images.count
     }
 
-    /// Returns the current LRU order count for debugging.
-    var accessOrderCount: Int {
-        accessOrder.count
+    /// Returns the number of tracked LRU entries for debugging.
+    var lruEntryCount: Int {
+        accessTimestamps.count
     }
 
     /// Validates cache entries and removes items with invalid window IDs.
@@ -672,7 +694,7 @@ final class MenuBarItemImageCache: ObservableObject {
 
         for invalidTag in invalidTags {
             images.removeValue(forKey: invalidTag)
-            accessOrder.removeAll { $0 == invalidTag }
+            accessTimestamps.removeValue(forKey: invalidTag)
             removedCount += 1
         }
 
@@ -701,13 +723,16 @@ final class MenuBarItemImageCache: ObservableObject {
     /// This method is NOT called automatically - you must call it explicitly.
     func logCacheStatus(_ context: String = "Manual check") {
         let imageSize = images.count
-        let lruSize = accessOrder.count
+        let lruSize = accessTimestamps.count
         let maxSize = Self.maxCacheSize
         let usagePercent = (imageSize * 100) / maxSize
         let failedCount = failedCaptures.count
         let blacklistedCount = failedCaptures.values.filter {
             $0.failureCount >= Self.maxFailuresBeforeBlacklist
         }.count
+
+        let lruSorted = accessTimestamps.sorted { $0.value < $1.value }
+        let lruDescription = lruSorted.map { "\($0.key)" }.joined(separator: ", ")
 
         MenuBarItemImageCache.diagLog.info(
             """
@@ -716,7 +741,7 @@ final class MenuBarItemImageCache: ObservableObject {
             LRU order count: \(lruSize)
             Failed captures: \(failedCount) (blacklisted: \(blacklistedCount))
             Memory impact: ~\(imageSize * 100)KB (estimated)
-            LRU order: \(accessOrder.map(\.description).joined(separator: ", "))
+            LRU order: \(lruDescription)
             ======================================
             """
         )
@@ -816,16 +841,10 @@ final class MenuBarItemImageCache: ObservableObject {
             // but again preserve recently-failed items.
             _ = validateAndCleanupInvalidEntries(preserving: recentlyFailedTags)
 
-            // Update access order for existing items that are being refreshed
+            // Mark all newly captured images as most recently used
             for tag in newImages.keys {
-                if images.contains(where: { $0.key == tag }) {
-                    // Move to end (most recently used)
-                    accessOrder.removeAll { $0 == tag }
-                    accessOrder.append(tag)
-                } else {
-                    // New entry - add to access order
-                    accessOrder.append(tag)
-                }
+                accessCounter += 1
+                accessTimestamps[tag] = accessCounter
             }
 
             // Merge in the new images
@@ -836,13 +855,15 @@ final class MenuBarItemImageCache: ObservableObject {
             // sections currently being displayed).
             if images.count > Self.maxCacheSize {
                 let protectedTags = Set(newImages.keys)
-                let evictionCandidates = accessOrder.filter { !protectedTags.contains($0) }
                 let excessCount = images.count - Self.maxCacheSize
-                let tagsToRemove = Array(evictionCandidates.prefix(excessCount))
+                let tagsToRemove = leastRecentlyUsedTags(
+                    count: excessCount,
+                    excluding: protectedTags
+                )
 
                 for tag in tagsToRemove {
                     images.removeValue(forKey: tag)
-                    accessOrder.removeAll { $0 == tag }
+                    accessTimestamps.removeValue(forKey: tag)
                 }
 
                 if !tagsToRemove.isEmpty {
@@ -852,23 +873,11 @@ final class MenuBarItemImageCache: ObservableObject {
                 }
             }
 
-            // Clean up access order for any remaining inconsistencies and
-            // de-duplicate while preserving most recent usage order
-            var seen = Set<MenuBarItemTag>()
-            accessOrder = accessOrder
-                .reversed()
-                .filter { tag in
-                    guard images.keys.contains(tag) else { return false }
-                    if seen.contains(tag) {
-                        return false
-                    }
-                    seen.insert(tag)
-                    return true
-                }
-                .reversed()
+            // Remove stale timestamps for images that no longer exist
+            accessTimestamps = accessTimestamps.filter { images.keys.contains($0.key) }
 
             let afterCount = images.count
-            let finalAccessOrderCount = accessOrder.count
+            let finalAccessOrderCount = accessTimestamps.count
             let totalRemoved = beforeCount - afterCount
 
             // Log cache status for monitoring (verbose only when needed)
@@ -968,14 +977,17 @@ final class MenuBarItemImageCache: ObservableObject {
         }
         let tags = Set(appState.itemManager.itemCache[section].map(\.tag))
         images = images.filter { !tags.contains($0.key) }
-        accessOrder.removeAll { tags.contains($0) }
+        for tag in tags {
+            accessTimestamps.removeValue(forKey: tag)
+        }
     }
 
     /// Clears all cached images and failure tracking.
     @MainActor
     func clearAll() {
         images.removeAll()
-        accessOrder.removeAll()
+        accessTimestamps.removeAll()
+        accessCounter = 0
         failedCaptures.removeAll()
     }
 
