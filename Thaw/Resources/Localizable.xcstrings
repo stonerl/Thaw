@@ -20,7 +20,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@
+            "value" : "%@"
           }
         },
         "hu" : {
@@ -71,7 +71,7 @@
             "value" : "%@"
           }
         },
-        zh-Hans" : {
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
