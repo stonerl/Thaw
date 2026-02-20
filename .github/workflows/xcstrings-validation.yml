@@ -1,0 +1,31 @@
+name: Validate Localization Files
+on:
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "**/*.xcstrings"
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install SwiftLint
+        run: brew install swiftlint
+      - name: Run SwiftLint
+        run: swiftlint --strict
+
+  validate:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Validate XCStrings
+        run: |
+          find . -name "*.xcstrings" -print0 | while IFS= read -r -d '' file; do
+            echo "Validating $file"
+            if ! plutil -lint "$file"; then
+              echo "Validation failed for $file"
+              exit 1
+            fi
+          done
