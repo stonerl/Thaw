@@ -25,6 +25,9 @@ final class IceBarPanel: NSPanel {
     /// Storage for internal observers.
     private var cancellables = Set<AnyCancellable>()
 
+    /// Background cache task started when the panel is shown.
+    private var cacheTask: Task<Void, Never>?
+
     /// Creates a new Ice Bar panel.
     init() {
         super.init(
@@ -143,25 +146,14 @@ final class IceBarPanel: NSPanel {
             return
         }
 
-        // Rehide any temporarily shown items as soon as the IceBar opens.
-        await appState.itemManager.rehideTemporarilyShownItems(force: true)
-
         // IMPORTANT: We must set the navigation state and current section
         // before updating the caches.
         appState.navigationState.isIceBarPresented = true
         currentSection = section
 
-        let cacheTask = Task(timeout: .seconds(1)) {
-            await appState.itemManager.cacheItemsIfNeeded()
-            await appState.imageCache.updateCache()
-        }
-
-        do {
-            try await cacheTask.value
-        } catch {
-            diagLog.error("Cache update failed when showing \(Constants.displayName)BarPanel - \(error)")
-        }
-
+        // Show the panel immediately with whatever cached data we have.
+        // The SwiftUI view observes itemManager and imageCache, so it
+        // will re-render automatically as the background updates land.
         contentView = IceBarHostingView(
             appState: appState,
             colorManager: colorManager,
@@ -180,6 +172,18 @@ final class IceBarPanel: NSPanel {
         colorManager.updateAllProperties(with: frame, screen: screen)
 
         orderFrontRegardless()
+
+        // Rehide temporarily shown items and refresh caches in the
+        // background. Ordering is preserved: rehide moves items back
+        // to their correct sections before the cache is rebuilt.
+        // The task is cancelled in close() to avoid holding appState.
+        cacheTask?.cancel()
+        cacheTask = Task { [weak appState] in
+            guard let appState else { return }
+            await appState.itemManager.rehideTemporarilyShownItems(force: true)
+            await appState.itemManager.cacheItemsIfNeeded()
+            await appState.imageCache.updateCache()
+        }
     }
 
     /// Hides the panel.
@@ -194,6 +198,8 @@ final class IceBarPanel: NSPanel {
     }
 
     override func close() {
+        cacheTask?.cancel()
+        cacheTask = nil
         contentView = nil
         orderOut(nil)
         super.close()
@@ -335,6 +341,20 @@ private struct IceBarContentView: View {
             cacheGracePeriodActive = true
             try? await Task.sleep(for: .milliseconds(600))
             cacheGracePeriodActive = false
+        }
+        .task {
+            // Refresh captured images at ~30fps so animated menu bar
+            // icons (e.g. Google Drive sync spinner) stay up-to-date.
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .milliseconds(33))
+                guard !Task.isCancelled else { break }
+                let currentItems = items
+                guard !currentItems.isEmpty else { continue }
+                await imageCache.refreshImages(
+                    of: currentItems,
+                    scale: screen.backingScaleFactor
+                )
+            }
         }
     }
 

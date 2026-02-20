@@ -475,6 +475,62 @@ final class MenuBarItemImageCache: ObservableObject {
         return individualResult
     }
 
+    /// Lightweight image refresh for the IceBar.
+    ///
+    /// Performs a single composite capture and crops individual items,
+    /// skipping full cache management (LRU, failure tracking, transparency
+    /// checks, cleanup). Designed for high-frequency refresh (~30fps).
+    nonisolated func refreshImages(
+        of items: [MenuBarItem],
+        scale: CGFloat
+    ) async {
+        var windowIDs = [CGWindowID]()
+        var storage = [CGWindowID: (MenuBarItem, CGRect)]()
+        var boundsUnion = CGRect.null
+
+        for item in items {
+            guard let bounds = Bridging.getWindowBounds(for: item.windowID) else {
+                continue
+            }
+            windowIDs.append(item.windowID)
+            storage[item.windowID] = (item, bounds)
+            boundsUnion = boundsUnion.union(bounds)
+        }
+
+        guard !windowIDs.isEmpty else { return }
+
+        guard let compositeImage = ScreenCapture.captureWindows(
+            with: windowIDs,
+            option: captureOption
+        ) else { return }
+
+        let expectedWidth = boundsUnion.width * scale
+        let expectedHeight = boundsUnion.height * scale
+        guard CGFloat(compositeImage.width) == expectedWidth,
+              CGFloat(compositeImage.height) == expectedHeight else { return }
+
+        var newImages = [MenuBarItemTag: CapturedImage]()
+        for windowID in windowIDs {
+            guard let (item, bounds) = storage[windowID] else { continue }
+            let cropRect = CGRect(
+                x: (bounds.origin.x - boundsUnion.origin.x) * scale,
+                y: (bounds.origin.y - boundsUnion.origin.y) * scale,
+                width: bounds.width * scale,
+                height: bounds.height * scale
+            )
+            guard let image = compositeImage.cropping(to: cropRect) else {
+                continue
+            }
+            newImages[item.tag] = CapturedImage(cgImage: image, scale: scale)
+        }
+
+        guard !newImages.isEmpty else { return }
+
+        await MainActor.run { [newImages] in
+            self.images.merge(newImages) { _, new in new }
+        }
+    }
+
     /// Captures the images of the menu bar items in the given section and returns
     /// a dictionary containing the images, keyed by their menu bar item tags.
     private func captureImages(
