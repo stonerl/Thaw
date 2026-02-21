@@ -445,7 +445,7 @@ private struct IceBarContentView: View {
         } else if itemManager.itemCache.managedItems.isEmpty {
             HStack {
                 if loadingTimedOut {
-                    Text("Unable to load menu bar items.")
+                    Text("Unable to load menu bar items")
                     Button {
                         openPermissionsSettings()
                     } label: {
@@ -474,7 +474,7 @@ private struct IceBarContentView: View {
                         .controlSize(.small)
                 } else if loadingTimedOut {
                     // Final state: no further automatic retry.
-                    Text("Unable to display menu bar items.")
+                    Text("Unable to display menu bar items")
                     Button {
                         openPermissionsSettings()
                     } label: {
