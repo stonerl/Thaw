@@ -6,7 +6,7 @@
 //  Copyright (Thaw) © 2026 Toni Förster
 //  Licensed under the GNU GPLv3
 
-import Foundation
+import Cocoa
 
 /// Per-display configuration for the Ice Bar.
 struct DisplayIceBarConfiguration: Codable, Equatable {
@@ -30,5 +30,24 @@ struct DisplayIceBarConfiguration: Codable, Equatable {
     /// Returns a new configuration with the `iceBarLocation` replaced.
     func withIceBarLocation(_ value: IceBarLocation) -> DisplayIceBarConfiguration {
         DisplayIceBarConfiguration(useIceBar: useIceBar, iceBarLocation: value)
+    }
+
+    /// Builds per-display configurations for all connected screens.
+    static func buildConfigurations(
+        onlyOnNotched: Bool,
+        location: IceBarLocation
+    ) -> [String: DisplayIceBarConfiguration] {
+        var configs = [String: DisplayIceBarConfiguration]()
+        for screen in NSScreen.screens {
+            guard let uuid = Bridging.getDisplayUUIDString(for: screen.displayID) else {
+                continue
+            }
+            let enabled = onlyOnNotched ? screen.hasNotch : true
+            configs[uuid] = DisplayIceBarConfiguration(
+                useIceBar: enabled,
+                iceBarLocation: location
+            )
+        }
+        return configs
     }
 }

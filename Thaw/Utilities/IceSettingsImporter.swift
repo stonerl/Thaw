@@ -102,17 +102,10 @@ struct IceSettingsImporter {
         let location = IceBarLocation(rawValue: locationRaw) ?? .dynamic
         let onlyOnNotched = iceSettings["UseIceBarOnlyOnNotchedDisplay"] as? Bool ?? false
 
-        var configs = [String: DisplayIceBarConfiguration]()
-        for screen in NSScreen.screens {
-            guard let uuid = Bridging.getDisplayUUIDString(for: screen.displayID) else {
-                continue
-            }
-            let enabled = onlyOnNotched ? screen.hasNotch : true
-            configs[uuid] = DisplayIceBarConfiguration(
-                useIceBar: enabled,
-                iceBarLocation: location
-            )
-        }
+        let configs = DisplayIceBarConfiguration.buildConfigurations(
+            onlyOnNotched: onlyOnNotched,
+            location: location
+        )
 
         guard !configs.isEmpty else { return 0 }
 

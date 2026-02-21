@@ -407,23 +407,10 @@ extension MigrationManager {
             return .success
         }
 
-        var configs = [String: DisplayIceBarConfiguration]()
-
-        for screen in NSScreen.screens {
-            guard let uuid = Bridging.getDisplayUUIDString(for: screen.displayID) else {
-                continue
-            }
-            let enabled: Bool
-            if useOnlyOnNotched {
-                enabled = screen.hasNotch
-            } else {
-                enabled = true
-            }
-            configs[uuid] = DisplayIceBarConfiguration(
-                useIceBar: enabled,
-                iceBarLocation: iceBarLocation
-            )
-        }
+        let configs = DisplayIceBarConfiguration.buildConfigurations(
+            onlyOnNotched: useOnlyOnNotched,
+            location: iceBarLocation
+        )
 
         do {
             let data = try encoder.encode(configs)
