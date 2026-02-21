@@ -86,6 +86,9 @@ final class MenuBarSection {
         NSScreen.screenWithActiveMenuBar ?? NSScreen.main
     }
 
+    /// The hiding state the user desires for the section.
+    @Published var desiredState: ControlItem.HidingState = .hideSection
+
     /// A Boolean value that indicates whether the section is hidden.
     var isHidden: Bool {
         if useIceBar {
@@ -104,12 +107,12 @@ final class MenuBarSection {
             if menuBarManager?.iceBarPanel.currentSection == .hidden {
                 return false
             }
-            return controlItem.state == .hideSection
+            return desiredState == .hideSection
         case .alwaysHidden:
             if menuBarManager?.iceBarPanel.currentSection == .alwaysHidden {
                 return false
             }
-            return controlItem.state == .hideSection
+            return desiredState == .hideSection
         }
     }
 
@@ -157,6 +160,36 @@ final class MenuBarSection {
     func performSetup(with appState: AppState) {
         self.appState = appState
         controlItem.performSetup(with: appState)
+        desiredState = controlItem.state
+    }
+
+    /// Updates the state of the control item based on the desired state
+    /// and the current display configuration.
+    func updateControlItemState() {
+        guard let appState else { return }
+
+        // If the user wants to show, always show.
+        if desiredState == .showSection {
+            controlItem.state = .showSection
+            return
+        }
+
+        // If the user wants to hide, check the current display config.
+        // Use screenWithMouse for instant reactivity when switching displays.
+        guard let screen = NSScreen.screenWithMouse ?? NSScreen.screenWithActiveMenuBar ?? NSScreen.main else {
+            controlItem.state = desiredState
+            return
+        }
+
+        let displaySettings = appState.settings.displaySettings
+        let alwaysShow = displaySettings.alwaysShowHiddenItems(for: screen.displayID)
+        let useIceBar = displaySettings.useIceBar(for: screen.displayID)
+
+        if name == .hidden || name == .visible, alwaysShow, !useIceBar {
+            controlItem.state = .showSection
+        } else {
+            controlItem.state = desiredState
+        }
     }
 
     /// Shows the section.
@@ -180,10 +213,11 @@ final class MenuBarSection {
             for section in menuBarManager.sections {
                 switch section.name {
                 case .visible:
-                    section.controlItem.state = .showSection
+                    section.desiredState = .showSection
                 case .hidden, .alwaysHidden:
-                    section.controlItem.state = .hideSection
+                    section.desiredState = .hideSection
                 }
+                section.updateControlItemState()
             }
 
             if let screen = screenForIceBar {
@@ -214,11 +248,13 @@ final class MenuBarSection {
         switch name {
         case .visible, .hidden:
             for section in menuBarManager.sections where section.name != .alwaysHidden {
-                section.controlItem.state = .showSection
+                section.desiredState = .showSection
+                section.updateControlItemState()
             }
         case .alwaysHidden:
             for section in menuBarManager.sections {
-                section.controlItem.state = .showSection
+                section.desiredState = .showSection
+                section.updateControlItemState()
             }
         }
 
@@ -237,10 +273,12 @@ final class MenuBarSection {
         switch name {
         case _ where useIceBar, .visible, .hidden:
             for section in menuBarManager.sections {
-                section.controlItem.state = .hideSection
+                section.desiredState = .hideSection
+                section.updateControlItemState()
             }
         case .alwaysHidden:
-            controlItem.state = .hideSection
+            desiredState = .hideSection
+            updateControlItemState()
         }
 
         stopRehideChecks()

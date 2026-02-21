@@ -153,6 +153,7 @@ final class HIDEventManager: ObservableObject {
         if let appState, let screen = bestScreen(appState: appState) {
             handleShowOnHover(appState: appState, screen: screen)
             handleMenuBarTooltip(appState: appState, screen: screen)
+            appState.menuBarManager.updateControlItemStates()
         }
         return event
     }
@@ -188,7 +189,9 @@ final class HIDEventManager: ObservableObject {
 
     /// Whether the mouse-moved event tap should be active based on current settings.
     private func needsMouseMovedTap(appState: AppState) -> Bool {
-        appState.settings.general.showOnHover || appState.settings.advanced.showMenuBarTooltips
+        appState.settings.general.showOnHover ||
+            appState.settings.advanced.showMenuBarTooltips ||
+            appState.settings.displaySettings.isAlwaysShowEnabledOnAnyDisplay
     }
 
     /// Configures the internal observers for the manager.
@@ -196,13 +199,14 @@ final class HIDEventManager: ObservableObject {
         var c = Set<AnyCancellable>()
 
         if let appState {
-            // Start or stop the mouse-moved tap when either show-on-hover
-            // or menu-bar-tooltips changes.
-            Publishers.CombineLatest(
+            // Start or stop the mouse-moved tap when show-on-hover,
+            // menu-bar-tooltips, or per-display configurations change.
+            Publishers.CombineLatest3(
                 appState.settings.general.$showOnHover,
-                appState.settings.advanced.$showMenuBarTooltips
+                appState.settings.advanced.$showMenuBarTooltips,
+                appState.settings.displaySettings.$configurations
             )
-            .sink { [weak self] _, _ in
+            .sink { [weak self] _, _, _ in
                 guard let self, isEnabled else {
                     return
                 }

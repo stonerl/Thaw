@@ -16,20 +16,43 @@ struct DisplayIceBarConfiguration: Codable, Equatable {
     /// The location where the Ice Bar appears on this display.
     let iceBarLocation: IceBarLocation
 
+    /// Whether to always show hidden menu bar items on this display.
+    ///
+    /// This setting is only applicable when ``useIceBar`` is `false`.
+    let alwaysShowHiddenItems: Bool
+
     /// Default configuration (disabled, dynamic location).
     static let defaultConfiguration = DisplayIceBarConfiguration(
         useIceBar: false,
-        iceBarLocation: .dynamic
+        iceBarLocation: .dynamic,
+        alwaysShowHiddenItems: false
     )
 
     /// Returns a new configuration with the `useIceBar` flag replaced.
     func withUseIceBar(_ value: Bool) -> DisplayIceBarConfiguration {
-        DisplayIceBarConfiguration(useIceBar: value, iceBarLocation: iceBarLocation)
+        DisplayIceBarConfiguration(
+            useIceBar: value,
+            iceBarLocation: iceBarLocation,
+            alwaysShowHiddenItems: alwaysShowHiddenItems
+        )
     }
 
     /// Returns a new configuration with the `iceBarLocation` replaced.
     func withIceBarLocation(_ value: IceBarLocation) -> DisplayIceBarConfiguration {
-        DisplayIceBarConfiguration(useIceBar: useIceBar, iceBarLocation: value)
+        DisplayIceBarConfiguration(
+            useIceBar: useIceBar,
+            iceBarLocation: value,
+            alwaysShowHiddenItems: alwaysShowHiddenItems
+        )
+    }
+
+    /// Returns a new configuration with the `alwaysShowHiddenItems` flag replaced.
+    func withAlwaysShowHiddenItems(_ value: Bool) -> DisplayIceBarConfiguration {
+        DisplayIceBarConfiguration(
+            useIceBar: useIceBar,
+            iceBarLocation: iceBarLocation,
+            alwaysShowHiddenItems: value
+        )
     }
 
     /// Builds per-display configurations for all connected screens.
@@ -46,7 +69,8 @@ struct DisplayIceBarConfiguration: Codable, Equatable {
             let enabled = onlyOnNotched ? screen.hasNotch : true
             configs[uuid] = DisplayIceBarConfiguration(
                 useIceBar: enabled,
-                iceBarLocation: location
+                iceBarLocation: location,
+                alwaysShowHiddenItems: false
             )
         }
         return configs

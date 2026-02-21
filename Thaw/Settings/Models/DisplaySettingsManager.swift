@@ -112,9 +112,19 @@ final class DisplaySettingsManager: ObservableObject {
         configuration(for: displayID).iceBarLocation
     }
 
+    /// Whether hidden items should always be shown for the given display.
+    func alwaysShowHiddenItems(for displayID: CGDirectDisplayID) -> Bool {
+        configuration(for: displayID).alwaysShowHiddenItems
+    }
+
     /// Whether any connected display has the Ice Bar enabled.
     var isIceBarEnabledOnAnyDisplay: Bool {
         configurations.values.contains { $0.useIceBar }
+    }
+
+    /// Whether any connected display has "Always show hidden items" enabled.
+    var isAlwaysShowEnabledOnAnyDisplay: Bool {
+        configurations.values.contains { $0.alwaysShowHiddenItems }
     }
 
     // MARK: - Mutation (Immutable Pattern)

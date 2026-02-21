@@ -41,6 +41,15 @@ struct DisplaySettingsPane: View {
             }
         )
 
+        let alwaysShowHiddenItems = Binding<Bool>(
+            get: { displaySettings.configuration(for: display.displayID).alwaysShowHiddenItems },
+            set: { newValue in
+                displaySettings.updateConfiguration(forDisplayUUID: display.id) { config in
+                    config.withAlwaysShowHiddenItems(newValue)
+                }
+            }
+        )
+
         VStack(alignment: .leading, spacing: 4) {
             HStack {
                 Text(display.name)
@@ -55,6 +64,16 @@ struct DisplaySettingsPane: View {
                 }
             }
         }
+
+        Toggle("Always show hidden items", isOn: alwaysShowHiddenItems)
+            .disabled(useIceBar.wrappedValue)
+            .annotation {
+                if useIceBar.wrappedValue {
+                    Text("Not available because the \(Constants.displayName) Bar is enabled for this display.")
+                } else {
+                    Text("Always show hidden menu bar items in the menu bar on this display.")
+                }
+            }
 
         Toggle("Use \(Constants.displayName) Bar", isOn: useIceBar)
             .annotation("Show hidden menu bar items in a separate bar below the menu bar on this display.")

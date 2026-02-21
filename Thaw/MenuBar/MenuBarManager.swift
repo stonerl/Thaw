@@ -171,6 +171,15 @@ final class MenuBarManager: ObservableObject {
             }
             .store(in: &c)
 
+        if let appState {
+            appState.settings.displaySettings.$configurations
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] _ in
+                    self?.updateControlItemStates()
+                }
+                .store(in: &c)
+        }
+
         $settingsWindow
             .removeNil()
             .map { $0.publisher(for: \.isVisible) }
@@ -473,6 +482,13 @@ final class MenuBarManager: ObservableObject {
     /// Updates the ``lastShowTimestamp`` property.
     func updateLastShowTimestamp() {
         lastShowTimestamp = .now
+    }
+
+    /// Updates the control item states for all sections.
+    func updateControlItemStates() {
+        for section in sections {
+            section.updateControlItemState()
+        }
     }
 
     /// Returns the menu bar section with the given name.
