@@ -30,6 +30,11 @@ final class GeneralSettings: ObservableObject {
     /// should be rendered as template images.
     @Published var customIceIconIsTemplate = false
 
+    // MARK: - Deprecated (Per-Display Migration)
+
+    // These properties are kept for one release cycle for downgrade safety.
+    // New code should use `AppSettings.displaySettings` instead.
+
     /// A Boolean value that indicates whether to show hidden items
     /// in a separate bar below the menu bar.
     @Published var useIceBar = false

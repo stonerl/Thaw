@@ -548,7 +548,7 @@ extension HIDEventManager {
     ) {
         guard
             appState.settings.general.showOnHover,
-            !appState.settings.general.useIceBar
+            !appState.settings.displaySettings.useIceBar(for: screen.displayID)
         else {
             return
         }

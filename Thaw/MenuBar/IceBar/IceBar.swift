@@ -155,7 +155,8 @@ final class IceBarPanel: NSPanel {
             }
         }
 
-        setFrameOrigin(getOrigin(for: appState.settings.general.iceBarLocation))
+        let location = appState.settings.displaySettings.iceBarLocation(for: screen.displayID)
+        setFrameOrigin(getOrigin(for: location))
     }
 
     /// Shows the panel on the given screen, displaying the given

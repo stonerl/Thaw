@@ -156,6 +156,7 @@ extension Defaults {
         case rehideStrategy = "RehideStrategy"
         case rehideInterval = "RehideInterval"
         case itemSpacingOffset = "ItemSpacingOffset"
+        case displayIceBarConfigurations = "DisplayIceBarConfigurations"
 
         // MARK: Hotkeys Settings
 
@@ -194,6 +195,7 @@ extension Defaults {
         case hasMigrated0_11_10
         case hasMigrated0_11_13
         case hasMigrated0_11_13_1
+        case hasMigratedPerDisplayIceBar
 
         // MARK: First Launch
 

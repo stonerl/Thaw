@@ -42,6 +42,7 @@ extension MigrationManager {
             migrate0_11_10(),
             migrate0_11_13(),
             migrate0_11_13_1(),
+            migratePerDisplayIceBar(),
         ]
 
         for result in results {
@@ -385,6 +386,58 @@ extension MigrationManager {
     }
 }
 
+// MARK: - Migrate Per-Display Ice Bar
+
+extension MigrationManager {
+    /// Migrates legacy global Ice Bar settings to per-display configurations.
+    private func migratePerDisplayIceBar() -> MigrationResult {
+        guard !Defaults.bool(forKey: .hasMigratedPerDisplayIceBar) else {
+            return .success
+        }
+
+        let useIceBar = Defaults.bool(forKey: .useIceBar)
+        let useOnlyOnNotched = Defaults.bool(forKey: .useIceBarOnlyOnNotchedDisplay)
+        let iceBarLocationRaw = Defaults.integer(forKey: .iceBarLocation)
+        let iceBarLocation = IceBarLocation(rawValue: iceBarLocationRaw) ?? .dynamic
+
+        // Only create per-display configs if the user had Ice Bar enabled.
+        guard useIceBar else {
+            Defaults.set(true, forKey: .hasMigratedPerDisplayIceBar)
+            diagLog.info("Per-display Ice Bar migration: Ice Bar was disabled, nothing to migrate")
+            return .success
+        }
+
+        var configs = [String: DisplayIceBarConfiguration]()
+
+        for screen in NSScreen.screens {
+            guard let uuid = Bridging.getDisplayUUIDString(for: screen.displayID) else {
+                continue
+            }
+            let enabled: Bool
+            if useOnlyOnNotched {
+                enabled = screen.hasNotch
+            } else {
+                enabled = true
+            }
+            configs[uuid] = DisplayIceBarConfiguration(
+                useIceBar: enabled,
+                iceBarLocation: iceBarLocation
+            )
+        }
+
+        do {
+            let data = try encoder.encode(configs)
+            Defaults.set(data, forKey: .displayIceBarConfigurations)
+            Defaults.set(true, forKey: .hasMigratedPerDisplayIceBar)
+            diagLog.info("Per-display Ice Bar migration: migrated \(configs.count) display(s)")
+        } catch {
+            return .failureAndLogError(.perDisplayIceBarMigrationError(error))
+        }
+
+        return .success
+    }
+}
+
 // MARK: - Helpers
 
 extension MigrationManager {
@@ -437,6 +490,7 @@ extension MigrationManager {
         case hotkeyMigrationError(any Error)
         case controlItemMigrationError(any Error)
         case appearanceConfigurationMigrationError(any Error)
+        case perDisplayIceBarMigrationError(any Error)
         case combinedError([any Error])
 
         var description: String {
@@ -449,6 +503,8 @@ extension MigrationManager {
                 "Error migrating control items: \(error)"
             case let .appearanceConfigurationMigrationError(error):
                 "Error migrating menu bar appearance configuration: \(error)"
+            case let .perDisplayIceBarMigrationError(error):
+                "Error migrating per-display Ice Bar configuration: \(error)"
             case let .combinedError(errors):
                 "The following errors occurred: \(errors)"
             }

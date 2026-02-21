@@ -192,7 +192,7 @@ final class MenuBarManager: ObservableObject {
                 //   * The settings window is visible.
                 guard
                     appState.settings.advanced.hideApplicationMenus,
-                    !appState.settings.general.useIceBar,
+                    !appState.settings.displaySettings.configurationForActiveDisplay().useIceBar,
                     !isMenuBarHiddenBySystem,
                     !appState.activeSpace.isFullscreen,
                     !appState.navigationState.isSettingsPresented
@@ -308,9 +308,9 @@ final class MenuBarManager: ObservableObject {
         let isSettingsVisible = settingsWindow?.isVisible == true
         let isIceBarVisible = appState.navigationState.isIceBarPresented
         let isSearchVisible = appState.navigationState.isSearchPresented
-        let useIceBar = appState.settings.general.useIceBar
+        let anyIceBarEnabled = appState.settings.displaySettings.isIceBarEnabledOnAnyDisplay
 
-        guard isSettingsVisible || isIceBarVisible || isSearchVisible || useIceBar else {
+        guard isSettingsVisible || isIceBarVisible || isSearchVisible || anyIceBarEnabled else {
             return
         }
 

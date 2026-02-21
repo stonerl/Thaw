@@ -11,6 +11,7 @@ import SwiftUI
 /// The navigation identifier type for the "Settings" interface.
 enum SettingsNavigationIdentifier: String, NavigationIdentifier {
     case general = "General"
+    case displays = "Displays"
     case menuBarLayout = "Menu Bar Layout"
     case menuBarAppearance = "Menu Bar Appearance"
     case hotkeys = "Hotkeys"
@@ -20,6 +21,7 @@ enum SettingsNavigationIdentifier: String, NavigationIdentifier {
     var localized: LocalizedStringKey {
         switch self {
         case .general: "General"
+        case .displays: "Displays"
         case .menuBarLayout: "Menu Bar Layout"
         case .menuBarAppearance: "Menu Bar Appearance"
         case .hotkeys: "Hotkeys"
@@ -31,6 +33,7 @@ enum SettingsNavigationIdentifier: String, NavigationIdentifier {
     var iconResource: IconResource {
         switch self {
         case .general: .systemSymbol("gearshape")
+        case .displays: .systemSymbol("display.2")
         case .menuBarLayout: .systemSymbol("rectangle.topthird.inset.filled")
         case .menuBarAppearance: .systemSymbol("swatchpalette")
         case .hotkeys: .systemSymbol("keyboard")

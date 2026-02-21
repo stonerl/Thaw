@@ -20,6 +20,9 @@ final class AppSettings: ObservableObject {
     /// The model for the app's Hotkeys settings.
     let hotkeys = HotkeysSettings()
 
+    /// The model for per-display Ice Bar settings.
+    let displaySettings = DisplaySettingsManager()
+
     /// Storage for internal observers.
     private var cancellables = Set<AnyCancellable>()
 
@@ -28,6 +31,7 @@ final class AppSettings: ObservableObject {
         advanced.performSetup(with: appState)
         general.performSetup(with: appState)
         hotkeys.performSetup(with: appState)
+        displaySettings.performSetup(with: appState)
         configureCancellables()
     }
 
@@ -45,6 +49,11 @@ final class AppSettings: ObservableObject {
             }
             .store(in: &c)
         hotkeys.objectWillChange
+            .sink { [weak self] in
+                self?.objectWillChange.send()
+            }
+            .store(in: &c)
+        displaySettings.objectWillChange
             .sink { [weak self] in
                 self?.objectWillChange.send()
             }

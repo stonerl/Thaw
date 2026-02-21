@@ -44,6 +44,7 @@ struct AdvancedSettingsPane: View {
             IceSection("Other") {
                 hideApplicationMenus
                 enableSecondaryContextMenu
+                showIceBarAtMouseLocationOnHotkey
                 showOnHoverDelay
                 tooltipDelay
                 showMenuBarTooltips
@@ -111,6 +112,18 @@ struct AdvancedSettingsPane: View {
             )
             .padding(.trailing, 75)
         }
+    }
+
+    private var showIceBarAtMouseLocationOnHotkey: some View {
+        let binding = Binding<Bool>(
+            get: { appState.settings.general.iceBarLocationOnHotkey },
+            set: { appState.settings.general.iceBarLocationOnHotkey = $0 }
+        )
+        return Toggle(
+            "Show at mouse pointer on hotkey",
+            isOn: binding
+        )
+        .annotation("Always show the \(Constants.displayName) Bar at the mouse pointer's location when it is shown using a hotkey.")
     }
 
     private var showOnHoverDelay: some View {

@@ -64,16 +64,13 @@ final class MenuBarSection {
     /// The section's diagnostic logger.
     private nonisolated let diagLog = DiagLog(category: "MenuBarSection")
 
-    /// A Boolean value that indicates whether the Ice Bar should be used.
+    /// A Boolean value that indicates whether the Ice Bar should be used
+    /// on the current active display.
     private var useIceBar: Bool {
-        guard let settings = appState?.settings.general, settings.useIceBar else {
-            return false
-        }
-        if settings.useIceBarOnlyOnNotchedDisplay {
-            let screen = screenForIceBar
-            return screen?.hasNotch ?? false
-        }
-        return true
+        guard let appState else { return false }
+        let screen = screenForIceBar
+        let displayID = screen?.displayID ?? CGMainDisplayID()
+        return appState.settings.displaySettings.useIceBar(for: displayID)
     }
 
     /// A weak reference to the menu bar manager.
