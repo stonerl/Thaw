@@ -729,13 +729,7 @@ extension HIDEventManager {
         // Find the specific window under the cursor using the cached bounds lookup.
         // This avoids per-event IPC calls to the Window Server.
         let entries = windowBoundsLock.withLock { $0 }
-        var hoveredID: CGWindowID?
-        for entry in entries {
-            if entry.bounds.contains(mouseLocation) {
-                hoveredID = entry.windowID
-                break
-            }
-        }
+        let hoveredID = entries.first(where: { $0.bounds.contains(mouseLocation) })?.windowID
 
         guard let hoveredID else {
             dismissMenuBarTooltip()
