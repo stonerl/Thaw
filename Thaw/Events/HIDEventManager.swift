@@ -692,24 +692,35 @@ extension HIDEventManager {
             }
             try Task.checkCancellation()
 
+            // Fetch current bounds for accurate positioning.
+            guard let currentBounds = Bridging.getWindowBounds(for: hoveredID) else {
+                return
+            }
+
             // Look up the item from the cache by window ID.
             let allItems = appState.itemManager.itemCache.managedItems
-            guard let item = allItems.first(where: { $0.windowID == hoveredID }) else {
+            let displayName: String
+            if let item = allItems.first(where: { $0.windowID == hoveredID }) {
+                displayName = item.displayName
+            } else if appState.menuBarManager.sections.contains(where: {
+                $0.controlItem.window?.windowNumber == Int(hoveredID)
+            }) {
+                displayName = Constants.displayName
+            } else {
                 return
             }
 
             // Position the tooltip below the item, centered horizontally.
             // Item bounds are in CoreGraphics coordinates (top-left origin);
             // convert to AppKit (bottom-left origin) for the panel.
-            guard let screen = NSScreen.main ?? NSScreen.screens.first else { return }
-            let screenHeight = screen.frame.maxY
+            guard let primaryScreen = NSScreen.screens.first else { return }
             let appKitOrigin = CGPoint(
-                x: item.bounds.midX,
-                y: screenHeight - item.bounds.maxY
+                x: currentBounds.midX,
+                y: primaryScreen.frame.height - currentBounds.maxY
             )
 
             CustomTooltipPanel.shared.show(
-                text: item.displayName,
+                text: displayName,
                 near: appKitOrigin,
                 in: screen,
                 owner: "menuBar"
