@@ -150,6 +150,7 @@ extension Defaults {
         case iceBarLocation = "IceBarLocation"
         case iceBarLocationOnHotkey = "IceBarLocationOnHotkey"
         case showOnClick = "ShowOnClick"
+        case showOnDoubleClick = "ShowOnDoubleClick"
         case showOnHover = "ShowOnHover"
         case showOnScroll = "ShowOnScroll"
         case autoRehide = "AutoRehide"

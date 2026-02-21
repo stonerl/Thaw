@@ -298,41 +298,48 @@ extension HIDEventManager {
     // MARK: Handle Show On Click
 
     private func handleShowOnClick(appState: AppState, screen: NSScreen, isDoubleClick: Bool = false) {
-        guard
-            appState.settings.general.showOnClick,
-            isMouseInsideEmptyMenuBarSpace(appState: appState, screen: screen)
-        else {
+        guard isMouseInsideEmptyMenuBarSpace(appState: appState, screen: screen) else {
             return
         }
 
         Task {
             if isDoubleClick {
+                guard
+                    appState.settings.general.showOnClick,
+                    appState.settings.general.showOnDoubleClick
+                else {
+                    return
+                }
                 if let alwaysHiddenSection = appState.menuBarManager.section(withName: .alwaysHidden),
                    alwaysHiddenSection.isEnabled
                 {
                     alwaysHiddenSection.show()
                     return
                 }
-            }
-
-            if NSEvent.modifierFlags == .control {
-                handleSecondaryContextMenu(appState: appState, screen: screen)
-                return
-            }
-
-            if NSEvent.modifierFlags == .option {
-                if let alwaysHiddenSection = appState.menuBarManager.section(withName: .alwaysHidden),
-                   alwaysHiddenSection.isEnabled
-                {
-                    alwaysHiddenSection.show()
+            } else {
+                guard appState.settings.general.showOnClick else {
                     return
                 }
-            }
 
-            if let hiddenSection = appState.menuBarManager.section(withName: .hidden),
-               hiddenSection.isEnabled
-            {
-                hiddenSection.toggle()
+                if NSEvent.modifierFlags == .control {
+                    handleSecondaryContextMenu(appState: appState, screen: screen)
+                    return
+                }
+
+                if NSEvent.modifierFlags == .option {
+                    if let alwaysHiddenSection = appState.menuBarManager.section(withName: .alwaysHidden),
+                       alwaysHiddenSection.isEnabled
+                    {
+                        alwaysHiddenSection.show()
+                        return
+                    }
+                }
+
+                if let hiddenSection = appState.menuBarManager.section(withName: .hidden),
+                   hiddenSection.isEnabled
+                {
+                    hiddenSection.toggle()
+                }
             }
         }
     }

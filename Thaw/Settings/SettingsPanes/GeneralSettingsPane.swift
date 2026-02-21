@@ -72,7 +72,7 @@ struct GeneralSettingsPane: View {
 
     private var showIceIcon: some View {
         Toggle("Show \(Constants.displayName) icon", isOn: $settings.showIceIcon)
-            .annotation("Click to show hidden or double-click for always-hidden menu bar items. Right-click for \(Constants.displayName)'s settings.")
+            .annotation("Show the \(Constants.displayName) icon in the menu bar. Click to show hidden items, double-click for always-hidden, and right-click for settings.")
     }
 
     @ViewBuilder
@@ -169,8 +169,15 @@ struct GeneralSettingsPane: View {
 
     @ViewBuilder
     private var showOptions: some View {
-        Toggle("Show on click", isOn: $settings.showOnClick)
-            .annotation("Click an empty area of the menu bar to show hidden items, or double-click for always-hidden.")
+        VStack(alignment: .leading, spacing: 8) {
+            Toggle("Show on click", isOn: $settings.showOnClick)
+                .annotation("Click an empty area of the menu bar to show hidden menu bar items.")
+
+            if settings.showOnClick {
+                Toggle("Double-click for always-hidden", isOn: $settings.showOnDoubleClick)
+                    .annotation("Double-click an empty area of the menu bar to show always-hidden menu bar items.")
+            }
+        }
         Toggle("Show on hover", isOn: $settings.showOnHover)
             .annotation("Hover over an empty area of the menu bar to show hidden menu bar items.")
         Toggle("Show on scroll", isOn: $settings.showOnScroll)
