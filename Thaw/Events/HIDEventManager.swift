@@ -44,6 +44,19 @@ final class HIDEventManager: ObservableObject {
     /// to detect a stuck disabled state.
     private var lastStopTimestamp: ContinuousClock.Instant?
 
+    /// Thread-safe lookup table mapping menu bar window IDs to their bounds.
+    /// Rebuilt from itemCache whenever it changes, eliminating
+    /// per-event Window Server IPC calls during mouse movement.
+    ///
+    /// Protected by a lock because the CGEventTap callback reads this array
+    /// on the main RunLoop, while writes happen on the main thread via Combine.
+    /// Although both currently execute on the main thread, the RunLoop-based
+    /// guarantee is implicit — using a lock makes the safety explicit and
+    /// protects against future refactoring that might change threading.
+    private nonisolated let windowBoundsLock = OSAllocatedUnfairLock(
+        initialState: [(windowID: CGWindowID, bounds: CGRect)]()
+    )
+
     /// The window ID of the menu bar item the mouse is currently hovering over,
     /// used to detect when the cursor moves to a different item.
     private var tooltipHoveredWindowID: CGWindowID?
@@ -191,6 +204,18 @@ final class HIDEventManager: ObservableObject {
         appState.settings.general.showOnHover || appState.settings.advanced.showMenuBarTooltips
     }
 
+    /// Rebuilds the window bounds lookup table from the current item cache.
+    private func rebuildWindowBoundsLookup(from cache: MenuBarItemManager.ItemCache) {
+        let items = cache.managedItems
+        var buffer = [(windowID: CGWindowID, bounds: CGRect)]()
+        buffer.reserveCapacity(items.count)
+        for item in items where item.isOnScreen {
+            buffer.append((windowID: item.windowID, bounds: item.bounds))
+        }
+        let entries = buffer
+        windowBoundsLock.withLock { $0 = entries }
+    }
+
     /// Configures the internal observers for the manager.
     private func configureCancellables() {
         var c = Set<AnyCancellable>()
@@ -213,9 +238,49 @@ final class HIDEventManager: ObservableObject {
                 }
             }
             .store(in: &c)
+
+            // Rebuild the window bounds lookup whenever the item cache changes.
+            // This replaces per-event Window Server IPC calls with an in-memory lookup.
+            appState.itemManager.$itemCache
+                .removeDuplicates()
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] cache in
+                    self?.rebuildWindowBoundsLookup(from: cache)
+                }
+                .store(in: &c)
+
+            // When any section's control item state changes, the menu bar layout shifts.
+            // Merge all sections into a single publisher so only one cache refresh fires
+            // per layout change batch, regardless of how many sections change at once.
+            Publishers.MergeMany(
+                appState.menuBarManager.sections.map { $0.controlItem.$state.replace(with: ()) }
+            )
+            .debounce(for: .milliseconds(200), scheduler: DispatchQueue.main)
+            .sink { [weak appState] in
+                guard let appState else { return }
+                Task {
+                    await appState.itemManager.cacheItemsIfNeeded()
+                }
+            }
+            .store(in: &c)
+
+            // Clear bounds lookup on display configuration changes.
+            // The item cache will be refreshed shortly after.
+            NotificationCenter.default.publisher(
+                for: NSApplication.didChangeScreenParametersNotification
+            )
+            .sink { [weak self] _ in
+                self?.windowBoundsLock.withLock { $0.removeAll() }
+            }
+            .store(in: &c)
         }
 
         cancellables = c
+
+        // Build the initial bounds lookup from the current cache.
+        if let appState {
+            rebuildWindowBoundsLookup(from: appState.itemManager.itemCache)
+        }
 
         // Periodically check that the mouseMovedTap is still alive.
         // macOS can invalidate the Mach port under resource pressure or
@@ -661,19 +726,13 @@ extension HIDEventManager {
             return
         }
 
-        // Use the same cached window list as isMouseInsideMenuBarItem.
-        let windowIDs = Bridging.getMenuBarWindowList(option: [
-            .onScreen, .activeSpace, .itemsOnly,
-        ])
-
-        // Find the specific window under the cursor.
+        // Find the specific window under the cursor using the cached bounds lookup.
+        // This avoids per-event IPC calls to the Window Server.
+        let entries = windowBoundsLock.withLock { $0 }
         var hoveredID: CGWindowID?
-        for windowID in windowIDs {
-            guard let bounds = Bridging.getWindowBounds(for: windowID) else {
-                continue
-            }
-            if bounds.contains(mouseLocation) {
-                hoveredID = windowID
+        for entry in entries {
+            if entry.bounds.contains(mouseLocation) {
+                hoveredID = entry.windowID
                 break
             }
         }
@@ -787,26 +846,12 @@ extension HIDEventManager {
             return false
         }
 
-        // Cache the window list to avoid repeated Window Server calls.
-        // The cache is invalidated after 0.5 seconds or when the mouse click state changes.
-        enum Context {
-            static var cachedWindowIDs = [CGWindowID]()
-            static var lastUpdate: TimeInterval = 0
-        }
-
-        let now = Date.timeIntervalSinceReferenceDate
-        if now - Context.lastUpdate > 0.5 {
-            Context.cachedWindowIDs = Bridging.getMenuBarWindowList(option: [
-                .onScreen, .activeSpace, .itemsOnly,
-            ])
-            Context.lastUpdate = now
-        }
-
-        return Context.cachedWindowIDs.contains { windowID in
-            guard let bounds = Bridging.getWindowBounds(for: windowID) else {
-                return false
-            }
-            return bounds.contains(mouseLocation)
+        // Use the pre-built bounds lookup table, which is rebuilt
+        // whenever the item cache changes. This avoids per-event
+        // IPC calls to the Window Server.
+        let entries = windowBoundsLock.withLock { $0 }
+        return entries.contains { entry in
+            entry.bounds.contains(mouseLocation)
         }
     }
 
