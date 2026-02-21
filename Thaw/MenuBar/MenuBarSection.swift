@@ -190,23 +190,21 @@ final class MenuBarSection {
             }
 
             if let screen = screenForIceBar {
-                Task {
-                    switch name {
-                    case .visible, .hidden:
-                        await menuBarManager.iceBarPanel.show(
-                            section: .hidden,
-                            on: screen,
-                            triggeredByHotkey: triggeredByHotkey
-                        )
-                    case .alwaysHidden:
-                        await menuBarManager.iceBarPanel.show(
-                            section: .alwaysHidden,
-                            on: screen,
-                            triggeredByHotkey: triggeredByHotkey
-                        )
-                    }
-                    startRehideChecks()
+                switch name {
+                case .visible, .hidden:
+                    menuBarManager.iceBarPanel.show(
+                        section: .hidden,
+                        on: screen,
+                        triggeredByHotkey: triggeredByHotkey
+                    )
+                case .alwaysHidden:
+                    menuBarManager.iceBarPanel.show(
+                        section: .alwaysHidden,
+                        on: screen,
+                        triggeredByHotkey: triggeredByHotkey
+                    )
                 }
+                startRehideChecks()
             }
 
             return // We're done.
