@@ -31,6 +31,9 @@ final class MenuBarSearchPanel: NSPanel {
     /// Storage for internal observers.
     private var cancellables = Set<AnyCancellable>()
 
+    /// Background cache task started when the panel is shown.
+    private var cacheTask: Task<Void, Never>?
+
     /// Model for menu bar item search.
     private let model = MenuBarSearchModel()
 
@@ -235,54 +238,63 @@ final class MenuBarSearchPanel: NSPanel {
         // Important that we set the navigation state before updating the cache.
         appState.navigationState.isSearchPresented = true
 
-        Task {
+        let hostingView = MenuBarSearchHostingView(
+            appState: appState,
+            model: model,
+            displayID: screen.displayID,
+            panel: self
+        )
+        hostingView.setFrameSize(hostingView.intrinsicContentSize)
+
+        // Try to load saved frame for current display
+        if let savedFrame = loadFrameForDisplay(screen) {
+            // Convert relative position back to absolute coordinates
+            let visibleFrame = screen.visibleFrame
+            let absoluteFrame = CGRect(
+                x: savedFrame.origin.x + visibleFrame.minX,
+                y: savedFrame.origin.y + visibleFrame.minY,
+                width: hostingView.intrinsicContentSize.width,
+                height: hostingView.intrinsicContentSize.height
+            )
+
+            // Ensure frame is within this display's visible frame
+            let adjustedFrame = CGRect(
+                x: max(visibleFrame.minX, min(absoluteFrame.origin.x, visibleFrame.maxX - hostingView.intrinsicContentSize.width)),
+                y: max(visibleFrame.minY, min(absoluteFrame.origin.y, visibleFrame.maxY - hostingView.intrinsicContentSize.height)),
+                width: hostingView.intrinsicContentSize.width,
+                height: hostingView.intrinsicContentSize.height
+            )
+
+            setFrame(adjustedFrame, display: false)
+        } else {
+            // No saved frame for this display, center on screen
+            let centered = CGPoint(
+                x: screen.visibleFrame.midX - hostingView.intrinsicContentSize.width / 2,
+                y: screen.visibleFrame.midY - hostingView.intrinsicContentSize.height / 2
+            )
+
+            setFrame(CGRect(origin: centered, size: hostingView.intrinsicContentSize), display: false)
+        }
+
+        contentView = hostingView
+        makeKeyAndOrderFront(nil)
+
+        mouseDownMonitor.start()
+        keyDownMonitor.start()
+
+        // Rehide temporarily shown items and refresh caches in the
+        // background. Ordering is preserved: rehide moves items back
+        // to their correct sections before the cache is rebuilt.
+        // The task is cancelled in close() to avoid holding appState.
+        cacheTask?.cancel()
+        cacheTask = Task { [weak appState] in
+            guard let appState else { return }
+            await appState.itemManager.rehideTemporarilyShownItems(force: true)
+            guard !Task.isCancelled else { return }
             await appState.itemManager.cacheItemsIfNeeded()
+            guard !Task.isCancelled else { return }
             await appState.imageCache.updateCache()
             appState.imageCache.logCacheStatus("Search panel opened")
-
-            let hostingView = MenuBarSearchHostingView(
-                appState: appState,
-                model: model,
-                displayID: screen.displayID,
-                panel: self
-            )
-            hostingView.setFrameSize(hostingView.intrinsicContentSize)
-
-            // Try to load saved frame for current display
-            if let savedFrame = loadFrameForDisplay(screen) {
-                // Convert relative position back to absolute coordinates
-                let visibleFrame = screen.visibleFrame
-                let absoluteFrame = CGRect(
-                    x: savedFrame.origin.x + visibleFrame.minX,
-                    y: savedFrame.origin.y + visibleFrame.minY,
-                    width: hostingView.intrinsicContentSize.width,
-                    height: hostingView.intrinsicContentSize.height
-                )
-
-                // Ensure frame is within this display's visible frame
-                let adjustedFrame = CGRect(
-                    x: max(visibleFrame.minX, min(absoluteFrame.origin.x, visibleFrame.maxX - hostingView.intrinsicContentSize.width)),
-                    y: max(visibleFrame.minY, min(absoluteFrame.origin.y, visibleFrame.maxY - hostingView.intrinsicContentSize.height)),
-                    width: hostingView.intrinsicContentSize.width,
-                    height: hostingView.intrinsicContentSize.height
-                )
-
-                setFrame(adjustedFrame, display: false)
-            } else {
-                // No saved frame for this display, center on screen
-                let centered = CGPoint(
-                    x: screen.visibleFrame.midX - hostingView.intrinsicContentSize.width / 2,
-                    y: screen.visibleFrame.midY - hostingView.intrinsicContentSize.height / 2
-                )
-
-                setFrame(CGRect(origin: centered, size: hostingView.intrinsicContentSize), display: false)
-            }
-
-            contentView = hostingView
-            makeKeyAndOrderFront(nil)
-
-            mouseDownMonitor.start()
-            keyDownMonitor.start()
         }
     }
 
@@ -297,6 +309,8 @@ final class MenuBarSearchPanel: NSPanel {
         if isVisible, let screen = screen, contentView != nil {
             saveFrameForDisplay(screen)
         }
+        cacheTask?.cancel()
+        cacheTask = nil
         model.searchText = ""
         model.editingItemTag = nil
         super.close()
@@ -401,6 +415,7 @@ private struct MenuBarSearchContentView: View {
     private typealias ListItem = SectionedListItem<MenuBarSearchModel.ItemID>
 
     @EnvironmentObject var itemManager: MenuBarItemManager
+    @EnvironmentObject var imageCache: MenuBarItemImageCache
     @EnvironmentObject var model: MenuBarSearchModel
     @FocusState private var searchFieldIsFocused: Bool
 
@@ -431,6 +446,24 @@ private struct MenuBarSearchContentView: View {
         .fixedSize()
         .task {
             searchFieldIsFocused = true
+        }
+        .task {
+            // Refresh captured images at ~5fps so animated menu bar
+            // icons (e.g. Google Drive sync spinner) stay up-to-date
+            // while keeping CPU/GPU usage low.
+            guard let screen = NSScreen.screens.first(where: { $0.displayID == displayID }) else { return }
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .milliseconds(200))
+                guard !Task.isCancelled else { break }
+                for section in MenuBarSection.Name.allCases {
+                    let sectionItems = itemManager.itemCache.managedItems(for: section)
+                    guard !sectionItems.isEmpty else { continue }
+                    await imageCache.refreshImages(
+                        of: sectionItems,
+                        scale: screen.backingScaleFactor
+                    )
+                }
+            }
         }
         .onChange(of: model.searchText, initial: true) {
             updateDisplayedItems()
