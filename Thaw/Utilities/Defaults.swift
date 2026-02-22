@@ -172,6 +172,7 @@ extension Defaults {
         case enableSecondaryContextMenu = "EnableSecondaryContextMenu"
         case showOnHoverDelay = "ShowOnHoverDelay"
         case tooltipDelay = "TooltipDelay"
+        case iconRefreshInterval = "IconRefreshInterval"
         case showMenuBarTooltips = "ShowMenuBarTooltips"
         case enableDiagnosticLogging = "EnableDiagnosticLogging"
 

@@ -43,6 +43,9 @@ final class AdvancedSettings: ObservableObject {
     /// over menu bar items in the actual menu bar (not just in the IceBar or settings).
     @Published var showMenuBarTooltips = false
 
+    /// The interval between icon image refreshes in panels (Ice Bar, search, layout).
+    @Published var iconRefreshInterval: TimeInterval = 0.2
+
     /// A Boolean value that indicates whether diagnostic logging to file is enabled.
     @Published var enableDiagnosticLogging = false
 
@@ -68,6 +71,7 @@ final class AdvancedSettings: ObservableObject {
         Defaults.ifPresent(key: .showOnHoverDelay, assign: &showOnHoverDelay)
         Defaults.ifPresent(key: .tooltipDelay, assign: &tooltipDelay)
         Defaults.ifPresent(key: .showMenuBarTooltips, assign: &showMenuBarTooltips)
+        Defaults.ifPresent(key: .iconRefreshInterval, assign: &iconRefreshInterval)
         Defaults.ifPresent(key: .enableDiagnosticLogging, assign: &enableDiagnosticLogging)
 
         Defaults.ifPresent(key: .sectionDividerStyle) { rawValue in
@@ -134,6 +138,13 @@ final class AdvancedSettings: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { show in
                 Defaults.set(show, forKey: .showMenuBarTooltips)
+            }
+            .store(in: &c)
+
+        $iconRefreshInterval
+            .receive(on: DispatchQueue.main)
+            .sink { interval in
+                Defaults.set(interval, forKey: .iconRefreshInterval)
             }
             .store(in: &c)
 

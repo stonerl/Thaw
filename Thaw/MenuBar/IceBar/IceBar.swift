@@ -371,11 +371,11 @@ private struct IceBarContentView: View {
             loadingTimedOut = true
         }
         .task {
-            // Refresh captured images at ~5fps so animated menu bar
-            // icons (e.g. Google Drive sync spinner) stay up-to-date
-            // while keeping CPU/GPU usage low.
+            // Refresh captured images so animated menu bar icons
+            // (e.g. Google Drive sync spinner) stay up-to-date.
             while !Task.isCancelled {
-                try? await Task.sleep(for: .milliseconds(200))
+                let ms = Int(appState.settings.advanced.iconRefreshInterval * 1000)
+                try? await Task.sleep(for: .milliseconds(ms))
                 guard !Task.isCancelled else { break }
                 let currentItems = items
                 guard !currentItems.isEmpty else { continue }
