@@ -7,6 +7,7 @@
 //  Licensed under the GNU GPLv3
 
 import Combine
+import os.lock
 import SwiftUI
 
 // MARK: - Bundle
@@ -696,6 +697,21 @@ extension NSStatusItem {
         }
         self.menu = menu
         button?.performClick(nil)
+    }
+}
+
+// MARK: - OSAllocatedUnfairLock
+
+extension OSAllocatedUnfairLock where State == Bool {
+    /// Atomically sets the value to `true` and returns whether this call
+    /// was the first to do so. Useful for ensuring a continuation or
+    /// callback is invoked exactly once across competing code paths.
+    func tryClaimOnce() -> Bool {
+        withLock { claimed in
+            let wasUnclaimed = !claimed
+            claimed = true
+            return wasUnclaimed
+        }
     }
 }
 
