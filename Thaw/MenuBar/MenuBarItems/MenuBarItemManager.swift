@@ -1702,12 +1702,14 @@ extension MenuBarItemManager {
     /// - Parameters:
     ///   - item: The menu bar item to click.
     ///   - mouseButton: The mouse button to click the item with.
-    func click(item: MenuBarItem, with mouseButton: CGMouseButton) async throws {
+    func click(item: MenuBarItem, with mouseButton: CGMouseButton, skipInputPause: Bool = false) async throws {
         guard let appState else {
             throw EventError.cannotComplete
         }
 
-        try await waitForUserToPauseInput()
+        if !skipInputPause {
+            try await waitForUserToPauseInput()
+        }
 
         MenuBarItemManager.diagLog.info(
             """
@@ -2104,7 +2106,7 @@ extension MenuBarItemManager {
         let idsBeforeClick = Set(Bridging.getWindowList(option: .onScreen))
 
         do {
-            try await click(item: clickItem, with: mouseButton)
+            try await click(item: clickItem, with: mouseButton, skipInputPause: true)
         } catch {
             MenuBarItemManager.diagLog.error("Error clicking item: \(error)")
             return
