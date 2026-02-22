@@ -50,6 +50,7 @@ struct AdvancedSettingsPane: View {
                 enableSecondaryContextMenu
                 showIceBarAtMouseLocationOnHotkey
                 showOnHoverDelay
+                iconRefreshInterval
             }
             IceSection("Permissions") {
                 allPermissions
@@ -145,6 +146,29 @@ struct AdvancedSettingsPane: View {
                 }
         }
         .annotation("The amount of time to wait before showing on hover.")
+    }
+
+    private var iconRefreshInterval: some View {
+        let fpsBinding = Binding<Double>(
+            get: { (1.0 / settings.iconRefreshInterval).rounded() },
+            set: { settings.iconRefreshInterval = 1.0 / $0 }
+        )
+        return LabeledContent {
+            IceSlider(
+                value: fpsBinding,
+                in: 1 ... 50,
+                step: 1
+            ) {
+                Text("\(Int(fpsBinding.wrappedValue)) fps")
+            }
+        } label: {
+            Text("Icon refresh rate")
+                .frame(minWidth: maxSliderLabelWidth, alignment: .leading)
+                .onFrameChange { frame in
+                    maxSliderLabelWidth = max(maxSliderLabelWidth, frame.width)
+                }
+        }
+        .annotation("How often animated menu bar icons are refreshed in panels. Higher values are smoother but use more CPU.")
     }
 
     private var tooltipDelay: some View {
