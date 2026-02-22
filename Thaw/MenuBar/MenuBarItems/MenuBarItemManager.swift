@@ -8,6 +8,7 @@
 
 import Cocoa
 import Combine
+import os.lock
 
 /// Simple actor-based semaphore to prevent overlapping operations
 actor SimpleSemaphore {
@@ -657,6 +658,11 @@ extension MenuBarItemManager {
     ) async {
         MenuBarItemManager.diagLog.debug("cacheItemsRegardless: entering (skipRecentMoveCheck=\(skipRecentMoveCheck), hasCurrentItemWindowIDs=\(currentItemWindowIDs != nil))")
         await cacheActor.runCacheTask { [weak self] in
+            defer {
+                self?.backgroundCacheContinuation?.resume()
+                self?.backgroundCacheContinuation = nil
+            }
+
             guard let self else {
                 MenuBarItemManager.diagLog.warning("cacheItemsRegardless: self is nil, aborting")
                 return
@@ -737,30 +743,30 @@ extension MenuBarItemManager {
                 previousWindowIDs: previousWindowIDs
             ) {
                 MenuBarItemManager.diagLog.debug("Relocated new leftmost items; scheduling recache")
+                let continuation = self.backgroundCacheContinuation
+                self.backgroundCacheContinuation = nil
                 Task { [weak self] in
                     try? await Task.sleep(for: .milliseconds(300))
                     await self?.cacheItemsRegardless(skipRecentMoveCheck: true)
-                    self?.backgroundCacheContinuation?.resume()
-                    self?.backgroundCacheContinuation = nil
+                    continuation?.resume()
                 }
                 return
             }
 
             if await relocatePendingItems(items, controlItems: controlItems) {
                 MenuBarItemManager.diagLog.debug("Relocated pending temporarily-shown items; scheduling recache")
+                let continuation = self.backgroundCacheContinuation
+                self.backgroundCacheContinuation = nil
                 Task { [weak self] in
                     try? await Task.sleep(for: .milliseconds(300))
                     await self?.cacheItemsRegardless(skipRecentMoveCheck: true)
-                    self?.backgroundCacheContinuation?.resume()
-                    self?.backgroundCacheContinuation = nil
+                    continuation?.resume()
                 }
                 return
             }
 
             await uncheckedCacheItems(items: items, controlItems: controlItems, displayID: displayID)
             MenuBarItemManager.diagLog.debug("cacheItemsRegardless: finished, cache now has \(self.itemCache.managedItems.count) managed items")
-            self.backgroundCacheContinuation?.resume()
-            self.backgroundCacheContinuation = nil
         }
     }
 
@@ -1014,7 +1020,9 @@ extension MenuBarItemManager {
         }
 
         let timeoutTask = Task(timeout: timeout * count) {
-            try await withCheckedThrowingContinuation { continuation in
+            try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, any Error>) in
+                let didResume = OSAllocatedUnfairLock(initialState: false)
+
                 // Listen for the following events at the first location
                 // and perform the following actions:
                 //
@@ -1038,7 +1046,9 @@ extension MenuBarItemManager {
                     }
                     if rEvent.matches(exitEvent, byIntegerFields: [.eventSourceUserData]) {
                         tap.disable()
-                        continuation.resume()
+                        if didResume.tryClaimOnce() {
+                            continuation.resume()
+                        }
                         return nil
                     }
                     return rEvent
@@ -1079,7 +1089,9 @@ extension MenuBarItemManager {
                     } onCancel: {
                         eventTap1.disable()
                         eventTap2.disable()
-                        continuation.resume(throwing: CancellationError())
+                        if didResume.tryClaimOnce() {
+                            continuation.resume(throwing: CancellationError())
+                        }
                     }
                 }
             }
@@ -1139,7 +1151,9 @@ extension MenuBarItemManager {
         }
 
         let timeoutTask = Task(timeout: timeout * count) {
-            try await withCheckedThrowingContinuation { continuation in
+            try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, any Error>) in
+                let didResume = OSAllocatedUnfairLock(initialState: false)
+
                 // Listen for the following events at the first location
                 // and perform the following actions:
                 //
@@ -1163,7 +1177,9 @@ extension MenuBarItemManager {
                     }
                     if rEvent.matches(exitEvent, byIntegerFields: [.eventSourceUserData]) {
                         tap.disable()
-                        continuation.resume()
+                        if didResume.tryClaimOnce() {
+                            continuation.resume()
+                        }
                         return nil
                     }
                     return rEvent
@@ -1228,7 +1244,9 @@ extension MenuBarItemManager {
                         eventTap1.disable()
                         eventTap2.disable()
                         eventTap3.disable()
-                        continuation.resume(throwing: CancellationError())
+                        if didResume.tryClaimOnce() {
+                            continuation.resume(throwing: CancellationError())
+                        }
                     }
                 }
             }
