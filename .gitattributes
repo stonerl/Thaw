@@ -1,1 +1,2 @@
 *.rtf linguist-vendored
+*.xcstrings linguist-language=JSON
