@@ -30,6 +30,9 @@ final class IceBarPanel: NSPanel {
     /// Storage for internal observers.
     private var cancellables = Set<AnyCancellable>()
 
+    /// Background cache task started when the panel is shown.
+    private var cacheTask: Task<Void, Never>?
+
     /// Creates a new Ice Bar panel.
     init() {
         super.init(
@@ -152,7 +155,8 @@ final class IceBarPanel: NSPanel {
             }
         }
 
-        setFrameOrigin(getOrigin(for: appState.settings.general.iceBarLocation))
+        let location = appState.settings.displaySettings.iceBarLocation(for: screen.displayID)
+        setFrameOrigin(getOrigin(for: location))
     }
 
     /// Shows the panel on the given screen, displaying the given
@@ -161,32 +165,21 @@ final class IceBarPanel: NSPanel {
         section: MenuBarSection.Name,
         on screen: NSScreen,
         triggeredByHotkey: Bool = false
-    ) async {
+    ) {
         guard let appState else {
             return
         }
 
         hotkeyLocationOverride = triggeredByHotkey && appState.settings.general.iceBarLocationOnHotkey
 
-        // Rehide any temporarily shown items as soon as the IceBar opens.
-        await appState.itemManager.rehideTemporarilyShownItems(force: true)
-
         // IMPORTANT: We must set the navigation state and current section
         // before updating the caches.
         appState.navigationState.isIceBarPresented = true
         currentSection = section
 
-        let cacheTask = Task(timeout: .seconds(1)) {
-            await appState.itemManager.cacheItemsIfNeeded()
-            await appState.imageCache.updateCache()
-        }
-
-        do {
-            try await cacheTask.value
-        } catch {
-            diagLog.error("Cache update failed when showing \(Constants.displayName)BarPanel - \(error)")
-        }
-
+        // Show the panel immediately with whatever cached data we have.
+        // The SwiftUI view observes itemManager and imageCache, so it
+        // will re-render automatically as the background updates land.
         contentView = IceBarHostingView(
             appState: appState,
             colorManager: colorManager,
@@ -205,6 +198,20 @@ final class IceBarPanel: NSPanel {
         colorManager.updateAllProperties(with: frame, screen: screen)
 
         orderFrontRegardless()
+
+        // Rehide temporarily shown items and refresh caches in the
+        // background. Ordering is preserved: rehide moves items back
+        // to their correct sections before the cache is rebuilt.
+        // The task is cancelled in close() to avoid holding appState.
+        cacheTask?.cancel()
+        cacheTask = Task { [weak appState] in
+            guard let appState else { return }
+            await appState.itemManager.rehideTemporarilyShownItems(force: true)
+            guard !Task.isCancelled else { return }
+            await appState.itemManager.cacheItemsIfNeeded()
+            guard !Task.isCancelled else { return }
+            await appState.imageCache.updateCache()
+        }
     }
 
     /// Hides the panel.
@@ -220,6 +227,8 @@ final class IceBarPanel: NSPanel {
 
     override func close() {
         CustomTooltipPanel.shared.dismiss()
+        cacheTask?.cancel()
+        cacheTask = nil
         contentView = nil
         orderOut(nil)
         super.close()
@@ -279,6 +288,7 @@ private struct IceBarContentView: View {
     @State private var frame = CGRect.zero
     @State private var scrollIndicatorsFlashTrigger = 0
     @State private var cacheGracePeriodActive = true
+    @State private var loadingTimedOut = false
 
     let screen: NSScreen
     let section: MenuBarSection.Name
@@ -359,12 +369,38 @@ private struct IceBarContentView: View {
         .onFrameChange(update: $frame)
         .task(id: section) {
             cacheGracePeriodActive = true
+            loadingTimedOut = false
             try? await Task.sleep(for: .milliseconds(600))
             cacheGracePeriodActive = false
+            try? await Task.sleep(for: .seconds(2))
+            loadingTimedOut = true
+        }
+        .task {
+            // Refresh captured images at ~5fps so animated menu bar
+            // icons (e.g. Google Drive sync spinner) stay up-to-date
+            // while keeping CPU/GPU usage low.
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .milliseconds(200))
+                guard !Task.isCancelled else { break }
+                let currentItems = items
+                guard !currentItems.isEmpty else { continue }
+                await imageCache.refreshImages(
+                    of: currentItems,
+                    scale: screen.backingScaleFactor
+                )
+            }
         }
     }
 
     private static let diagLog = DiagLog(category: "IceBar.Content")
+
+    /// Opens the permissions settings pane, hiding the current section first.
+    private func openPermissionsSettings() {
+        menuBarManager.section(withName: section)?.hide()
+        appState.navigationState.settingsNavigationIdentifier = .advanced
+        appState.activate(withPolicy: .regular)
+        appState.openWindow(.settings)
+    }
 
     @ViewBuilder
     private var content: some View {
@@ -373,10 +409,7 @@ private struct IceBarContentView: View {
                 Text("The \(Constants.displayName) Bar requires screen recording permissions.")
 
                 Button {
-                    menuBarManager.section(withName: section)?.hide()
-                    appState.navigationState.settingsNavigationIdentifier = .advanced
-                    appState.activate(withPolicy: .regular)
-                    appState.openWindow(.settings)
+                    openPermissionsSettings()
                 } label: {
                     Text("Open \(Constants.displayName) Settings")
                 }
@@ -389,33 +422,80 @@ private struct IceBarContentView: View {
             }
         } else if (section == .alwaysHidden || section == .hidden) && items.isEmpty {
             HStack {
-                Text("No items in this section")
+                if cacheGracePeriodActive {
+                    Text("Loading menu bar items…")
+                    ProgressView()
+                        .controlSize(.small)
+                } else if !loadingTimedOut {
+                    Text("No items in this section")
+                    ProgressView()
+                        .controlSize(.small)
+                } else {
+                    Text("No items in this section")
+                }
             }
             .padding(.horizontal, 10)
+            .onChange(of: cacheGracePeriodActive) {
+                Self.diagLog.debug("IceBar content: grace period changed to \(self.cacheGracePeriodActive) for section \(self.section.logString) — items still empty: \(self.items.isEmpty)")
+            }
+            .onChange(of: loadingTimedOut) {
+                Self.diagLog.debug("IceBar content: loading timeout changed to \(self.loadingTimedOut) for section \(self.section.logString) — items still empty: \(self.items.isEmpty)")
+            }
             .onAppear {
-                Self.diagLog.debug("IceBar content: showing 'No items in this section' for section \(self.section.logString)")
+                Self.diagLog.debug("IceBar content: showing '\(self.cacheGracePeriodActive ? "Loading…" : "No items")' for section \(self.section.logString) (grace period active: \(self.cacheGracePeriodActive))")
             }
         } else if itemManager.itemCache.managedItems.isEmpty {
             HStack {
-                Text("Loading menu bar items…")
-                ProgressView()
-                    .controlSize(.small)
-            }
-            .padding(.horizontal, 10)
-            .onAppear {
-                Self.diagLog.warning("IceBar content: showing 'Loading menu bar items…' — itemCache.managedItems is EMPTY. This means the item cache has never been populated.")
-            }
-        } else if imageCache.cacheFailed(for: section) {
-            HStack {
-                Text(cacheGracePeriodActive ? "Loading menu bar items…" : "Unable to display menu bar items")
-                if cacheGracePeriodActive {
+                if loadingTimedOut {
+                    Text("Unable to load menu bar items")
+                    Button {
+                        openPermissionsSettings()
+                    } label: {
+                        Text("Check permissions")
+                    }
+                    .buttonStyle(.plain)
+                    .foregroundStyle(.link)
+                } else {
+                    Text("Loading menu bar items…")
                     ProgressView()
                         .controlSize(.small)
                 }
             }
             .padding(.horizontal, 10)
+            .onChange(of: loadingTimedOut) {
+                Self.diagLog.warning("IceBar content: loading timeout changed to \(self.loadingTimedOut) — itemCache.managedItems is still EMPTY")
+            }
             .onAppear {
-                Self.diagLog.warning("IceBar content: showing '\(self.cacheGracePeriodActive ? "Loading…" : "Unable to display")' for section \(self.section.logString) — imageCache.cacheFailed=true (grace period active: \(self.cacheGracePeriodActive), cached images count: \(self.imageCache.images.count), items in section: \(self.itemManager.itemCache[self.section].count))")
+                Self.diagLog.warning("IceBar content: showing 'Loading menu bar items…' — itemCache.managedItems is EMPTY. This means the item cache has never been populated.")
+            }
+        } else if imageCache.cacheFailed(for: section) {
+            HStack {
+                if cacheGracePeriodActive {
+                    Text("Loading menu bar items…")
+                    ProgressView()
+                        .controlSize(.small)
+                } else if loadingTimedOut {
+                    // Final state: no further automatic retry.
+                    Text("Unable to display menu bar items")
+                    Button {
+                        openPermissionsSettings()
+                    } label: {
+                        Text("Check permissions")
+                    }
+                    .buttonStyle(.plain)
+                    .foregroundStyle(.link)
+                } else {
+                    Text("Unable to display menu bar items")
+                    ProgressView()
+                        .controlSize(.small)
+                }
+            }
+            .padding(.horizontal, 10)
+            .onChange(of: loadingTimedOut) {
+                Self.diagLog.warning("IceBar content: cacheFailed timeout changed to \(self.loadingTimedOut) for section \(self.section.logString)")
+            }
+            .onAppear {
+                Self.diagLog.warning("IceBar content: showing '\(self.cacheGracePeriodActive ? "Loading…" : "Unable to display")' for section \(self.section.logString) — imageCache.cacheFailed=true (grace period active: \(self.cacheGracePeriodActive), loadingTimedOut: \(self.loadingTimedOut), cached images count: \(self.imageCache.images.count), items in section: \(self.itemManager.itemCache[self.section].count))")
             }
         } else {
             ScrollView(.horizontal) {

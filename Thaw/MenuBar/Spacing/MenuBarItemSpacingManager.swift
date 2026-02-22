@@ -117,7 +117,7 @@ final class MenuBarItemSpacingManager {
                     // Failsafe: if KVO doesn't fire after force terminate, resume anyway to prevent hang
                     try? await Task.sleep(for: .seconds(1))
                     cancellable?.cancel()
-                    if didResume.withLock({ let old = $0; $0 = true; return !old }) {
+                    if didResume.tryClaimOnce() {
                         continuation.resume()
                     }
                 }
@@ -134,7 +134,7 @@ final class MenuBarItemSpacingManager {
                 MenuBarItemSpacingManager.diagLog.debug(
                     "Application \"\(app.logString)\" terminated successfully"
                 )
-                if didResume.withLock({ let old = $0; $0 = true; return !old }) {
+                if didResume.tryClaimOnce() {
                     continuation.resume()
                 }
             }

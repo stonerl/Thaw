@@ -18,12 +18,16 @@ final class IceBarColorManager: ObservableObject {
 
     private var cancellables = Set<AnyCancellable>()
 
+    /// Cancellable for the periodic refresh timer, active only while the Ice Bar is visible.
+    private var periodicRefreshCancellable: AnyCancellable?
+
     func performSetup(with iceBarPanel: IceBarPanel) {
         self.iceBarPanel = iceBarPanel
         configureCancellables()
     }
 
     private func configureCancellables() {
+        stopPeriodicRefresh()
         var c = Set<AnyCancellable>()
 
         if let iceBarPanel {
@@ -38,22 +42,6 @@ final class IceBarColorManager: ObservableObject {
                         return
                     }
                     updateWindowImage(for: screen)
-                }
-                .store(in: &c)
-
-            iceBarPanel.publisher(for: \.isVisible)
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self, weak iceBarPanel] isVisible in
-                    guard
-                        let self,
-                        let iceBarPanel,
-                        let screen = iceBarPanel.screen,
-                        isVisible,
-                        screen == .main
-                    else {
-                        return
-                    }
-                    updateColorInfo(with: iceBarPanel.frame, screen: screen)
                 }
                 .store(in: &c)
 
@@ -75,7 +63,8 @@ final class IceBarColorManager: ObservableObject {
                 }
                 .store(in: &c)
 
-            Publishers.Merge4(
+            // Notification-driven updates (space change, screen params, theme change).
+            Publishers.Merge3(
                 NSWorkspace.shared.notificationCenter
                     .publisher(for: NSWorkspace.activeSpaceDidChangeNotification)
                     .replace(with: ()),
@@ -84,9 +73,6 @@ final class IceBarColorManager: ObservableObject {
                     .replace(with: ()),
                 DistributedNotificationCenter.default()
                     .publisher(for: DistributedNotificationCenter.interfaceThemeChangedNotification)
-                    .replace(with: ()),
-                Timer.publish(every: 5, on: .main, in: .default)
-                    .autoconnect()
                     .replace(with: ())
             )
             .receive(on: DispatchQueue.main)
@@ -106,9 +92,57 @@ final class IceBarColorManager: ObservableObject {
                 }
             }
             .store(in: &c)
+
+            // Manage visibility: update colors immediately + start/stop periodic timer.
+            // Single subscription replaces the previous two \.isVisible observers.
+            iceBarPanel.publisher(for: \.isVisible)
+                .removeDuplicates()
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self, weak iceBarPanel] isVisible in
+                    guard let self else { return }
+                    if isVisible {
+                        // Refresh windowImage immediately so the first color update isn't stale.
+                        if let iceBarPanel, let screen = iceBarPanel.screen, screen == .main {
+                            self.updateWindowImage(for: screen)
+                            self.updateColorInfo(with: iceBarPanel.frame, screen: screen)
+                        }
+                        self.startPeriodicRefresh(for: iceBarPanel)
+                    } else {
+                        self.stopPeriodicRefresh()
+                    }
+                }
+                .store(in: &c)
         }
 
         cancellables = c
+    }
+
+    /// Starts the 5-second periodic refresh timer for color updates.
+    private func startPeriodicRefresh(for iceBarPanel: IceBarPanel?) {
+        stopPeriodicRefresh()
+        periodicRefreshCancellable = Timer.publish(every: 5, tolerance: 1, on: .main, in: .default)
+            .autoconnect()
+            .sink { [weak self, weak iceBarPanel] _ in
+                guard
+                    let self,
+                    let iceBarPanel,
+                    iceBarPanel.isVisible,
+                    let screen = iceBarPanel.screen,
+                    screen == .main
+                else {
+                    return
+                }
+                updateWindowImage(for: screen)
+                withAnimation {
+                    self.updateColorInfo(with: iceBarPanel.frame, screen: screen)
+                }
+            }
+    }
+
+    /// Stops the periodic refresh timer.
+    private func stopPeriodicRefresh() {
+        periodicRefreshCancellable?.cancel()
+        periodicRefreshCancellable = nil
     }
 
     private func updateWindowImage(for screen: NSScreen) {

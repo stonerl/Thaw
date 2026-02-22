@@ -30,6 +30,11 @@ final class GeneralSettings: ObservableObject {
     /// should be rendered as template images.
     @Published var customIceIconIsTemplate = false
 
+    // MARK: - Deprecated (Per-Display Migration)
+
+    // These properties are kept for one release cycle for downgrade safety.
+    // New code should use `AppSettings.displaySettings` instead.
+
     /// A Boolean value that indicates whether to show hidden items
     /// in a separate bar below the menu bar.
     @Published var useIceBar = false
@@ -49,6 +54,11 @@ final class GeneralSettings: ObservableObject {
     /// should be shown when the mouse pointer clicks in an empty
     /// area of the menu bar.
     @Published var showOnClick = true
+
+    /// A Boolean value that indicates whether the always-hidden section
+    /// should be shown when the mouse pointer double-clicks in an
+    /// empty area of the menu bar.
+    @Published var showOnDoubleClick = true
 
     /// A Boolean value that indicates whether the hidden section
     /// should be shown when the mouse pointer hovers over an
@@ -101,6 +111,7 @@ final class GeneralSettings: ObservableObject {
         Defaults.ifPresent(key: .useIceBarOnlyOnNotchedDisplay, assign: &useIceBarOnlyOnNotchedDisplay)
         Defaults.ifPresent(key: .iceBarLocationOnHotkey, assign: &iceBarLocationOnHotkey)
         Defaults.ifPresent(key: .showOnClick, assign: &showOnClick)
+        Defaults.ifPresent(key: .showOnDoubleClick, assign: &showOnDoubleClick)
         Defaults.ifPresent(key: .showOnHover, assign: &showOnHover)
         Defaults.ifPresent(key: .showOnScroll, assign: &showOnScroll)
         Defaults.ifPresent(key: .itemSpacingOffset, assign: &itemSpacingOffset)
@@ -198,6 +209,13 @@ final class GeneralSettings: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { showOnClick in
                 Defaults.set(showOnClick, forKey: .showOnClick)
+            }
+            .store(in: &c)
+
+        $showOnDoubleClick
+            .receive(on: DispatchQueue.main)
+            .sink { showOnDoubleClick in
+                Defaults.set(showOnDoubleClick, forKey: .showOnDoubleClick)
             }
             .store(in: &c)
 

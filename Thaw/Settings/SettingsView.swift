@@ -146,6 +146,8 @@ struct SettingsView: View {
         switch navigationState.settingsNavigationIdentifier {
         case .general:
             GeneralSettingsPane(settings: appState.settings.general)
+        case .displays:
+            DisplaySettingsPane(displaySettings: appState.settings.displaySettings)
         case .menuBarLayout:
             MenuBarLayoutSettingsPane(itemManager: appState.itemManager)
         case .menuBarAppearance:

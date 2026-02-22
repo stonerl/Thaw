@@ -8,6 +8,7 @@
 
 import Cocoa
 import Combine
+import os
 
 /// Manager that monitors input events and implements the features
 /// that are triggered by them, such as showing hidden items on
@@ -22,6 +23,9 @@ final class HIDEventManager: ObservableObject {
 
     /// The shared app state.
     private weak var appState: AppState?
+
+    /// Thread-safe counter for mouse-moved event throttling.
+    private nonisolated let mouseMovedThrottleCounter = OSAllocatedUnfairLock(initialState: 0)
 
     /// Storage for internal observers.
     private var cancellables = Set<AnyCancellable>()
@@ -40,9 +44,25 @@ final class HIDEventManager: ObservableObject {
     /// to detect a stuck disabled state.
     private var lastStopTimestamp: ContinuousClock.Instant?
 
+    /// Thread-safe lookup table mapping menu bar window IDs to their bounds.
+    /// Rebuilt from itemCache whenever it changes, eliminating
+    /// per-event Window Server IPC calls during mouse movement.
+    ///
+    /// Protected by a lock because the CGEventTap callback reads this array
+    /// on the main RunLoop, while writes happen on the main thread via Combine.
+    /// Although both currently execute on the main thread, the RunLoop-based
+    /// guarantee is implicit — using a lock makes the safety explicit and
+    /// protects against future refactoring that might change threading.
+    private nonisolated let windowBoundsLock = OSAllocatedUnfairLock(
+        initialState: [(windowID: CGWindowID, bounds: CGRect)]()
+    )
+
     /// The window ID of the menu bar item the mouse is currently hovering over,
     /// used to detect when the cursor moves to a different item.
     private var tooltipHoveredWindowID: CGWindowID?
+
+    /// The ID of the display the mouse was last seen on.
+    private var lastMouseScreenID: CGDirectDisplayID?
 
     /// The pending tooltip show task.
     private var tooltipTask: Task<Void, any Error>?
@@ -65,6 +85,7 @@ final class HIDEventManager: ObservableObject {
                     monitor.stop()
                 }
                 mouseMovedTap.stop()
+                lastMouseScreenID = nil
             }
         }
     }
@@ -134,15 +155,29 @@ final class HIDEventManager: ObservableObject {
         }
 
         // Throttling: Only process every 5th event to reduce CPU usage.
-        enum Context {
-            static var eventCount = 0
+        let shouldProcess = mouseMovedThrottleCounter.withLock { count -> Bool in
+            count += 1
+            if count >= 5 {
+                count = 0
+                return true
+            }
+            return false
         }
-        Context.eventCount += 1
-        if Context.eventCount % 5 != 0 {
+        guard shouldProcess else {
             return event
         }
 
-        if let appState, let screen = bestScreen(appState: appState) {
+        if let appState {
+            guard let screen = NSScreen.screenWithMouse ?? NSScreen.main else {
+                return event
+            }
+            let screenID = screen.displayID
+
+            if screenID != lastMouseScreenID {
+                lastMouseScreenID = screenID
+                appState.menuBarManager.updateControlItemStates(for: screen)
+            }
+
             handleShowOnHover(appState: appState, screen: screen)
             handleMenuBarTooltip(appState: appState, screen: screen)
         }
@@ -180,7 +215,21 @@ final class HIDEventManager: ObservableObject {
 
     /// Whether the mouse-moved event tap should be active based on current settings.
     private func needsMouseMovedTap(appState: AppState) -> Bool {
-        appState.settings.general.showOnHover || appState.settings.advanced.showMenuBarTooltips
+        appState.settings.general.showOnHover ||
+            appState.settings.advanced.showMenuBarTooltips ||
+            appState.settings.displaySettings.isAlwaysShowEnabledOnAnyDisplay
+    }
+
+    /// Rebuilds the window bounds lookup table from the current item cache.
+    private func rebuildWindowBoundsLookup(from cache: MenuBarItemManager.ItemCache) {
+        let items = cache.managedItems
+        var buffer = [(windowID: CGWindowID, bounds: CGRect)]()
+        buffer.reserveCapacity(items.count)
+        for item in items where item.isOnScreen {
+            buffer.append((windowID: item.windowID, bounds: item.bounds))
+        }
+        let entries = buffer
+        windowBoundsLock.withLock { $0 = entries }
     }
 
     /// Configures the internal observers for the manager.
@@ -188,13 +237,14 @@ final class HIDEventManager: ObservableObject {
         var c = Set<AnyCancellable>()
 
         if let appState {
-            // Start or stop the mouse-moved tap when either show-on-hover
-            // or menu-bar-tooltips changes.
-            Publishers.CombineLatest(
+            // Start or stop the mouse-moved tap when show-on-hover,
+            // menu-bar-tooltips, or per-display configurations change.
+            Publishers.CombineLatest3(
                 appState.settings.general.$showOnHover,
-                appState.settings.advanced.$showMenuBarTooltips
+                appState.settings.advanced.$showMenuBarTooltips,
+                appState.settings.displaySettings.$configurations
             )
-            .sink { [weak self] _, _ in
+            .sink { [weak self] _, _, _ in
                 guard let self, isEnabled else {
                     return
                 }
@@ -205,21 +255,63 @@ final class HIDEventManager: ObservableObject {
                 }
             }
             .store(in: &c)
+
+            // Rebuild the window bounds lookup whenever the item cache changes.
+            // This replaces per-event Window Server IPC calls with an in-memory lookup.
+            appState.itemManager.$itemCache
+                .removeDuplicates()
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] cache in
+                    self?.rebuildWindowBoundsLookup(from: cache)
+                }
+                .store(in: &c)
+
+            // When any section's control item state changes, the menu bar layout shifts.
+            // Merge all sections into a single publisher so only one cache refresh fires
+            // per layout change batch, regardless of how many sections change at once.
+            Publishers.MergeMany(
+                appState.menuBarManager.sections.map { $0.controlItem.$state.replace(with: ()) }
+            )
+            .debounce(for: .milliseconds(200), scheduler: DispatchQueue.main)
+            .sink { [weak appState] in
+                guard let appState else { return }
+                Task {
+                    await appState.itemManager.cacheItemsIfNeeded()
+                }
+            }
+            .store(in: &c)
+
+            // Clear bounds lookup on display configuration changes.
+            // The item cache will be refreshed shortly after.
+            NotificationCenter.default.publisher(
+                for: NSApplication.didChangeScreenParametersNotification
+            )
+            .sink { [weak self] _ in
+                NSScreen.invalidateMenuBarHeightCache()
+                self?.windowBoundsLock.withLock { $0.removeAll() }
+            }
+            .store(in: &c)
         }
 
         cancellables = c
+
+        // Build the initial bounds lookup from the current cache.
+        if let appState {
+            rebuildWindowBoundsLookup(from: appState.itemManager.itemCache)
+        }
 
         // Periodically check that the mouseMovedTap is still alive.
         // macOS can invalidate the Mach port under resource pressure or
         // when accessibility permissions change. If it becomes invalid,
         // ensureValid() will recreate it.
         healthCheckTimer?.invalidate()
-        healthCheckTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { [weak self] _ in
+        healthCheckTimer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { [weak self] _ in
             guard let self else { return }
             Task { @MainActor in
                 self.performHealthCheck()
             }
         }
+        healthCheckTimer?.tolerance = 5
     }
 
     /// Checks the health of event monitors and taps, and attempts
@@ -231,7 +323,7 @@ final class HIDEventManager: ObservableObject {
         // due to a cancelled Task or unexpected error. Force recovery.
         if !isEnabled, disableCount > 0, let lastStop = lastStopTimestamp {
             let elapsed = ContinuousClock.now - lastStop
-            if elapsed > .seconds(10) {
+            if elapsed > .seconds(30) {
                 Self.diagLog.error(
                     """
                     Event manager stuck in disabled state for \
@@ -289,41 +381,48 @@ extension HIDEventManager {
     // MARK: Handle Show On Click
 
     private func handleShowOnClick(appState: AppState, screen: NSScreen, isDoubleClick: Bool = false) {
-        guard
-            appState.settings.general.showOnClick,
-            isMouseInsideEmptyMenuBarSpace(appState: appState, screen: screen)
-        else {
+        guard isMouseInsideEmptyMenuBarSpace(appState: appState, screen: screen) else {
             return
         }
 
         Task {
             if isDoubleClick {
+                guard
+                    appState.settings.general.showOnClick,
+                    appState.settings.general.showOnDoubleClick
+                else {
+                    return
+                }
                 if let alwaysHiddenSection = appState.menuBarManager.section(withName: .alwaysHidden),
                    alwaysHiddenSection.isEnabled
                 {
                     alwaysHiddenSection.show()
                     return
                 }
-            }
-
-            if NSEvent.modifierFlags == .control {
-                handleSecondaryContextMenu(appState: appState, screen: screen)
-                return
-            }
-
-            if NSEvent.modifierFlags == .option {
-                if let alwaysHiddenSection = appState.menuBarManager.section(withName: .alwaysHidden),
-                   alwaysHiddenSection.isEnabled
-                {
-                    alwaysHiddenSection.show()
+            } else {
+                guard appState.settings.general.showOnClick else {
                     return
                 }
-            }
 
-            if let hiddenSection = appState.menuBarManager.section(withName: .hidden),
-               hiddenSection.isEnabled
-            {
-                hiddenSection.toggle()
+                if NSEvent.modifierFlags == .control {
+                    handleSecondaryContextMenu(appState: appState, screen: screen)
+                    return
+                }
+
+                if NSEvent.modifierFlags == .option {
+                    if let alwaysHiddenSection = appState.menuBarManager.section(withName: .alwaysHidden),
+                       alwaysHiddenSection.isEnabled
+                    {
+                        alwaysHiddenSection.show()
+                        return
+                    }
+                }
+
+                if let hiddenSection = appState.menuBarManager.section(withName: .hidden),
+                   hiddenSection.isEnabled
+                {
+                    hiddenSection.toggle()
+                }
             }
         }
     }
@@ -548,7 +647,7 @@ extension HIDEventManager {
     ) {
         guard
             appState.settings.general.showOnHover,
-            !appState.settings.general.useIceBar
+            !appState.settings.displaySettings.useIceBar(for: screen.displayID)
         else {
             return
         }
@@ -645,27 +744,17 @@ extension HIDEventManager {
             return
         }
 
-        // Use the same cached window list as isMouseInsideMenuBarItem.
-        let windowIDs = Bridging.getMenuBarWindowList(option: [
-            .onScreen, .activeSpace, .itemsOnly,
-        ])
+        // Find the specific window under the cursor using the cached bounds lookup.
+        // This avoids per-event IPC calls to the Window Server.
+        let entries = windowBoundsLock.withLock { $0 }
+        let hoveredEntry = entries.first(where: { $0.bounds.contains(mouseLocation) })
 
-        // Find the specific window under the cursor.
-        var hoveredID: CGWindowID?
-        for windowID in windowIDs {
-            guard let bounds = Bridging.getWindowBounds(for: windowID) else {
-                continue
-            }
-            if bounds.contains(mouseLocation) {
-                hoveredID = windowID
-                break
-            }
-        }
-
-        guard let hoveredID else {
+        guard let hoveredEntry else {
             dismissMenuBarTooltip()
             return
         }
+
+        let hoveredID = hoveredEntry.windowID
 
         // If we're still over the same item, nothing to do.
         if hoveredID == tooltipHoveredWindowID {
@@ -676,6 +765,7 @@ extension HIDEventManager {
         dismissMenuBarTooltip()
         tooltipHoveredWindowID = hoveredID
 
+        let cachedBounds = hoveredEntry.bounds
         let delay = appState.settings.advanced.tooltipDelay
         tooltipTask = Task {
             if delay > 0 {
@@ -683,24 +773,34 @@ extension HIDEventManager {
             }
             try Task.checkCancellation()
 
+            // Re-read from the lock to pick up any cache rebuilds during the delay.
+            let freshEntries = windowBoundsLock.withLock { $0 }
+            let positionBounds = freshEntries.first(where: { $0.windowID == hoveredID })?.bounds ?? cachedBounds
+
             // Look up the item from the cache by window ID.
             let allItems = appState.itemManager.itemCache.managedItems
-            guard let item = allItems.first(where: { $0.windowID == hoveredID }) else {
+            let displayName: String
+            if let item = allItems.first(where: { $0.windowID == hoveredID }) {
+                displayName = item.displayName
+            } else if appState.menuBarManager.sections.contains(where: {
+                $0.controlItem.window?.windowNumber == Int(hoveredID)
+            }) {
+                displayName = Constants.displayName
+            } else {
                 return
             }
 
             // Position the tooltip below the item, centered horizontally.
             // Item bounds are in CoreGraphics coordinates (top-left origin);
             // convert to AppKit (bottom-left origin) for the panel.
-            guard let screen = NSScreen.main ?? NSScreen.screens.first else { return }
-            let screenHeight = screen.frame.maxY
+            guard let primaryScreen = NSScreen.screens.first else { return }
             let appKitOrigin = CGPoint(
-                x: item.bounds.midX,
-                y: screenHeight - item.bounds.maxY
+                x: positionBounds.midX,
+                y: primaryScreen.frame.height - positionBounds.maxY
             )
 
             CustomTooltipPanel.shared.show(
-                text: item.displayName,
+                text: displayName,
                 near: appKitOrigin,
                 in: screen,
                 owner: "menuBar"
@@ -760,26 +860,12 @@ extension HIDEventManager {
             return false
         }
 
-        // Cache the window list to avoid repeated Window Server calls.
-        // The cache is invalidated after 0.5 seconds or when the mouse click state changes.
-        enum Context {
-            static var cachedWindowIDs = [CGWindowID]()
-            static var lastUpdate: TimeInterval = 0
-        }
-
-        let now = Date.timeIntervalSinceReferenceDate
-        if now - Context.lastUpdate > 0.5 {
-            Context.cachedWindowIDs = Bridging.getMenuBarWindowList(option: [
-                .onScreen, .activeSpace, .itemsOnly,
-            ])
-            Context.lastUpdate = now
-        }
-
-        return Context.cachedWindowIDs.contains { windowID in
-            guard let bounds = Bridging.getWindowBounds(for: windowID) else {
-                return false
-            }
-            return bounds.contains(mouseLocation)
+        // Use the pre-built bounds lookup table, which is rebuilt
+        // whenever the item cache changes. This avoids per-event
+        // IPC calls to the Window Server.
+        let entries = windowBoundsLock.withLock { $0 }
+        return entries.contains { entry in
+            entry.bounds.contains(mouseLocation)
         }
     }
 

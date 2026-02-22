@@ -66,6 +66,7 @@ struct IceSettingsImporter {
             (.showIceIcon, "ShowIceIcon"),
             (.iceIcon, "IceIcon"),
             (.customIceIconIsTemplate, "CustomIceIconIsTemplate"),
+            // Legacy Ice Bar keys kept for migration compatibility
             (.useIceBar, "UseIceBar"),
             (.iceBarLocation, "IceBarLocation"),
             (.showOnClick, "ShowOnClick"),
@@ -85,7 +86,40 @@ struct IceSettingsImporter {
             }
         }
 
+        // Generate per-display configurations when importing Ice Bar settings
+        imported += importPerDisplayIceBarSettings(from: iceSettings)
+
         return imported
+    }
+
+    /// Generates per-display Ice Bar configurations from imported Ice settings.
+    private func importPerDisplayIceBarSettings(from iceSettings: [String: Any]) -> Int {
+        guard let useIceBar = iceSettings["UseIceBar"] as? Bool, useIceBar else {
+            return 0
+        }
+
+        let locationRaw = iceSettings["IceBarLocation"] as? Int ?? 0
+        let location = IceBarLocation(rawValue: locationRaw) ?? .dynamic
+        let onlyOnNotched = iceSettings["UseIceBarOnlyOnNotchedDisplay"] as? Bool ?? false
+
+        let configs = DisplayIceBarConfiguration.buildConfigurations(
+            onlyOnNotched: onlyOnNotched,
+            location: location
+        )
+
+        guard !configs.isEmpty else { return 0 }
+
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(configs)
+            Defaults.set(data, forKey: .displayIceBarConfigurations)
+            Defaults.set(true, forKey: .hasMigratedPerDisplayIceBar)
+            diagLog.info("Generated per-display Ice Bar configs for \(configs.count) display(s) from Ice import")
+            return 1
+        } catch {
+            diagLog.error("Failed to encode per-display Ice Bar configs during import: \(error)")
+            return 0
+        }
     }
 
     /// Imports advanced settings from Ice.

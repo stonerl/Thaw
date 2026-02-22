@@ -62,6 +62,9 @@ final class AppState: ObservableObject {
     /// Track open windows to prevent duplicates
     private var openWindows = Set<IceWindowIdentifier>()
 
+    /// The background task for periodic memory monitoring.
+    private var memoryMonitoringTask: Task<Void, Never>?
+
     /// Track last known screen count to detect disconnects.
     private var lastKnownScreenCount = NSScreen.screens.count
 
@@ -116,25 +119,27 @@ final class AppState: ObservableObject {
         updatesManager.startUpdaterIfNeeded()
     }
 
-    /// Starts periodic memory monitoring to track all memory usage
+    /// Starts periodic memory monitoring to track all memory usage.
     private func startMemoryMonitoring() {
-        Task {
+        memoryMonitoringTask?.cancel()
+        memoryMonitoringTask = Task {
             let formatter = ISO8601DateFormatter()
-            while !Task.isCancelled {
-                let memoryUsage = getMemoryInfo()
-                let timestamp = formatter.string(from: Date())
+            do {
+                while true {
+                    let memoryUsage = getMemoryInfo()
+                    let timestamp = formatter.string(from: Date())
 
-                // Always log memory usage, not just high usage
-                diagLog.info("Memory usage at \(timestamp): \(memoryUsage / 1024 / 1024)MB")
+                    // Always log memory usage, not just high usage
+                    diagLog.info("Memory usage at \(timestamp): \(memoryUsage / 1024 / 1024)MB")
 
-                // Log warnings for specific conditions
-                let memoryWarningThreshold: Int64 = 500 * 1024 * 1024 // 500MB
-                if memoryUsage > memoryWarningThreshold {
-                    diagLog.warning("High memory usage detected: \(memoryUsage / 1024 / 1024)MB")
-                }
+                    // Log warnings for specific conditions
+                    let memoryWarningThreshold: Int64 = 500 * 1024 * 1024 // 500MB
+                    if memoryUsage > memoryWarningThreshold {
+                        diagLog.warning("High memory usage detected: \(memoryUsage / 1024 / 1024)MB")
+                    }
 
-                // Log component sizes for debugging
-                await MainActor.run {
+                    // Log component sizes for debugging — no MainActor.run needed
+                    // as AppState is already @MainActor isolated.
                     let imageCount = imageCache.images.count
                     let windowCount = openWindows.count
 
@@ -144,9 +149,11 @@ final class AppState: ObservableObject {
                     if windowCount > 5 {
                         diagLog.warning("Many open windows: \(windowCount)")
                     }
-                }
 
-                try? await Task.sleep(for: .seconds(300)) // Check every 5 minutes
+                    try await Task.sleep(for: .seconds(300))
+                }
+            } catch {
+                // CancellationError — task was cancelled, exit cleanly.
             }
         }
     }
@@ -223,11 +230,15 @@ final class AppState: ObservableObject {
         NSWorkspace.shared.notificationCenter
             .publisher(for: NSWorkspace.activeSpaceDidChangeNotification)
             .discardMerge(NSWorkspace.shared.publisher(for: \.frontmostApplication))
-            .discardMerge(EventMonitor.publish(events: .leftMouseDown, scope: .universal).flatMap { _ in
-                let initial = Just(())
-                let delayed = initial.delay(for: 0.1, scheduler: DispatchQueue.main)
-                return Publishers.Merge(initial, delayed)
-            })
+            .discardMerge(
+                EventMonitor.publish(events: .leftMouseDown, scope: .universal)
+                    .throttle(for: .seconds(0.15), scheduler: DispatchQueue.main, latest: true)
+                    .flatMap { _ in
+                        let initial = Just(())
+                        let delayed = initial.delay(for: 0.1, scheduler: DispatchQueue.main)
+                        return Publishers.Merge(initial, delayed)
+                    }
+            )
             .replace { Bridging.getActiveSpaceID() }
             .removeDuplicates()
             .sink { [weak self] spaceID in
@@ -246,7 +257,8 @@ final class AppState: ObservableObject {
 
         publisherForWindow(.settings)
             .removeNil()
-            .flatMap { $0.publisher(for: \.isVisible) }
+            .map { $0.publisher(for: \.isVisible) }
+            .switchToLatest()
             .replaceEmpty(with: false)
             .throttle(for: 0.1, scheduler: DispatchQueue.main, latest: true)
             .removeDuplicates()
@@ -320,8 +332,8 @@ final class AppState: ObservableObject {
             .store(in: &c)
 
         NotificationCenter.default.publisher(for: NSApplication.didChangeScreenParametersNotification)
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .map { _ in NSScreen.screens.count }
-            .receive(on: DispatchQueue.main)
             .sink { [weak self] count in
                 guard let self else { return }
                 defer { self.lastKnownScreenCount = count }

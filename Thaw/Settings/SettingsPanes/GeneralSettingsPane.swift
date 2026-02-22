@@ -41,9 +41,6 @@ struct GeneralSettingsPane: View {
                 iceIconOptions
             }
             IceSection {
-                iceBarOptions
-            }
-            IceSection {
                 showOptions
             }
             IceSection {
@@ -75,7 +72,7 @@ struct GeneralSettingsPane: View {
 
     private var showIceIcon: some View {
         Toggle("Show \(Constants.displayName) icon", isOn: $settings.showIceIcon)
-            .annotation("Click to show hidden or double-click for always-hidden menu bar items. Right-click for \(Constants.displayName)'s settings.")
+            .annotation("Show the \(Constants.displayName) icon in the menu bar. Click to show hidden items, double-click for always-hidden, and right-click for settings.")
     }
 
     @ViewBuilder
@@ -168,63 +165,19 @@ struct GeneralSettingsPane: View {
         }
     }
 
-    // MARK: Ice Bar Options
-
-    @ViewBuilder
-    private var iceBarOptions: some View {
-        useIceBar
-        if settings.useIceBar {
-            if hasNotchedDisplay {
-                useIceBarOnlyOnNotchedDisplay
-            }
-            iceBarLocationPicker
-            showIceBarAtMouseLocationOnHotkey
-        }
-    }
-
-    private var hasNotchedDisplay: Bool {
-        NSScreen.screens.contains { $0.hasNotch }
-    }
-
-    private var useIceBar: some View {
-        Toggle("Use \(Constants.displayName) Bar", isOn: $settings.useIceBar)
-            .annotation("Show hidden menu bar items in a separate bar below the menu bar.")
-    }
-
-    private var useIceBarOnlyOnNotchedDisplay: some View {
-        Toggle("Only on displays with notch", isOn: $settings.useIceBarOnlyOnNotchedDisplay)
-            .annotation("Use \(Constants.displayName) Bar only on displays with a notch. On other displays, show icons in the menu bar.")
-    }
-
-    private var iceBarLocationPicker: some View {
-        IcePicker("Location", selection: $settings.iceBarLocation) {
-            ForEach(IceBarLocation.allCases) { location in
-                Text(location.localized).tag(location)
-            }
-        }
-        .annotation {
-            switch settings.iceBarLocation {
-            case .dynamic:
-                Text("The \(Constants.displayName) Bar's location changes based on context.")
-            case .mousePointer:
-                Text("The \(Constants.displayName) Bar is centered below the mouse pointer.")
-            case .iceIcon:
-                Text("The \(Constants.displayName) Bar is centered below the \(Constants.displayName) icon.")
-            }
-        }
-    }
-
-    private var showIceBarAtMouseLocationOnHotkey: some View {
-        Toggle("Show at mouse pointer on hotkey", isOn: $settings.iceBarLocationOnHotkey)
-            .annotation("Always show the \(Constants.displayName) Bar at the mouse pointer's location when it is shown using a hotkey.")
-    }
-
     // MARK: Show Options
 
     @ViewBuilder
     private var showOptions: some View {
-        Toggle("Show on click", isOn: $settings.showOnClick)
-            .annotation("Click an empty area of the menu bar to show hidden items, or double-click for always-hidden.")
+        VStack(alignment: .leading, spacing: 8) {
+            Toggle("Show on click", isOn: $settings.showOnClick)
+                .annotation("Click an empty area of the menu bar to show hidden menu bar items.")
+
+            if settings.showOnClick {
+                Toggle("Double-click for always-hidden", isOn: $settings.showOnDoubleClick)
+                    .annotation("Double-click an empty area of the menu bar to show always-hidden menu bar items.")
+            }
+        }
         Toggle("Show on hover", isOn: $settings.showOnHover)
             .annotation("Hover over an empty area of the menu bar to show hidden menu bar items.")
         Toggle("Show on scroll", isOn: $settings.showOnScroll)
