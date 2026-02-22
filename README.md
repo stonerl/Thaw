@@ -8,6 +8,7 @@ Thaw is a powerful menu bar management tool. While its primary function is hidin
 ![Banner](https://github.com/user-attachments/assets/4423085c-4e4b-4f3d-ad0f-90a217c03470)
 
 [![Download](https://img.shields.io/badge/download-latest-brightgreen?style=flat-square)](https://github.com/stonerl/Thaw/releases/latest)
+[![CI](https://img.shields.io/github/actions/workflow/status/stonerl/Thaw/ci.yml?style=flat-square)](https://github.com/stonerl/Thaw/actions/workflows/ci.yml)
 ![Platform](https://img.shields.io/badge/platform-macOS-blue?style=flat-square)
 ![Requirements](https://img.shields.io/badge/requirements-macOS%2014%2B-fa4e49?style=flat-square)
 [![Sponsor](https://img.shields.io/badge/Sponsor%20%E2%9D%A4%EF%B8%8F-8A2BE2?style=flat-square)](https://github.com/sponsors/stonerl)
