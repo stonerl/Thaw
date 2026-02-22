@@ -773,6 +773,10 @@ extension HIDEventManager {
             }
             try Task.checkCancellation()
 
+            // Re-read from the lock to pick up any cache rebuilds during the delay.
+            let freshEntries = windowBoundsLock.withLock { $0 }
+            let positionBounds = freshEntries.first(where: { $0.windowID == hoveredID })?.bounds ?? cachedBounds
+
             // Look up the item from the cache by window ID.
             let allItems = appState.itemManager.itemCache.managedItems
             let displayName: String
@@ -791,8 +795,8 @@ extension HIDEventManager {
             // convert to AppKit (bottom-left origin) for the panel.
             guard let primaryScreen = NSScreen.screens.first else { return }
             let appKitOrigin = CGPoint(
-                x: cachedBounds.midX,
-                y: primaryScreen.frame.height - cachedBounds.maxY
+                x: positionBounds.midX,
+                y: primaryScreen.frame.height - positionBounds.maxY
             )
 
             CustomTooltipPanel.shared.show(
