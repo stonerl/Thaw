@@ -131,7 +131,7 @@ final class UpdatesManager: NSObject, ObservableObject {
 
 // MARK: UpdatesManager: SPUUpdaterDelegate
 
-extension UpdatesManager: @preconcurrency SPUUpdaterDelegate {
+extension UpdatesManager: SPUUpdaterDelegate {
     func updaterShouldPromptForPermissionToCheck(forUpdates _: SPUUpdater) -> Bool {
         // We show our own blocking sheet; if consent already handled, skip Sparkle prompt.
         if Defaults.bool(forKey: .hasSeenUpdateConsent) {
