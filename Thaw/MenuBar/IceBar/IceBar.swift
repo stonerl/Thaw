@@ -317,13 +317,9 @@ private struct IceBarContentView: View {
 
     private var contentHeight: CGFloat {
         let menuBarHeight = screen.getMenuBarHeightEstimate()
-        let liveHeight = screen.getMenuBarHeight()
         if configuration.shapeKind != .noShape, configuration.isInset, screen.hasNotch {
-            let result = menuBarHeight - appState.appearanceManager.menuBarInsetAmount * 2
-            Self.diagLog.debug("contentHeight: menuBarHeightEstimate=\(menuBarHeight) liveHeight=\(liveHeight.map { "\($0)" } ?? "nil") insetAmount=\(appState.appearanceManager.menuBarInsetAmount) hasNotch=\(screen.hasNotch) shapeKind=\(String(describing: configuration.shapeKind)) isInset=\(configuration.isInset) result=\(result)")
-            return result
+            return menuBarHeight - appState.appearanceManager.menuBarInsetAmount * 2
         }
-        Self.diagLog.debug("contentHeight: menuBarHeightEstimate=\(menuBarHeight) liveHeight=\(liveHeight.map { "\($0)" } ?? "nil") hasNotch=\(screen.hasNotch) shapeKind=\(String(describing: configuration.shapeKind)) isInset=\(configuration.isInset) result=\(menuBarHeight)")
         return menuBarHeight
     }
 
@@ -332,7 +328,6 @@ private struct IceBarContentView: View {
         // regardless of any inset or padding applied to the bar shape.
         // The clip shape trims any overflow.
         let menuBarHeight = screen.getMenuBarHeightEstimate()
-        Self.diagLog.debug("itemMaxHeight: menuBarHeight=\(menuBarHeight) contentHeight=\(contentHeight) verticalPadding=\(verticalPadding)")
         return menuBarHeight > 0 ? menuBarHeight : nil
     }
 
@@ -596,7 +591,6 @@ private struct IceBarItemView: View {
         // MacBook Pro where the captured item height can be smaller than the
         // IceBar's content height derived from the full notch-area menu bar).
         let scale = maxHeight / intrinsic.height
-        Self.diagLog.debug("targetSize: intrinsic=\(intrinsic.width)x\(intrinsic.height) maxHeight=\(maxHeight) scale=\(scale) result=\(intrinsic.width * scale)x\(maxHeight)")
         return CGSize(width: intrinsic.width * scale, height: maxHeight)
     }
 

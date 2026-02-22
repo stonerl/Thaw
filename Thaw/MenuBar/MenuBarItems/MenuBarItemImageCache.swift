@@ -466,16 +466,21 @@ final class MenuBarItemImageCache: ObservableObject {
         scale: CGFloat,
         appState: AppState
     ) async -> CaptureResult {
+        // Thaw's own control items always capture as transparent via
+        // CGWindowListCreateImage, so skip them to avoid the perpetual
+        // fail -> blacklist -> cooldown -> retry cycle.
+        let capturable = items.filter { !$0.isControlItem }
+
         // Use individual capture after a move operation, since composite capture
         // doesn't account for overlapping items.
         if await appState.itemManager.lastMoveOperationOccurred(
             within: .seconds(2)
         ) {
             MenuBarItemImageCache.diagLog.debug("Capturing individually due to recent item movement")
-            return individualCapture(items, scale: scale)
+            return individualCapture(capturable, scale: scale)
         }
 
-        let compositeResult = compositeCapture(items, scale: scale)
+        let compositeResult = compositeCapture(capturable, scale: scale)
 
         if compositeResult.excluded.isEmpty {
             return compositeResult // All items captured successfully.
