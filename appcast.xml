@@ -1,0 +1,812 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Thaw</title>
+        <item>
+            <title>2.0.0-rc.1</title>
+            <pubDate>Tue, 16 Jun 2026 11:20:39 +0200</pubDate>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>47</sparkle:version>
+            <sparkle:shortVersionString>2.0.0-rc.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h3>2.0.0-rc.1: Release Candidate 1</h3>
+
+<p>
+  This is the first release candidate for Thaw&nbsp;2.0. It brings improved
+  display-switch handling (no unwanted layout re-sorts), per-profile spacing
+  relaunch preferences, and a resolution fix for generic Control-Center-hosted
+  slots.
+</p>
+
+<hr />
+
+<p><strong>New &amp; Improved:</strong></p>
+<ul>
+  <li>
+    <strong>Display Switch Stability:</strong> Switching between active displays
+    no longer triggers a re-sort of the saved layout. Items stay exactly where
+    they were placed.
+  </li>
+  <li>
+    <strong>Spacing Relaunch Preference:</strong> Before applying per-display
+    spacing that relaunches menu bar apps, Thaw now warns and saves the user's
+    choice per profile. No more unexpected relaunch waves.
+  </li>
+  <li>
+    <strong>Control Center Resolution:</strong> Generic Control-Center-hosted
+    slots are kept unresolved for the marker-pair resolver, preventing premature
+    attribution to <code>com.apple.controlcenter</code>.
+  </li>
+</ul>
+
+<hr />
+
+<p>
+  <em
+    >This is a release candidate for macOS&nbsp;26. Please report any issues on
+    <a href="https://github.com/thaw-app/Thaw/issues">GitHub</a>.</em
+  >
+</p>
+]]></description>
+            <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw_2.0.0-rc.1.zip" length="8084607" type="application/octet-stream" sparkle:edSignature="CAGnbE2BYG6YcRE7hWjCs8FbuWMsl2USt2qIMMm9cPgLoaZcY3kplfj+YKzVSDJEWQAJb3B1X2pupFFt2dSJDQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw47-46.delta" sparkle:deltaFrom="46" length="899102" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="RxgKFlg6oaIPhBEyX9UyIDp7BI1HUB79tvk0f8Gh4X0eAy9XKW+vWiOfXcXesMl/GLVhlI5hzNdwkvDefERSBg=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw47-45.delta" sparkle:deltaFrom="45" length="2433326" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="6xaoyBasPivApv9Q2uo+tcIj9u8tIX8fPmZip/NP1x+NfApv53RJ2D/PZLcluWO9UEvXMVr+9jiSz1t3zAY1BA=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw47-44.delta" sparkle:deltaFrom="44" length="2659538" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Mjuca2YhmGY5qI04DAryGSojpeLOsvtKUsHeyBR90kJ1wDQvm4E5VIhSEkf5FetWLs8FSByZuJxkbpFvDKOKBw=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw47-43.delta" sparkle:deltaFrom="43" length="3227158" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="7g+o/lvdl51Z6nCkafrPMUEUSqZyrl6cRol2fQJhuRkf7Ayhixoz2JTtS2UYTubLacNxGwyxpClOuGbwNUoGBQ=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw47-42.delta" sparkle:deltaFrom="42" length="3229598" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="hEFIPb1c4LLMK1DrnJHbL3N6nTi28qfXzVLdXKJGkVTb1Hzyc4B3hpapqL9MCxJiT/85oZLhFIGjEYpRt8csDg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>2.0.0-beta.15</title>
+            <pubDate>Mon, 08 Jun 2026 20:27:00 +0200</pubDate>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>46</sparkle:version>
+            <sparkle:shortVersionString>2.0.0-beta.15</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h3>
+  2.0.0-beta.15: Per-Item Hotkeys, Widget Resolution Hardening &amp; Clone Fix
+</h3>
+
+<p>
+  This release adds the ability to assign global hotkeys to individual menu bar
+  items, hardens Control-Center-hosted widget resolution for single-display Macs
+  and title-offset items, prevents system status item clones from corrupting the
+  managed layout, and enhances the onboarding experience.
+</p>
+
+<hr />
+
+<p><strong>New &amp; Improved:</strong></p>
+<ul>
+  <li>
+    <strong>Per-Item Hotkeys:</strong> Assign a global hotkey to any individual
+    menu bar item to open its menu on demand. Supports visible, hidden, and
+    always-hidden sections. Electron and Chromium items (e.g. Claude) use an
+    Accessibility press instead of a synthetic click. Persisted in profiles for
+    backup and restore.
+  </li>
+  <li>
+    <strong>Control Center Resolution by Title:</strong> New
+    <code>HostedItemOwnership.titleIndicatesOwner</code> fallback resolves
+    Control-Center-hosted items whose own AX child is offset more than 1&nbsp;px
+    from the CG window center (AirBuddy, SpamSieve, Cotypist).
+    Title-corroborated spatial matching with a 20&nbsp;px backstop - never
+    misattributes to unrelated neighbors.
+  </li>
+  <li>
+    <strong>Single-Display Resolution Hardening:</strong> VirtualDisplayProvoker
+    now re-anchors the real display as main, shrinks the phantom to 640×480,
+    reduces hold time from 12&nbsp;s to 4&nbsp;s, and replaces the retry
+    cooldown with a one-strike blacklist. Missing <code>AXEnabled</code>
+    attribute is now treated as enabled, fixing resolution for items like The
+    Clock.
+  </li>
+  <li>
+    <strong>System Status Item Clone Fix:</strong> Broadened
+    <code>isSystemClone</code> to match WindowServer clones regardless of
+    namespace (process name or bundle ID). Excluded at cache, placement, and
+    move chokepoints — clones no longer trigger full menu bar re-sorts or
+    displace real items.
+  </li>
+  <li>
+    <strong>Notch Overflow Guard:</strong> Profile layout no longer evaluates
+    notch overflow against unsettled display geometry.
+  </li>
+  <li>
+    <strong>Deferred Layout for Relaunched Apps:</strong> Layout is deferred
+    while a relaunched app's status item re-pairs with its window.
+  </li>
+  <li>
+    <strong>Profile Cache Re-Arm:</strong> Layout cache is re-armed when the
+    active profile is updated via the UI, so changes take effect immediately.
+  </li>
+  <li>
+    <strong>Onboarding:</strong> Enhanced onboarding experience with improved
+    app icon management.
+  </li>
+  <li>
+    <strong>Display Spacing Warning:</strong> A new warning callout alerts when
+    per-display spacing values differ, explaining the relaunch cost on display
+    connection. Uses a shared <code>WarningColor</code> asset.
+  </li>
+</ul>
+
+<hr />
+
+<p>
+  <em
+    >This is a beta release targeting macOS 26. Please report any issues on
+    <a href="https://github.com/thaw-app/Thaw/issues">GitHub</a>.</em
+  >
+</p>
+]]></description>
+            <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw_2.0.0-beta.15.zip" length="8065810" type="application/octet-stream" sparkle:edSignature="V6Y93njIO3ju8K4hONFBOASWVYJU6azO2QILB6yj3KW5y07XMyL8Dg53+RY4MG/2tVtC+gu4i+p482/Yuor+CA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-45.delta" sparkle:deltaFrom="45" length="2251850" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="7QZV2Ts/q6KZOeP1OzFbDxPFw03C6rveAtPAsGeIZcncggJOhydnLW+rpsU8sceODni//Oek8MC9mztiVsXFCA=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-44.delta" sparkle:deltaFrom="44" length="2540410" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="FG+5tCzeo/1bQVgCGLecS5niy5x7gatNbgRcvlqS8BpkbBkFmqCGkrhcGlWLCRCnAXIRIo/pLowLrWDcLL2MAA=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-43.delta" sparkle:deltaFrom="43" length="3165466" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="0BP+6SiCp3Mo9SsxZiwYweT8vyA6cZ6npmpfdAYacsScn/SWAnAqJzuuVFgBNwqW1VzJIiKwah5LGguyJPhFBA=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-42.delta" sparkle:deltaFrom="42" length="3167774" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="D9gVdypEWTVgpLh7k6s0HrvS20ztYtZ203ESd1PntQfaOlkYWzCn6azfU7LqqLve9sb8r72P52b3rOl/1/egCw=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-41.delta" sparkle:deltaFrom="41" length="3171658" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="cpxOCJVzyasQKpX8yd45z8FJVIkphTbzuVvhvTzB/+2CZVGf+1Ifo4HbGiuiw6j52/mmDjqpok26Mpg79pR/Dg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>2.0.0-beta.14</title>
+            <pubDate>Tue, 02 Jun 2026 03:07:17 +0200</pubDate>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>45</sparkle:version>
+            <sparkle:shortVersionString>2.0.0-beta.14</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h3>
+  2.0.0-beta.14: Single-Display Widget Resolution, Search Reorder &amp; Display
+  Template
+</h3>
+
+<p>
+  This release stabilizes Control Center widget resolution on single-display
+  setups via a virtual display provoker, adds section reorder and filtering to
+  the search panel, introduces a global template for per-display configuration,
+  and enables LCS sorting on notched displays by default.
+</p>
+
+<hr />
+
+<p><strong>New &amp; Improved:</strong></p>
+<ul>
+  <li>
+    <strong>Single-Display Widget Resolution:</strong> On single-display Macs,
+    the window server only publishes marker windows for Control-Center-hosted
+    items (Little Snitch, etc.) when two or more displays are present. A new
+    <code>VirtualDisplayProvoker</code> briefly creates a headless virtual
+    display to force marker publication, enabling resolution to the real owning
+    app. Unresolved orphans are left in place (never relocated) and the phantom
+    display is excluded from all Thaw display enumeration. Fixes
+    <a href="https://github.com/thaw-app/Thaw/issues/643">#643</a> via
+    <a href="https://github.com/thaw-app/Thaw/pull/655">#655</a>.
+  </li>
+  <li>
+    <strong>Search Panel Reorder:</strong> Sections in the search panel can now
+    be reordered and filtered for faster item location.
+  </li>
+  <li>
+    <strong>Global Display Template:</strong> A global template for per-display
+    configuration lets you set defaults applied to all displays.
+  </li>
+  <li>
+    <strong>Layout Bar Fixes:</strong> Fixed cross-section drag landing and
+    false move alerts in the layout bar.
+  </li>
+  <li>
+    <strong>LCS Default:</strong> LCS sorting on notched displays is now enabled
+    by default for new installations.
+  </li>
+  <li>
+    <strong>Search UI Polish:</strong> Added dividers between search section
+    rows and increased annotation spacing.
+  </li>
+  <li>
+    <strong>Plural-Aware Localization:</strong> Display count strings now use
+    proper plural forms via <code>String(localized:)</code> interpolation
+    instead of the hardcoded <code>(s)</code> hack.
+  </li>
+  <li>
+    <strong>Hook Label Width:</strong> Automation hook labels now size to the
+    widest localized string, fixing truncation in Polish, Spanish, and other
+    languages. Fixes
+    <a href="https://github.com/thaw-app/Thaw/issues/650">#650</a> via
+    <a href="https://github.com/thaw-app/Thaw/pull/653">#653</a>.
+  </li>
+  <li><strong>Localization:</strong> Multiple Crowdin translation updates.</li>
+</ul>
+
+<hr />
+
+<p>
+  <em
+    >This is a beta release targeting macOS 26. Please report any issues on
+    <a href="https://github.com/thaw-app/Thaw/issues">GitHub</a>.</em
+  >
+</p>
+]]></description>
+            <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw_2.0.0-beta.14.zip" length="8792789" type="application/octet-stream" sparkle:edSignature="KR3tt5cZcYr+YWI/7CFLrFM+9XKTZqnbhfZOGw6H6+HMet68yCctl5+kNFQ2xu0j51x+RB36EDUXdcNAWqjKBA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.14/Thaw45-44.delta" sparkle:deltaFrom="44" length="1050926" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="dJkfK0Aoi/oxCvuXgko219ASugo59PwNEyzGWFvxQ7dTlJDYb0KAe5tIzN2KHCrJ+lYbfpAW3fop1UdyJKvDCw=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.14/Thaw45-43.delta" sparkle:deltaFrom="43" length="1798610" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="6qpctj7saOE8rX9i0qaaVO6dZL7EnFu3LXp3fJsLmAIJeBdKaF8CX0/qstUZLk9OIGInY+LyerQPQdWo6Oa5AQ=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.14/Thaw45-42.delta" sparkle:deltaFrom="42" length="1799882" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="IDER2+ojsouzAIPtjkA4CSm7dhX0fi9BzSkbYdEIziwkTkTVI9W/qnu3bPoeYwoYrZk+LG+I96QB9HH96vGSDQ=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.14/Thaw45-41.delta" sparkle:deltaFrom="41" length="1806882" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="li0D8FvGaJfbCFpEu4SJADDbik+l1f0lEluXBAfjopLslo9d3RuUi8K+pYAdASoPjD03kLXUYLO8gfTbboMNAA=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.14/Thaw45-40.delta" sparkle:deltaFrom="40" length="1873898" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="YGRb+CaBPDBJnbQdCEii8kj5RHkts2u0FFP2xRXXtTILOR20nTrEAaMk092/SRn0LCw3k35KQitBEXCX2z6vCA=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>1.3.0-beta.1</title>
+            <pubDate>Thu, 16 Apr 2026 22:48:25 +0200</pubDate>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>31</sparkle:version>
+            <sparkle:shortVersionString>1.3.0-beta.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h3>1.3.0-beta.1: Profiles & Reliability</h3>
+
+<p>
+  This beta introduces <strong>Settings Profiles</strong>, allowing you to save
+  and switch between different Thaw configurations. Profiles can be triggered
+  automatically based on display changes or Focus modes.
+</p>
+
+<hr />
+
+<p><strong>New Features:</strong></p>
+<ul>
+  <li>
+    <strong>Settings Profiles:</strong> Save your entire Thaw configuration as a
+    profile and switch between different setups instantly. Perfect for different
+    workflows, presentations, or multi-monitor configurations.
+    <ul>
+      <li>Create, duplicate, rename, and delete profiles</li>
+      <li>Import and export profiles for backup or sharing</li>
+      <li>
+        Update existing profiles with current layout, configuration, or both
+      </li>
+    </ul>
+    <em
+      >Thanks to <a href="https://github.com/nightah">@nightah</a> for
+      implementing this feature!</em
+    >
+  </li>
+  <li>
+    <strong>Display Auto-Switch:</strong> Assign profiles to specific displays.
+    When you connect a display, its associated profile is automatically applied.
+  </li>
+  <li>
+    <strong>Focus Mode Integration:</strong> Switch profiles automatically when
+    Focus modes activate. Add Thaw as a Focus Filter in System Settings → Focus
+    → [Mode] → Focus Filters to assign a profile to each Focus mode. The
+    previous profile is restored when the Focus mode deactivates.
+  </li>
+  <li>
+    <strong>Profile Hotkeys:</strong> Assign keyboard shortcuts to quickly
+    switch between your favorite profiles.
+  </li>
+  <li>
+    <strong>New Items Badge:</strong> A draggable badge in Menu Bar Layout
+    settings lets you control exactly where newly detected menu bar items will
+    appear. Drag it to position new items to the left or right of existing
+    icons.
+  </li>
+  <li>
+    <strong>Option-Click Always Hidden:</strong> New setting to toggle the
+    always-hidden section with Option+click on empty menu bar space.
+  </li>
+  <li>
+    <strong>Icon Overflow for Notch Displays:</strong> Improved handling of menu
+    bar items on MacBooks with a notch. Items that would be hidden behind the
+    notch are now properly managed.
+  </li>
+</ul>
+
+<hr />
+
+<p><strong>Improvements & Fixes:</strong></p>
+<ul>
+  <li>
+    <strong>App Menu Click-Through:</strong> Fixed issues where clicking on
+    application menus (File, Edit, View, etc.) would incorrectly trigger Thaw's
+    show-on-click, hover, or scroll behaviors. App menus now work reliably.
+  </li>
+  <li>
+    <strong>Event Monitor Recovery:</strong> Added automatic health checking and
+    recovery for background event monitors. If mouse click detection stops
+    working, Thaw now recovers automatically instead of requiring a restart.
+  </li>
+  <li>
+    <strong>Layout Bar Stability:</strong> Fixed items disappearing from the
+    layout bar during reorder operations, after reset, or when new items appear.
+  </li>
+  <li>
+    <strong>New Items Badge Position:</strong> Fixed the badge jumping to
+    incorrect positions when reordering other items around it. The badge now
+    stays in place unless explicitly dragged.
+  </li>
+  <li>
+    <strong>IceBar Click Responsiveness:</strong> Reduced click jitter when
+    interacting with items in the IceBar.
+  </li>
+  <li>
+    <strong>Context Menu Size:</strong> Fixed context menus appearing
+    unexpectedly large in certain situations.
+  </li>
+  <li>
+    <strong>Secondary Display Support:</strong> Fixed right-click context menu
+    not working on secondary displays.
+  </li>
+</ul>
+
+<hr />
+
+<p>
+  <em
+    >This is a beta release. Please report any issues you encounter on
+    <a href="https://github.com/thaw-app/Thaw/issues">GitHub</a>.</em
+  >
+</p>
+]]></description>
+            <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw_1.3.0-beta.1.zip" length="5220414" type="application/octet-stream" sparkle:edSignature="MPnlOmjcKuGkXmSTeV3vTOTvkcTIo21rULlpJcNi8m2wyt5UdvY1hE4mxJ48XwV6CEV5DSKufj9JiFKGkHPPDQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw31-30.delta" sparkle:deltaFrom="30" length="1193342" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="aC32Jd9STWakWrDw0UW/sSosof2B5ZvZCAWS8zCoVbCOSAbqhdW+nzehpWI6bUzLdw6DI1nXmjVvXszobvCWBw=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw31-29.delta" sparkle:deltaFrom="29" length="2135094" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="aB3X+XmZAZDrHDrt8oTQtyD6LSchIk71Yuq+VVIofv1Wh49Ni1A8GaaRPcxEkdE2gkg+S6W2b2MW2KVjo1HVAg=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw31-28.delta" sparkle:deltaFrom="28" length="2124466" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="xFr8wOOD4hicmigGRNoePdmmbG7ozhsjvPwa3nZMTvUjwtXtvQPBx/nA0N7l1n1FEmMXVSBC9ri2lNhKgX6UCA=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw31-27.delta" sparkle:deltaFrom="27" length="2129718" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="mZ1zcGEtHs5TzlERMZ5NoUdy6tYABLVeUhH3CLHtlBRXMv0xqUmv+4g4bJ8fhvIjXbol/iH48Q11UOKb+Z3KAg=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw31-26.delta" sparkle:deltaFrom="26" length="2134286" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="+C5VUw5gMzx02u8jHYRcUOxDAQgMJRrTubfGwK5Hi9rxMyMR0TaiaqAjflgfkZCxuQjXhx0ZMf12Pjgy4ocVCg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>1.2.0</title>
+            <pubDate>Mon, 13 Apr 2026 23:32:49 +0200</pubDate>
+            <sparkle:version>30</sparkle:version>
+            <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h3>1.2.0: Icon Management Evolved</h3>
+
+<p>
+  <strong>Important Note:</strong> This release introduces significant
+  improvements to how Thaw manages menu bar item positions. Your icon positions
+  are now automatically saved and restored across app restarts. If you
+  experience any issues with icon positioning, use the new
+  <strong>"Reset Thaw"</strong> button in Advanced Settings to restore default
+  settings.
+</p>
+
+<hr />
+
+<p><strong>New Features:</strong></p>
+<ul>
+  <li>
+    <strong>Icon Position Persistence:</strong> Thaw now remembers where your
+    icons belong! Menu bar items are automatically restored to their saved
+    sections (visible, hidden, or always-hidden) after app restarts or system
+    reboots. No more manually re-sorting icons after logging in.
+  </li>
+  <li>
+    <strong>Custom Menu Bar Item Names:</strong> You can now rename any menu bar
+    item with a custom name of your choice. Perfect for giving cryptic icons a
+    more descriptive label or organizing your workflow.
+  </li>
+  <li>
+    <strong>Menu Bar Item Tooltips:</strong> Enable optional tooltips that
+    appear when hovering over items in the actual menu bar. Know exactly what
+    each icon represents without clicking.
+  </li>
+  <li>
+    <strong>URL Scheme Support:</strong> External tools like Raycast can now
+    control Thaw via the <code>thaw://</code> URL scheme. Toggle the Thaw Bar,
+    show or hide sections, and more using custom commands.
+  </li>
+  <li>
+    <strong>Manual Application Menu Toggle:</strong> Added a configurable hotkey
+    to manually toggle application menu visibility. Useful for presentations or
+    when you need the full menu bar width temporarily.
+  </li>
+  <li>
+    <strong>Thaw Bar Hover Highlight:</strong> Items in the Thaw Bar now show a
+    subtle background highlight when hovered, making it easier to identify which
+    item you're about to interact with.
+  </li>
+  <li>
+    <strong>Conflicting Apps Detection:</strong> Thaw now detects when other
+    menu bar management apps are running and warns you about potential
+    conflicts.
+  </li>
+  <li>
+    <strong>Per-Display Settings:</strong> Configure "Always show hidden items"
+    and Thaw Bar positioning independently for each connected display. Perfect
+    for multi-monitor setups with different screen sizes or notch
+    configurations.
+  </li>
+  <li>
+    <strong>Reset Thaw Button:</strong> A new reset button in Advanced Settings
+    allows you to quickly restore all Thaw settings to their defaults when
+    troubleshooting.
+  </li>
+</ul>
+
+<hr />
+
+<p><strong>Improvements & Fixes:</strong></p>
+<ul>
+  <li>
+    <strong>Startup Stability:</strong> Fixed the "icon parade" issue where
+    icons would continuously shuffle for 10–15 seconds after login. Thaw now
+    enters a settling period during startup to prevent premature rearrangement.
+  </li>
+  <li>
+    <strong>Multi-Icon App Support:</strong> Apps with multiple menu bar icons
+    (such as Stats, Hammerspoon, and iStat Menus) now stay properly organized in
+    their designated sections instead of gradually migrating to the visible menu
+    bar over time.
+  </li>
+  <li>
+    <strong>Memory Optimizations:</strong> Reduced memory usage by skipping
+    wallpaper captures when not needed, clearing stale caches when displays
+    disconnect, and adding proper cleanup for background tasks.
+  </li>
+  <li>
+    <strong>Performance:</strong> Throttled mouse event handling and optimized
+    image caching to reduce CPU usage and improve overall responsiveness.
+  </li>
+  <li>
+    <strong>Privacy:</strong> Added screen recording permission checks for
+    tooltips and search features. These options are now hidden in settings when
+    permissions are not granted.
+  </li>
+  <li>
+    <strong>Visual Refinements:</strong> Improved IceBar item highlight sizing
+    with better corner radius and padding for a more modern appearance that
+    matches macOS design language.
+  </li>
+  <li>
+    <strong>Same-Icon Differentiation:</strong> Fixed a bug where different apps
+    sharing the same icon were conflated. Thaw now correctly identifies items by
+    their source application.
+  </li>
+  <li>
+    <strong>Auto-Rehide Reliability:</strong> Improved the rehide logic to
+    prevent items from staying visible longer than intended, and fixed cases
+    where manual hide states could get stuck.
+  </li>
+</ul>
+
+<hr />
+
+<p><strong>Localization:</strong></p>
+<p>
+  Thaw now supports <strong>17 languages</strong> with 100% completion! A huge
+  thank you to our community contributors:
+</p>
+<ul>
+  <li>
+    <strong>Bahasa Indonesia:</strong> by
+    <a href="https://github.com/volcbs">@volcbs</a>
+  </li>
+  <li><strong>Čeština (Czech):</strong> new in this release</li>
+  <li>
+    <strong>Deutsch:</strong> by
+    <a href="https://github.com/Mutzki13">@Mutzki13</a>
+  </li>
+  <li>
+    <strong>Español:</strong> by
+    <a href="https://github.com/diazdesandi">@diazdesandi</a>
+  </li>
+  <li>
+    <strong>Français:</strong> by
+    <a href="https://github.com/UYTR5">@PipaCode</a>
+  </li>
+  <li>
+    <strong>Italiano:</strong> by
+    <a href="https://github.com/zichichi">@zichichi</a>
+  </li>
+  <li><strong>日本語 (Japanese):</strong> new in this release</li>
+  <li>
+    <strong>한국어 (Korean):</strong> by
+    <a href="https://github.com/yurihan">@YuriHan</a>
+  </li>
+  <li>
+    <strong>Magyar (Hungarian):</strong> by
+    <a href="https://github.com/johnnybakucz">@johnnybakucz</a>
+  </li>
+  <li>
+    <strong>Nederlands (Dutch):</strong> by
+    <a href="https://github.com/SeBr28">@SeBr28</a>
+  </li>
+  <li><strong>Polski (Polish):</strong> new in this release</li>
+  <li><strong>Português (Brasil):</strong> new in this release</li>
+  <li><strong>Русский (Russian):</strong> new in this release</li>
+  <li>
+    <strong>简体中文 (Chinese Simplified):</strong> by
+    <a href="https://github.com/picpo">@PiCpo</a>
+  </li>
+  <li>
+    <strong>正體中文 (Chinese Traditional):</strong> by
+    <a href="https://github.com/7a6163">@7a6163</a>
+  </li>
+  <li>
+    <strong>ภาษาไทย (Thai):</strong> by
+    <a href="https://github.com/priesdelly">@priesdelly</a>
+  </li>
+  <li><strong>Türkçe (Turkish):</strong> new in this release</li>
+</ul>
+
+<p>
+  <em
+    >Thank you to everyone who tested the beta versions and provided feedback
+    that made this release possible!</em
+  >
+</p>
+]]></description>
+            <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw_1.2.0.zip" length="4771584" type="application/octet-stream" sparkle:edSignature="O9JLUo/EVoKhrzT8q/t/5EPKTJTXLgMR3t+Rud5YUqJTTjgfMWukeMblHnoQXukGrxaQ/1KMuxHNWSySUDDEBw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw30-29.delta" sparkle:deltaFrom="29" length="1605326" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="65q/LwMH9NEWgvfSsMLdRP1irdzr5dwpVRtKqy+7nCdYHqDLC7wNdH/ps25STpPdQWSF5A/66C9qmNP1/VrCBg=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw30-28.delta" sparkle:deltaFrom="28" length="1592774" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="LexvcBL/M5oiua0bhC2O1ArqHaNpq8wHCbUcP2ZCjxnwqeZqvDOVPeN2/vbVqo7xvhR/d390o7gg8Phlwcy+AQ=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw30-27.delta" sparkle:deltaFrom="27" length="1606194" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="AOyD17QyDvFi9YnjTf6pV3xCvcne62TVP9+SrBCE3/bnezSIhy7SpcfBUwnk1FUvQE/ua6h9VZimlfcPs1EKAw=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw30-26.delta" sparkle:deltaFrom="26" length="1602226" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Pw3NbS8QjBfg1hvKdT5yiPKOYgUm98Uge4vax1xuPTZyfKmP5D2IUsgMseLyeLIZswDFXw+W6IIV3Jxr9LIoDg=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw30-25.delta" sparkle:deltaFrom="25" length="1620250" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="h0qaPYuwleFIN6xoFofcTR8o9tAvXr14NWJZqXdwRrL7NWJVfEP4Uj0NGnVDJ/+GdUgxMys2/qL1lcfOhO5fBQ=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>1.2.0-rc.4</title>
+            <pubDate>Mon, 23 Mar 2026 20:54:38 +0100</pubDate>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>29</sparkle:version>
+            <sparkle:shortVersionString>1.2.0-rc.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h3>1.2.0-rc.4: Localization Refinement & Stability Improvements</h3>
+
+<ul>
+  <li>
+    <strong>Internationalization Updates:</strong>
+    <ul>
+      <li>
+        Finalized Czech (CS) language updates for the 1.2.0 release cycle.
+      </li>
+      <li>Updated Turkish (TR) translations.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Fixes:</strong>
+    <ul>
+      <li>
+        Reverted "Robust Icon Position Handling" to address regression issues
+        and maintain system stability while the feature is further refined.
+      </li>
+    </ul>
+  </li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw_1.2.0-rc.4.zip" length="4702276" type="application/octet-stream" sparkle:edSignature="ixRRB1jxVMOXN1aVhO+Wzu6xIplTG837VPAxJRcdt6ex92AUYI1He2aCDS1k9OXWP9TPXebX1yyEPyTCXAU0DA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.2.0/Thaw29-28.delta" sparkle:deltaFrom="28" length="495966" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="JVrJs8iej3iWgHYr83/R1+v6CCxIvrMLyfUOLQ2uuo5EitC6jK/fQQM3tdSfS8nWKAeFLJ51Y1O9Piqpxs8HCA=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.2.0/Thaw29-27.delta" sparkle:deltaFrom="27" length="446714" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="tU1wCIcc9VUOhAlPHnpv+ZP/nlYUepn/55W3YoDho6WNlsHIO8RsnNu/9X2N0AzKmDnq6PLPjfCmg3K0f4UvAw=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.2.0/Thaw29-26.delta" sparkle:deltaFrom="26" length="455134" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="r3h+q8Xq+1SxELsCpcAZbWbvMMH2wg7d7U6m5Xpe4t2L8B4siDgaVMV/aCWv3+Gdls7+oYf6ZPevXAuV5UF/BQ=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.2.0/Thaw29-25.delta" sparkle:deltaFrom="25" length="481922" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Cdal/smNkVJxqELbCsq00BH9zeBxnmR0d0hWk0yj3gs7ixfioKHvwpuIPk0nKmiHzTxVe+DobymPE5kE1KxNAQ=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.2.0/Thaw29-24.delta" sparkle:deltaFrom="24" length="545330" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="fYi4nq6OAzRZwEEpigl/fAAmYyITBNmJhOugfWjkb12G+FWtG3OLTrCR1rAnVfhvhGvuJ7YjsYyu30u/mXW9Dw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>1.1.0</title>
+            <pubDate>Tue, 17 Feb 2026 08:17:19 +0100</pubDate>
+            <sparkle:version>14</sparkle:version>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h3>1.1.0: Breaking the Ice</h3>
+
+<p>
+  <strong>⚠️ Important Note:</strong> Due to essential internal changes in how
+  Thaw manages menu bar items, your current icon positions will be reset to
+  "Always Visible." I sincerely apologize for the inconvenience, but this manual
+  re-adjustment is unavoidable to ensure future stability.
+</p>
+
+<hr />
+
+<p><strong>Localization Support:</strong></p>
+<p>
+  Thaw is now available in 12 languages with 100% completion. A huge thank you
+  to our community contributors:
+</p>
+<ul>
+  <li>
+    <strong>Chinese (Simplified):</strong> by
+    <a href="https://github.com/picpo">@PiCpo</a>
+  </li>
+  <li>
+    <strong>Chinese (Traditional):</strong> by
+    <a href="https://github.com/7a6163">@7a6163</a>
+  </li>
+  <li>
+    <strong>Dutch:</strong> by
+    <a href="https://github.com/SeBr28">@SeBr28</a>
+  </li>
+  <li>
+    <strong>French:</strong> by
+    <a href="https://github.com/UYTR5">@PipaCode</a>
+  </li>
+  <li>
+    <strong>German:</strong> by
+    <a href="https://github.com/Mutzki13">@Mutzki13</a>
+  </li>
+  <li>
+    <strong>Hungarian:</strong> by
+    <a href="https://github.com/johnnybakucz">@johnnybakucz</a>
+  </li>
+  <li>
+    <strong>Indonesian:</strong> by
+    <a href="https://github.com/volcbs">@volcbs</a>
+  </li>
+  <li>
+    <strong>Italian:</strong> by
+    <a href="https://github.com/zichichi">@zichichi</a>
+  </li>
+  <li>
+    <strong>Korean:</strong> by
+    <a href="https://github.com/yurihan">@YuriHan</a>
+  </li>
+  <li>
+    <strong>Spanish:</strong> by
+    <a href="https://github.com/diazdesandi">@diazdesandi</a>
+  </li>
+  <li>
+    <strong>Thai:</strong> by
+    <a href="https://github.com/priesdelly">@priesdelly</a>
+  </li>
+</ul>
+
+<hr />
+
+<p><strong>Changes and Fixes:</strong></p>
+<ul>
+  <li>
+    <strong>Multi-Monitor Support:</strong> Improved app menu hiding logic to
+    correctly account for screen edges and active menu bars across multiple
+    monitors.
+  </li>
+  <li>
+    <strong>Ultra-wide Monitor Fix:</strong> Resolved an issue where menu bar
+    items were incorrectly included in calculations, which previously caused
+    "Hidden" and Always Hidden" items to appear incorrectly on the left side of
+    ultra-wide screens.
+  </li>
+  <li>
+    <strong>Refined Notch Detection:</strong> Implemented
+    <code>auxiliaryTopLeftArea</code> for more accurate notch detection and
+    added an option to enable the IceBar only on displays with a notch.
+  </li>
+  <li>
+    <strong>Immediate UI Updates:</strong> Menubar shapes (split/full) now
+    update instantly when settings are changed, eliminating the previous
+    30-second delay.
+  </li>
+  <li>
+    <strong>Display-Specific Layouts:</strong> Fixed an issue where menu bar
+    items from primary displays were incorrectly included in trailing path
+    calculations for external monitors.
+  </li>
+  <li>
+    <strong>Performance Optimizations:</strong> Reduced CPU usage by debouncing
+    image cache updates, adding polling delays, and skipping background timer
+    tasks when panels are hidden.
+  </li>
+  <li>
+    <strong>Simplified Settings:</strong> Removed the redundant "temporary item
+    delay" setting as the smart rehide logic now handles these cases
+    automatically.
+  </li>
+  <li>
+    <strong>Thaw Bar Scaling Fix:</strong> Resolved a scaling issue in the Thaw
+    Bar by clamping the menu bar content height and capping item height to
+    ensure consistent rendering.
+  </li>
+  <li>
+    <strong>New Interaction:</strong> Added the ability to double-click directly
+    on the menu bar to reveal the "Always Hidden" section.
+  </li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw_1.1.0.zip" length="4186088" type="application/octet-stream" sparkle:edSignature="vB4VOLiiomUjXRfCLkmio+POnp83MbT5eruqPnIwrS3E2Z3/XH/nLRO3yWXP+3D9DGkt7PIYVXReixmCxyWoCw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.2.0-rc.4/Thaw14-13.delta" sparkle:deltaFrom="13" length="351750" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860560" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="lnwhEv7F22kPcS9IIcHJiRzBeTg+0CKKbrnQaqFJjpCb+OERkD47xaVXEeV5olQvd1gjtK7YYpw7nPzuSZHgAg=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.2.0-rc.4/Thaw14-12.delta" sparkle:deltaFrom="12" length="382910" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860560" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="GD3u04d8HM9XBmSbHan6u0oEeeFDlwEQsw5tbz+uHke2AG7KpH4jHjzbViE7RIvvivu8TutTjmx8nE0u4vM+Ag=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.2.0-rc.4/Thaw14-11.delta" sparkle:deltaFrom="11" length="876770" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860560" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="bekOLi8OAylT5BFACTFqtSjtntaQBHXo5HxXHQgo+QGhOgz2OOXDVV7InT0yHK+JG2EvrurjvCe0PfzFn/iiBA=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.2.0-rc.4/Thaw14-10.delta" sparkle:deltaFrom="10" length="946162" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860560" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="xSjow8C9/Meov4mjv9bc6OGUshlFqnGbBAwrrxCxI5c9eJqJFy39zjNhw4Unnz2e2velCnkb/2TL+zH7mhZ0Bg=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.2.0-rc.4/Thaw14-9.delta" sparkle:deltaFrom="9" length="1083418" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860560" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="NB0GjSCze67jzDKZnMH+x2DhU5pcL71Aaq0aUlzxnytZop3jiIgBaWoDAnU8yWV7iJtBlykVuFnOPa2JScb/AQ=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>1.0.0</title>
+            <pubDate>Thu, 05 Feb 2026 13:43:24 +0100</pubDate>
+            <sparkle:version>5</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h3>1.0.0: The Official Release</h3>
+
+<p>
+  Thaw has reached its first stable milestone! This release consolidates all the
+  progress from the beta period into a polished, reliable menu bar manager.
+</p>
+
+<p><strong>Latest Improvements (since beta 4):</strong></p>
+<ul>
+  <li>
+    <strong>Enhanced Reliability:</strong> Stabilized HIDEventManager logic to
+    prevent "show on hover" and "show on click" from stopping after repeated use
+    and prevent saving chevron divider position which could leave Thaw in an
+    unusable state.
+  </li>
+  <li>
+    <strong>UI Polish:</strong> Condensed the menu bar tooltip for a cleaner
+    look and added explicit double-click instructions.
+  </li>
+  <li>
+    <strong>System Safety:</strong> Improved thread safety by synchronizing
+    access to the cursor hide count.
+  </li>
+  <li>
+    <strong>Apple Menu Fix:</strong> Refined synthetic press offsets to ensure
+    Thaw never accidentally triggers the Apple menu.
+  </li>
+</ul>
+
+<hr />
+
+<p><strong>Highlights from the Journey to 1.0:</strong></p>
+<ul>
+  <li>
+    <strong>The Big Thaw:</strong> Successfully forked and rebranded with a new
+    identity, app icon, and independent bundle ID
+    (<code>com.stonerl.Thaw</code>).
+  </li>
+  <li>
+    <strong>Ice Migration:</strong> Built-in support to import your old settings
+    and control item positions from Ice.
+  </li>
+  <li>
+    <strong>Advanced Control:</strong> Introduced "Double-Click to Reveal" for
+    always-hidden items and "Smart Rehide" strategies.
+  </li>
+  <li>
+    <strong>Modern macOS Support:</strong> Optimized for stability on macOS 26.
+  </li>
+  <li>
+    <strong>Performance:</strong> Faster icon caching, display-aware state
+    refreshing, and thread-safe operations.
+  </li>
+</ul>
+
+<hr />
+
+<p><strong>Known Issues:</strong></p>
+<p>
+  If you are currently on macOS 14 or 15, please be aware that
+  <strong>Thaw</strong> currently has some known bugs regarding temporary icons
+  in the floating <strong>Thaw bar</strong>.
+</p>
+<p>
+  I am actively investigating these issues and will release a fix as soon as
+  possible. You can track the progress of this issue here:
+  <a href="https://github.com/thaw-app/Thaw/issues/1">GitHub Issue #1</a>.
+</p>
+
+<p>
+  <em
+    >Thank you for all the feedback during the beta period that made this
+    release possible!</em
+  >
+</p>
+]]></description>
+            <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw_1.0.0.zip" length="3736682" type="application/octet-stream" sparkle:edSignature="jxT+g1muFLQZ/gygWGSQtjZ+W/o4O0xY87key1TOcUvFeJ9MQ1LVYhqc92sGLBxYc4qA6p6xC6qnDn1lpV1QCg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.0.1-beta.8/Thaw5-4.delta" sparkle:deltaFrom="4" length="285970" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860560" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Bro3YrOODS13w3atnsp8o5g40UNIMpHg/2AljH8n/3xvJ2pHhFo4MvjVvBPMnn69eJeVU8R39dAj3mYMzDCUCg=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.0.1-beta.8/Thaw5-3.delta" sparkle:deltaFrom="3" length="317774" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860560" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="/k/zQ10s7eMNS2+tPObVNoHpqgt1NVvX1PBKDpRKd4otqh3axF5UaaR0J+1kwHG0JJ7IQrAtce9Q7T3CzEFuCQ=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.0.1-beta.8/Thaw5-2.delta" sparkle:deltaFrom="2" length="473150" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860560" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="1tTC5J029VhG/pZi03P1jJPQ9u+U2F8xVlvx/b7aE71tTc0FbbP0ZAN7YBhg8EJMAQuErMh5C5qH7VXwES46BQ=="/>
+                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/1.0.1-beta.8/Thaw5-1.delta" sparkle:deltaFrom="1" length="939110" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="860560" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="jGxywVwG5g7I2H42Cda8pQbSyku40yT9TijvijH1IoaB4jC1NTEspCWT8DOzPZ17g1pAZeTQtlsHNj8R1uZYCQ=="/>
+            </sparkle:deltas>
+        </item>
+    </channel>
+</rss>
