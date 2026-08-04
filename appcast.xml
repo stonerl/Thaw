@@ -3,52 +3,207 @@
     <channel>
         <title>Thaw</title>
         <item>
+            <title>2.0.0-rc.2</title>
+            <pubDate>Tue, 04 Aug 2026 22:21:52 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.0-rc.2</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>48</sparkle:version>
+            <sparkle:shortVersionString>2.0.0-rc.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[This RC is a large reliability and platform update: menu bar identity/ordering, layout persistence, notch overflow, settings UI, Swift 6.2 / concurrency, and Sparkle update hosting.
+
+---
+
+### Highlights
+
+- **Menu bar reliability overhaul** — safer saved-layout apply/persist, stronger item identity matching, and fewer false “reorder storms,” especially with Control Center items, dynamic titles, and multi-display setups.
+- **Settings & onboarding refresh** — redesigned settings UI, glass tour onboarding, stronger AX identity / click paths.
+- **Swift 6.2 + approachable concurrency** — MainActor default isolation on the app target, AXSwift6, EventTap synchronization, and cleanup of pre–Swift 6 GCD/Timer patterns.
+- **Update distribution** — Sparkle ZIP/deltas/appcast publish to `thaw-app/updates`, with a mirror for legacy `stonerl` Pages installs.
+
+---
+
+### Menu bar & layout
+
+#### Identity, ordering, and clicks
+- Deterministic visual ordering with stable identifier tie-breaks (no more shuffle when `minX` ties).
+- Volatile metric titles (e.g. `CPU 12%` → `CPU 43%`) canonicalized so saved layouts and failure ledgers keep matching; prune stale title-variant saved entries that fueled reorder storms (#842, thanks @danielhopkins).
+- Stop provisional identities from scrambling saved layout (#863).
+- Failure ledger stamped with build version so marks clear on update; avoid exclusivity violation when persisting the ledger (thanks @VailElla).
+- Click reaction verification: success only if the owner shows a real UI reaction, not just event delivery.
+- AX identity catalog + ControlItemPair frame fallback (fixes silent hidden-section death when control items could not be identified, #754).
+- Optional AX click delivery (`useAXClickDelivery`, default off) with synthetic-click fallback.
+- Report control items the menu bar accepts but does not render (notch occlusion), with consecutive-sample confirmation (#570).
+- Unresponsive owner / window-mismatch error types for clearer click failure handling.
+
+#### Saved layout & persistence
+- Do not move items on untrustworthy observations (#849).
+- Block `saveSectionOrder` while layout divergence is still pending.
+- Do not persist collapsed hidden sections (#795).
+- Do not persist layouts with an unresolved always-hidden divider (#849).
+- Do not persist notch-overflow ejections as user intent (#790 / #796, thanks @lathe-agent-oa).
+- Skip bulk apply while source PIDs are unresolved (#784 / #785, thanks @lathe-agent-oa).
+- Refuse saved-layout bulk apply while the hidden-section dividers are collapsed / zero-width — same `hiddenSectionHasRoom` gate the save path already uses — so a collapsed reading cannot drag the whole hidden section and then get persisted (#868 / #876, thanks @TheBenMeadows).
+- Revalidate hidden-section geometry before the move batch runs so apply does not proceed on a stale collapsed reading (#876).
+- Prefer exact saved identifiers; avoid ambiguous multi-instance divergence matches (#714 / #716, thanks @t4sh).
+- Defer apply/persist on unsettled or cross-display geometry; clear stuck profile flags (#702, #717, #743).
+- Restore unresolved-`sourcePID` gate in `applySavedLayout`.
+- Ignore unresolved Control Center placeholders (#810, thanks @VailElla).
+- Resolve parked items titled with their bundle ID (e.g. Little Snitch) (#709, #795 / #797, thanks @lathe-agent-oa).
+- Restore legacy profile layout snapshots (#778 / #779, thanks @ShiroKSH).
+- Delete profile manifest entries even when the file is already missing.
+- Negative-cache TTL for source PID lookups uses per-window backoff instead of a flat 60s (#856, thanks @lathe-agent-oa).
+
+#### Notch overflow
+- Only run overflow on the main display; fail closed if active menu bar display is unknown (#808 / #809, thanks @lathe-agent-oa).
+- Keep the visible control item in place during overflow (#742).
+- Keep overflow running outside profile applies.
+- Avoid redundant full-sort replays (#822, thanks @alvst).
+
+#### Moves, rehide, and multi-instance
+- Defer item moves while a menu bar item menu is tracking.
+- Require stable divergence; suppress bulk cursor warps (#705, #723, #736, #750).
+- Stop bulk-apply pointer hijack; release on user input.
+- Keep menu bar move events out of screen corners — stops Hot Corner / Show Desktop false triggers (#625, #766 / #774, thanks @ZeterMordio).
+- Recover blocked items before alerting on hidden-section drags (#744).
+- Recover control items after lookup failure.
+- Bail instead of trapping on inverted control-item order.
+- Keep timed rehide armable after deferred rehide; anchor rehide to a neighbor in the item’s own section so temporarily shown items are not rehidden into Visible (#859 / #860, thanks @andredlng).
+- Prevent duplicate Thaw instances from competing (#821, thanks @alvst).
+- Avoid repeated source PID cache scans (#820, thanks @alvst).
+- Each layout-reset waiter gets its own cache continuation.
+- Configurable pre-move input-pause threshold (#756, thanks @subway-jack).
+- Fall back to Thaw Bar when hiding app menus under fullscreen (#740 / #741, thanks @auspic7).
+- Defer/stabilize moves that previously relocated system modules mid-interaction (e.g. AudioVideoModule / WeType, #746) and reduced cursor teleport / dance storms (#718, #723, #750).
+
+---
+
+### Settings, profiles & onboarding
+
+- **Settings UI redesign** (native grouped forms, relocated options, refreshed Ice UI primitives, sidebar search).
+- **Glass tour** onboarding in first-launch and settings.
+- Unconfigured displays fall back to **global configuration** instead of hardcoded defaults (fixes spacing resets on Space/display changes).
+- Ice V1 appearance data converted at import time.
+- Cleared hotkey bindings removed instead of persisting JSON `null`.
+- Authorization retry allowed after denial (#780 / #781, thanks @VailElla).
+- Full onboarding button hit targets (#724, thanks @eli-yip).
+- IceBar naming leftover on an Advanced setting corrected (#829).
+- Settings About/repository URL updated (thanks @cbguder).
+- Hidden debug flags moved into the Defaults registry.
+- Unreachable Ice-era migrations removed.
+- Layout reset target picker with legacy section moves.
+
+---
+
+### Appearance, capture & IceBar
+
+- Tint no longer covers menu bar items; tint renders above the menu bar under Reduce Transparency (#844, #700).
+- Capture bounds validated before WindowServer handoff (#759 / #813).
+- Individual captures use the captured scale (layout icon sizing, #703).
+- SCStream pinned to 32BGRA; shareable-content fetches coalesced.
+- Image cache: LRU/concurrency overhaul, lossless disk keys, rate-limited on-screen capture, stale display ID fallback (#749, thanks @hxu).
+- Memory: detach cropped glyphs, lower icon refresh, stop background captures (#680).
+- Tooltips stay above Thaw Bar / IceBar grid (#760 / #782, thanks @VailElla) with watchdog placement (#734).
+- Cursor restore after profile apply uses CoreGraphics space (fixes multi-monitor warp).
+- Virtual display resolver removed (brief resolution / screen-shrink side effects, #708).
+
+---
+
+### Accessibility, hooks & events
+
+- Bounded AX messaging timeouts in the item service and event path (#767).
+- Consolidated item failure ledgers; quieter expected `procNotFound`.
+- Hook timeouts bounded with process-group teardown; teardown restored after Subprocess 0.5 upgrade.
+- Mouse-moved handling throttled by time, not event count.
+- Shared/adaptive Mission Control detection (#777).
+- EventTap shared runtime state synchronized.
+- Clicking items in Thaw Bar no longer spikes CPU via runaway work (#757).
+
+---
+
+### Performance
+
+- Rate-limited on-screen image capture path.
+- Memoized per-row item search work.
+- Shared Mission Control detection.
+- Time-based mouse-moved throttle.
+
+---
+
+### Platform & engineering
+
+- **Swift 6.2** packaging alignment.
+- MainActor default isolation on the app target.
+- `@Observable` migration for ObservableObject surfaces.
+- `SourcePIDCache` converted to an actor.
+- Hooks/spacing via `swift-subprocess` (0.5).
+- `swift-algorithms` adopted; package-underuse cleanup.
+- Virtual display resolver removed.
+- `SettingsURIParser` extracted; fuzz + contract tests.
+- Broader unit coverage (settings, HID, replay, layout gates, URI, search, Swift Testing migration).
+- Sonar excludes Icon Composer bundles (thanks @VailElla).
+
+---
+
+### Release, CI & docs
+
+- Sparkle payloads published to **`thaw-app/updates`** (#840); DMGs remain on GitHub Releases.
+- Appcast mirrored to legacy **stonerl Pages** (#843).
+- Org CI / brand-assets adoption; Sparkle no longer auto-publishes on every tag push.
+- OpenSSF / Scorecard / CodeQL / SLSA provenance / OSV SCA hardening; Sonar coverage path fix.
+- README restyle/restructure; `RELEASES.md`, verifying releases, governance/security docs; contribution/install docs (thanks @t4sh); URI scheme docs (thanks @davidnichols-ops).
+- Crowdin / localization syncs (#694, #804–#807).
+
+---
+
+### Contributors
+
+Thanks to everyone who landed fixes in this RC:
+
+@alvst · @andredlng · @auspic7 · @cbguder · @danielhopkins · @davidnichols-ops · @eli-yip · @hxu · @lathe-agent-oa · @ShiroKSH · @subway-jack · @t4sh · @TheBenMeadows · @VailElla · @ZeterMordio
+
+---
+
+### Notable issue closures
+
+| Area | Issues |
+|------|--------|
+| Layout / identity / persist | #702, #705, #709, #714, #717, #718, #776, #778, #783, #784, #789, #790, #795, #826, #828, #849, #863, #868 |
+| Notch / overflow | #570, #808 |
+| Moves / cursor / Hot Corners | #625, #723, #736, #744, #746, #750, #766 |
+| Control items / hidden section | #740, #754, #859 |
+| Appearance / capture / memory | #680, #700, #703, #708, #734, #759, #760, #844 |
+| Search / AX / Mission Control | #767, #777, #757 |
+| Settings / permissions / UX | #701, #724, #780, #829 |
+| Releases | #840, #843 |
+| Closed as duplicate | #727 |
+| Closed without code change (stale / upstream / not planned / user-resolved) | #571, #610, #649, #664, #707, #720, #721, #722, #726, #851, #852 |
+
+Related merged fix PRs called out above include #716, #741, #749, #756, #774, #779, #781, #782, #785, #796, #797, #809, #810, #813, #820, #821, #822, #838, #842, #856, #860, #862, #876. Reliability stack landed via #811 → revert #857 → re-land #858.
+
+---
+
+### Upgrade notes
+
+1. **From 2.0.0-rc.1:** in-place Sparkle update; failure-ledger marks clear on build change.
+2. **Legacy Ice / V1 appearance:** converted on import.
+3. **Update feed:** new installs use `thaw-app/updates`; existing stonerl feed users keep updating via the mirrored appcast.
+4. **Experimental:** Advanced → AX click delivery remains off by default.]]></description>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw_2.0.0-rc.2.zip" length="10789959" type="application/octet-stream" sparkle:edSignature="+Ti4vO0+Z1D3iMuMm5fA5V49QfACCrqwFFGR0XVFqLnnA6nrCJxUh4wiKL//BzypswY2Ar0XSM7jtGl7HIbyCQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw48-47.delta" sparkle:deltaFrom="47" length="6639894" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="qwpWXqyjmtPirsXfs6wIwAcD7BUoxThO+/8anApy0yVd/AaATfF6HU3bMUsJ3QBRWyOft9oJEvf/v10jWAd/Ag=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw48-46.delta" sparkle:deltaFrom="46" length="6700790" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="1jFtdj0CAnZLnnSvIdDE9DVM55bHGRD4Apk3rduJc6dvwZdz/X5y5yO+hDbtnFWOCLOlg+VaAcNHCmjlxFlVDA=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw48-45.delta" sparkle:deltaFrom="45" length="6775014" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="swrWcb+qdXLf2wv0qVmHOVqrmWYZ6eY3jx0ygdgy+rjFObPBePSoWuOdJTjNbdNGnGOotTXhzF/3on6Vn8oJAw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>2.0.0-rc.1</title>
             <pubDate>Tue, 16 Jun 2026 11:20:39 +0200</pubDate>
             <sparkle:channel>beta</sparkle:channel>
             <sparkle:version>47</sparkle:version>
             <sparkle:shortVersionString>2.0.0-rc.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h3>2.0.0-rc.1: Release Candidate 1</h3>
-
-<p>
-  This is the first release candidate for Thaw&nbsp;2.0. It brings improved
-  display-switch handling (no unwanted layout re-sorts), per-profile spacing
-  relaunch preferences, and a resolution fix for generic Control-Center-hosted
-  slots.
-</p>
-
-<hr />
-
-<p><strong>New &amp; Improved:</strong></p>
-<ul>
-  <li>
-    <strong>Display Switch Stability:</strong> Switching between active displays
-    no longer triggers a re-sort of the saved layout. Items stay exactly where
-    they were placed.
-  </li>
-  <li>
-    <strong>Spacing Relaunch Preference:</strong> Before applying per-display
-    spacing that relaunches menu bar apps, Thaw now warns and saves the user's
-    choice per profile. No more unexpected relaunch waves.
-  </li>
-  <li>
-    <strong>Control Center Resolution:</strong> Generic Control-Center-hosted
-    slots are kept unresolved for the marker-pair resolver, preventing premature
-    attribution to <code>com.apple.controlcenter</code>.
-  </li>
-</ul>
-
-<hr />
-
-<p>
-  <em
-    >This is a release candidate for macOS&nbsp;26. Please report any issues on
-    <a href="https://github.com/thaw-app/Thaw/issues">GitHub</a>.</em
-  >
-</p>
-]]></description>
-            <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw_2.0.0-rc.1.zip" length="8084607" type="application/octet-stream" sparkle:edSignature="CAGnbE2BYG6YcRE7hWjCs8FbuWMsl2USt2qIMMm9cPgLoaZcY3kplfj+YKzVSDJEWQAJb3B1X2pupFFt2dSJDQ=="/>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.1/Thaw_2.0.0-rc.1.zip" length="8084607" type="application/octet-stream" sparkle:edSignature="CAGnbE2BYG6YcRE7hWjCs8FbuWMsl2USt2qIMMm9cPgLoaZcY3kplfj+YKzVSDJEWQAJb3B1X2pupFFt2dSJDQ=="/>
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw47-46.delta" sparkle:deltaFrom="46" length="899102" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="RxgKFlg6oaIPhBEyX9UyIDp7BI1HUB79tvk0f8Gh4X0eAy9XKW+vWiOfXcXesMl/GLVhlI5hzNdwkvDefERSBg=="/>
                 <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw47-45.delta" sparkle:deltaFrom="45" length="2433326" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="6xaoyBasPivApv9Q2uo+tcIj9u8tIX8fPmZip/NP1x+NfApv53RJ2D/PZLcluWO9UEvXMVr+9jiSz1t3zAY1BA=="/>
@@ -64,177 +219,13 @@
             <sparkle:version>46</sparkle:version>
             <sparkle:shortVersionString>2.0.0-beta.15</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h3>
-  2.0.0-beta.15: Per-Item Hotkeys, Widget Resolution Hardening &amp; Clone Fix
-</h3>
-
-<p>
-  This release adds the ability to assign global hotkeys to individual menu bar
-  items, hardens Control-Center-hosted widget resolution for single-display Macs
-  and title-offset items, prevents system status item clones from corrupting the
-  managed layout, and enhances the onboarding experience.
-</p>
-
-<hr />
-
-<p><strong>New &amp; Improved:</strong></p>
-<ul>
-  <li>
-    <strong>Per-Item Hotkeys:</strong> Assign a global hotkey to any individual
-    menu bar item to open its menu on demand. Supports visible, hidden, and
-    always-hidden sections. Electron and Chromium items (e.g. Claude) use an
-    Accessibility press instead of a synthetic click. Persisted in profiles for
-    backup and restore.
-  </li>
-  <li>
-    <strong>Control Center Resolution by Title:</strong> New
-    <code>HostedItemOwnership.titleIndicatesOwner</code> fallback resolves
-    Control-Center-hosted items whose own AX child is offset more than 1&nbsp;px
-    from the CG window center (AirBuddy, SpamSieve, Cotypist).
-    Title-corroborated spatial matching with a 20&nbsp;px backstop - never
-    misattributes to unrelated neighbors.
-  </li>
-  <li>
-    <strong>Single-Display Resolution Hardening:</strong> VirtualDisplayProvoker
-    now re-anchors the real display as main, shrinks the phantom to 640×480,
-    reduces hold time from 12&nbsp;s to 4&nbsp;s, and replaces the retry
-    cooldown with a one-strike blacklist. Missing <code>AXEnabled</code>
-    attribute is now treated as enabled, fixing resolution for items like The
-    Clock.
-  </li>
-  <li>
-    <strong>System Status Item Clone Fix:</strong> Broadened
-    <code>isSystemClone</code> to match WindowServer clones regardless of
-    namespace (process name or bundle ID). Excluded at cache, placement, and
-    move chokepoints — clones no longer trigger full menu bar re-sorts or
-    displace real items.
-  </li>
-  <li>
-    <strong>Notch Overflow Guard:</strong> Profile layout no longer evaluates
-    notch overflow against unsettled display geometry.
-  </li>
-  <li>
-    <strong>Deferred Layout for Relaunched Apps:</strong> Layout is deferred
-    while a relaunched app's status item re-pairs with its window.
-  </li>
-  <li>
-    <strong>Profile Cache Re-Arm:</strong> Layout cache is re-armed when the
-    active profile is updated via the UI, so changes take effect immediately.
-  </li>
-  <li>
-    <strong>Onboarding:</strong> Enhanced onboarding experience with improved
-    app icon management.
-  </li>
-  <li>
-    <strong>Display Spacing Warning:</strong> A new warning callout alerts when
-    per-display spacing values differ, explaining the relaunch cost on display
-    connection. Uses a shared <code>WarningColor</code> asset.
-  </li>
-</ul>
-
-<hr />
-
-<p>
-  <em
-    >This is a beta release targeting macOS 26. Please report any issues on
-    <a href="https://github.com/thaw-app/Thaw/issues">GitHub</a>.</em
-  >
-</p>
-]]></description>
-            <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw_2.0.0-beta.15.zip" length="8065810" type="application/octet-stream" sparkle:edSignature="V6Y93njIO3ju8K4hONFBOASWVYJU6azO2QILB6yj3KW5y07XMyL8Dg53+RY4MG/2tVtC+gu4i+p482/Yuor+CA=="/>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-beta.15/Thaw_2.0.0-beta.15.zip" length="8065810" type="application/octet-stream" sparkle:edSignature="V6Y93njIO3ju8K4hONFBOASWVYJU6azO2QILB6yj3KW5y07XMyL8Dg53+RY4MG/2tVtC+gu4i+p482/Yuor+CA=="/>
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-45.delta" sparkle:deltaFrom="45" length="2251850" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="7QZV2Ts/q6KZOeP1OzFbDxPFw03C6rveAtPAsGeIZcncggJOhydnLW+rpsU8sceODni//Oek8MC9mztiVsXFCA=="/>
                 <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-44.delta" sparkle:deltaFrom="44" length="2540410" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="FG+5tCzeo/1bQVgCGLecS5niy5x7gatNbgRcvlqS8BpkbBkFmqCGkrhcGlWLCRCnAXIRIo/pLowLrWDcLL2MAA=="/>
                 <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-43.delta" sparkle:deltaFrom="43" length="3165466" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="0BP+6SiCp3Mo9SsxZiwYweT8vyA6cZ6npmpfdAYacsScn/SWAnAqJzuuVFgBNwqW1VzJIiKwah5LGguyJPhFBA=="/>
                 <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-42.delta" sparkle:deltaFrom="42" length="3167774" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="D9gVdypEWTVgpLh7k6s0HrvS20ztYtZ203ESd1PntQfaOlkYWzCn6azfU7LqqLve9sb8r72P52b3rOl/1/egCw=="/>
                 <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-41.delta" sparkle:deltaFrom="41" length="3171658" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="cpxOCJVzyasQKpX8yd45z8FJVIkphTbzuVvhvTzB/+2CZVGf+1Ifo4HbGiuiw6j52/mmDjqpok26Mpg79pR/Dg=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>2.0.0-beta.14</title>
-            <pubDate>Tue, 02 Jun 2026 03:07:17 +0200</pubDate>
-            <sparkle:channel>beta</sparkle:channel>
-            <sparkle:version>45</sparkle:version>
-            <sparkle:shortVersionString>2.0.0-beta.14</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h3>
-  2.0.0-beta.14: Single-Display Widget Resolution, Search Reorder &amp; Display
-  Template
-</h3>
-
-<p>
-  This release stabilizes Control Center widget resolution on single-display
-  setups via a virtual display provoker, adds section reorder and filtering to
-  the search panel, introduces a global template for per-display configuration,
-  and enables LCS sorting on notched displays by default.
-</p>
-
-<hr />
-
-<p><strong>New &amp; Improved:</strong></p>
-<ul>
-  <li>
-    <strong>Single-Display Widget Resolution:</strong> On single-display Macs,
-    the window server only publishes marker windows for Control-Center-hosted
-    items (Little Snitch, etc.) when two or more displays are present. A new
-    <code>VirtualDisplayProvoker</code> briefly creates a headless virtual
-    display to force marker publication, enabling resolution to the real owning
-    app. Unresolved orphans are left in place (never relocated) and the phantom
-    display is excluded from all Thaw display enumeration. Fixes
-    <a href="https://github.com/thaw-app/Thaw/issues/643">#643</a> via
-    <a href="https://github.com/thaw-app/Thaw/pull/655">#655</a>.
-  </li>
-  <li>
-    <strong>Search Panel Reorder:</strong> Sections in the search panel can now
-    be reordered and filtered for faster item location.
-  </li>
-  <li>
-    <strong>Global Display Template:</strong> A global template for per-display
-    configuration lets you set defaults applied to all displays.
-  </li>
-  <li>
-    <strong>Layout Bar Fixes:</strong> Fixed cross-section drag landing and
-    false move alerts in the layout bar.
-  </li>
-  <li>
-    <strong>LCS Default:</strong> LCS sorting on notched displays is now enabled
-    by default for new installations.
-  </li>
-  <li>
-    <strong>Search UI Polish:</strong> Added dividers between search section
-    rows and increased annotation spacing.
-  </li>
-  <li>
-    <strong>Plural-Aware Localization:</strong> Display count strings now use
-    proper plural forms via <code>String(localized:)</code> interpolation
-    instead of the hardcoded <code>(s)</code> hack.
-  </li>
-  <li>
-    <strong>Hook Label Width:</strong> Automation hook labels now size to the
-    widest localized string, fixing truncation in Polish, Spanish, and other
-    languages. Fixes
-    <a href="https://github.com/thaw-app/Thaw/issues/650">#650</a> via
-    <a href="https://github.com/thaw-app/Thaw/pull/653">#653</a>.
-  </li>
-  <li><strong>Localization:</strong> Multiple Crowdin translation updates.</li>
-</ul>
-
-<hr />
-
-<p>
-  <em
-    >This is a beta release targeting macOS 26. Please report any issues on
-    <a href="https://github.com/thaw-app/Thaw/issues">GitHub</a>.</em
-  >
-</p>
-]]></description>
-            <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw_2.0.0-beta.14.zip" length="8792789" type="application/octet-stream" sparkle:edSignature="KR3tt5cZcYr+YWI/7CFLrFM+9XKTZqnbhfZOGw6H6+HMet68yCctl5+kNFQ2xu0j51x+RB36EDUXdcNAWqjKBA=="/>
-            <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.14/Thaw45-44.delta" sparkle:deltaFrom="44" length="1050926" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="dJkfK0Aoi/oxCvuXgko219ASugo59PwNEyzGWFvxQ7dTlJDYb0KAe5tIzN2KHCrJ+lYbfpAW3fop1UdyJKvDCw=="/>
-                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.14/Thaw45-43.delta" sparkle:deltaFrom="43" length="1798610" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="6qpctj7saOE8rX9i0qaaVO6dZL7EnFu3LXp3fJsLmAIJeBdKaF8CX0/qstUZLk9OIGInY+LyerQPQdWo6Oa5AQ=="/>
-                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.14/Thaw45-42.delta" sparkle:deltaFrom="42" length="1799882" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="IDER2+ojsouzAIPtjkA4CSm7dhX0fi9BzSkbYdEIziwkTkTVI9W/qnu3bPoeYwoYrZk+LG+I96QB9HH96vGSDQ=="/>
-                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.14/Thaw45-41.delta" sparkle:deltaFrom="41" length="1806882" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="li0D8FvGaJfbCFpEu4SJADDbik+l1f0lEluXBAfjopLslo9d3RuUi8K+pYAdASoPjD03kLXUYLO8gfTbboMNAA=="/>
-                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.14/Thaw45-40.delta" sparkle:deltaFrom="40" length="1873898" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="YGRb+CaBPDBJnbQdCEii8kj5RHkts2u0FFP2xRXXtTILOR20nTrEAaMk092/SRn0LCw3k35KQitBEXCX2z6vCA=="/>
             </sparkle:deltas>
         </item>
         <item>
