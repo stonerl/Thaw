@@ -10,185 +10,209 @@
             <sparkle:version>48</sparkle:version>
             <sparkle:shortVersionString>2.0.0-rc.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[This RC is a large reliability and platform update: menu bar identity/ordering, layout persistence, notch overflow, settings UI, Swift 6.2 / concurrency, and Sparkle update hosting.
-
----
-
-### Highlights
-
-- **Menu bar reliability overhaul** — safer saved-layout apply/persist, stronger item identity matching, and fewer false “reorder storms,” especially with Control Center items, dynamic titles, and multi-display setups.
-- **Settings & onboarding refresh** — redesigned settings UI, glass tour onboarding, stronger AX identity / click paths.
-- **Swift 6.2 + approachable concurrency** — MainActor default isolation on the app target, AXSwift6, EventTap synchronization, and cleanup of pre–Swift 6 GCD/Timer patterns.
-- **Update distribution** — Sparkle ZIP/deltas/appcast publish to `thaw-app/updates`, with a mirror for legacy `stonerl` Pages installs.
-
----
-
-### Menu bar & layout
-
-#### Identity, ordering, and clicks
-- Deterministic visual ordering with stable identifier tie-breaks (no more shuffle when `minX` ties).
-- Volatile metric titles (e.g. `CPU 12%` → `CPU 43%`) canonicalized so saved layouts and failure ledgers keep matching; prune stale title-variant saved entries that fueled reorder storms (#842, thanks @danielhopkins).
-- Stop provisional identities from scrambling saved layout (#863).
-- Failure ledger stamped with build version so marks clear on update; avoid exclusivity violation when persisting the ledger (thanks @VailElla).
-- Click reaction verification: success only if the owner shows a real UI reaction, not just event delivery.
-- AX identity catalog + ControlItemPair frame fallback (fixes silent hidden-section death when control items could not be identified, #754).
-- Optional AX click delivery (`useAXClickDelivery`, default off) with synthetic-click fallback.
-- Report control items the menu bar accepts but does not render (notch occlusion), with consecutive-sample confirmation (#570).
-- Unresponsive owner / window-mismatch error types for clearer click failure handling.
-
-#### Saved layout & persistence
-- Do not move items on untrustworthy observations (#849).
-- Block `saveSectionOrder` while layout divergence is still pending.
-- Do not persist collapsed hidden sections (#795).
-- Do not persist layouts with an unresolved always-hidden divider (#849).
-- Do not persist notch-overflow ejections as user intent (#790 / #796, thanks @lathe-agent-oa).
-- Skip bulk apply while source PIDs are unresolved (#784 / #785, thanks @lathe-agent-oa).
-- Refuse saved-layout bulk apply while the hidden-section dividers are collapsed / zero-width — same `hiddenSectionHasRoom` gate the save path already uses — so a collapsed reading cannot drag the whole hidden section and then get persisted (#868 / #876, thanks @TheBenMeadows).
-- Revalidate hidden-section geometry before the move batch runs so apply does not proceed on a stale collapsed reading (#876).
-- Prefer exact saved identifiers; avoid ambiguous multi-instance divergence matches (#714 / #716, thanks @t4sh).
-- Defer apply/persist on unsettled or cross-display geometry; clear stuck profile flags (#702, #717, #743).
-- Restore unresolved-`sourcePID` gate in `applySavedLayout`.
-- Ignore unresolved Control Center placeholders (#810, thanks @VailElla).
-- Resolve parked items titled with their bundle ID (e.g. Little Snitch) (#709, #795 / #797, thanks @lathe-agent-oa).
-- Restore legacy profile layout snapshots (#778 / #779, thanks @ShiroKSH).
-- Delete profile manifest entries even when the file is already missing.
-- Negative-cache TTL for source PID lookups uses per-window backoff instead of a flat 60s (#856, thanks @lathe-agent-oa).
-
-#### Notch overflow
-- Only run overflow on the main display; fail closed if active menu bar display is unknown (#808 / #809, thanks @lathe-agent-oa).
-- Keep the visible control item in place during overflow (#742).
-- Keep overflow running outside profile applies.
-- Avoid redundant full-sort replays (#822, thanks @alvst).
-
-#### Moves, rehide, and multi-instance
-- Defer item moves while a menu bar item menu is tracking.
-- Require stable divergence; suppress bulk cursor warps (#705, #723, #736, #750).
-- Stop bulk-apply pointer hijack; release on user input.
-- Keep menu bar move events out of screen corners — stops Hot Corner / Show Desktop false triggers (#625, #766 / #774, thanks @ZeterMordio).
-- Recover blocked items before alerting on hidden-section drags (#744).
-- Recover control items after lookup failure.
-- Bail instead of trapping on inverted control-item order.
-- Keep timed rehide armable after deferred rehide; anchor rehide to a neighbor in the item’s own section so temporarily shown items are not rehidden into Visible (#859 / #860, thanks @andredlng).
-- Prevent duplicate Thaw instances from competing (#821, thanks @alvst).
-- Avoid repeated source PID cache scans (#820, thanks @alvst).
-- Each layout-reset waiter gets its own cache continuation.
-- Configurable pre-move input-pause threshold (#756, thanks @subway-jack).
-- Fall back to Thaw Bar when hiding app menus under fullscreen (#740 / #741, thanks @auspic7).
-- Defer/stabilize moves that previously relocated system modules mid-interaction (e.g. AudioVideoModule / WeType, #746) and reduced cursor teleport / dance storms (#718, #723, #750).
-
----
-
-### Settings, profiles & onboarding
-
-- **Settings UI redesign** (native grouped forms, relocated options, refreshed Ice UI primitives, sidebar search).
-- **Glass tour** onboarding in first-launch and settings.
-- Unconfigured displays fall back to **global configuration** instead of hardcoded defaults (fixes spacing resets on Space/display changes).
-- Ice V1 appearance data converted at import time.
-- Cleared hotkey bindings removed instead of persisting JSON `null`.
-- Authorization retry allowed after denial (#780 / #781, thanks @VailElla).
-- Full onboarding button hit targets (#724, thanks @eli-yip).
-- IceBar naming leftover on an Advanced setting corrected (#829).
-- Settings About/repository URL updated (thanks @cbguder).
-- Hidden debug flags moved into the Defaults registry.
-- Unreachable Ice-era migrations removed.
-- Layout reset target picker with legacy section moves.
-
----
-
-### Appearance, capture & IceBar
-
-- Tint no longer covers menu bar items; tint renders above the menu bar under Reduce Transparency (#844, #700).
-- Capture bounds validated before WindowServer handoff (#759 / #813).
-- Individual captures use the captured scale (layout icon sizing, #703).
-- SCStream pinned to 32BGRA; shareable-content fetches coalesced.
-- Image cache: LRU/concurrency overhaul, lossless disk keys, rate-limited on-screen capture, stale display ID fallback (#749, thanks @hxu).
-- Memory: detach cropped glyphs, lower icon refresh, stop background captures (#680).
-- Tooltips stay above Thaw Bar / IceBar grid (#760 / #782, thanks @VailElla) with watchdog placement (#734).
-- Cursor restore after profile apply uses CoreGraphics space (fixes multi-monitor warp).
-- Virtual display resolver removed (brief resolution / screen-shrink side effects, #708).
-
----
-
-### Accessibility, hooks & events
-
-- Bounded AX messaging timeouts in the item service and event path (#767).
-- Consolidated item failure ledgers; quieter expected `procNotFound`.
-- Hook timeouts bounded with process-group teardown; teardown restored after Subprocess 0.5 upgrade.
-- Mouse-moved handling throttled by time, not event count.
-- Shared/adaptive Mission Control detection (#777).
-- EventTap shared runtime state synchronized.
-- Clicking items in Thaw Bar no longer spikes CPU via runaway work (#757).
-
----
-
-### Performance
-
-- Rate-limited on-screen image capture path.
-- Memoized per-row item search work.
-- Shared Mission Control detection.
-- Time-based mouse-moved throttle.
-
----
-
-### Platform & engineering
-
-- **Swift 6.2** packaging alignment.
-- MainActor default isolation on the app target.
-- `@Observable` migration for ObservableObject surfaces.
-- `SourcePIDCache` converted to an actor.
-- Hooks/spacing via `swift-subprocess` (0.5).
-- `swift-algorithms` adopted; package-underuse cleanup.
-- Virtual display resolver removed.
-- `SettingsURIParser` extracted; fuzz + contract tests.
-- Broader unit coverage (settings, HID, replay, layout gates, URI, search, Swift Testing migration).
-- Sonar excludes Icon Composer bundles (thanks @VailElla).
-
----
-
-### Release, CI & docs
-
-- Sparkle payloads published to **`thaw-app/updates`** (#840); DMGs remain on GitHub Releases.
-- Appcast mirrored to legacy **stonerl Pages** (#843).
-- Org CI / brand-assets adoption; Sparkle no longer auto-publishes on every tag push.
-- OpenSSF / Scorecard / CodeQL / SLSA provenance / OSV SCA hardening; Sonar coverage path fix.
-- README restyle/restructure; `RELEASES.md`, verifying releases, governance/security docs; contribution/install docs (thanks @t4sh); URI scheme docs (thanks @davidnichols-ops).
-- Crowdin / localization syncs (#694, #804–#807).
-
----
-
-### Contributors
-
-Thanks to everyone who landed fixes in this RC:
-
-@alvst · @andredlng · @auspic7 · @cbguder · @danielhopkins · @davidnichols-ops · @eli-yip · @hxu · @lathe-agent-oa · @ShiroKSH · @subway-jack · @t4sh · @TheBenMeadows · @VailElla · @ZeterMordio
-
----
-
-### Notable issue closures
-
-| Area | Issues |
-|------|--------|
-| Layout / identity / persist | #702, #705, #709, #714, #717, #718, #776, #778, #783, #784, #789, #790, #795, #826, #828, #849, #863, #868 |
-| Notch / overflow | #570, #808 |
-| Moves / cursor / Hot Corners | #625, #723, #736, #744, #746, #750, #766 |
-| Control items / hidden section | #740, #754, #859 |
-| Appearance / capture / memory | #680, #700, #703, #708, #734, #759, #760, #844 |
-| Search / AX / Mission Control | #767, #777, #757 |
-| Settings / permissions / UX | #701, #724, #780, #829 |
-| Releases | #840, #843 |
-| Closed as duplicate | #727 |
-| Closed without code change (stale / upstream / not planned / user-resolved) | #571, #610, #649, #664, #707, #720, #721, #722, #726, #851, #852 |
-
-Related merged fix PRs called out above include #716, #741, #749, #756, #774, #779, #781, #782, #785, #796, #797, #809, #810, #813, #820, #821, #822, #838, #842, #856, #860, #862, #876. Reliability stack landed via #811 → revert #857 → re-land #858.
-
----
-
-### Upgrade notes
-
-1. **From 2.0.0-rc.1:** in-place Sparkle update; failure-ledger marks clear on build change.
-2. **Legacy Ice / V1 appearance:** converted on import.
-3. **Update feed:** new installs use `thaw-app/updates`; existing stonerl feed users keep updating via the mirrored appcast.
-4. **Experimental:** Advanced → AX click delivery remains off by default.]]></description>
+            <description><![CDATA[<p>This RC is a large reliability and platform update: menu bar identity/ordering, layout persistence, notch overflow, settings UI, Swift 6.2 / concurrency, and Sparkle update hosting.</p>
+<hr>
+<h3>Highlights</h3>
+<ul>
+<li><strong>Menu bar reliability overhaul</strong> — safer saved-layout apply/persist, stronger item identity matching, and fewer false “reorder storms,” especially with Control Center items, dynamic titles, and multi-display setups.</li>
+<li><strong>Settings &amp; onboarding refresh</strong> — redesigned settings UI, glass tour onboarding, stronger AX identity / click paths.</li>
+<li><strong>Swift 6.2 + approachable concurrency</strong> — MainActor default isolation on the app target, AXSwift6, EventTap synchronization, and cleanup of pre–Swift 6 GCD/Timer patterns.</li>
+<li><strong>Update distribution</strong> — Sparkle ZIP/deltas/appcast publish to <code class="notranslate">thaw-app/updates</code>, with a mirror for legacy <code class="notranslate">stonerl</code> Pages installs.</li>
+</ul>
+<hr>
+<h3>Menu bar &amp; layout</h3>
+<h4>Identity, ordering, and clicks</h4>
+<ul>
+<li>Deterministic visual ordering with stable identifier tie-breaks (no more shuffle when <code class="notranslate">minX</code> ties).</li>
+<li>Volatile metric titles (e.g. <code class="notranslate">CPU 12%</code> → <code class="notranslate">CPU 43%</code>) canonicalized so saved layouts and failure ledgers keep matching; prune stale title-variant saved entries that fueled reorder storms (#842, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/danielhopkins/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/danielhopkins">@danielhopkins</a>).</li>
+<li>Stop provisional identities from scrambling saved layout (#863).</li>
+<li>Failure ledger stamped with build version so marks clear on update; avoid exclusivity violation when persisting the ledger (thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/VailElla/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/VailElla">@VailElla</a>).</li>
+<li>Click reaction verification: success only if the owner shows a real UI reaction, not just event delivery.</li>
+<li>AX identity catalog + ControlItemPair frame fallback (fixes silent hidden-section death when control items could not be identified, #754).</li>
+<li>Optional AX click delivery (<code class="notranslate">useAXClickDelivery</code>, default off) with synthetic-click fallback.</li>
+<li>Report control items the menu bar accepts but does not render (notch occlusion), with consecutive-sample confirmation (#570).</li>
+<li>Unresponsive owner / window-mismatch error types for clearer click failure handling.</li>
+</ul>
+<h4>Saved layout &amp; persistence</h4>
+<ul>
+<li>Do not move items on untrustworthy observations (#849).</li>
+<li>Block <code class="notranslate">saveSectionOrder</code> while layout divergence is still pending.</li>
+<li>Do not persist collapsed hidden sections (#795).</li>
+<li>Do not persist layouts with an unresolved always-hidden divider (#849).</li>
+<li>Do not persist notch-overflow ejections as user intent (#790 / #796, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lathe-agent-oa/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lathe-agent-oa">@lathe-agent-oa</a>).</li>
+<li>Skip bulk apply while source PIDs are unresolved (#784 / #785, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lathe-agent-oa/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lathe-agent-oa">@lathe-agent-oa</a>).</li>
+<li>Refuse saved-layout bulk apply while the hidden-section dividers are collapsed / zero-width — same <code class="notranslate">hiddenSectionHasRoom</code> gate the save path already uses — so a collapsed reading cannot drag the whole hidden section and then get persisted (#868 / #876, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/TheBenMeadows/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/TheBenMeadows">@TheBenMeadows</a>).</li>
+<li>Revalidate hidden-section geometry before the move batch runs so apply does not proceed on a stale collapsed reading (#876).</li>
+<li>Prefer exact saved identifiers; avoid ambiguous multi-instance divergence matches (#714 / #716, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/t4sh/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/t4sh">@t4sh</a>).</li>
+<li>Defer apply/persist on unsettled or cross-display geometry; clear stuck profile flags (#702, #717, #743).</li>
+<li>Restore unresolved-<code class="notranslate">sourcePID</code> gate in <code class="notranslate">applySavedLayout</code>.</li>
+<li>Ignore unresolved Control Center placeholders (#810, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/VailElla/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/VailElla">@VailElla</a>).</li>
+<li>Resolve parked items titled with their bundle ID (e.g. Little Snitch) (#709, #795 / #797, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lathe-agent-oa/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lathe-agent-oa">@lathe-agent-oa</a>).</li>
+<li>Restore legacy profile layout snapshots (#778 / #779, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/ShiroKSH/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/ShiroKSH">@ShiroKSH</a>).</li>
+<li>Delete profile manifest entries even when the file is already missing.</li>
+<li>Negative-cache TTL for source PID lookups uses per-window backoff instead of a flat 60s (#856, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lathe-agent-oa/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lathe-agent-oa">@lathe-agent-oa</a>).</li>
+</ul>
+<h4>Notch overflow</h4>
+<ul>
+<li>Only run overflow on the main display; fail closed if active menu bar display is unknown (#808 / #809, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lathe-agent-oa/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lathe-agent-oa">@lathe-agent-oa</a>).</li>
+<li>Keep the visible control item in place during overflow (#742).</li>
+<li>Keep overflow running outside profile applies.</li>
+<li>Avoid redundant full-sort replays (#822, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/alvst/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/alvst">@alvst</a>).</li>
+</ul>
+<h4>Moves, rehide, and multi-instance</h4>
+<ul>
+<li>Defer item moves while a menu bar item menu is tracking.</li>
+<li>Require stable divergence; suppress bulk cursor warps (#705, #723, #736, #750).</li>
+<li>Stop bulk-apply pointer hijack; release on user input.</li>
+<li>Keep menu bar move events out of screen corners — stops Hot Corner / Show Desktop false triggers (#625, #766 / #774, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/ZeterMordio/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/ZeterMordio">@ZeterMordio</a>).</li>
+<li>Recover blocked items before alerting on hidden-section drags (#744).</li>
+<li>Recover control items after lookup failure.</li>
+<li>Bail instead of trapping on inverted control-item order.</li>
+<li>Keep timed rehide armable after deferred rehide; anchor rehide to a neighbor in the item’s own section so temporarily shown items are not rehidden into Visible (#859 / #860, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/andredlng/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/andredlng">@andredlng</a>).</li>
+<li>Prevent duplicate Thaw instances from competing (#821, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/alvst/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/alvst">@alvst</a>).</li>
+<li>Avoid repeated source PID cache scans (#820, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/alvst/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/alvst">@alvst</a>).</li>
+<li>Each layout-reset waiter gets its own cache continuation.</li>
+<li>Configurable pre-move input-pause threshold (#756, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/subway-jack/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/subway-jack">@subway-jack</a>).</li>
+<li>Fall back to Thaw Bar when hiding app menus under fullscreen (#740 / #741, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/auspic7/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/auspic7">@auspic7</a>).</li>
+<li>Defer/stabilize moves that previously relocated system modules mid-interaction (e.g. AudioVideoModule / WeType, #746) and reduced cursor teleport / dance storms (#718, #723, #750).</li>
+</ul>
+<hr>
+<h3>Settings, profiles &amp; onboarding</h3>
+<ul>
+<li><strong>Settings UI redesign</strong> (native grouped forms, relocated options, refreshed Ice UI primitives, sidebar search).</li>
+<li><strong>Glass tour</strong> onboarding in first-launch and settings.</li>
+<li>Unconfigured displays fall back to <strong>global configuration</strong> instead of hardcoded defaults (fixes spacing resets on Space/display changes).</li>
+<li>Ice V1 appearance data converted at import time.</li>
+<li>Cleared hotkey bindings removed instead of persisting JSON <code class="notranslate">null</code>.</li>
+<li>Authorization retry allowed after denial (#780 / #781, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/VailElla/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/VailElla">@VailElla</a>).</li>
+<li>Full onboarding button hit targets (#724, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/eli-yip/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/eli-yip">@eli-yip</a>).</li>
+<li>IceBar naming leftover on an Advanced setting corrected (#829).</li>
+<li>Settings About/repository URL updated (thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/cbguder/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/cbguder">@cbguder</a>).</li>
+<li>Hidden debug flags moved into the Defaults registry.</li>
+<li>Unreachable Ice-era migrations removed.</li>
+<li>Layout reset target picker with legacy section moves.</li>
+</ul>
+<hr>
+<h3>Appearance, capture &amp; IceBar</h3>
+<ul>
+<li>Tint no longer covers menu bar items; tint renders above the menu bar under Reduce Transparency (#844, #700).</li>
+<li>Capture bounds validated before WindowServer handoff (#759 / #813).</li>
+<li>Individual captures use the captured scale (layout icon sizing, #703).</li>
+<li>SCStream pinned to 32BGRA; shareable-content fetches coalesced.</li>
+<li>Image cache: LRU/concurrency overhaul, lossless disk keys, rate-limited on-screen capture, stale display ID fallback (#749, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/hxu/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/hxu">@hxu</a>).</li>
+<li>Memory: detach cropped glyphs, lower icon refresh, stop background captures (#680).</li>
+<li>Tooltips stay above Thaw Bar / IceBar grid (#760 / #782, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/VailElla/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/VailElla">@VailElla</a>) with watchdog placement (#734).</li>
+<li>Cursor restore after profile apply uses CoreGraphics space (fixes multi-monitor warp).</li>
+<li>Virtual display resolver removed (brief resolution / screen-shrink side effects, #708).</li>
+</ul>
+<hr>
+<h3>Accessibility, hooks &amp; events</h3>
+<ul>
+<li>Bounded AX messaging timeouts in the item service and event path (#767).</li>
+<li>Consolidated item failure ledgers; quieter expected <code class="notranslate">procNotFound</code>.</li>
+<li>Hook timeouts bounded with process-group teardown; teardown restored after Subprocess 0.5 upgrade.</li>
+<li>Mouse-moved handling throttled by time, not event count.</li>
+<li>Shared/adaptive Mission Control detection (#777).</li>
+<li>EventTap shared runtime state synchronized.</li>
+<li>Clicking items in Thaw Bar no longer spikes CPU via runaway work (#757).</li>
+</ul>
+<hr>
+<h3>Performance</h3>
+<ul>
+<li>Rate-limited on-screen image capture path.</li>
+<li>Memoized per-row item search work.</li>
+<li>Shared Mission Control detection.</li>
+<li>Time-based mouse-moved throttle.</li>
+</ul>
+<hr>
+<h3>Platform &amp; engineering</h3>
+<ul>
+<li><strong>Swift 6.2</strong> packaging alignment.</li>
+<li>MainActor default isolation on the app target.</li>
+<li><code class="notranslate">@Observable</code> migration for ObservableObject surfaces.</li>
+<li><code class="notranslate">SourcePIDCache</code> converted to an actor.</li>
+<li>Hooks/spacing via <code class="notranslate">swift-subprocess</code> (0.5).</li>
+<li><code class="notranslate">swift-algorithms</code> adopted; package-underuse cleanup.</li>
+<li>Virtual display resolver removed.</li>
+<li><code class="notranslate">SettingsURIParser</code> extracted; fuzz + contract tests.</li>
+<li>Broader unit coverage (settings, HID, replay, layout gates, URI, search, Swift Testing migration).</li>
+<li>Sonar excludes Icon Composer bundles (thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/VailElla/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/VailElla">@VailElla</a>).</li>
+</ul>
+<hr>
+<h3>Release, CI &amp; docs</h3>
+<ul>
+<li>Sparkle payloads published to <strong><code class="notranslate">thaw-app/updates</code></strong> (#840); DMGs remain on GitHub Releases.</li>
+<li>Appcast mirrored to legacy <strong>stonerl Pages</strong> (#843).</li>
+<li>Org CI / brand-assets adoption; Sparkle no longer auto-publishes on every tag push.</li>
+<li>OpenSSF / Scorecard / CodeQL / SLSA provenance / OSV SCA hardening; Sonar coverage path fix.</li>
+<li>README restyle/restructure; <code class="notranslate">RELEASES.md</code>, verifying releases, governance/security docs; contribution/install docs (thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/t4sh/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/t4sh">@t4sh</a>); URI scheme docs (thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/davidnichols-ops/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/davidnichols-ops">@davidnichols-ops</a>).</li>
+<li>Crowdin / localization syncs (#694, #804–#807).</li>
+</ul>
+<hr>
+<h3>Contributors</h3>
+<p>Thanks to everyone who landed fixes in this RC:</p>
+<p><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/alvst/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/alvst">@alvst</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/andredlng/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/andredlng">@andredlng</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/auspic7/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/auspic7">@auspic7</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/cbguder/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/cbguder">@cbguder</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/danielhopkins/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/danielhopkins">@danielhopkins</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/davidnichols-ops/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/davidnichols-ops">@davidnichols-ops</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/eli-yip/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/eli-yip">@eli-yip</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/hxu/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/hxu">@hxu</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lathe-agent-oa/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lathe-agent-oa">@lathe-agent-oa</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/ShiroKSH/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/ShiroKSH">@ShiroKSH</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/subway-jack/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/subway-jack">@subway-jack</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/t4sh/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/t4sh">@t4sh</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/TheBenMeadows/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/TheBenMeadows">@TheBenMeadows</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/VailElla/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/VailElla">@VailElla</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/ZeterMordio/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/ZeterMordio">@ZeterMordio</a></p>
+<hr>
+<h3>Notable issue closures</h3>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Area</th>
+<th>Issues</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layout / identity / persist</td>
+<td>#702, #705, #709, #714, #717, #718, #776, #778, #783, #784, #789, #790, #795, #826, #828, #849, #863, #868</td>
+</tr>
+<tr>
+<td>Notch / overflow</td>
+<td>#570, #808</td>
+</tr>
+<tr>
+<td>Moves / cursor / Hot Corners</td>
+<td>#625, #723, #736, #744, #746, #750, #766</td>
+</tr>
+<tr>
+<td>Control items / hidden section</td>
+<td>#740, #754, #859</td>
+</tr>
+<tr>
+<td>Appearance / capture / memory</td>
+<td>#680, #700, #703, #708, #734, #759, #760, #844</td>
+</tr>
+<tr>
+<td>Search / AX / Mission Control</td>
+<td>#767, #777, #757</td>
+</tr>
+<tr>
+<td>Settings / permissions / UX</td>
+<td>#701, #724, #780, #829</td>
+</tr>
+<tr>
+<td>Releases</td>
+<td>#840, #843</td>
+</tr>
+<tr>
+<td>Closed as duplicate</td>
+<td>#727</td>
+</tr>
+<tr>
+<td>Closed without code change (stale / upstream / not planned / user-resolved)</td>
+<td>#571, #610, #649, #664, #707, #720, #721, #722, #726, #851, #852</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>Related merged fix PRs called out above include #716, #741, #749, #756, #774, #779, #781, #782, #785, #796, #797, #809, #810, #813, #820, #821, #822, #838, #842, #856, #860, #862, #876. Reliability stack landed via #811 → revert #857 → re-land #858.</p>
+<hr>
+<h3>Upgrade notes</h3>
+<ol>
+<li><strong>From 2.0.0-rc.1:</strong> in-place Sparkle update; failure-ledger marks clear on build change.</li>
+<li><strong>Legacy Ice / V1 appearance:</strong> converted on import.</li>
+<li><strong>Update feed:</strong> new installs use <code class="notranslate">thaw-app/updates</code>; existing stonerl feed users keep updating via the mirrored appcast.</li>
+<li><strong>Experimental:</strong> Advanced → AX click delivery remains off by default.</li>
+</ol>]]></description>
             <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw_2.0.0-rc.2.zip" length="10789959" type="application/octet-stream" sparkle:edSignature="+Ti4vO0+Z1D3iMuMm5fA5V49QfACCrqwFFGR0XVFqLnnA6nrCJxUh4wiKL//BzypswY2Ar0XSM7jtGl7HIbyCQ=="/>
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw48-47.delta" sparkle:deltaFrom="47" length="6639894" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="qwpWXqyjmtPirsXfs6wIwAcD7BUoxThO+/8anApy0yVd/AaATfF6HU3bMUsJ3QBRWyOft9oJEvf/v10jWAd/Ag=="/>
