@@ -3,14 +3,19 @@
     <channel>
         <title>Thaw</title>
         <item>
-            <title>2.0.0-rc.2</title>
-            <pubDate>Tue, 04 Aug 2026 22:21:52 +0000</pubDate>
-            <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.0-rc.2</link>
+            <title>2.0.0-rc.2.1</title>
+            <pubDate>Wed, 05 Aug 2026 10:52:04 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.0-rc.2.1</link>
             <sparkle:channel>beta</sparkle:channel>
-            <sparkle:version>48</sparkle:version>
-            <sparkle:shortVersionString>2.0.0-rc.2</sparkle:shortVersionString>
+            <sparkle:version>49</sparkle:version>
+            <sparkle:shortVersionString>2.0.0-rc.2.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<p>This RC is a large reliability and platform update: menu bar identity/ordering, layout persistence, notch overflow, settings UI, Swift 6.2 / concurrency, and Sparkle update hosting.</p>
+            <description><![CDATA[<h3>Hotfix</h3>
+<ul>
+<li><strong>Hidden divider boundary and layout-editor drags</strong> — repair the visible/hidden boundary when <code class="notranslate">H_ctrl</code> drifts before the per-item reorder pass, so <code class="notranslate">applyProfileLayout</code> no longer reports "all items already in correct positions" while the whole hidden section sits misplaced. Drops into an empty hidden section that only contains the new-items badge no longer snap back, and persistent status-level windows (shelf/HUD) no longer defer every move — deferral still applies while the pointer is inside a long-open menu (#880, fixes #879).</li>
+</ul>
+<hr>
+<p>This RC is a large reliability and platform update: menu bar identity/ordering, layout persistence, notch overflow, settings UI, Swift 6.2 / concurrency, and Sparkle update hosting.</p>
 <hr>
 <h3>Highlights</h3>
 <ul>
@@ -208,11 +213,27 @@
 <hr>
 <h3>Upgrade notes</h3>
 <ol>
+<li><strong>From 2.0.0-rc.2:</strong> in-place Sparkle update; hotfix only, no behaviour changes beyond the fix above.</li>
 <li><strong>From 2.0.0-rc.1:</strong> in-place Sparkle update; failure-ledger marks clear on build change.</li>
 <li><strong>Legacy Ice / V1 appearance:</strong> converted on import.</li>
 <li><strong>Update feed:</strong> new installs use <code class="notranslate">thaw-app/updates</code>; existing stonerl feed users keep updating via the mirrored appcast.</li>
 <li><strong>Experimental:</strong> Advanced → AX click delivery remains off by default.</li>
 </ol>]]></description>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2.1/Thaw_2.0.0-rc.2.1.zip" length="10822072" type="application/octet-stream" sparkle:edSignature="Hh/FWC60/kQzNDUvsBDWtIRkI//7Is+Y+tA287uWu7b444YfoRA1z/rZQxJ6QwE4PLjHd7xPoIvZw8qKe+woAA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2.1/Thaw49-48.delta" sparkle:deltaFrom="48" length="1037806" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ZMDeU9Y/iWEmNPo3MctJAhAgjch9Zxun46jPT058dA2t6CS16HpOnoL9w/Zh8PECsG0Yyd/4sG1HxBmvv0cSCw=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2.1/Thaw49-47.delta" sparkle:deltaFrom="47" length="6684422" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="s3aODDNNf4VufLAfJv5nlsY49NlU9ZYqWlZ3bzeN9LXQmPIETzGbOoscMsA0fAsX3D68TF1Np2y+NyL0zU1cCQ=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2.1/Thaw49-46.delta" sparkle:deltaFrom="46" length="6735894" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="u0QApTGUmW+qz67NpE0rRbYkZ87gydbXtweiOV5HsKAAb0+nzpSMefai4XLraSTe+hAlKJ7wRj2EPaNLIh7TBg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>2.0.0-rc.2</title>
+            <pubDate>Tue, 04 Aug 2026 22:21:52 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.0-rc.2</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>48</sparkle:version>
+            <sparkle:shortVersionString>2.0.0-rc.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw_2.0.0-rc.2.zip" length="10789959" type="application/octet-stream" sparkle:edSignature="+Ti4vO0+Z1D3iMuMm5fA5V49QfACCrqwFFGR0XVFqLnnA6nrCJxUh4wiKL//BzypswY2Ar0XSM7jtGl7HIbyCQ=="/>
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw48-47.delta" sparkle:deltaFrom="47" length="6639894" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="qwpWXqyjmtPirsXfs6wIwAcD7BUoxThO+/8anApy0yVd/AaATfF6HU3bMUsJ3QBRWyOft9oJEvf/v10jWAd/Ag=="/>
@@ -234,22 +255,6 @@
                 <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw47-44.delta" sparkle:deltaFrom="44" length="2659538" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Mjuca2YhmGY5qI04DAryGSojpeLOsvtKUsHeyBR90kJ1wDQvm4E5VIhSEkf5FetWLs8FSByZuJxkbpFvDKOKBw=="/>
                 <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw47-43.delta" sparkle:deltaFrom="43" length="3227158" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="7g+o/lvdl51Z6nCkafrPMUEUSqZyrl6cRol2fQJhuRkf7Ayhixoz2JTtS2UYTubLacNxGwyxpClOuGbwNUoGBQ=="/>
                 <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-rc.1/Thaw47-42.delta" sparkle:deltaFrom="42" length="3229598" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="hEFIPb1c4LLMK1DrnJHbL3N6nTi28qfXzVLdXKJGkVTb1Hzyc4B3hpapqL9MCxJiT/85oZLhFIGjEYpRt8csDg=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>2.0.0-beta.15</title>
-            <pubDate>Mon, 08 Jun 2026 20:27:00 +0200</pubDate>
-            <sparkle:channel>beta</sparkle:channel>
-            <sparkle:version>46</sparkle:version>
-            <sparkle:shortVersionString>2.0.0-beta.15</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-beta.15/Thaw_2.0.0-beta.15.zip" length="8065810" type="application/octet-stream" sparkle:edSignature="V6Y93njIO3ju8K4hONFBOASWVYJU6azO2QILB6yj3KW5y07XMyL8Dg53+RY4MG/2tVtC+gu4i+p482/Yuor+CA=="/>
-            <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-45.delta" sparkle:deltaFrom="45" length="2251850" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="7QZV2Ts/q6KZOeP1OzFbDxPFw03C6rveAtPAsGeIZcncggJOhydnLW+rpsU8sceODni//Oek8MC9mztiVsXFCA=="/>
-                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-44.delta" sparkle:deltaFrom="44" length="2540410" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="FG+5tCzeo/1bQVgCGLecS5niy5x7gatNbgRcvlqS8BpkbBkFmqCGkrhcGlWLCRCnAXIRIo/pLowLrWDcLL2MAA=="/>
-                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-43.delta" sparkle:deltaFrom="43" length="3165466" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="0BP+6SiCp3Mo9SsxZiwYweT8vyA6cZ6npmpfdAYacsScn/SWAnAqJzuuVFgBNwqW1VzJIiKwah5LGguyJPhFBA=="/>
-                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-42.delta" sparkle:deltaFrom="42" length="3167774" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="D9gVdypEWTVgpLh7k6s0HrvS20ztYtZ203ESd1PntQfaOlkYWzCn6azfU7LqqLve9sb8r72P52b3rOl/1/egCw=="/>
-                <enclosure url="https://github.com/thaw-app/Thaw/releases/download/2.0.0-beta.15/Thaw46-41.delta" sparkle:deltaFrom="41" length="3171658" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="cpxOCJVzyasQKpX8yd45z8FJVIkphTbzuVvhvTzB/+2CZVGf+1Ifo4HbGiuiw6j52/mmDjqpok26Mpg79pR/Dg=="/>
             </sparkle:deltas>
         </item>
         <item>
