@@ -3,6 +3,62 @@
     <channel>
         <title>Thaw</title>
         <item>
+            <title>2.0.0-rc.4</title>
+            <pubDate>Mon, 17 Aug 2026 20:05:15 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.0-rc.4</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>51</sparkle:version>
+            <sparkle:shortVersionString>2.0.0-rc.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<p>Please report issues at<br>
+<a href="https://github.com/thaw-app/Thaw/issues">github.com/thaw-app/Thaw/issues</a>.</p>
+<p>This release closes the field reports against rc.3 — hidden items dead<br>
+for the first minute after launch, and a cache stall with no deadline at<br>
+all — and pays down the debt that made them possible: the item manager's 11,500-line file, the hand-rolled identity<br>
+matching that drifted, and a test suite that wrote into the real settings<br>
+of whoever ran it.</p>
+<hr>
+<h3>Highlights</h3>
+<ul>
+<li><strong>Hidden items work from launch, and the cache can no longer stall for good</strong> — on a cold start the item cache froze for a full minute on unresolved identities: every Thaw Bar tooltip read "Menu Bar Item" and every click silently did nothing until the settling deadline expired (#943). In the worse interleaving the settling task deadlocked awaiting itself, past every deadline — one report had the cache rejecting every refresh for 20+ hours, with the Visible row in Settings → Layout permanently empty (#945).</li>
+<li><strong>The Thaw icon stops drifting left across restarts</strong> — the stalled early apply executed a minute late with the desired order it had narrowed at launch, when only a handful of identities had resolved. Everything that resolved during the stall was re-inserted as "unmanaged" at saved indices, which changed the chevron's planned neighbors and moved it left of the leftmost item; macOS remembers the new position, so each restart ratcheted it further (#947).</li>
+<li><strong>Items stop shuffling mid-session on localized systems</strong> — saved-order ghosts namespaced by a localized app name (<code class="notranslate">Control Centre:WiFi</code>, minted while a bundle ID transiently read nil) counted as "real owners" and deleted their genuine <code class="notranslate">com.apple.controlcenter</code> twins from the saved order on every load. The live items then planned as unmanaged and were repositioned by every apply, with the cursor contested for each synthetic drag (#949).</li>
+<li><strong>Spanish onboarding restored</strong> — two strings shipped as translated-but-empty, so Spanish systems rendered a blank tour slide description and a blank New Items badge hint.</li>
+<li><strong>XPC session race closed</strong> — a stale cancellation handler could tear down a healthy, newer session and race the lock every other access went through.</li>
+</ul>
+<hr>
+<h3>Menu bar &amp; layout</h3>
+<ul>
+<li>The settling-period early apply no longer waits for settling to end while holding the serial cache gate. The wait deadlocked the pair both ways: when the launch cache cycle owned the gate, settling's early exit needed a cache cycle the held gate rejects, so it ran the full 60 s deadline with the item cache frozen on fallback tags — generic names in Thaw Bar and Search, and every click aborted with no return destination (#943). When the settling task's own poll owned the gate, the apply awaited the very task it was running on, and the deadline check inside that blocked loop could never fire — the gate stayed held indefinitely and every later recache was rejected (#945).</li>
+<li>Clicking an item whose cached tag predates source-PID resolution re-maps it onto its freshly fetched counterpart by windowID, so the click survives a stale cache snapshot instead of dying in the return-destination lookup (#943).</li>
+<li>Because the early apply now runs the moment it is dispatched, it plans against the bar it narrowed itself to. Executed at the deadline instead, its restriction inverted: identities that resolved during the stall were no longer provisional (which excludes them) but "unmanaged" (which re-inserts them at saved indices), and the re-insertion handed the chevron a move to the far left of the bar (#947).</li>
+<li>Saved-order pruning no longer counts a localized display-name namespace as a real owner, and drops such a ghost when its canonical twin exists — the Control Center entry sharing its title, Thaw's own control items by their reserved titles, or a real owner claiming the same non-generic title. A display-name entry with no twin survives, since it may be the only identity a bundle-ID-less app ever got (#949).</li>
+<li>The namespace fallback recovers a transiently nil bundle ID through the app's bundle URL before reaching for the window's owner name, so localized ghosts stop being minted in the first place (#949).</li>
+</ul>
+<h3>XPC service</h3>
+<ul>
+<li>The session cancellation handler cleared the stored session outside the lock that guarded every other access, and a handler outliving its session could clear a newer one created after it. Storage now synchronizes internally, and invalidation is identity-guarded so only the cancelled session is dropped.</li>
+<li>The single-window <code class="notranslate">sourcePID</code> request was dead wire protocol — the batch request replaced it in production — yet its round-trip tests were the only wire-format coverage at all. The request is gone and the tests now exercise the batch case both sides actually use.</li>
+</ul>
+<h3>Localization</h3>
+<ul>
+<li>The Spanish descriptions for the Hotkeys &amp; Automation tour slide and the New Items badge hint were empty strings marked translated. A catalog sweep found exactly these two; both are filled in the register the catalog already uses.</li>
+</ul>
+<h3>Internal</h3>
+<ul>
+<li><code class="notranslate">MenuBarItemManager.swift</code> (11,526 lines) is now a folder of per-concern files cut along its existing MARK seams, each importing only what it uses; sonar and the SwiftLint input list follow the new paths.</li>
+<li>Item identity matching (tag plus effective PID), the click-target refetch chain, and live-bounds reads are single-sourced helpers instead of hand-rolled copies across the manager and the IceBar — the same drift that produced #943.</li>
+<li>The test process points the <code class="notranslate">Defaults</code> facade at a scratch suite before any test runs, so no suite can write into the real <code class="notranslate">com.stonerl.Thaw</code> domain of whoever runs the tests. The tour-slide test that failed on Spanish-locale machines while passing on English CI is green everywhere.</li>
+<li>The search panel reads <code class="notranslate">AppState</code> from its SwiftUI environment instead of reaching through the item manager's back-pointer, which no external caller uses anymore.</li>
+</ul>]]></description>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.4/Thaw_2.0.0-rc.4.zip" length="11081903" type="application/octet-stream" sparkle:edSignature="LKZj9INpkWcQu1JtivKml0u6L4ZinKreMcmaRRW0NH7xtya+17+KGqFDGXxUAM2TpX8juBTtMSpgQ538l0iMBw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.4/Thaw51-50.delta" sparkle:deltaFrom="50" length="1554934" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ryfRHss2iY7XYAWq+oL9cEtAF261udmKY56j/S5pypBpwy1+kZur7nztudTjUCcCRI6lgh4LU5IquTfdlnTSCg=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.4/Thaw51-49.delta" sparkle:deltaFrom="49" length="2872366" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="uj+rWM5YgQ7+KKSvgjAUqGmoP/mxoY8SfuZP1LfzdbEEQNNtt8vFhySb++Xv8vYVYtdWjK4EVRuhNwi/D39bCg=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.4/Thaw51-48.delta" sparkle:deltaFrom="48" length="2886298" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="GsGZ949gfdTyBst/Lm5khQRLvFXVUCE+3Vw96hxFQtZZyMNaWvhYy1f55Zs3ZNY7j4jbf9xKra8xtusB1W1/Bg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>2.0.0-rc.3</title>
             <pubDate>Sat, 15 Aug 2026 03:12:39 +0000</pubDate>
             <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.0-rc.3</link>
@@ -10,197 +66,6 @@
             <sparkle:version>50</sparkle:version>
             <sparkle:shortVersionString>2.0.0-rc.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<p>Please report issues at<br>
-<a href="https://github.com/thaw-app/Thaw/issues">github.com/thaw-app/Thaw/issues</a>.</p>
-<p>Almost all of this release is one reliability track through the launch/move<br>
-pipeline, driven by field logs from rc.2.1: cold-start restore, move planning,<br>
-control-item pairing, and the persist gates that decide whether any of it<br>
-reaches disk. Each storm fix exposed the next failure mode in the same chain,<br>
-so they land together.</p>
-<hr>
-<h3>Highlights</h3>
-<ul>
-<li><strong>Launch restore actually runs</strong> — the saved layout is applied at cold start instead of losing to a move cooldown that launch itself had stamped ~0.4 s earlier (#881, #900).</li>
-<li><strong>Storms are bounded</strong> — a failed or parked-divider move can no longer hijack the cursor indefinitely or write a half-finished order into <code class="notranslate">savedSectionOrder</code>.</li>
-<li><strong>Control-item pairing repaired</strong> — Thaw's visible chevron is no longer mistaken for the hidden divider, the mispair behind hidden sections reading zero width (#923, #924, #927).</li>
-<li><strong>Memory leak closed</strong> — recache backoff stops the CA fence port growth reported at 47 GiB on macOS 26 (#933).</li>
-<li><strong>Field repair</strong> — <code class="notranslate">Thaw --reset-layout</code> clears persisted order and re-seeds dividers without starting the app.</li>
-</ul>
-<hr>
-<h3>Menu bar &amp; layout</h3>
-<h4>Cold start and settling</h4>
-<ul>
-<li>Launch restore bypasses the saved-layout and move cooldowns that launch itself stamped. <code class="notranslate">applySavedLayout</code> had been rejected on every launch by the cooldown its own chain created when it moved our control item (#881).</li>
-<li>Early apply moves identities whose <code class="notranslate">sourcePID</code> has already resolved rather than waiting out the full resolution pass, which runs ~8 s on a dense bar while Control Center is slow to answer. The match is exact on <code class="notranslate">uniqueIdentifier</code>, so an unresolved sibling cannot be moved by mistake.</li>
-<li>The Thaw icon relocates immediately when macOS parks it left of the hidden divider, instead of leaving the menu bar without a Thaw icon for the whole settling period.</li>
-</ul>
-<h4>Move planning and storm bounds</h4>
-<ul>
-<li>The full-sort planner that rearranged the entire bar is gone. Bulk apply keeps the per-item and control-item paths (#885).</li>
-<li>Move success is verified by adjacency in a single snapshot instead of exact <code class="notranslate">CGFloat</code> coordinate equality against a target that reflows mid-drag. Stale destinations abort rather than burn retries.</li>
-<li>Failed move attempts no longer starve the operation timeout budget.</li>
-<li>An unfinished bulk apply no longer writes its partial order into <code class="notranslate">savedSectionOrder</code>.</li>
-<li>Automatic re-applies are capped: one retry after an unfinished batch, then a 60 s cooldown, and a batch abandons after three consecutive failures. Notch-overflow ejections now go through the failure ledger (#900).</li>
-<li>An automatic bulk apply waits for a 300 ms lull in input before issuing its sequence, capped at 2 s so the batch still runs. A batch holds the cursor for its whole length, so one dispatched the instant a late arrival is noticed used to take the pointer mid-interaction and then contest it move by move (#899, #723).</li>
-<li>Synthetic move events address the window's owner instead of the app that owns the item. On macOS 26 Control Center hosts every status item window, so those are different processes; addressing the host is what lets a slot with an unresolved owner move at all, and it clears move failures that were timing out against a process that did not own the drag (#900, #923, #924).</li>
-<li>Bulk apply restores membership in the hidden and always-hidden sections but no longer reorders <em>within</em> them. Each of those moves costs a cursor hijack and a synthesised drag to land an item thousands of points off-screen, where Thaw Bar renders from the cache anyway. Dropping them is most of what shortens long batches on the bars where length hurts.</li>
-<li>Parked off-screen items are excluded from the <code class="notranslate">H_ctrl</code> drag anchor, and a parked divider skips the boundary move and records ledger backoff (#899).</li>
-<li>Late-arrival detection ignores unresolved identities, so a <code class="notranslate">sourcePID</code> flap no longer reads as a bar full of new items.</li>
-<li>Display-sized overlay windows (Droppy's drag catcher, for one) are no longer treated as an open menu.</li>
-<li>Diagnostics log a section-order digest instead of counts alone.</li>
-</ul>
-<h4>Control items and identity</h4>
-<ul>
-<li>Control-item pairing no longer selects Thaw's visible chevron as the hidden divider. The mispair made the hidden section read zero width, so every item landed visible after a restart (#927), hidden icons left of the notch had no region to render into (#924), and layout-editor drags had no divider to verify against (#923).</li>
-<li>Divider seeding and restore write through the section-divider guard, and hide or removal restores divider positions too (#890).</li>
-<li><code class="notranslate">preflightSetup</code> no longer re-stamps the hidden divider to <code class="notranslate">1</code> on every launch and status-item recreation. That second write had been draining <code class="notranslate">savedSectionOrder</code> across launches, 64/46/12 down to 42/52/12 in two clean starts (#895).</li>
-<li>Source PID resolution no longer skips Thaw's own disabled dividers, which is the normal state of a collapsed section (#899).</li>
-<li>AX-correlated identity can promote an unresolved Control Center placeholder, so layout-editor moves and saved order use the owning app's identifier (#905).</li>
-<li>Owner-titled degraded readings (<code class="notranslate">bundleId:bundleId</code>) count as a failed observation rather than a new bar, so they stop minting a second identifier set (#881, #927).</li>
-<li>Stale saved identifiers stop matching once the bar retires them, and foreign items are no longer namespaced under <code class="notranslate">com.stonerl.Thaw:</code>.</li>
-<li>Source PIDs are re-asked when the first scan after login leaves items provisional, and a dead cached PID no longer wins over live resolution.</li>
-<li>Silent move refusals log the stage, gate, and owner instead of a bare <code class="notranslate">cannotComplete</code> (#905).</li>
-</ul>
-<h4>Persist gates</h4>
-<ul>
-<li>An emptied hidden section (everything dragged into Visible) no longer latches <code class="notranslate">hiddenSectionHasRoom</code> permanently read-only. A genuine collapse still refuses; parked off-display items are what tell the two apart (#868).</li>
-<li>Temporarily shown items no longer register as layout drift, so opening a hidden item's menu stops dispatching a bulk apply that dumps the hidden section (#907).</li>
-<li>The always-hidden display-spread gate ignores parked items. It had been skipping <code class="notranslate">saveSectionOrder</code> on every cache cycle on multi-display setups, 1088 skips and zero writes in one day of field logs, which left always-hidden items looking new and let quitting any app drag them back to Visible (#930, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/nightah/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/nightah">@nightah</a>).</li>
-<li>LyricsX-style lyric titles collapse to a stable identity, so a song change stops minting new items (#815, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/yoodu/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/yoodu">@yoodu</a>).</li>
-<li>Saved-layout entries that can never match a live item again are pruned.</li>
-</ul>
-<hr>
-<h3>Settings, profiles &amp; onboarding</h3>
-<ul>
-<li>Profile list rows preview the saved layout next to the key behaviour settings (#887).</li>
-<li>"Update All" marks a profile active when its capture matches the running state (#904).</li>
-<li>Applying a profile uses that profile's spacing offset instead of a stale <code class="notranslate">0</code> (#903).</li>
-<li>Profiles prune Control-Center-hosted empty-title identifiers that can never match a live item.</li>
-<li>The layout editor names the display it is showing (#886).</li>
-<li>Independent shape and border settings for the menu bar overlay and Thaw Bar (#248, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/kn666/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/kn666">@kn666</a>).</li>
-<li>Per-display option to route only the always-hidden section to Thaw Bar (#751, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/MashnoorKek/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/MashnoorKek">@MashnoorKek</a>).</li>
-<li>Optional Advanced toggle moves the pointer onto a revealed search result, off by default (#769, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/brucemakes012/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/brucemakes012">@brucemakes012</a>).</li>
-<li>Sections holding nothing but the new-items badge accept drops again (#897, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/alvst/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/alvst">@alvst</a>).</li>
-<li>Advanced settings reset clears every persisted boolean, not just some of them (#910, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/YuriNachos/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/YuriNachos">@YuriNachos</a>). The two toggles added later in this cycle, "Arrange menu bar items" and "Move the pointer to revealed items", are covered too; leaving automatic arrangement off and then resetting to defaults used to keep it off with nothing on screen to explain why layouts stopped restoring.</li>
-<li><code class="notranslate">leftAligned</code> and <code class="notranslate">rightAligned</code> accepted as valid <code class="notranslate">iceBarLocation</code> values (#911, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/YuriNachos/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/YuriNachos">@YuriNachos</a>).</li>
-<li>Settings search weights un-inverted: title now outranks keywords (#918, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/YuriNachos/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/YuriNachos">@YuriNachos</a>).</li>
-<li>Icon refresh rate normalized onto one grid shared by the slider, URI handler, live capture floor, and Defaults: off, or <code class="notranslate">1/n</code> seconds for integer <code class="notranslate">n</code> in 1…30 (#929, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/CamilleGuillory/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/CamilleGuillory">@CamilleGuillory</a>).</li>
-<li>Relaunches after a revoked permission show the onboarding permissions flow rather than the pre-redesign <code class="notranslate">PermissionsView</code>.</li>
-<li>Auto-rehide <code class="notranslate">focusedApp</code> and timed strategy guards restored after a merge dropped them.</li>
-<li>New CLI: <code class="notranslate">Thaw --reset-layout</code> clears persisted order, pinning, and relocation bookkeeping and re-seeds divider positions without starting the app. It and the settings reset both clear the stale-identifier ledger.</li>
-</ul>
-<hr>
-<h3>Appearance, capture &amp; IceBar</h3>
-<ul>
-<li>ScreenCaptureKit picks the display with the largest intersection and rejects zero-area ones, and refreshes shareable content when cached topology leaves a window looking orphaned (#794, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/bpresles/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/bpresles">@bpresles</a>).</li>
-<li>Screen recording no longer pushes notch overflow into a <code class="notranslate">cannotComplete</code> ejection loop that holds the cursor (#935, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Zophiekat/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Zophiekat">@Zophiekat</a>).</li>
-<li>IceBar color sampling survives a horizontal bar that overflows to full screen width; the inset-frame math falls back to panel center instead of dividing by zero (#915, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/YuriNachos/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/YuriNachos">@YuriNachos</a>).</li>
-<li><code class="notranslate">IceGradient.averageColor</code> returns <code class="notranslate">nil</code> on an all-nil sample count instead of averaging by zero (#914, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/YuriNachos/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/YuriNachos">@YuriNachos</a>).</li>
-</ul>
-<hr>
-<h3>Performance &amp; memory</h3>
-<ul>
-<li>Change-detector recaches back off while control-item lookups keep failing, exponential and capped at 60 s. Each rebuild was leaking a CA fence Mach port on macOS 26; bounding the retry cadence stops the 47 GiB owned-unmapped growth reported against rc.2.1 (#933, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/slatlasdev/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/slatlasdev">@slatlasdev</a>). This bounds the storm, it does not patch AppKit's <code class="notranslate">NSSceneStatusItem</code>.</li>
-<li>No-op status-item rewrites on state reassignment dropped, same leak class.</li>
-</ul>
-<hr>
-<h3>Platform &amp; engineering</h3>
-<ul>
-<li><code class="notranslate">swift-subprocess</code> 1.0.0 adopted; the env trampoline is gone.</li>
-<li><code class="notranslate">AlphaChannelView</code> centralizes alpha-channel access and transparency scanning, so bounds validation happens in one place instead of in each <code class="notranslate">isTransparent</code> implementation.</li>
-<li><code class="notranslate">LayoutSolver</code> base-ID extraction deduplicated; three inline copies and a dead helper became one (#906, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/YuriNachos/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/YuriNachos">@YuriNachos</a>).</li>
-<li>Statement coverage raised toward 90% by splitting untestable live AppKit / WindowServer paths out of <code class="notranslate">ProfileManager</code> and <code class="notranslate">DisplaySettingsManager</code> and covering the decision logic that remains (#916).</li>
-<li>New suites around the storm bounds: layout storm replay, move timeout, section-order digest, control-item seeding and recovery, stale destination, unfinished batch, early-apply restriction, parked divider, section geometry, placeholder alias, Thaw Bar routing.</li>
-</ul>
-<hr>
-<h3>Release, CI &amp; docs</h3>
-<ul>
-<li>Workflows migrated to Blacksmith runners (#901), then narrowed to the release workflows.</li>
-<li>CodeQL runs on GitHub-hosted macOS 26.</li>
-<li>Issue triage keeps regressions open instead of closing P0 reports (#882, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/jamesyc/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/jamesyc">@jamesyc</a>), and no longer trips its own threat detection.</li>
-<li>Agentic workflows upgraded to v0.85.4; native GitHub issue taxonomy adopted (#867).</li>
-<li>OpenSSF Best Practices badge moved from Silver to Gold; README badges and links reworked.</li>
-<li>github-actions dependency group bumped (#926).</li>
-</ul>
-<hr>
-<h3>Contributors</h3>
-<p>Thanks to everyone who reported, diagnosed, or landed fixes in this RC:</p>
-<p><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/aliaskar-rockeater/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/aliaskar-rockeater">@aliaskar-rockeater</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/alvst/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/alvst">@alvst</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/bpresles/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/bpresles">@bpresles</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/brucemakes012/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/brucemakes012">@brucemakes012</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/CamilleGuillory/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/CamilleGuillory">@CamilleGuillory</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Daventure91/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Daventure91">@Daventure91</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/howardhey/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/howardhey">@howardhey</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/jamesyc/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/jamesyc">@jamesyc</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Jizzy015/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Jizzy015">@Jizzy015</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/kn666/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/kn666">@kn666</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lathe-agent-oa/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lathe-agent-oa">@lathe-agent-oa</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lucifercraig12345-create/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lucifercraig12345-create">@lucifercraig12345-create</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/MashnoorKek/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/MashnoorKek">@MashnoorKek</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/nightah/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/nightah">@nightah</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/nk-tedo-001/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/nk-tedo-001">@nk-tedo-001</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/slatlasdev/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/slatlasdev">@slatlasdev</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/stu-carter/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/stu-carter">@stu-carter</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/VailElla/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/VailElla">@VailElla</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/warmup72/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/warmup72">@warmup72</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/yoodu/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/yoodu">@yoodu</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/YuriNachos/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/YuriNachos">@YuriNachos</a> · <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Zophiekat/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Zophiekat">@Zophiekat</a></p>
-<hr>
-<h3>Notable issue closures</h3>
-<markdown-accessiblity-table><table role="table">
-<thead>
-<tr>
-<th>Area</th>
-<th>Issues</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cold start / launch restore</td>
-<td>#881, #900</td>
-</tr>
-<tr>
-<td>Move planning / storms</td>
-<td>#885, #899, #930</td>
-</tr>
-<tr>
-<td>Control items / identity</td>
-<td>#890, #895, #905, #923, #924, #927</td>
-</tr>
-<tr>
-<td>Persist gates / hidden section</td>
-<td>#815, #868, #907</td>
-</tr>
-<tr>
-<td>Profiles</td>
-<td>#887, #903, #904</td>
-</tr>
-<tr>
-<td>Settings / layout editor</td>
-<td>#886, #897, #910, #911, #918, #929</td>
-</tr>
-<tr>
-<td>Appearance / capture / IceBar</td>
-<td>#794, #914, #915, #935</td>
-</tr>
-<tr>
-<td>Memory</td>
-<td>#933</td>
-</tr>
-<tr>
-<td>Feature requests</td>
-<td>#248, #751, #769</td>
-</tr>
-<tr>
-<td>Ops / CI</td>
-<td>#867, #882</td>
-</tr>
-<tr>
-<td>Closed without code in this release (duplicate, not planned, user-resolved, or already fixed)</td>
-<td>#800, #891, #893, #902, #908, #931</td>
-</tr>
-</tbody>
-</table></markdown-accessiblity-table>
-<p>Merged PRs behind the above: #889, #892, #897, #901, #906, #910, #911, #914, #915, #916, #918, #926, #928, #929, #930.</p>
-<hr>
-<h3>Known limitations</h3>
-<ul>
-<li>Control Center source PID resolution is still slow on dense bars (~8 s). Early apply only moves identities that have already resolved.</li>
-<li>The first-press warm-up nudge after a move-drag remains open.</li>
-<li>#788, #634, and #791 need a field pass. The emptied-section and parked-divider work helps some #868 collapse cases, but the docked / notched / secondary-display combination still wants verification.</li>
-<li>#898 and #939 were reviewed against this branch and left open; the evidence does not yet point at a code path here.</li>
-</ul>
-<hr>
-<h3>Upgrade notes</h3>
-<ol>
-<li><strong>From 2.0.0-rc.2.1:</strong> in-place Sparkle update. If the bar is already scrambled, run <code class="notranslate">/Applications/Thaw.app/Contents/MacOS/Thaw --reset-layout</code> once before launching.</li>
-<li><strong>AX click delivery</strong> is now on by default and no longer shown in Advanced. It ran behind an experimental flag without failure reports and still falls back to a synthetic click on any error. Anyone who set <code class="notranslate">UseAXClickDelivery</code> explicitly keeps their choice, and with the toggle gone from Settings, a tester who switched it off during the RC stays off. <code class="notranslate">defaults delete com.stonerl.Thaw UseAXClickDelivery</code> restores the new default.</li>
-<li><strong>The reliability gates ship on.</strong> <code class="notranslate">postMoveEventsToWindowOwner</code> (on), <code class="notranslate">bulkApplyIdleThresholdMs</code> (300 ms), and <code class="notranslate">enforceConcealedSectionOrder</code> (off, trading invisible ordering moves for shorter batches) now default to the configuration the test build handed to reporters, rather than the conservative values they were developed behind. They remain hidden diagnostic flags, so <code class="notranslate">defaults write com.stonerl.Thaw &lt;key&gt; …</code> still overrides any of them. Note that an override set during RC testing survives the update and wins over the new default; <code class="notranslate">defaults delete com.stonerl.Thaw &lt;key&gt;</code> returns that machine to shipping behaviour.</li>
-<li><strong>Icon refresh rate</strong> is normalized to off or <code class="notranslate">1/n</code> seconds for integer <code class="notranslate">n</code> in 1…30. Values off that grid are snapped on read, so a custom URI or defaults value may shift slightly.</li>
-<li><strong>Legacy Ice / V1 appearance:</strong> still converted on import.</li>
-<li><strong>Update feed:</strong> unchanged. New installs use <code class="notranslate">thaw-app/updates</code>; the legacy stonerl feed keeps receiving the mirrored appcast. macOS 27 remains on the alpha channel, which requires beta updates to be enabled.</li>
-</ol>]]></description>
             <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.3/Thaw_2.0.0-rc.3.zip" length="11069756" type="application/octet-stream" sparkle:edSignature="Xy7GFfr9S+TMSbqaKgAkvkRIZjGbLlt9TIYKndzgrYpwWMgtpgsuvYnFumAS4lEToZfGiyUdG9IhVTPlTUlnBQ=="/>
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.3/Thaw50-49.delta" sparkle:deltaFrom="49" length="2707922" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="nHyXYC7N0GgsibTPmdIgyJAHCzrqHrZeQtaR/Ask9XcVytFlhwndoDIqwH5oNMzwUK9jIDoRXulx1BI8h+uEBA=="/>
@@ -221,21 +86,6 @@ so they land together.</p>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2.1/Thaw49-48.delta" sparkle:deltaFrom="48" length="1037806" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ZMDeU9Y/iWEmNPo3MctJAhAgjch9Zxun46jPT058dA2t6CS16HpOnoL9w/Zh8PECsG0Yyd/4sG1HxBmvv0cSCw=="/>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2.1/Thaw49-47.delta" sparkle:deltaFrom="47" length="6684422" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="s3aODDNNf4VufLAfJv5nlsY49NlU9ZYqWlZ3bzeN9LXQmPIETzGbOoscMsA0fAsX3D68TF1Np2y+NyL0zU1cCQ=="/>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2.1/Thaw49-46.delta" sparkle:deltaFrom="46" length="6735894" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="u0QApTGUmW+qz67NpE0rRbYkZ87gydbXtweiOV5HsKAAb0+nzpSMefai4XLraSTe+hAlKJ7wRj2EPaNLIh7TBg=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>2.0.0-rc.2</title>
-            <pubDate>Tue, 04 Aug 2026 22:21:52 +0000</pubDate>
-            <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.0-rc.2</link>
-            <sparkle:channel>beta</sparkle:channel>
-            <sparkle:version>48</sparkle:version>
-            <sparkle:shortVersionString>2.0.0-rc.2</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw_2.0.0-rc.2.zip" length="10789959" type="application/octet-stream" sparkle:edSignature="+Ti4vO0+Z1D3iMuMm5fA5V49QfACCrqwFFGR0XVFqLnnA6nrCJxUh4wiKL//BzypswY2Ar0XSM7jtGl7HIbyCQ=="/>
-            <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw48-47.delta" sparkle:deltaFrom="47" length="6639894" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="qwpWXqyjmtPirsXfs6wIwAcD7BUoxThO+/8anApy0yVd/AaATfF6HU3bMUsJ3QBRWyOft9oJEvf/v10jWAd/Ag=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw48-46.delta" sparkle:deltaFrom="46" length="6700790" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="1jFtdj0CAnZLnnSvIdDE9DVM55bHGRD4Apk3rduJc6dvwZdz/X5y5yO+hDbtnFWOCLOlg+VaAcNHCmjlxFlVDA=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2/Thaw48-45.delta" sparkle:deltaFrom="45" length="6775014" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="swrWcb+qdXLf2wv0qVmHOVqrmWYZ6eY3jx0ygdgy+rjFObPBePSoWuOdJTjNbdNGnGOotTXhzF/3on6Vn8oJAw=="/>
             </sparkle:deltas>
         </item>
         <item>
