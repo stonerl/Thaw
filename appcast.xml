@@ -3,6 +3,85 @@
     <channel>
         <title>Thaw</title>
         <item>
+            <title>2.0.0-rc.5</title>
+            <pubDate>Tue, 25 Aug 2026 05:19:42 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.0-rc.5</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>52</sparkle:version>
+            <sparkle:shortVersionString>2.0.0-rc.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<p>Please report issues at<br>
+<a href="https://github.com/thaw-app/Thaw/issues">github.com/thaw-app/Thaw/issues</a>.</p>
+<p>This is planned as the last release candidate before 2.0 stable. Almost all<br>
+of it comes out of field logs, and in nearly every report the layout<br>
+machinery damages the arrangement it was trying to restore: a divider<br>
+rebuild swept a healthy bar into the hidden section, a repair loop fought<br>
+the notch overflow eject move by move, a save outran the restore it raced,<br>
+and a lost always-hidden divider went unnoticed while its section drained<br>
+into Visible (#958, #863). A second track drove the scan-cost work: full<br>
+source-PID scans asked every running application for an extras menu bar,<br>
+which made the whole system stutter, and until resolution caught up every<br>
+item answered to "Menu Bar Item" (#956).</p>
+<hr>
+<h3>Highlights</h3>
+<ul>
+<li><strong>The bar stops repairing itself into collapse</strong> — both hidden-divider recoveries discarded a stale autosave position by writing the fresh-install seed through the guard-bypassing route; the divider landed back beside the visible chevron and the next save persisted the collapsed span. On the five-hour log attached to #958, a routine notch overflow scored one boundary mismatch, the rebuild fired, and three seconds later the visible section held nothing but Thaw's own icon.</li>
+<li><strong>Boundary repair moves items instead of dragging the divider across them</strong> — Phase 1 reached for one drag of H_ctrl whenever any managed item read on the wrong side of it. Where that drag would have crossed the entire visible section, the bar collapsed to a 33-point span and the apply still reported a clean classification afterwards. Small mismatches now walk the offending items back to the divider one drag each, and the divider drag is reserved for the empty-side cases it was built for (#879, #958).</li>
+<li><strong>The overflow planner and the repair pass stop fighting</strong> — on bars persistently over the notch budget, every apply ejected the same item and then recalled it as wrongly concealed, two synthetic drags per cycle for as long as the bar stayed over budget. This matches the "icons jumping randomly and relocating between layouts" reports. Ejected items are now exempt from the boundary tally until the budget frees up (#958).</li>
+<li><strong>Items keep their names while source-PID resolution catches up</strong> — naming requires knowing which process created an item, and the first cache pass deliberately runs without waiting for the accessibility scan; for its duration every item answered to the generic "Menu Bar Item" on hover and in Search. An item now falls back to the name it resolved to last time. Control Center's generic Item-N slots are refused, because their key encodes hosting order rather than identity and a wrong name gets clicked; custom names still take precedence (#956).</li>
+<li><strong>Slow item owners get room to answer before Thaw gives up</strong> — the move budget started at 100 ms, but escalation averaged each raise against the standing value, so even eight attempts reached only 476 ms, and every unresponsive-owner failure was filed twice, consuming the ledger's mark threshold in one instant. Defaults are now 250 ms (350 for Bento Boxes), growth is adopted as computed up to a one-second ceiling, failures are filed once, and marking takes three. Fixes the cursor hijack of #687 and the misplaced relaunched items of #960.</li>
+<li><strong>Scans stop re-probing every running application</strong> — roughly 16 of ~170 running applications have an extras menu bar, but the negative answer did not survive cache cleanup, so nearly every scan re-probed the full application list at ~400 ms steady-state and ~2.8 s during startup. Negative answers now survive cleanup and launches. A zero-area window can no longer start a scan on its own behalf, and the diagnostic names any app whose probe takes longer than 50 ms (#956).</li>
+<li><strong>Hidden previews render again</strong> — orphaned Control Center slots from an earlier Thaw process carry zero width, corrupt the composite-slicing geometry, and discard every preview batch, so all hidden and always-hidden previews in Settings → Layout came back empty (#962, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/alvst/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/alvst">@alvst</a>).</li>
+</ul>
+<hr>
+<h3>Menu bar &amp; layout</h3>
+<h4>Source-PID scanning</h4>
+<ul>
+<li>The negative-cache flag was cleared for every reused app on every cache cleanup, and cleanup is driven by <code class="notranslate">NSWorkspace.runningApplications</code>, which changes whenever any process starts or exits; the #956 log shows 46 cleanups in seven minutes. The flag is now a deadline that survives cleanup and backs off as consecutive empty checks accumulate. Early rungs stay inside the startup window, so an application that publishes its status item shortly after launch is still found quickly.</li>
+<li>Consecutive-miss counts are remembered per bundle identifier across launches and seed the first scan of a session, which measured 3.85 s in the log. Seeding is deliberately the ladder's first rung rather than the rung the count earns: memory is trusted to say where to look and never what was found, so skipping an application can reorder work but cannot attribute an item to the wrong owner.</li>
+<li>A zero-area window has no centre worth comparing against an accessibility frame, yet an unresolved window is what selects scan drivers; one such window started eight of nine scans in seven minutes with nothing else on the bar asking for one. Zero-area windows no longer select themselves. Bounds are re-read on every request, so a window that gains area stops being skipped.</li>
+<li>Scan summaries now log total wall time and name any single app whose extras-bar probe exceeds 50 ms, since accessibility reads are serviced by the target process and bounded only by the unresponsive timeout.</li>
+</ul>
+<h4>Save gates</h4>
+<ul>
+<li><code class="notranslate">saveSectionOrder</code> honours the same five-second post-move cooldown <code class="notranslate">applySavedLayout</code> uses, except when the user's own move is the most recent one, so a Layout-editor drag does not undo itself. In the #958 log the save landed one millisecond after the restore stood down.</li>
+<li>The multi-display gate counted items classified as visible, so a relocation that stranded items in the wrong section erased its own evidence: it fired correctly with sixteen visible items and passed when four were left, which was the save that did the damage. The gate now reads whether the menu bar changed display since the cache cycle being compared, a signal that survives misclassification because it does not read the items at all.</li>
+</ul>
+<h4>Divider recovery</h4>
+<ul>
+<li>A hidden-divider rebuild stamps a seed position only when the bar holds no managed items. Discarding the stale <code class="notranslate">NSStatusItem</code> is still what gives the divider a window on the current bar, and the follow-up apply walks it to the saved boundary, a move the seeded rebuild could not make anyway while parked off screen (#958).</li>
+<li>The H_ctrl boundary move no longer anchors on Thaw's own chevron. When every profile item has been dragged to the other side, anchoring on the last remaining candidate drags H_ctrl past it and conceals it; returning nil leaves the boundary alone and hands the work to the per-item LCS pass, which has barred Thaw's own items as anchors since #924. The two nil cases log separately (#958).</li>
+<li>Parked dividers are measured at their leading edge instead of their centre. A collapsed hidden divider is 5000 points wide, so its centre sat 2500 points right of the divider and read as on-screen on multi-display arrangements, defeating both the parked-divider drag guard (#899) and the rebuild detector; five hours of log recorded neither warning.</li>
+<li>Chevron relocation and always-hidden control-item ordering skip when the hidden divider fails the on-screen check, so neither drops its target into the parked zone beside a physically parked divider. The existing recovery paths already handle the states these guards refuse.</li>
+<li>An enabled always-hidden section whose divider stops resolving gets its status item recreated once per episode after three authoritative cycles with no reading, and stored position is kept rather than seeded. Provisional AX-frame correlations never advance, reset, or re-arm the streak. The #863 re-plug log showed <code class="notranslate">alwaysHidden=nil</code> on every cycle for 12+ hours while the whole always-hidden section drained into Visible and the collapsed arrangement persisted (#863).</li>
+<li>The one-pixel drop-point bias now applies to every control-item divider regardless of width. Expanded, thousands-of-points-wide dividers still produced placements landing one point into the wrong section: a divider's width provides visual concealment, not hit-test slack (#923).</li>
+</ul>
+<hr>
+<h3>Appearance, capture &amp; IceBar</h3>
+<ul>
+<li>Preview batches exclude degenerate zero-width windows from the bounds union. Capture APIs drop them from the composite while including them in the union dragged its geometry across the gap between displays, the widths stopped matching, and the whole batch was discarded. The windows that surfaced this were Control Center-hosted slots orphaned by an earlier Thaw process: Control Center owns them, so they outlive restarts, and their bundle-ID names keep them out of <code class="notranslate">ControlItemPair</code>'s strip list (#962).</li>
+</ul>
+<hr>
+<h3>Dependencies &amp; docs</h3>
+<ul>
+<li>Sparkle bumped in the swift group (#971); github-actions group bumped with four updates (#972).</li>
+<li>README OpenSSF badges switched to live shieldcn scorecard/openssf endpoints (#920); contributor image source updated; repository notice added.</li>
+<li>FUNDING.yml gained Ko-fi and PayPal entries.</li>
+</ul>
+<hr>
+<h3>Upgrade notes</h3>
+<ol>
+<li><strong>From 2.0.0-rc.4:</strong> in-place Sparkle update.</li>
+<li><strong>Move budgets:</strong> defaults rose to 250 ms (350 for Bento Boxes); an explicit <code class="notranslate">defaults write</code> override still takes precedence over either.</li>
+</ol>]]></description>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.5/Thaw_2.0.0-rc.5.zip" length="11159468" type="application/octet-stream" sparkle:edSignature="7ZD8kxLgbBjZj0EPvxeY5lJw9ZFxLZ2xoGyHTVvAWuwq2/AaUFanzApC3iw1FdbEikcl72c/L92uskf83U5wCQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.5/Thaw52-51.delta" sparkle:deltaFrom="51" length="1427458" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ZnN9+DU2nukNP/kngWtg962Npz5x73Hxc7HACAaSRd7PrcjfFyXYJH8Zhe4AUuyrAjtvCl48k7Fft78pThlLCw=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.5/Thaw52-50.delta" sparkle:deltaFrom="50" length="1882882" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="AIrevjKIxjhigKqXjfPH4wcYw9S7DSHJGpMbkyIU5R29gPZfeoJVu9PXyRdx7QZ2Hd0SM4bUz066tS3RO9c5CA=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.5/Thaw52-49.delta" sparkle:deltaFrom="49" length="3050970" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Kh2n9JpuhWQSkglqGqjQvswxrsvZKsZjYmLy6ZW8lKq16pHvunNVNcIuCGsSBvr7jbLAS+pfwnQOpQkSbTSgAA=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>2.0.0-rc.4</title>
             <pubDate>Mon, 17 Aug 2026 20:05:15 +0000</pubDate>
             <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.0-rc.4</link>
@@ -10,47 +89,6 @@
             <sparkle:version>51</sparkle:version>
             <sparkle:shortVersionString>2.0.0-rc.4</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<p>Please report issues at<br>
-<a href="https://github.com/thaw-app/Thaw/issues">github.com/thaw-app/Thaw/issues</a>.</p>
-<p>This release closes the field reports against rc.3 — hidden items dead<br>
-for the first minute after launch, and a cache stall with no deadline at<br>
-all — and pays down the debt that made them possible: the item manager's 11,500-line file, the hand-rolled identity<br>
-matching that drifted, and a test suite that wrote into the real settings<br>
-of whoever ran it.</p>
-<hr>
-<h3>Highlights</h3>
-<ul>
-<li><strong>Hidden items work from launch, and the cache can no longer stall for good</strong> — on a cold start the item cache froze for a full minute on unresolved identities: every Thaw Bar tooltip read "Menu Bar Item" and every click silently did nothing until the settling deadline expired (#943). In the worse interleaving the settling task deadlocked awaiting itself, past every deadline — one report had the cache rejecting every refresh for 20+ hours, with the Visible row in Settings → Layout permanently empty (#945).</li>
-<li><strong>The Thaw icon stops drifting left across restarts</strong> — the stalled early apply executed a minute late with the desired order it had narrowed at launch, when only a handful of identities had resolved. Everything that resolved during the stall was re-inserted as "unmanaged" at saved indices, which changed the chevron's planned neighbors and moved it left of the leftmost item; macOS remembers the new position, so each restart ratcheted it further (#947).</li>
-<li><strong>Items stop shuffling mid-session on localized systems</strong> — saved-order ghosts namespaced by a localized app name (<code class="notranslate">Control Centre:WiFi</code>, minted while a bundle ID transiently read nil) counted as "real owners" and deleted their genuine <code class="notranslate">com.apple.controlcenter</code> twins from the saved order on every load. The live items then planned as unmanaged and were repositioned by every apply, with the cursor contested for each synthetic drag (#949).</li>
-<li><strong>Spanish onboarding restored</strong> — two strings shipped as translated-but-empty, so Spanish systems rendered a blank tour slide description and a blank New Items badge hint.</li>
-<li><strong>XPC session race closed</strong> — a stale cancellation handler could tear down a healthy, newer session and race the lock every other access went through.</li>
-</ul>
-<hr>
-<h3>Menu bar &amp; layout</h3>
-<ul>
-<li>The settling-period early apply no longer waits for settling to end while holding the serial cache gate. The wait deadlocked the pair both ways: when the launch cache cycle owned the gate, settling's early exit needed a cache cycle the held gate rejects, so it ran the full 60 s deadline with the item cache frozen on fallback tags — generic names in Thaw Bar and Search, and every click aborted with no return destination (#943). When the settling task's own poll owned the gate, the apply awaited the very task it was running on, and the deadline check inside that blocked loop could never fire — the gate stayed held indefinitely and every later recache was rejected (#945).</li>
-<li>Clicking an item whose cached tag predates source-PID resolution re-maps it onto its freshly fetched counterpart by windowID, so the click survives a stale cache snapshot instead of dying in the return-destination lookup (#943).</li>
-<li>Because the early apply now runs the moment it is dispatched, it plans against the bar it narrowed itself to. Executed at the deadline instead, its restriction inverted: identities that resolved during the stall were no longer provisional (which excludes them) but "unmanaged" (which re-inserts them at saved indices), and the re-insertion handed the chevron a move to the far left of the bar (#947).</li>
-<li>Saved-order pruning no longer counts a localized display-name namespace as a real owner, and drops such a ghost when its canonical twin exists — the Control Center entry sharing its title, Thaw's own control items by their reserved titles, or a real owner claiming the same non-generic title. A display-name entry with no twin survives, since it may be the only identity a bundle-ID-less app ever got (#949).</li>
-<li>The namespace fallback recovers a transiently nil bundle ID through the app's bundle URL before reaching for the window's owner name, so localized ghosts stop being minted in the first place (#949).</li>
-</ul>
-<h3>XPC service</h3>
-<ul>
-<li>The session cancellation handler cleared the stored session outside the lock that guarded every other access, and a handler outliving its session could clear a newer one created after it. Storage now synchronizes internally, and invalidation is identity-guarded so only the cancelled session is dropped.</li>
-<li>The single-window <code class="notranslate">sourcePID</code> request was dead wire protocol — the batch request replaced it in production — yet its round-trip tests were the only wire-format coverage at all. The request is gone and the tests now exercise the batch case both sides actually use.</li>
-</ul>
-<h3>Localization</h3>
-<ul>
-<li>The Spanish descriptions for the Hotkeys &amp; Automation tour slide and the New Items badge hint were empty strings marked translated. A catalog sweep found exactly these two; both are filled in the register the catalog already uses.</li>
-</ul>
-<h3>Internal</h3>
-<ul>
-<li><code class="notranslate">MenuBarItemManager.swift</code> (11,526 lines) is now a folder of per-concern files cut along its existing MARK seams, each importing only what it uses; sonar and the SwiftLint input list follow the new paths.</li>
-<li>Item identity matching (tag plus effective PID), the click-target refetch chain, and live-bounds reads are single-sourced helpers instead of hand-rolled copies across the manager and the IceBar — the same drift that produced #943.</li>
-<li>The test process points the <code class="notranslate">Defaults</code> facade at a scratch suite before any test runs, so no suite can write into the real <code class="notranslate">com.stonerl.Thaw</code> domain of whoever runs the tests. The tour-slide test that failed on Spanish-locale machines while passing on English CI is green everywhere.</li>
-<li>The search panel reads <code class="notranslate">AppState</code> from its SwiftUI environment instead of reaching through the item manager's back-pointer, which no external caller uses anymore.</li>
-</ul>]]></description>
             <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.4/Thaw_2.0.0-rc.4.zip" length="11081903" type="application/octet-stream" sparkle:edSignature="LKZj9INpkWcQu1JtivKml0u6L4ZinKreMcmaRRW0NH7xtya+17+KGqFDGXxUAM2TpX8juBTtMSpgQ538l0iMBw=="/>
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.4/Thaw51-50.delta" sparkle:deltaFrom="50" length="1554934" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ryfRHss2iY7XYAWq+oL9cEtAF261udmKY56j/S5pypBpwy1+kZur7nztudTjUCcCRI6lgh4LU5IquTfdlnTSCg=="/>
@@ -71,21 +109,6 @@ of whoever ran it.</p>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.3/Thaw50-49.delta" sparkle:deltaFrom="49" length="2707922" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="nHyXYC7N0GgsibTPmdIgyJAHCzrqHrZeQtaR/Ask9XcVytFlhwndoDIqwH5oNMzwUK9jIDoRXulx1BI8h+uEBA=="/>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.3/Thaw50-48.delta" sparkle:deltaFrom="48" length="2728878" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="b1POh7j2JsyOcWNl0pZHCW0mWxYeP5deFfdDczZIN4a9DS4ackabqoapnW6jEYO+MgXlQkL9ehF5IuDoDzwgDg=="/>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.3/Thaw50-47.delta" sparkle:deltaFrom="47" length="6826390" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="LsosETp15ib9Kt6/VaBMAoIKQD9RIR/nxjoA9DeBrzxR//P6+AT6iN1i+fL/NJhgUaNW6AtqUNso5LXw8+0UDw=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>2.0.0-rc.2.1</title>
-            <pubDate>Wed, 05 Aug 2026 10:52:04 +0000</pubDate>
-            <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.0-rc.2.1</link>
-            <sparkle:channel>beta</sparkle:channel>
-            <sparkle:version>49</sparkle:version>
-            <sparkle:shortVersionString>2.0.0-rc.2.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2.1/Thaw_2.0.0-rc.2.1.zip" length="10822072" type="application/octet-stream" sparkle:edSignature="Hh/FWC60/kQzNDUvsBDWtIRkI//7Is+Y+tA287uWu7b444YfoRA1z/rZQxJ6QwE4PLjHd7xPoIvZw8qKe+woAA=="/>
-            <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2.1/Thaw49-48.delta" sparkle:deltaFrom="48" length="1037806" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ZMDeU9Y/iWEmNPo3MctJAhAgjch9Zxun46jPT058dA2t6CS16HpOnoL9w/Zh8PECsG0Yyd/4sG1HxBmvv0cSCw=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2.1/Thaw49-47.delta" sparkle:deltaFrom="47" length="6684422" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="s3aODDNNf4VufLAfJv5nlsY49NlU9ZYqWlZ3bzeN9LXQmPIETzGbOoscMsA0fAsX3D68TF1Np2y+NyL0zU1cCQ=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0-rc.2.1/Thaw49-46.delta" sparkle:deltaFrom="46" length="6735894" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="u0QApTGUmW+qz67NpE0rRbYkZ87gydbXtweiOV5HsKAAb0+nzpSMefai4XLraSTe+hAlKJ7wRj2EPaNLIh7TBg=="/>
             </sparkle:deltas>
         </item>
         <item>
