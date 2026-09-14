@@ -14,7 +14,7 @@
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.3/Thaw102-101.delta" sparkle:deltaFrom="101" length="1247682" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="8VVHrvU5tvkIo3O9/jvyWCqZ9IGol9JgnI1ybpFR66FIyOyAVY44NoRc4451NM7PxWFbWRXCRFKsAuMrI2DOBQ=="/>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.3/Thaw102-100.delta" sparkle:deltaFrom="100" length="1321326" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="1MLie63yLDik+TEhyem8oij9sBZUf+jZS3dyVkdlQc2GgcYYZOpyeoJSJLVYrElTc/17HE/caI8MlUfBjfy2Bw=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.3/Thaw102-58.delta" sparkle:deltaFrom="58" length="4492282" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="vBnAHIKBMHIO640lbxFKSA24V3smXmYP8N+DjmTrFu7AWdn5TWYC3F3x8HbAhvVSXRzZo485UH9fX30DvT3ECA=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.3/Thaw102-58.delta" sparkle:deltaFrom="58" length="4494098" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="fCv8VYOAoxlntgWuIGEKLtV1vbzGniRCSSS97QWi2W1lw7+tm6tRzj3vXUcyiiHrHFWZzknyzvE58m78zQUnDA=="/>
             </sparkle:deltas>
         </item>
         <item>
@@ -55,7 +55,7 @@
             <sparkle:version>58</sparkle:version>
             <sparkle:shortVersionString>2.1.0-beta.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.3/Thaw_2.1.0-beta.3.zip" length="13661994" type="application/octet-stream" sparkle:edSignature="XL3jV+/YRDuLD8kzi4i0u0GMickx5AbR9odbVL+BWX26/dYgEVzq9ic9mwVxo/6/qvAI2kzYZ6Lf/gPozYsWCg=="/>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.3/Thaw_2.1.0-beta.3.zip" length="13662026" type="application/octet-stream" sparkle:edSignature="k9kmSSIqTNHW879y977rSFEXr+ch5KzmItc00l/bzXdL4lRX4x0LENAO+QdmOayX3JxOaxkp/p2NXKn/sdTdBw=="/>
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.2/Thaw58-57.delta" sparkle:deltaFrom="57" length="6763446" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="opSxGVHaKf/KQkndEx1L12xY1JCeRc9RDoH4w6CfdxKItwsEgCSUBXlV/+9Wcp3Lg35vwwzWSFOBkR4qWLT4AA=="/>
             </sparkle:deltas>
