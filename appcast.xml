@@ -3,6 +3,59 @@
     <channel>
         <title>Thaw</title>
         <item>
+            <title>3.0.0-alpha.5</title>
+            <pubDate>Tue, 15 Sep 2026 11:07:25 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/3.0.0-alpha.5</link>
+            <sparkle:channel>alpha</sparkle:channel>
+            <sparkle:version>105</sparkle:version>
+            <sparkle:shortVersionString>3.0.0-alpha.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>27.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<p><strong>macOS 27 only · Build 105</strong></p>
+<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg data-component="Octicon" class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p><p><strong>Known macOS 27 limitations</strong></p>
+<p>Some native menu bar items may be missing or hidden. Control Center items and Shortcuts may also be unavailable in the menu bar. These are part of the same macOS 27 limitations, rather than separate Thaw bugs. We’re actively investigating ways to support these items.</p>
+</div>
+<h3>Expected behavior and current limits</h3>
+<ul>
+<li><strong>Several items from one app:</strong> some apps’ menu bar items cannot be hidden independently with the current macOS 27 mechanism. An item assigned to Hidden can remain visible when another item from the same app is assigned to Visible. <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a></li>
+<li><strong>App icons instead of menu bar previews:</strong> Thaw uses an app-icon fallback when a usable capture is unavailable, including when Screen Recording permission is off. The fallback is intentional; an item disappearing entirely still needs investigation.</li>
+<li><strong>Spacing changes:</strong> applying spacing can restart menu bar apps so they load the new value. Each app can also add its own padding, so the same setting does not guarantee identical visible gaps.</li>
+</ul>
+<h3>New</h3>
+<ul>
+<li><strong>App zoom:</strong> resize Thaw’s app UI from 75% to 200%. Use ⌘+ and ⌘−, or choose Zoom from the settings overflow menu. ⌘0 resets to 100%.</li>
+<li><strong>Thaw Bar appearance:</strong> the floating bar and its preview now apply your saved appearance correctly. Customize the background, tint, glass, border, and shadow using the same controls as the menu bar.</li>
+<li><strong>Reapply Spacing:</strong> added to Displays for when apps haven’t picked up your saved spacing. It relaunches menu bar apps to reload the setting. <a href="https://github.com/thaw-app/Thaw/issues/1126" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1126/hovercard">#1126</a></li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li><strong>Displays no longer pushes the sidebar out of the window.</strong> The selector now shows connected displays only. Settings content also has 10% more room. <a href="https://github.com/thaw-app/Thaw/issues/1131" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1131/hovercard">#1131</a></li>
+<li><strong>Removed the Thaw Bar’s unwanted outline and extra shadow.</strong> Turning Border off now removes the drawn outline. <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a></li>
+<li><strong>Search selections are easier to read.</strong> The highlighted row uses an opaque background instead of another glass layer.</li>
+<li><strong>Thaw releases its Dock presence after the floating bar closes</strong> when no other Thaw windows need it.</li>
+<li><strong>MacThrottle keeps a stable identity when its temperature changes</strong>, addressing duplicate entries and hiding problems. <a href="https://github.com/thaw-app/Thaw/issues/1121" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1121/hovercard">#1121</a></li>
+</ul>
+<h3>Menu bar reliability</h3>
+<ul>
+<li>Improved double-click recognition on the Thaw icon for opening Always Hidden. <a href="https://github.com/thaw-app/Thaw/issues/1119" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1119/hovercard">#1119</a></li>
+<li>Corrected Battery item recognition and added a fallback for manual moves when macOS ignores the position change. <a href="https://github.com/thaw-app/Thaw/issues/1110" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1110/hovercard">#1110</a></li>
+<li>Added checks to reject icon captures that overlap another item or belong to another app. <a href="https://github.com/thaw-app/Thaw/issues/1119" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1119/hovercard">#1119</a>, <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a></li>
+<li>Capture sessions are reused between requests, and the screen-recording indicator is excluded from saved item order.</li>
+<li>Automatic order repairs wait until startup layout restoration finishes.</li>
+</ul>
+<h3>Still under investigation</h3>
+<ul>
+<li>Some icons can still be missing or show an app-icon fallback, including Little Snitch. The broader icon reports remain open. <a href="https://github.com/thaw-app/Thaw/issues/1119" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1119/hovercard">#1119</a>, <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a></li>
+<li>Battery snap-back, unexpected reordering, and uneven gaps are not fully resolved. <a href="https://github.com/thaw-app/Thaw/issues/1110" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1110/hovercard">#1110</a>, <a href="https://github.com/thaw-app/Thaw/issues/1126" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1126/hovercard">#1126</a></li>
+<li>The reported Accessibility crash is still under investigation. This release keeps compact crash diagnostics even when regular logging is off. If Thaw crashes, attach the crash report and the files available through <strong>Troubleshooting → Show Log Files in Finder</strong>.</li>
+</ul>]]></description>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.5/Thaw_3.0.0-alpha.5.zip" length="8498353" type="application/octet-stream" sparkle:edSignature="S87etCqXuMWZKO72mJyICe6ORCaXTyoKhTFZKaQxeTLw+QQwgoONjnJezy0g+h59vXh+zcX8GQvPGsNPloa1DQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.5/Thaw105-104.delta" sparkle:deltaFrom="104" length="1091218" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="lZUFFMUW+lWPwn4Eg1uNj6Ht3GpravZ54oYt3OF6WSNrxC2qO366BLu4eZiz24d1S82qFsCXssRcXWE89/hnAA=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.5/Thaw105-103.delta" sparkle:deltaFrom="103" length="1108466" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="VwwmnncL2ztJZxEtWXnkXWRW/j7KErXAOQoFakhDk0Vz935mS19QYPzUCBB7IcesSSSCgeRk9OyOKK2LeRtXBQ=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.5/Thaw105-58.delta" sparkle:deltaFrom="58" length="4655830" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="OAExiDUhFm9dxOeeONFNovLxaOX4v/eDJNXlMdaLftpv9D7k5i+jONEhKfnG5eSF9nXUYNW73187BcHevp8zAw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>3.0.0-alpha.4.1</title>
             <pubDate>Tue, 15 Sep 2026 03:53:53 +0000</pubDate>
             <link>https://github.com/thaw-app/Thaw/releases/tag/3.0.0-alpha.4.1</link>
@@ -10,89 +63,6 @@
             <sparkle:version>104</sparkle:version>
             <sparkle:shortVersionString>3.0.0-alpha.4.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>27.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h3>macOS 27 only</h3>
-<p>This is one of the last alphas. We are targeting the beta release by the end of this week. Once beta lands and the core functions are stable and reliable, the codebase opens for contributions.</p>
-<p>The experimentation phase is over. This release consolidates the UI into a mix of Thaw 2 and fresh polish, keeping everything native to macOS and consistent with the system. If you have a suggestion or an improvement, we want to hear it.</p>
-<p>Settings is rebuilt. The fifteen-pane sidebar is gone. What replaces it is a grouped sidebar with no nested tabs, a dedicated Thaw Bar page with a live preview, a customizable sidebar, and a separate appearance for the Thaw Bar itself.</p>
-<p>Something broke? <a href="https://github.com/thaw-app/Thaw/issues/new/choose">Open an issue</a>. Something missing? <a href="https://github.com/thaw-app/Thaw/discussions">Tell us here</a>.</p>
-<hr>
-<h3>Upgrade from 3.0.0-alpha.3</h3>
-<ol>
-<li>Nothing to do. Profiles, saved layouts, hotkeys, appearance, and permissions all carry over.</li>
-<li>Your last settings pane reopens. If it moved, it remaps to its new home.</li>
-<li>You can now hide sidebar destinations you don't use. Open the overflow menu and pick "Customize Sidebar."</li>
-</ol>
-<hr>
-<h3>Settings</h3>
-<ul>
-<li><strong>Fifteen panes down to a grouped sidebar.</strong> General, Layout, Visibility, Appearance, Thaw Bar, Profiles, Shortcuts, Automation, Displays, Spaces, Privacy, Experiments, and Troubleshooting. Grouped with the system's inter-section spacing, no text headings. About lives in the status-item menu. Scripts and Custom Status Icon are reachable through search and Experiments.</li>
-<li><strong>Layout and Visibility are direct peers, not a nested tab.</strong> Menu Bar used to be one destination with an Arrange / Behavior segmented control inside it. Now Layout and Visibility each have their own sidebar row. Layout holds the bar editor and every layout control. Visibility holds the reveal and rehide lifecycle, search configuration, and tooltips.</li>
-<li><strong>Advanced is gone.</strong> Its three controls moved to where they belong. App-menu hiding and the secondary context menu are in General. Auto-zen-while-presenting is in Automation. The reorder timeout is parked behind the Advanced layout controls disclosure; its write path is bypassed on macOS 27, so the UI is hidden until it has a visible effect.</li>
-<li><strong>Customize the sidebar.</strong> Hide destinations you don’t use from the overflow menu’s “Customize Sidebar” sheet. Hidden panes stay reachable through search. The current pane and the last visible pane can’t be hidden.</li>
-</ul>
-<h3>Thaw Bar</h3>
-<ul>
-<li><strong>Dedicated page with a live preview.</strong> The Thaw Bar configuration that was buried inside Displays now has its own sidebar entry. The preview shows the hidden section's items in the chosen arrangement (horizontal, vertical, grid), on the real menu-bar surface, with the actual Thaw Bar shape and border from the appearance config. An "Open Thaw Bar" button opens the real panel. When it's off, the button says "Enable &amp; Open."</li>
-<li><strong>Separate Thaw Bar appearance.</strong> Ported from the 2.1.0 beta versions. The Thaw Bar can now draw with its own shape, tint, and border, independent of the menu bar's. The override is off by default and seeded from the values on screen, so turning it on changes nothing until you edit something. Rounded corners, tint (solid or gradient), tint opacity, border color, and border width. The border shape omits the top edge on square corners so it is not clipped by the display's rounded screen corners.</li>
-</ul>
-<h3>Menu Bar editor</h3>
-<ul>
-<li><strong>Section changes appear without another scan.</strong> Moving an item between Hidden and Always Hidden now updates its editor row from the saved assignment, instead of waiting for Accessibility discovery to finish. The editor no longer leaves the item in its old row while that scan catches up. This changes the preview, not how physical moves are verified.</li>
-<li><strong>One short instruction instead of four.</strong> The heading, drag instructions, the Command-drag tip, and the macOS limitation note collapsed into a single line beside the editor. The OS limitation is a footnote. The refusal notice still appears when a move fails.</li>
-<li><strong>Empty groups state is a compact row.</strong> The 110pt centered empty state is gone. A one-line footnote says what to do instead.</li>
-<li><strong>Command-drag toggle moved.</strong> "Show all sections when Command-dragging" moved from Visibility to Layout's Advanced layout controls disclosure, where the other advanced layout behaviors live.</li>
-</ul>
-<h3>General</h3>
-<ul>
-<li><strong>Contextual menu controls moved here.</strong> "Hide app menus when showing menu bar items" and "Enable secondary context menu" (plus its quit sub-toggle) moved from the dissolved Advanced pane to General.</li>
-<li><strong>"No active profile" instead of "None."</strong> The sidebar's profile footer says what it means.</li>
-</ul>
-<h3>Profiles</h3>
-<ul>
-<li><strong>Quieter rows.</strong> Creation and modification dates moved into the "Save Current" menu as a detail, not beside the name. "Update" is now "Save Current" with clearer wording. The auto-switching link is a single inline footnote, not a section card.</li>
-<li><strong>Profile auto-switching moved to Automation.</strong> The display and Space profile-assignment controls moved from Profiles to Automation, with a direct link from Profiles.</li>
-</ul>
-<h3>Experiments</h3>
-<ul>
-<li><strong>Shorter caution, feedback below the list.</strong> The large red introductory pill is gone. A one-line caution sits above the experiments. Feedback links (The Lab, Discord) sit below them.</li>
-<li><strong>Customize before enabling.</strong> The Customize button for the Custom Status Icon is available before the feature is turned on, so you can inspect the builder without adding it to the menu bar.</li>
-<li><strong>Custom Status Icon moved here.</strong> It is no longer a sidebar destination. It is an Experiments toggle with a Customize link.</li>
-</ul>
-<h3>Simple Mode</h3>
-<ul>
-<li><strong>Arrangement picker added.</strong> "Who arranges items" (manual vs. automatic) is now at the top of Simple Mode. The core loop is self-contained: decide who arranges, then drag.</li>
-<li><strong>Profiles removed.</strong> Simple Mode is the everyday surface. Profiles are a power-user feature available in the full window.</li>
-</ul>
-<h3>Menu bar reliability</h3>
-<ul>
-<li><strong>Moves use targeted scans.</strong> Move preparation and verification ask known menu bar owners for fresh bounds instead of repeatedly scanning every running app. New and unresolved owners are still checked, and apps previously found without an item are checked again after a short interval. Cached bounds never count as proof that a move succeeded.</li>
-<li><strong>Section moves no longer interrupt one another.</strong> Preparing an item's position, verifying the move, and committing its section now share one queue slot. Cancelling a queued move no longer releases another move's slot. Cross-section destination handling also fixes three cases that placed an item on the wrong side of a divider.</li>
-<li><strong>Discovery makes progress under load.</strong> Scans rotate through app owners so slow apps cannot repeatedly use up the budget before later owners are reached. Late scan results cannot overwrite newer state, and incomplete scans cannot discard retained items or replace your saved order.</li>
-<li><strong>Thaw's controls keep their identities.</strong> Position-key matching distinguishes the Visible, Hidden, and Always Hidden controls by their titles instead of treating a lone nearby control as a match.</li>
-<li><strong>Manual arrangement skips the remaining repair paths.</strong> Restriction changes no longer schedule repairs in manual mode. Corrective pulses, automatic unparking, boundary repairs, and structural position rewrites also stop when manual mode is selected during a wait. Refused manual-mode moves no longer count toward repair-failure suppression. Native Command-dragging remains yours to control; hiding and revealing still work.</li>
-<li><strong>Droppy's persistent panel no longer blocks automatic rehide.</strong> Thaw excludes Droppy's layer-100 overlay from menu detection while retaining its standard popup-menu level. Existing candidate windows are also tracked before their owner's item reaches the cache, so discovering an app no longer turns its already-open panel into a newly opened menu.</li>
-</ul>
-<h3>Fixes</h3>
-<ul>
-<li><strong>Capture jitter on 5 items fixed.</strong> Five menu bar items (1Password, Hookshot, WisprFlow, CleanShotX, Okta) oscillated 1 pixel on every capture cycle because of sub-pixel rounding. The capture bounds tolerance is raised from 0.5pt to 1.0pt, so the capture loop stops spinning while Settings is open.</li>
-<li><strong>49pt menu bar hosting window found.</strong> On displays with a 49pt menu bar (larger displays, different scaling), the hosting window was never matched because the geometry check capped at 40pt. The threshold is raised to 60pt (point space) and 120px (pixel space), so system items (Clock, Control Center, Wi-Fi, Now Playing) get their clean hosting-window captures instead of falling back to the display strip every cycle.</li>
-</ul>
-<h3>Under the hood</h3>
-<ul>
-<li><strong><a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/observable/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/observable">@observable</a> migration.</strong> StatusIconWidgetController, NotchClockWidget, NotchMediaWidget, and NotchAccessoryWidget migrated from ObservableObject + <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/published/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/published">@published</a> to <a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/observable/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/observable">@observable</a>, for per-property observation instead of whole-object invalidation.</li>
-<li><strong><a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/Animatable/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Animatable">@Animatable</a> macro.</strong> NotchShape's manual animatableData replaced with the <a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/Animatable/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Animatable">@Animatable</a> macro (macOS 26+), with @AnimatableIgnored on non-animating properties.</li>
-<li><strong>Native pickers in settings forms.</strong> ThawPicker no longer applies glass to every picker. It uses the system menu style, so settings content reads as stable and opaque while glass is reserved for floating panels.</li>
-<li><strong>Glass scoping.</strong> The Thaw Bar preview no longer wraps in an extra glass frame. It matches the real panel's treatment: sampled color, card corner, shadow. Colored drop shadows removed from informational notices.</li>
-<li><strong>Search routing.</strong> Every relocated control's search entry routes to its new home with the right disclosure exposed. Reveal, rehide, search, and tooltip entries land on Visibility directly. Contextual-menu entries land on General. Auto-zen lands on Automation.</li>
-</ul>
-<h3>Known issues</h3>
-<ul>
-<li>An app with several menu bar items that renamed them in the macOS 27 upgrade may need those items reassigned once by hand.</li>
-<li>Items whose title is live text (a temperature, a clock, a transfer rate) are placed by macOS from memory rather than from the layout table. They can land next to where you put them rather than exactly there.</li>
-<li>Flux cannot be seen or properly handled by Thaw.</li>
-<li>Toggling Hidden can briefly show Always Hidden items in the menu bar during the redraw, even though they return to the correct concealed state. This visual flash remains unresolved.</li>
-</ul>
-<hr>]]></description>
             <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4.1/Thaw_3.0.0-alpha.4.1.zip" length="8393635" type="application/octet-stream" sparkle:edSignature="b9VJWQKQxtX4CEqEz1K1NKn1iSofNeqO4qWTyWgjSObU/TYjRurLFKo94pREbdrlYWDEEjvDKyqd5ttssJO5Cw=="/>
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4.1/Thaw104-103.delta" sparkle:deltaFrom="103" length="522094" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="XYnqnoJab9paRHakNCfOoRkLjXBsz2ZSNJX53GUT6tqRPRu0tcYFVdGvbjyqk36NUnDn0pqL1DY3ZHKhk5wrDg=="/>
@@ -113,21 +83,6 @@
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4/Thaw103-102.delta" sparkle:deltaFrom="102" length="1769586" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="GrdLbU1htf8Lo6g44O7ZpyWSCSNwoypuPiBdciAVtvEf1wMGPg4CVissxZ7n8Jz6LnKj8otGtSHKUCSxuTjuDw=="/>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4/Thaw103-101.delta" sparkle:deltaFrom="101" length="1975026" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="qlSnQ/eGWlkLkoni1NB087SZLZMpT/1zxtGt4mybymn+XUaRWIuHKh4pQkVUFVdroUTmlT+0cRiuVGPg4dvMCg=="/>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4/Thaw103-58.delta" sparkle:deltaFrom="58" length="4562498" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="icgQZAQ0UHZmQjpNnBOjLmPPHE/L6YKsGuNg5ah251nEWwumB2xhKKVJMI9ls88tyO911zr/VJBY1E/CR3IgBQ=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>3.0.0-alpha.3</title>
-            <pubDate>Sun, 13 Sep 2026 10:06:01 +0000</pubDate>
-            <link>https://github.com/thaw-app/Thaw/releases/tag/3.0.0-alpha.3</link>
-            <sparkle:channel>alpha</sparkle:channel>
-            <sparkle:version>102</sparkle:version>
-            <sparkle:shortVersionString>3.0.0-alpha.3</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>27.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.3/Thaw_3.0.0-alpha.3.zip" length="8253669" type="application/octet-stream" sparkle:edSignature="AkkEgNr9sblJAt/zbfHMWmv/BilGzeTjiPukewnqu6rWasm6xkuux7MRYu6KYMM6VOdi7VVZimdm7LzbAAnKDA=="/>
-            <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.3/Thaw102-101.delta" sparkle:deltaFrom="101" length="1247682" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="8VVHrvU5tvkIo3O9/jvyWCqZ9IGol9JgnI1ybpFR66FIyOyAVY44NoRc4451NM7PxWFbWRXCRFKsAuMrI2DOBQ=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.3/Thaw102-100.delta" sparkle:deltaFrom="100" length="1321326" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="1MLie63yLDik+TEhyem8oij9sBZUf+jZS3dyVkdlQc2GgcYYZOpyeoJSJLVYrElTc/17HE/caI8MlUfBjfy2Bw=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.3/Thaw102-58.delta" sparkle:deltaFrom="58" length="4494098" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="fCv8VYOAoxlntgWuIGEKLtV1vbzGniRCSSS97QWi2W1lw7+tm6tRzj3vXUcyiiHrHFWZzknyzvE58m78zQUnDA=="/>
             </sparkle:deltas>
         </item>
         <item>
