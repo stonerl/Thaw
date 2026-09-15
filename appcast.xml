@@ -3,6 +3,104 @@
     <channel>
         <title>Thaw</title>
         <item>
+            <title>3.0.0-alpha.4</title>
+            <pubDate>Tue, 15 Sep 2026 03:02:27 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/3.0.0-alpha.4</link>
+            <sparkle:channel>alpha</sparkle:channel>
+            <sparkle:version>103</sparkle:version>
+            <sparkle:shortVersionString>3.0.0-alpha.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>27.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h3>macOS 27 only</h3>
+<p>This is one of the last alphas. We are targeting the beta release by the end of this week. Once beta lands and the core functions are stable and reliable, the codebase opens for contributions.</p>
+<p>The experimentation phase is over. This release consolidates the UI into a mix of Thaw 2 and fresh polish, keeping everything native to macOS and consistent with the system. If you have a suggestion or an improvement, we want to hear it.</p>
+<p>Settings is rebuilt. The fifteen-pane sidebar is gone. What replaces it is a grouped sidebar with no nested tabs, a dedicated Thaw Bar page with a live preview, a customizable sidebar, and a separate appearance for the Thaw Bar itself.</p>
+<p>Something broke? <a href="https://github.com/thaw-app/Thaw/issues/new/choose">Open an issue</a>. Something missing? <a href="https://github.com/thaw-app/Thaw/discussions">Tell us here</a>.</p>
+<hr>
+<h3>Upgrade from 3.0.0-alpha.3</h3>
+<ol>
+<li>Nothing to do. Profiles, saved layouts, hotkeys, appearance, and permissions all carry over.</li>
+<li>Your last settings pane reopens. If it moved, it remaps to its new home.</li>
+<li>You can now hide sidebar destinations you don't use. Open the overflow menu and pick "Customize Sidebar."</li>
+</ol>
+<hr>
+<h3>Settings</h3>
+<ul>
+<li><strong>Fifteen panes down to a grouped sidebar.</strong> General, Layout, Visibility, Appearance, Thaw Bar, Profiles, Shortcuts, Automation, Displays, Spaces, Privacy, Experiments, and Troubleshooting. Grouped with the system's inter-section spacing, no text headings. About lives in the status-item menu. Scripts and Custom Status Icon are reachable through search and Experiments.</li>
+<li><strong>Layout and Visibility are direct peers, not a nested tab.</strong> Menu Bar used to be one destination with an Arrange / Behavior segmented control inside it. Now Layout and Visibility each have their own sidebar row. Layout holds the bar editor and every layout control. Visibility holds the reveal and rehide lifecycle, search configuration, and tooltips.</li>
+<li><strong>Advanced is gone.</strong> Its three controls moved to where they belong. App-menu hiding and the secondary context menu are in General. Auto-zen-while-presenting is in Automation. The reorder timeout is parked behind the Advanced layout controls disclosure; its write path is bypassed on macOS 27, so the UI is hidden until it has a visible effect.</li>
+<li><strong>Customize the sidebar.</strong> Hide destinations you don’t use from the overflow menu’s “Customize Sidebar” sheet. Hidden panes stay reachable through search. The current pane and the last visible pane can’t be hidden.</li>
+</ul>
+<h3>Thaw Bar</h3>
+<ul>
+<li><strong>Dedicated page with a live preview.</strong> The Thaw Bar configuration that was buried inside Displays now has its own sidebar entry. The preview shows the hidden section's items in the chosen arrangement (horizontal, vertical, grid), on the real menu-bar surface, with the actual Thaw Bar shape and border from the appearance config. An "Open Thaw Bar" button opens the real panel. When it's off, the button says "Enable &amp; Open."</li>
+<li><strong>Separate Thaw Bar appearance.</strong> Ported from the 2.1.0 beta versions. The Thaw Bar can now draw with its own shape, tint, and border, independent of the menu bar's. The override is off by default and seeded from the values on screen, so turning it on changes nothing until you edit something. Rounded corners, tint (solid or gradient), tint opacity, border color, and border width. The border shape omits the top edge on square corners so it is not clipped by the display's rounded screen corners.</li>
+</ul>
+<h3>Menu Bar editor</h3>
+<ul>
+<li><strong>Section changes appear without another scan.</strong> Moving an item between Hidden and Always Hidden now updates its editor row from the saved assignment, instead of waiting for Accessibility discovery to finish. The editor no longer leaves the item in its old row while that scan catches up. This changes the preview, not how physical moves are verified.</li>
+<li><strong>One short instruction instead of four.</strong> The heading, drag instructions, the Command-drag tip, and the macOS limitation note collapsed into a single line beside the editor. The OS limitation is a footnote. The refusal notice still appears when a move fails.</li>
+<li><strong>Empty groups state is a compact row.</strong> The 110pt centered empty state is gone. A one-line footnote says what to do instead.</li>
+<li><strong>Command-drag toggle moved.</strong> "Show all sections when Command-dragging" moved from Visibility to Layout's Advanced layout controls disclosure, where the other advanced layout behaviors live.</li>
+</ul>
+<h3>General</h3>
+<ul>
+<li><strong>Contextual menu controls moved here.</strong> "Hide app menus when showing menu bar items" and "Enable secondary context menu" (plus its quit sub-toggle) moved from the dissolved Advanced pane to General.</li>
+<li><strong>"No active profile" instead of "None."</strong> The sidebar's profile footer says what it means.</li>
+</ul>
+<h3>Profiles</h3>
+<ul>
+<li><strong>Quieter rows.</strong> Creation and modification dates moved into the "Save Current" menu as a detail, not beside the name. "Update" is now "Save Current" with clearer wording. The auto-switching link is a single inline footnote, not a section card.</li>
+<li><strong>Profile auto-switching moved to Automation.</strong> The display and Space profile-assignment controls moved from Profiles to Automation, with a direct link from Profiles.</li>
+</ul>
+<h3>Experiments</h3>
+<ul>
+<li><strong>Shorter caution, feedback below the list.</strong> The large red introductory pill is gone. A one-line caution sits above the experiments. Feedback links (The Lab, Discord) sit below them.</li>
+<li><strong>Customize before enabling.</strong> The Customize button for the Custom Status Icon is available before the feature is turned on, so you can inspect the builder without adding it to the menu bar.</li>
+<li><strong>Custom Status Icon moved here.</strong> It is no longer a sidebar destination. It is an Experiments toggle with a Customize link.</li>
+</ul>
+<h3>Simple Mode</h3>
+<ul>
+<li><strong>Arrangement picker added.</strong> "Who arranges items" (manual vs. automatic) is now at the top of Simple Mode. The core loop is self-contained: decide who arranges, then drag.</li>
+<li><strong>Profiles removed.</strong> Simple Mode is the everyday surface. Profiles are a power-user feature available in the full window.</li>
+</ul>
+<h3>Menu bar reliability</h3>
+<ul>
+<li><strong>Moves use targeted scans.</strong> Move preparation and verification ask known menu bar owners for fresh bounds instead of repeatedly scanning every running app. New and unresolved owners are still checked, and apps previously found without an item are checked again after a short interval. Cached bounds never count as proof that a move succeeded.</li>
+<li><strong>Section moves no longer interrupt one another.</strong> Preparing an item's position, verifying the move, and committing its section now share one queue slot. Cancelling a queued move no longer releases another move's slot. Cross-section destination handling also fixes three cases that placed an item on the wrong side of a divider.</li>
+<li><strong>Discovery makes progress under load.</strong> Scans rotate through app owners so slow apps cannot repeatedly use up the budget before later owners are reached. Late scan results cannot overwrite newer state, and incomplete scans cannot discard retained items or replace your saved order.</li>
+<li><strong>Thaw's controls keep their identities.</strong> Position-key matching distinguishes the Visible, Hidden, and Always Hidden controls by their titles instead of treating a lone nearby control as a match.</li>
+<li><strong>Manual arrangement skips the remaining repair paths.</strong> Restriction changes no longer schedule repairs in manual mode. Corrective pulses, automatic unparking, boundary repairs, and structural position rewrites also stop when manual mode is selected during a wait. Refused manual-mode moves no longer count toward repair-failure suppression. Native Command-dragging remains yours to control; hiding and revealing still work.</li>
+<li><strong>Droppy's persistent panel no longer blocks automatic rehide.</strong> Thaw excludes Droppy's layer-100 overlay from menu detection while retaining its standard popup-menu level. Existing candidate windows are also tracked before their owner's item reaches the cache, so discovering an app no longer turns its already-open panel into a newly opened menu.</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li><strong>Capture jitter on 5 items fixed.</strong> Five menu bar items (1Password, Hookshot, WisprFlow, CleanShotX, Okta) oscillated 1 pixel on every capture cycle because of sub-pixel rounding. The capture bounds tolerance is raised from 0.5pt to 1.0pt, so the capture loop stops spinning while Settings is open.</li>
+<li><strong>49pt menu bar hosting window found.</strong> On displays with a 49pt menu bar (larger displays, different scaling), the hosting window was never matched because the geometry check capped at 40pt. The threshold is raised to 60pt (point space) and 120px (pixel space), so system items (Clock, Control Center, Wi-Fi, Now Playing) get their clean hosting-window captures instead of falling back to the display strip every cycle.</li>
+</ul>
+<h3>Under the hood</h3>
+<ul>
+<li><strong><a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/observable/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/observable">@observable</a> migration.</strong> StatusIconWidgetController, NotchClockWidget, NotchMediaWidget, and NotchAccessoryWidget migrated from ObservableObject + <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/published/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/published">@published</a> to <a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/observable/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/observable">@observable</a>, for per-property observation instead of whole-object invalidation.</li>
+<li><strong><a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/Animatable/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Animatable">@Animatable</a> macro.</strong> NotchShape's manual animatableData replaced with the <a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/Animatable/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Animatable">@Animatable</a> macro (macOS 26+), with @AnimatableIgnored on non-animating properties.</li>
+<li><strong>Native pickers in settings forms.</strong> ThawPicker no longer applies glass to every picker. It uses the system menu style, so settings content reads as stable and opaque while glass is reserved for floating panels.</li>
+<li><strong>Glass scoping.</strong> The Thaw Bar preview no longer wraps in an extra glass frame. It matches the real panel's treatment: sampled color, card corner, shadow. Colored drop shadows removed from informational notices.</li>
+<li><strong>Search routing.</strong> Every relocated control's search entry routes to its new home with the right disclosure exposed. Reveal, rehide, search, and tooltip entries land on Visibility directly. Contextual-menu entries land on General. Auto-zen lands on Automation.</li>
+</ul>
+<h3>Known issues</h3>
+<ul>
+<li>An app with several menu bar items that renamed them in the macOS 27 upgrade may need those items reassigned once by hand.</li>
+<li>Items whose title is live text (a temperature, a clock, a transfer rate) are placed by macOS from memory rather than from the layout table. They can land next to where you put them rather than exactly there.</li>
+<li>Flux cannot be seen or properly handled by Thaw.</li>
+<li>Toggling Hidden can briefly show Always Hidden items in the menu bar during the redraw, even though they return to the correct concealed state. This visual flash remains unresolved.</li>
+</ul>
+<hr>]]></description>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4/Thaw_3.0.0-alpha.4.zip" length="8400208" type="application/octet-stream" sparkle:edSignature="FgCivMmaMlLfKEUqyZBWeC4gtjTlXFWNJZNRdo857wctcJFku2IYoxRLraK7Waat/rTusJA9J6bIXZkDJ64xBA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4/Thaw103-102.delta" sparkle:deltaFrom="102" length="1769586" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="GrdLbU1htf8Lo6g44O7ZpyWSCSNwoypuPiBdciAVtvEf1wMGPg4CVissxZ7n8Jz6LnKj8otGtSHKUCSxuTjuDw=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4/Thaw103-101.delta" sparkle:deltaFrom="101" length="1975026" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="qlSnQ/eGWlkLkoni1NB087SZLZMpT/1zxtGt4mybymn+XUaRWIuHKh4pQkVUFVdroUTmlT+0cRiuVGPg4dvMCg=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4/Thaw103-58.delta" sparkle:deltaFrom="58" length="4562498" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="icgQZAQ0UHZmQjpNnBOjLmPPHE/L6YKsGuNg5ah251nEWwumB2xhKKVJMI9ls88tyO911zr/VJBY1E/CR3IgBQ=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>3.0.0-alpha.3</title>
             <pubDate>Sun, 13 Sep 2026 10:06:01 +0000</pubDate>
             <link>https://github.com/thaw-app/Thaw/releases/tag/3.0.0-alpha.3</link>
@@ -33,21 +131,6 @@
             </sparkle:deltas>
         </item>
         <item>
-            <title>3.0.0-alpha.1</title>
-            <pubDate>Wed, 09 Sep 2026 14:05:36 +0000</pubDate>
-            <link>https://github.com/thaw-app/Thaw/releases/tag/3.0.0-alpha.1</link>
-            <sparkle:channel>alpha</sparkle:channel>
-            <sparkle:version>100</sparkle:version>
-            <sparkle:shortVersionString>3.0.0-alpha.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>27.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.1/Thaw_3.0.0-alpha.1.zip" length="8108322" type="application/octet-stream" sparkle:edSignature="4/pPR6jK5XRxEuLlIZBK8trKfbfw53z7tRXSCJO2ooBY9DWB4hbS2FamC1AoyHlM4o/vCLNny6gh75SlvK19Aw=="/>
-            <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.1/Thaw100-58.delta" sparkle:deltaFrom="58" length="4382106" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="v3TS8lOrMJUGHPc1HFFRcGCV8lyl3RqfyYNuPQnx+VVon/iOilvhyQ/SSr2FwCOJ2AN0ROTOmlmni+Cco/WQBg=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.1/Thaw100-57.delta" sparkle:deltaFrom="57" length="4829254" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="kIqGtaK06/cIZM0l6X7QkNWIQULNxbGyuVMD2O73E77RXNICcX0xp/M4ixQYpElMbYAZromTHYKxzvqvGIsaDg=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.1/Thaw100-56.delta" sparkle:deltaFrom="56" length="4823706" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="W0A3Va0lv1TnyIsIdV2YFBqwOG+A7artQwGAPk9El3uXn/7d/9jxGICUJUZzP0XPXBo2q9roR5EB/cTYaXSbCA=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
             <title>2.1.0-beta.2</title>
             <pubDate>Sat, 05 Sep 2026 03:26:48 +0000</pubDate>
             <link>https://github.com/thaw-app/Thaw/releases/tag/2.1.0-beta.2</link>
@@ -59,65 +142,6 @@
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.2/Thaw58-57.delta" sparkle:deltaFrom="57" length="6763446" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="opSxGVHaKf/KQkndEx1L12xY1JCeRc9RDoH4w6CfdxKItwsEgCSUBXlV/+9Wcp3Lg35vwwzWSFOBkR4qWLT4AA=="/>
             </sparkle:deltas>
-            <description><![CDATA[<p>Hey, we have a Discord! Come say hi: <a href="https://discord.gg/KDfWjWDnR4" rel="nofollow">discord.gg/KDfWjWDnR4</a>.</p>
-<p>Please report issues at <a href="https://github.com/thaw-app/Thaw/issues">github.com/thaw-app/Thaw/issues</a>.</p>
-<p><a href="https://www.producthunt.com/products/thaw-2?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-thaw-3" rel="nofollow"><img alt="Thaw - The only app that owns your whole menu bar, in and out | Product Hunt" width="250" height="54" src="https://camo.githubusercontent.com/2549e3564e8d1ddb55a19e303e344c1903ce37bd55ce33de2f82fe3ebe997a82/68747470733a2f2f6170692e70726f6475637468756e742e636f6d2f776964676574732f656d6265642d696d6167652f76312f66656174757265642e7376673f706f73745f69643d31323339373934267468656d653d6c6967687426743d31373838343233343431303536" data-canonical-src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1239794&amp;theme=light&amp;t=1788423441056" style="max-width: 100%; height: auto; max-height: 54px;; aspect-ratio: 250 / 54; background-color: var(--bgColor-muted); border-radius: 6px" class="js-gh-image-fallback"></a></p>
-<p>Thanks to <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/wiper2/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/wiper2">@wiper2</a> for the spacing report and crash logs, <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lucifercraig12345-create/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lucifercraig12345-create">@lucifercraig12345-create</a> for the search freeze, the spacer crash, and the external-drive trigger request, <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Chamiu/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Chamiu">@Chamiu</a> for the <code class="notranslate">dropReverted</code> report, <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/ppocass/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/ppocass">@ppocass</a> for tracing a menu bar that never rendered, <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/leos/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/leos">@leos</a> for the spacing-restart report, and <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/balaji-dutt/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/balaji-dutt">@balaji-dutt</a> for the stuck-rehide and localized-ghost diagnoses.</p>
-<p>Spacing changes no longer kill system services that cannot be brought back, and you can now turn the restart wave off entirely. You can also sort a section alphabetically, remove stale displays from the list, type in the search panel the moment it opens, and reveal a hidden item while an external drive is mounted. Five reported bugs and four more found while fixing them are in here, plus three image-capture performance changes, and three ways automatic layout work used to fight whoever was using the mouse.</p>
-<hr>
-<h3>Upgrade from 2.1.0-beta.2</h3>
-<ol>
-<li>Update in place through Sparkle on the beta channel. Stable stays on 2.0.1 until 2.1.0 leaves beta.</li>
-<li>No schema or <code class="notranslate">defaults</code> changes. Profiles, saved layouts, and hotkeys carry over untouched.</li>
-<li>Spacing changes leave some items alone, and you can turn the wave off. An item whose owner Thaw declines to restart keeps its previous spacing until that app next starts, so the bar can look uneven for a while. "When applying spacing" under Settings, Displays has a "Wait until next restart (no apps restarted)" option that stops Thaw restarting apps for a spacing change at all. <code class="notranslate">FREQUENT_ISSUES.md</code> lists what Thaw will and will not quit.</li>
-<li>An app that refuses a quit request is no longer force-terminated. If it is holding an unsaved document, it stays running and keeps its old spacing.</li>
-</ol>
-<hr>
-<h3>Spacing</h3>
-<ol>
-<li>Changing menu bar spacing no longer kills system services that cannot be brought back (#1070, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/wiper2/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/wiper2">@wiper2</a>). The relaunch wave now triages each app first: indexed LaunchAgents restart through <code class="notranslate">launchctl</code>, system binaries with no label and processes with no launchable bundle are left running, and ordinary apps are quit and launched back. Anything left running is dropped from the set the wave waits to reattach.</li>
-<li>You can apply a spacing change without restarting your apps (#1071, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/leos/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/leos">@leos</a>). "When applying spacing" under Settings, Displays now offers "Wait until next restart (no apps restarted)", which writes the preference and leaves every app running. The new spacing appears the next time each app starts. The "Confirm before relaunching apps" toggle and its save-scope picker only appear when a relaunch wave can actually fire.</li>
-</ol>
-<h3>Displays</h3>
-<ol>
-<li>Remove stale displays from the Per Display list (#1054). A Remove control on each disconnected display drops its cached name and settings. A display you connect again reappears on its own.</li>
-</ol>
-<h3>Menu bar layout</h3>
-<ol>
-<li>Sort a section alphabetically (#936). Each section heading in Settings, Menu Bar Layout has a Sort A→Z button. Closed apps keep their saved slot, and the order is written to the active profile.</li>
-<li>A stuck rehide no longer freezes a position in place (#1079, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/balaji-dutt/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/balaji-dutt">@balaji-dutt</a>). An app that runs since boot never relaunches, so a failed rehide used to block the item's saved position forever. Thaw now ages that state out after a day.</li>
-<li>Localized Control Center ghosts are pruned (#1080, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/balaji-dutt/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/balaji-dutt">@balaji-dutt</a>). On a non-English system, Control Center's localized name could land in an item identifier and persist forever, duplicating the canonical entries. Thaw now drops those copies when the canonical namespace is present.</li>
-</ol>
-<h3>Triggers</h3>
-<ol>
-<li>Reveal a hidden item while an external drive is mounted (#1053, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lucifercraig12345-create/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lucifercraig12345-create">@lucifercraig12345-create</a> for the request, <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/alvst/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/alvst">@alvst</a>). A trigger can now match any external drive, an exact case-insensitive drive name, a removable drive, a network volume, or a volume UUID. Thaw observes volume mount, unmount, and rename notifications and reevaluates triggers when mounted volumes change, so an NTFS helper or any drive-tied utility appears while its drive is connected and hides again when it ejects.</li>
-</ol>
-<h3>Layout work stays out of your way</h3>
-<p>Three separate ways an automatic batch could work against whoever was using the mouse at the time.</p>
-<ol>
-<li>Bulk layout work has one owner. A profile apply, a background re-sort, and a saved-order restore could all run at once and write over each other. Each claims a lease ranked by authority now: a profile you selected supersedes background work and never the reverse, and a superseded batch stops at its next move.</li>
-<li>Automatic batches wait for a pause in physical input, and check again between moves, deferring the rest when input resumes. The detector now reads HID timestamps for mouse-down, up, and dragged events across left, right, and other buttons, not just movement and scroll, so a click during a batch is still detected after the button is released.</li>
-<li>The cursor stays where you left it. Restoration now runs only when the HID timestamps show no physical pointer input since the operation took ownership, so it no longer warps the pointer back if you moved the mouse mid-batch.</li>
-</ol>
-<h3>Search</h3>
-<ol>
-<li>The search panel takes your first keystroke (#969). The field is now first responder as soon as the panel opens, instead of needing a click first.</li>
-<li>Typing in the settings search field no longer freezes the app (#1055, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lucifercraig12345-create/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lucifercraig12345-create">@lucifercraig12345-create</a>). Each row in <code class="notranslate">SectionedList</code> re-measured itself on every keystroke. The per-row frame tracking is gone.</li>
-</ol>
-<h3>Fixes</h3>
-<ol>
-<li>Adding a spacer to a visible section no longer crashes (#1056, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lucifercraig12345-create/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lucifercraig12345-create">@lucifercraig12345-create</a>). A zero-length status item can stay a synthetic window with no representable window ID. The status item, and now spacers too, start one point wide before taking their intended width.</li>
-<li>A move started just after an app updates no longer reverts (#1058, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Chamiu/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Chamiu">@Chamiu</a>). The <code class="notranslate">isOnScreen</code> bit was trusted without checking where the item actually sat, so a move that had landed was reported as <code class="notranslate">dropReverted</code>. The geometry is checked first.</li>
-<li>A menu bar that never renders because of a bad window number is caught rather than acted on (#1060, thanks <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/ppocass/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/ppocass">@ppocass</a>). <code class="notranslate">CGWindowID(exactly:)</code> accepted any value that fit. <code class="notranslate">windowServerID(windowNumber:)</code> rejects zero, negative, and non-representable values.</li>
-<li>Clicking one of Apple's own menu bar items opens the right thing. Activation tried <code class="notranslate">AXShowMenu</code> first, but Apple's status items read that as a contextual-menu request. Only <code class="notranslate">AXPress</code> is used now.</li>
-<li>Moves resolve their endpoints against live windows. Endpoint validation leaned on persisted PID seeds and title-matched ownership, so a stale endpoint could pass for a current one. <code class="notranslate">refreshMoveEndpoints</code> re-reads the exact windows a move will use, so a failed live resolution rejects the move.</li>
-</ol>
-<h3>Performance</h3>
-<ol>
-<li>Menu bar item images refresh off the main actor. <code class="notranslate">refreshImages</code> was <code class="notranslate">nonisolated</code>, which under Approachable Concurrency kept the caller's actor, so the bounds queries, crop, and copies ran on the main thread. They run on the background pool now.</li>
-<li>Blink triggers capture only the items they watch. One enabled trigger used to make the live loop capture every concealed item. The cache now takes the identifiers the enabled triggers name and captures those alone. The global "surface items seeking attention" setting is unaffected.</li>
-<li>Those captures go out as one request instead of one round trip per watched item.</li>
-</ol>]]></description>
         </item>
         <item>
             <title>2.1.0-beta.1</title>
