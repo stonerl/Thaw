@@ -10,49 +10,11 @@
             <sparkle:version>105</sparkle:version>
             <sparkle:shortVersionString>3.0.0-alpha.5</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>27.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<p><strong>macOS 27 only · Build 105</strong></p>
-<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg data-component="Octicon" class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p><p><strong>Known macOS 27 limitations</strong></p>
-<p>Some native menu bar items may be missing or hidden. Control Center items and Shortcuts may also be unavailable in the menu bar. These are part of the same macOS 27 limitations, rather than separate Thaw bugs. We’re actively investigating ways to support these items.</p>
-</div>
-<h3>Expected behavior and current limits</h3>
-<ul>
-<li><strong>Several items from one app:</strong> some apps’ menu bar items cannot be hidden independently with the current macOS 27 mechanism. An item assigned to Hidden can remain visible when another item from the same app is assigned to Visible. <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a></li>
-<li><strong>App icons instead of menu bar previews:</strong> Thaw uses an app-icon fallback when a usable capture is unavailable, including when Screen Recording permission is off. The fallback is intentional; an item disappearing entirely still needs investigation.</li>
-<li><strong>Spacing changes:</strong> applying spacing can restart menu bar apps so they load the new value. Each app can also add its own padding, so the same setting does not guarantee identical visible gaps.</li>
-</ul>
-<h3>New</h3>
-<ul>
-<li><strong>App zoom:</strong> resize Thaw’s app UI from 75% to 200%. Use ⌘+ and ⌘−, or choose Zoom from the settings overflow menu. ⌘0 resets to 100%.</li>
-<li><strong>Thaw Bar appearance:</strong> the floating bar and its preview now apply your saved appearance correctly. Customize the background, tint, glass, border, and shadow using the same controls as the menu bar.</li>
-<li><strong>Reapply Spacing:</strong> added to Displays for when apps haven’t picked up your saved spacing. It relaunches menu bar apps to reload the setting. <a href="https://github.com/thaw-app/Thaw/issues/1126" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1126/hovercard">#1126</a></li>
-</ul>
-<h3>Fixes</h3>
-<ul>
-<li><strong>Displays no longer pushes the sidebar out of the window.</strong> The selector now shows connected displays only. Settings content also has 10% more room. <a href="https://github.com/thaw-app/Thaw/issues/1131" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1131/hovercard">#1131</a></li>
-<li><strong>Removed the Thaw Bar’s unwanted outline and extra shadow.</strong> Turning Border off now removes the drawn outline. <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a></li>
-<li><strong>Search selections are easier to read.</strong> The highlighted row uses an opaque background instead of another glass layer.</li>
-<li><strong>Thaw releases its Dock presence after the floating bar closes</strong> when no other Thaw windows need it.</li>
-<li><strong>MacThrottle keeps a stable identity when its temperature changes</strong>, addressing duplicate entries and hiding problems. <a href="https://github.com/thaw-app/Thaw/issues/1121" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1121/hovercard">#1121</a></li>
-</ul>
-<h3>Menu bar reliability</h3>
-<ul>
-<li>Improved double-click recognition on the Thaw icon for opening Always Hidden. <a href="https://github.com/thaw-app/Thaw/issues/1119" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1119/hovercard">#1119</a></li>
-<li>Corrected Battery item recognition and added a fallback for manual moves when macOS ignores the position change. <a href="https://github.com/thaw-app/Thaw/issues/1110" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1110/hovercard">#1110</a></li>
-<li>Added checks to reject icon captures that overlap another item or belong to another app. <a href="https://github.com/thaw-app/Thaw/issues/1119" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1119/hovercard">#1119</a>, <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a></li>
-<li>Capture sessions are reused between requests, and the screen-recording indicator is excluded from saved item order.</li>
-<li>Automatic order repairs wait until startup layout restoration finishes.</li>
-</ul>
-<h3>Still under investigation</h3>
-<ul>
-<li>Some icons can still be missing or show an app-icon fallback, including Little Snitch. The broader icon reports remain open. <a href="https://github.com/thaw-app/Thaw/issues/1119" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1119/hovercard">#1119</a>, <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a></li>
-<li>Battery snap-back, unexpected reordering, and uneven gaps are not fully resolved. <a href="https://github.com/thaw-app/Thaw/issues/1110" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1110/hovercard">#1110</a>, <a href="https://github.com/thaw-app/Thaw/issues/1126" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1126/hovercard">#1126</a></li>
-<li>The reported Accessibility crash is still under investigation. This release keeps compact crash diagnostics even when regular logging is off. If Thaw crashes, attach the crash report and the files available through <strong>Troubleshooting → Show Log Files in Finder</strong>.</li>
-</ul>]]></description>
             <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.5/Thaw_3.0.0-alpha.5.zip" length="8498353" type="application/octet-stream" sparkle:edSignature="S87etCqXuMWZKO72mJyICe6ORCaXTyoKhTFZKaQxeTLw+QQwgoONjnJezy0g+h59vXh+zcX8GQvPGsNPloa1DQ=="/>
             <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.5/Thaw105-104.delta" sparkle:deltaFrom="104" length="1091218" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="lZUFFMUW+lWPwn4Eg1uNj6Ht3GpravZ54oYt3OF6WSNrxC2qO366BLu4eZiz24d1S82qFsCXssRcXWE89/hnAA=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.5/Thaw105-103.delta" sparkle:deltaFrom="103" length="1108466" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="VwwmnncL2ztJZxEtWXnkXWRW/j7KErXAOQoFakhDk0Vz935mS19QYPzUCBB7IcesSSSCgeRk9OyOKK2LeRtXBQ=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.5/Thaw105-58.delta" sparkle:deltaFrom="58" length="4655830" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="OAExiDUhFm9dxOeeONFNovLxaOX4v/eDJNXlMdaLftpv9D7k5i+jONEhKfnG5eSF9nXUYNW73187BcHevp8zAw=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.4/Thaw105-104.delta" sparkle:deltaFrom="104" length="1091218" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="lZUFFMUW+lWPwn4Eg1uNj6Ht3GpravZ54oYt3OF6WSNrxC2qO366BLu4eZiz24d1S82qFsCXssRcXWE89/hnAA=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.4/Thaw105-103.delta" sparkle:deltaFrom="103" length="1108466" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="VwwmnncL2ztJZxEtWXnkXWRW/j7KErXAOQoFakhDk0Vz935mS19QYPzUCBB7IcesSSSCgeRk9OyOKK2LeRtXBQ=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.4/Thaw105-60.delta" sparkle:deltaFrom="60" length="4657870" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="RexTvp715YlDnUKLaFxa8OPq7uovAs0YZBJxV47cOM5xU7hegTHKSb3Wl0Hh5El2AJvLk/hfdFp8Ap9GRznhCw=="/>
             </sparkle:deltas>
         </item>
         <item>
