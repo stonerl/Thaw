@@ -120,6 +120,53 @@
             </sparkle:deltas>
         </item>
         <item>
+            <title>2.1.0-beta.5</title>
+            <pubDate>Fri, 25 Sep 2026 18:26:26 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/2.1.0-beta.5</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>61</sparkle:version>
+            <sparkle:shortVersionString>2.1.0-beta.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<p><strong>macOS 26 only · Build 61</strong></p>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg data-component="Octicon" class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p><strong>This is the last beta before the release candidate.</strong></p>
+<p>The next 2.1.0 build is the release candidate. If something looks wrong in this one, please report it now.</p>
+</div>
+<p>A bug-fix release. Thaw stops relaunching your menu bar apps without asking, and fixes the new-item and app-menu bugs beta.4 left behind.</p>
+<h3>Fixes</h3>
+<ol>
+<li><strong>The spacing prompt stops coming back after Cancel.</strong> Waking the Mac, changing resolution, or a display dropping out for a moment could look like a display change, so Thaw asked to relaunch apps for a spacing that was already right. Cancel now counts for that display, and a display that briefly goes missing is no longer treated as a change. Moving to another display still asks. <a href="https://github.com/thaw-app/Thaw/issues/1180" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1180/hovercard">#1180</a></li>
+<li><strong>"Confirm before relaunching apps" covers every automatic relaunch.</strong> It only applied to display changes. Connecting a display for the first time, switching profiles (by hand or automatically), and changing spacing through a Settings URL all relaunched apps without asking. They ask now. If you decline during a profile switch, the rest of the profile still applies. Changes you confirm in Settings &gt; Displays don't ask twice. <a href="https://github.com/thaw-app/Thaw/issues/1098" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1098/hovercard">#1098</a></li>
+<li><strong>New items land at the "New items" placeholder.</strong> The beta.4 fix only covered new items with no placeholder set. When the Thaw icon sat at the right end of the visible section, where it usually is, a new app was placed past it and ended up next to the Thaw icon. It now stays at the placeholder. <a href="https://github.com/thaw-app/Thaw/issues/1069" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1069/hovercard">#1069</a></li>
+<li><strong>Clicking an app menu no longer opens the hidden section.</strong> In some apps, Firefox among them, clicking a menu title like File opened the hidden section as if you had clicked empty menu bar space. Since 2.0.0 Thaw trusted the menu positions each app reports, and these apps report positions that aren't on screen. Thaw now falls back to where the menus actually are. <a href="https://github.com/thaw-app/Thaw/issues/1028" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1028/hovercard">#1028</a></li>
+<li><strong>Fewer menu bar writes and screen captures.</strong> Every show and hide rewrote Thaw's icons, even when nothing had changed. On macOS 26 each of those writes holds on to memory until Thaw quits. Thaw now writes only what changed, and with an adaptive tint it stops capturing the screen while your displays sleep. Both should slow the memory growth some of you see after days of uptime. If Activity Monitor still shows Thaw growing, please add a comment to <a href="https://github.com/thaw-app/Thaw/issues/1129" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1129/hovercard">#1129</a>.</li>
+</ol>
+<h3>Updates</h3>
+<ul>
+<li><strong>The beta channel offers 2.1 updates again.</strong> The beta update feed was built from the 3.0 alpha builds, so some of you stayed on beta.2. From this release, 2.1 installs on the beta channel get 2.1 updates. <a href="https://github.com/thaw-app/Thaw/issues/1170" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1170/hovercard">#1170</a></li>
+<li><strong>"Dev Mode Flags" is now "Trigger Sources".</strong> The switches that add conditions to the Triggers pane had a name that made them look like debugging tools, and the Triggers pane sent you to "Developer settings", which isn't in the sidebar. The pane and every pointer to it now say Trigger Sources.</li>
+<li><strong>Search, About and onboarding follow your text size.</strong> They used fixed point sizes, so the macOS text size setting didn't reach them. Trigger cards and the layout bar also use the same 16pt corners as the rest of Settings.</li>
+<li><strong>Sparkle 2.10.0 and AXSwift6 0.5.2.</strong> The update framework and the accessibility library Thaw uses are on their latest versions.</li>
+</ul>
+<h3>Correction to beta.4</h3>
+<p>The beta.4 notes gave the wrong name for the app-icon setting. It's <strong>Settings &gt; Layout &gt; Advanced layout controls &gt; Show app icons instead of live previews</strong>. Turning it on stops Thaw capturing the menu bar, which removes the screen-recording indicator. <a href="https://github.com/thaw-app/Thaw/issues/1051" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1051/hovercard">#1051</a></p>]]></description>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.5/Thaw_2.1.0-beta.5.zip" length="13696857" type="application/octet-stream" sparkle:edSignature="tFUiFX1HKiArDbx/0694pauu+gYvB0KNGI+zOsRkVPc6Oe8a4fsqrrZykp//k2dsh/6i//Tisxm9d3L8fIaUCw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.5/Thaw61-60.delta" sparkle:deltaFrom="60" length="2195414" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Z5RZ6J4p6lOTgUZakRcb5Jf1KGhXxgl84gKs9bZoG3mrg12a8gWFrJMUrn8adXHjrYScRJD37LhnbT1li/n1Dg=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.5/Thaw61-58.delta" sparkle:deltaFrom="58" length="2469158" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="qKW9GaqfjkSpz7OFcckpuzVZVtAzmMqLPWdIF2LVj2RqhB7rmDegPK86TUFRb+uoP/SEmC4DVUX9FDDPeagEDg=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.5/Thaw61-57.delta" sparkle:deltaFrom="57" length="7412770" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="xaSrqLfHYGmGalx91kS7Gb5/z1+s14w+cOqcZbRrGIf+7M/6dn1v5Zv3USiS5JvRWYRhaVj7R0sy9moHmMB0Ag=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>2.1.0-beta.4</title>
+            <pubDate>Fri, 25 Sep 2026 18:26:29 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/2.1.0-beta.5</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>60</sparkle:version>
+            <sparkle:shortVersionString>2.1.0-beta.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.4/Thaw_2.1.0-beta.4.zip" length="13689936" type="application/octet-stream" sparkle:edSignature="MpNLI4+lXU2DOEQFV1jA0H7p7pa3U6qxTSHsHfDgqt1E7FeqlJOZKLXz3pbJObkrJPPLPi1azFMRHVJQmdExBA=="/>
+        </item>
+        <item>
             <title>2.1.0-beta.2</title>
             <pubDate>Sat, 05 Sep 2026 03:26:48 +0000</pubDate>
             <link>https://github.com/thaw-app/Thaw/releases/tag/2.1.0-beta.2</link>
@@ -133,21 +180,6 @@
             </sparkle:deltas>
         </item>
         <item>
-            <title>2.1.0-beta.1</title>
-            <pubDate>Thu, 03 Sep 2026 03:09:50 +0000</pubDate>
-            <link>https://github.com/thaw-app/Thaw/releases/tag/2.1.0-beta.1</link>
-            <sparkle:channel>beta</sparkle:channel>
-            <sparkle:version>57</sparkle:version>
-            <sparkle:shortVersionString>2.1.0-beta.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.1/Thaw_2.1.0-beta.1.zip" length="13241826" type="application/octet-stream" sparkle:edSignature="txZQ/AWnvgIfpYpclWhXe9Z89mE37zeAIqv86HtvPrZkyGyr8T5uY0tlBUpVAN0CLMF7a+YDI76YiC5wlCSVAw=="/>
-            <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.1/Thaw57-56.delta" sparkle:deltaFrom="56" length="4065254" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="QOMSp/ZFZ3QcxwSLA362Lxwssmr+LqTUIPdZ+IKJip0X+0Zgtkn6hZsf0GRQEbLnn/vMbeVMhuTVYj+huczlDA=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.1/Thaw57-55.delta" sparkle:deltaFrom="55" length="4073406" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="PzpSfw95XF7mKmoZDOob/KeSOpkEL54HXCuxVCa6sbVm9hDgWr261YzYj7lLF9ct+HtZxhxFIVNltPKOU7EuAA=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.1/Thaw57-54.delta" sparkle:deltaFrom="54" length="4103370" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="SeGBMVuKSpcy7Hfs43M9a7VFd6P1hBeuWLl0PtpVID3zhgzaFOa87JwGKzIXawSBAyef9XCOJV0WenglG9RHCw=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
             <title>2.0.1</title>
             <pubDate>Wed, 02 Sep 2026 08:49:29 +0000</pubDate>
             <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.1</link>
@@ -157,20 +189,6 @@
             <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.1/Thaw_2.0.1.zip" length="11256807" type="application/octet-stream" sparkle:edSignature="R1BZhQqvkV2P/wUVpiRqvNB6zSiRNoWJ+/+o6EL3zaj9khETNXHrw/bUqZaMDZMH3orVRgnf3isK0N+4OJ1hCQ=="/>
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.2/Thaw56-55.delta" sparkle:deltaFrom="55" length="22082" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="mv6xHwI8caZD16uLVhgh4BTWq9Wa+8BCL6rmLfKhdb9sma29cJLgf6Hgesol75iG8nb2Do0ea+vhUxuvNRqBCA=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>2.0.1-rc.2</title>
-            <pubDate>Tue, 01 Sep 2026 16:28:39 +0000</pubDate>
-            <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.1-rc.2</link>
-            <sparkle:channel>beta</sparkle:channel>
-            <sparkle:version>55</sparkle:version>
-            <sparkle:shortVersionString>2.0.1-rc.2</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.1-rc.2/Thaw_2.0.1-rc.2.zip" length="11255566" type="application/octet-stream" sparkle:edSignature="6PI+kOk/G74Tz9HBkP4N6FzFCMpO8R0LNBgSLIZJxMhSJ0pXVlGHLFouPVHnRb3YbWv18nQT0b8KXDLivO8/Ag=="/>
-            <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.1/Thaw55-54.delta" sparkle:deltaFrom="54" length="850182" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="bXAnmZnsf2u5BT6mhJFPbTA4fHnt5Fmjc4khwo52MpIUZDnOxhuuRD/9eZkUIAWHEmbHNBMgY1gCVn0KJ+cTDw=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.1/Thaw55-53.delta" sparkle:deltaFrom="53" length="1085790" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="w8nmZgbzKCY8Gr2BhmWNWug93pTywLe9XH+o3ZLAiD///yU+fLegwXvvvWNTrtEX0xGhyPTcQs243Ev4H7BPDw=="/>
             </sparkle:deltas>
         </item>
         <item>
