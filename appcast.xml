@@ -3,6 +3,276 @@
     <channel>
         <title>Thaw</title>
         <item>
+            <title>3.0.0-alpha.7</title>
+            <pubDate>Fri, 25 Sep 2026 18:51:29 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/3.0.0-alpha.7</link>
+            <sparkle:channel>alpha</sparkle:channel>
+            <sparkle:version>108</sparkle:version>
+            <sparkle:shortVersionString>3.0.0-alpha.7</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>27.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<p><strong>macOS 27 only · Build 108 · Beta candidate</strong></p>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg data-component="Octicon" class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p><strong>This is a beta candidate.</strong></p>
+<p>If nothing serious turns up in this build, it becomes 3.0.0-beta. Please report anything that looks like a regression from alpha.6.</p>
+</div>
+<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg data-component="Octicon" class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p><strong>Missing a fix?</strong></p>
+<p>If an issue you reported is not fixed in this build, comment on it and tell us. Where a fix came from a report, it names that report. Thank you to everyone who sent logs, recordings and screenshots, on GitHub and on Discord.</p>
+</div>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg data-component="Octicon" class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p><strong>The short version</strong></p>
+<p><strong>What's new</strong></p>
+<ul>
+<li>Stand-ins for Apple items Thaw can't hide, Time Machine included (Settings &gt; Experiments).</li>
+<li>Swap answers instantly, and Layout and the Thaw Bar work from the keyboard.</li>
+<li>A redesigned Appearance pane whose glass and colors can follow your system settings, and a Thaw Bar preview that shows the bar on your desktop.</li>
+<li>Layout points out items behind the notch and items you don't use.</li>
+<li>Settings use one name for each thing, and every problem message says what to do.</li>
+</ul>
+<p><strong>What's fixed</strong></p>
+<ul>
+<li>Clicking the clock no longer flashes your hidden items, and the blue screen-recording dot is gone.</li>
+<li>A click on the menu bar reveals hidden items right away.</li>
+<li>A second display works like the first, and on a notched MacBook the Thaw icon no longer gets stuck under the notch.</li>
+<li>Bluetooth and Wi-Fi hide and reveal like other items, and System Settings switches no longer stay off.</li>
+<li>Apps that put a count or a date in their menu bar item stay where you put them.</li>
+</ul>
+<p><strong>What's coming in the beta</strong></p>
+<ul>
+<li>Fewer settings: some become default behavior, and experiments graduate or go.</li>
+<li>Dragging an Apple item Thaw can't hide into Hidden puts a stand-in there for you.</li>
+<li>Command-Z undoes a mouse drag in Layout.</li>
+<li>Next up: the scripts feature from Thaw 2.1.0.</li>
+</ul>
+<p>The full plan is under "What's next for 3.0.0-beta" below.</p>
+</div>
+<h3>New: stand-ins for Apple items Thaw can't hide (Experiments)</h3>
+<p>macOS 27 won't let Thaw hide some Apple items, and it removes others completely while they sit in Hidden. These experiments put a Thaw icon in their place. It does the original's main job, and you can hide and order it like any other item. Find them in Settings &gt; Experiments.</p>
+<ul>
+<li><strong>Time Machine can be hidden now.</strong> Turn on "Replace Time Machine" and Thaw swaps Apple's icon for its own, in the same spot. Its menu has Back Up Now, Browse Time Machine Backups and Time Machine Settings. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/nullsin/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/nullsin">@nullsin</a> in <a href="https://github.com/thaw-app/Thaw/issues/1153" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1153/hovercard">#1153</a>.</li>
+<li><strong>Focus stays reachable while it's hidden.</strong> macOS removes Focus from the bar when it sits in Hidden. The stand-in shows which Focus is on, using that Focus's symbol when macOS lets apps draw it. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/jmstacey/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/jmstacey">@jmstacey</a> in <a href="https://github.com/thaw-app/Thaw/issues/1124" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1124/hovercard">#1124</a>.</li>
+<li><strong>The Focus stand-in asks for one folder, not Full Disk Access.</strong> The first time, its menu offers "Allow Access to Focus…". Pick the DB folder it shows, and it reads your Focus status from then on. It can show the active Focus but can't switch modes; its menu links to Focus settings for that.</li>
+<li><strong>AirDrop stays reachable while it's hidden.</strong> Its stand-in opens AirDrop and AirDrop settings.</li>
+<li><strong>Now Playing stays reachable while it's hidden.</strong> Its stand-in has Play/Pause, Next Track and Previous Track. macOS keeps the track name private to its own apps, so the stand-in can't show what's playing.</li>
+<li><strong>Fast User Switching stays reachable while it's hidden.</strong> Its stand-in shows your name and offers Lock Screen, Login Window and Users &amp; Groups settings.</li>
+<li><strong>Getting the original back is one drag.</strong> Move a stand-in to Visible and the Apple item returns in its place. Quitting Thaw, or turning the switch off, always puts every original back.</li>
+</ul>
+<h3>New: swapping</h3>
+<ul>
+<li><strong>Swap answers the moment you press it.</strong> It used to wait until every item had been dragged back into its own order, 10 to 40 seconds by one reporter's count, before the Swap button worked again. The groups now trade places immediately and the ordering finishes in the background.</li>
+<li><strong>Two quick swaps land where they started.</strong> A second swap now works from where the first one was headed, not from a half-finished bar.</li>
+<li><strong>A click on the Thaw icon can swap.</strong> A new setting, off by default, makes a plain click on the icon swap Visible and Hidden. Option-click, double-click and right-click keep their usual actions.</li>
+</ul>
+<h3>New: Layout from the keyboard</h3>
+<ul>
+<li><strong>Tab moves into the Layout editor's rows.</strong> Items show the standard focus ring. Left and Right move between items, Up and Down between sections.</li>
+<li><strong>Home and End jump to either end.</strong> Command-Left and Command-Right do the same.</li>
+<li><strong>Option-arrow keys move the focused item.</strong> Option-Left and Option-Right move it one place. Option-Up and Option-Down, or Command-1, 2 and 3, move it to another section.</li>
+<li><strong>Space or Return opens the item's inspector.</strong> Control-Return or Shift-F10 opens its menu.</li>
+<li><strong>Command-Z undoes a keyboard move.</strong> Mouse drags can't be undone yet.</li>
+<li><strong>VoiceOver announces every move</strong> and gains Move left and Move right actions.</li>
+</ul>
+<h3>New: undo for profiles</h3>
+<ul>
+<li><strong>Command-Z undoes profile changes.</strong> That covers creating, duplicating, renaming, deleting and Save Current. Shift-Command-Z redoes.</li>
+<li><strong>A deleted profile comes back exactly as it was.</strong> It returns to its place in the list with its display and Space links, and it's active again if it was before.</li>
+<li><strong>Undoing a Save Current doesn't touch your menu bar.</strong> It restores the profile's saved contents only. Saving to all profiles undoes in one step.</li>
+<li><strong>The delete confirmation now says you can undo it.</strong></li>
+</ul>
+<h3>Settings</h3>
+<ul>
+<li><strong>Settings opens on the macOS 27.2 beta.</strong> Opening Settings, or checking for updates, crashed every time. The crash was inside macOS's own sidebar list, so on 27.2 the sidebar is built a different way; the gaps between its groups are a little wider there. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Mudflapper/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Mudflapper">@Mudflapper</a>, <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lucifercraig12345-create/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lucifercraig12345-create">@lucifercraig12345-create</a> and <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/MHX792/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/MHX792">@MHX792</a> in <a href="https://github.com/thaw-app/Thaw/issues/1153" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1153/hovercard">#1153</a>.</li>
+<li><strong>"What Thaw sees" shows your menu bar again.</strong> Capture Now in Settings &gt; Privacy always said nothing was captured and blamed the Screen Recording permission. Reported by crazyJosh on Discord.</li>
+<li><strong>The Settings toolbar works like Xcode's.</strong> Back and forward move through the panes you've visited, with Command-[ and Command-].</li>
+<li><strong>The active profile sits in the middle of the toolbar</strong>, with the same switch and Manage Profiles options it had in the sidebar.</li>
+<li><strong>Swap, Zen Mode and Edit Layout are in the toolbar</strong>, with Swap and Zen Mode showing whether they're on.</li>
+<li><strong>The About page reads like a Mac About window.</strong> Icon, name, a one-line description, then the version, build and commit.</li>
+<li><strong>Version details can be selected and copied.</strong> Copy Info puts the name, version, build, commit and your macOS version on the clipboard, ready for a bug report.</li>
+<li><strong>Update settings are one picker.</strong> Choose Off, Check only, or Check and download.</li>
+<li><strong>The Layout editor uses the whole window width.</strong> Widening Settings gives the item rows more room instead of empty margins. Requested by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/djbclark/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/djbclark">@djbclark</a> in <a href="https://github.com/thaw-app/Thaw/issues/1166" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1166/hovercard">#1166</a>.</li>
+<li><strong>The Appearance pane starts with the shape.</strong> Pick it from drawings of a menu bar, then fill the shape and the bar behind it. Ends and margins are one row each, controls that do nothing for the current style are hidden, and Light/Dark, per-Space looks and Reset sit together under Advanced.</li>
+<li><strong>One name for each thing.</strong> Hidden and Always Hidden, Layout, Thaw Bar, Swap Bar, Zen Mode and keyboard shortcut read the same everywhere, and settings no longer show internal terms like "menu bar agent" or "layout table".</li>
+<li><strong>Every problem message says what to do.</strong> Missing permissions come with a Grant Access button, an empty Thaw Bar offers Open Layout, a refused Swap says why, and a taken keyboard shortcut says how to pick another.</li>
+<li><strong>Settings panes read in order.</strong> Tools ends with its reset, Automation leads with everyday options, Experiments is grouped by topic, and options that do nothing in the current state are hidden.</li>
+<li><strong>The three Thaw menus use the same words</strong> for the same commands, with ellipses where a window opens.</li>
+<li><strong>Lists of apps and settings read naturally in every language</strong> ("A, B and C").</li>
+<li><strong>The Thaw Bar's look moved to the Thaw Bar pane</strong>, under its preview, so the Appearance pane is only about the menu bar.</li>
+<li><strong>The Thaw Bar preview shows the real bar on your desktop.</strong> Settings &gt; Thaw Bar draws it centered on the top of your wallpaper, the part the real bar sits over, instead of a strip across the pane. It's one menu bar tall with the real bar's padding, and each icon is drawn exactly as the Layout editor draws it.</li>
+<li><strong>The control panel opens as a popover (Experiments).</strong> The panel that replaces Thaw's menu opens under the Thaw icon with the system arrow. Esc, a click elsewhere, or a second click on the icon closes it.</li>
+</ul>
+<h3>The clock and Notification Center</h3>
+<ul>
+<li><strong>Clicking the clock no longer flashes your hidden items.</strong> Thaw has to lift its hiding for about a second so the click can reach macOS, and every hidden item used to show for that second. Thaw now covers that part of the bar with what's behind it, so the bar looks unchanged. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/volcbs/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/volcbs">@volcbs</a> in <a href="https://github.com/thaw-app/Thaw/issues/1181" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1181/hovercard">#1181</a>.</li>
+<li><strong>Notification Center opens as soon as you click.</strong> The bar used to stay open on a fixed two-second timer. It now follows Notification Center itself, opening and closing. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/jmstacey/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/jmstacey">@jmstacey</a> in <a href="https://github.com/thaw-app/Thaw/issues/1152" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1152/hovercard">#1152</a> and by siren on Discord.</li>
+<li><strong>Clicks just below the clock reach the app underneath.</strong> A click near the top-right corner of a maximized window could land on the clock. Clicks are now matched to the menu bar only. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/MetzgerHund/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/MetzgerHund">@MetzgerHund</a> in <a href="https://github.com/thaw-app/Thaw/issues/1171" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1171/hovercard">#1171</a>.</li>
+<li><strong>Thaw leaves your layout alone while Notification Center opens.</strong> It no longer tries to repair item positions during that second.</li>
+</ul>
+<h3>Showing and hiding</h3>
+<ul>
+<li><strong>The blue recording dot is gone.</strong> Showing or hiding items could briefly light macOS's screen-recording indicator, because Thaw took a screenshot of the bar first. Nothing Thaw draws over the bar takes a screenshot now. Asked about by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/rtheodoro/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/rtheodoro">@rtheodoro</a> in <a href="https://github.com/thaw-app/Thaw/issues/1161" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1161/hovercard">#1161</a>.</li>
+<li><strong>A click on empty menu bar space reveals hidden items right away.</strong> It used to wait for a fresh picture of the bar, about 420 ms on one Mac. It now takes about 70 ms, as fast as a scroll. Reported by a tester on a notched MacBook.</li>
+<li><strong>The first click reveals even with double-click for Always Hidden on.</strong> Thaw used to wait out the double-click interval first. A second click still reveals Always Hidden on top.</li>
+<li><strong>Items hide again after a reveal when another app keeps a small window open.</strong> A dock-preview app's floating window was mistaken for an open menu, so Thaw waited forever and icons piled up. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Dominik-esb/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Dominik-esb">@Dominik-esb</a> in <a href="https://github.com/thaw-app/Thaw/issues/1158" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1158/hovercard">#1158</a>.</li>
+<li><strong>Apps that change their title keep their place.</strong> An unread count, a date or a live value in the menu bar used to make Thaw treat the item as new every time it changed, and move it. Thaw now learns which apps do this. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/afrazkhan/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/afrazkhan">@afrazkhan</a> in <a href="https://github.com/thaw-app/Thaw/issues/973" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/973/hovercard">#973</a> and by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Vicjjh/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Vicjjh">@Vicjjh</a> (WeChat) in <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a>.</li>
+<li><strong>Dato keeps one identity whatever date format you pick</strong>, including day-number-only formats. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Nisgrak/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Nisgrak">@Nisgrak</a> in <a href="https://github.com/thaw-app/Thaw/issues/1175" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1175/hovercard">#1175</a>.</li>
+<li><strong>The Timer can be placed like other system items.</strong> It was missing from Thaw's list of macOS items. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lucifercraig12345-create/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lucifercraig12345-create">@lucifercraig12345-create</a> in <a href="https://github.com/thaw-app/Thaw/issues/1143" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1143/hovercard">#1143</a>.</li>
+<li><strong>Icons stay put during a reveal.</strong> For a moment during a reveal, macOS republishes its own items without names, and Thaw could write positions for the wrong item. Icons, Thaw's own included, then wandered around the bar.</li>
+<li><strong>Thaw no longer misses the first click or keyboard shortcut after it starts listening for one.</strong> It could switch on a moment before it was ready, so the first one went unanswered.</li>
+<li><strong>The Layout pane says what happens to Control Center items in Hidden.</strong> macOS switches them off rather than hiding them, and the pane now explains that.</li>
+</ul>
+<h3>Bluetooth, Wi-Fi and other Control Center items</h3>
+<ul>
+<li><strong>Bluetooth and Wi-Fi hide like other items.</strong> They used to be hidden by switching them off under System Settings &gt; Menu Bar, so they vanished from the bar, didn't come back when you revealed Hidden, and couldn't be moved. Thaw now hides them the same way it hides Sound: they show when you reveal Hidden, and System Settings is left alone. If an earlier build left one switched off, Thaw turns it back on at launch. Reported by Probert on Discord.</li>
+<li><strong>Thaw no longer leaves Fast User Switching switched off in System Settings.</strong> macOS gives Thaw only one way to hide it, and AirDrop, Focus and Now Playing: turning off their switch under Menu Bar. Thaw turned them back on when it quit, but only after a normal quit. After a crash or a force quit they stayed off, and the next launch took "off" for your own choice, so they never came back. Thaw now saves the original settings before changing anything and puts them back on the next launch. Reported by Probert on Discord.</li>
+<li><strong>"Move items that don't fit into Hidden" leaves AirDrop, Focus, Now Playing and Fast User Switching alone.</strong> A crowded bar could push one into Hidden and so switch it off in System Settings, without you asking.</li>
+<li><strong>The item inspector says what hiding a Control Center item does.</strong> Open one in the Layout editor to see that Hidden turns off its System Settings switch, and that Thaw turns it back on when you move it to Visible or quit.</li>
+</ul>
+<h3>The Thaw icon</h3>
+<ul>
+<li><strong>Right-clicking the Thaw icon works over a full-screen app.</strong> It used to do nothing there.</li>
+<li><strong>The Thaw icon comes back even when macOS leaves the dividers out of order.</strong></li>
+<li><strong>The Thaw icon and the dividers make their way out from under the notch.</strong> When the bar was full, the notch could cover them. Thaw only checked for an icon pushed off the bar, not one under the notch, so nothing brought it back. With "Move items that don't fit into Hidden" on, Thaw now hides more items until the icon shows. Once it's visible, nothing moves back until an app adds or removes an item. Reported by a tester on a notched MacBook on Discord.</li>
+<li><strong>A lost Thaw icon is no longer put back under the notch.</strong> When Thaw put its icon back on the bar, it could place it next to an item hidden by the notch.</li>
+</ul>
+<h3>Two displays</h3>
+<ul>
+<li><strong>Hovering, clicking and right-clicking work on the second display.</strong> macOS 27 shows the same items on every menu bar but reports their positions for only one of them, so Thaw was checking the pointer against the wrong spots. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/majn4-hub/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/majn4-hub">@majn4-hub</a> in <a href="https://github.com/thaw-app/Thaw/issues/1159" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1159/hovercard">#1159</a>.</li>
+<li><strong>Other apps' menus open on the second display</strong>, such as BenQ Display Pilot 2's. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/jmstacey/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/jmstacey">@jmstacey</a> in <a href="https://github.com/thaw-app/Thaw/issues/1138" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1138/hovercard">#1138</a>.</li>
+<li><strong>Thaw's right-click menu stays open on the second display</strong> instead of flashing and closing. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/jmstacey/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/jmstacey">@jmstacey</a> in <a href="https://github.com/thaw-app/Thaw/issues/1137" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1137/hovercard">#1137</a>.</li>
+<li><strong>The spacing prompt stops coming back.</strong> Around sleep and wake the active display flickered, and each flicker asked again about a change you'd already declined. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/hamishC0/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/hamishC0">@hamishC0</a> in <a href="https://github.com/thaw-app/Thaw/issues/1180" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1180/hovercard">#1180</a>.</li>
+</ul>
+<h3>Menu bar appearance</h3>
+<ul>
+<li><strong>Glass can match the system.</strong> Choose "Match System" under Effect and Thaw's glass follows Liquid Glass in System Settings &gt; Appearance, the way the Dock does: Regular while it's Tinted, Clear while it's Clear.</li>
+<li><strong>Colors can follow your accent color.</strong> Turn on "Accent" next to a fill or glass tint color, in Appearance or the Thaw Bar's look, and it changes whenever you change the accent color in System Settings.</li>
+<li><strong>Appearance tells you when Reduce Transparency hides your look.</strong> macOS draws the menu bar solid while it's on, so the pane now says so and links to the setting, instead of changes seeming to do nothing.</li>
+<li><strong>Your menu bar look follows you to every desktop.</strong> The tint and shape only showed on the desktop where Thaw started. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/etibes303/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/etibes303">@etibes303</a> in <a href="https://github.com/thaw-app/Thaw/issues/1139" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1139/hovercard">#1139</a>.</li>
+<li><strong>The shape keeps up with the icons.</strong> When an app added or removed an item on its own, the shape's edge lagged behind for up to eight seconds. It now moves with the icons.</li>
+<li><strong>The shape appears with the icons during a reveal.</strong> It used to trail them by about a fifth of a second.</li>
+<li><strong>The shape reaches Control Center and the clock on large notched screens.</strong> At high scaled resolutions on a notched MacBook, Wi-Fi, Control Center and the clock dropped out of Thaw's view. The Split shape stopped short and those items were missing from Layout. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/CoolJosh0221/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/CoolJosh0221">@CoolJosh0221</a> in <a href="https://github.com/thaw-app/Thaw/issues/1081" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1081/hovercard">#1081</a> and by crazyJosh on Discord, confirmed by xX-Mordran-Xx.</li>
+<li><strong>The Split shape still reaches the right edge when macOS doesn't report its own items' positions.</strong></li>
+<li><strong>The tint and shape step aside in full screen.</strong> Watching a video full screen used to leave them painted across the top of the display.</li>
+<li><strong>The Thaw Bar's border follows its rounded corners.</strong> It used to leave dark slivers at the top.</li>
+<li><strong>Icons in the Thaw Bar are readable on any wallpaper.</strong> Thaw copies each icon from the menu bar, in the menu bar's ink, so on a light wallpaper they came out dark on the Thaw Bar's dark background. Single-color icons now take the Thaw Bar's own ink. Color icons, like a network graph, keep their colors.</li>
+</ul>
+<h3>Icons in the Thaw Bar and Layout</h3>
+<ul>
+<li><strong>Hidden items show their own icon, not a neighbor's.</strong> An item could end up with the icon of the item next to it, usually Thaw's, so a whole row showed copies of one icon. Those icons are captured again. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Vicjjh/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Vicjjh">@Vicjjh</a> in <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a> and by Sal on Discord.</li>
+<li><strong>Items in Always Hidden show their real icons</strong> instead of app icons. Reported by Sal on Discord.</li>
+<li><strong>Icons read correctly on a solid menu bar.</strong> With Reduce Transparency, Increase Contrast or a full-screen app, Thaw threw real icons away and showed app icons instead. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/MHX792/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/MHX792">@MHX792</a> in <a href="https://github.com/thaw-app/Thaw/issues/1153" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1153/hovercard">#1153</a>.</li>
+<li><strong>Items that overlap another item keep their icon</strong> instead of switching to the app icon.</li>
+<li><strong>The Layout editor's notch marker and new-items badge match the icons beside them</strong> on a tinted menu bar. They ignored the tint and could pick the opposite ink.</li>
+<li><strong>More items find a real icon.</strong> When the first way of capturing an icon fails, Thaw now tries two more before using the app icon.</li>
+</ul>
+<h3>New: small helpers</h3>
+<ul>
+<li><strong>Items behind the notch are pointed out.</strong> On a notched MacBook, the Layout pane names the items the notch covers and moves them to Hidden in one click, where they open from the Thaw Bar. Close the hint and it stays away for a month.</li>
+<li><strong>Items you don't use are pointed out.</strong> With the "Menu bar history" experiment on, the Layout pane suggests moving items you haven't clicked in 30 days to Hidden, and the item inspector shows when each item was last clicked.</li>
+<li><strong>The Thaw menu shows how many items each section holds</strong>, so you know before opening it.</li>
+<li><strong>The Thaw Bar works from the keyboard.</strong> Open it with its keyboard shortcut, move with the arrow keys, and press Return or Space to click the highlighted item.</li>
+</ul>
+<h3>Keyboard and VoiceOver</h3>
+<ul>
+<li><strong>Every slider works from the keyboard.</strong> Tab to it and use the arrow keys.</li>
+<li><strong>Esc closes the Thaw Bar</strong> and the Customize Sidebar sheet, and Return presses Done in the Layout and Appearance popovers.</li>
+<li><strong>Reduce Motion stops Thaw Bar icons from growing on hover.</strong></li>
+<li><strong>Durations read correctly in every language</strong>, "1 second" included, where some settings said "1 seconds".</li>
+<li><strong>VoiceOver can click Thaw Bar items</strong>, names the group handle in Layout and opens its menu, and says which section each item is in.</li>
+<li><strong>Warnings stay readable on yellow and orange</strong>, and the notch marker is drawn at full strength with Increase Contrast.</li>
+</ul>
+<h3>Speed and stability</h3>
+<ul>
+<li><strong>A frozen app can't freeze your mouse and keyboard.</strong> Some pointer and click checks asked other apps about their menu bar items and waited for an answer. One unresponsive app could hold up every click and key press on the Mac. Those checks now run in Thaw's helper.</li>
+<li><strong>Thaw's helpers are on by default.</strong></li>
+<li><strong>Thaw no longer changes other apps' settings for Always Hidden items.</strong> An unfinished feature ran even though its switch was off, and wrote into those apps' own menu bar settings. It now stays off, and Thaw puts back anything it changed.</li>
+<li><strong>A <code class="notranslate">thaw://</code> link can no longer move items on your menu bar.</strong> A developer test was reachable from any app through a link, with no permission prompt. We removed it.</li>
+<li><strong>A helper started too early is replaced.</strong> At login, Thaw's accessibility helper could start before macOS had granted it access, and it stayed shut out for the whole session. Thaw now replaces it with a fresh one, waiting a little longer each time, and keeps trying every ten minutes in case you grant access later.</li>
+<li><strong>A helper that keeps quitting is left alone.</strong> If something on your Mac keeps closing Thaw's accessibility helper, Thaw stops restarting it after a few tries and reads the menu bar itself, and the log says how the helper ended.</li>
+<li><strong>A click cancelled at the wrong moment can no longer leave Thaw waiting.</strong> If a click on a menu bar item was cancelled before it had started, Thaw could wait for it indefinitely instead of giving up.</li>
+<li><strong>Updates install reliably on macOS 27.</strong> Thaw's updater now includes the fix for delta updates on macOS 27.</li>
+<li><strong>Dependencies updated:</strong> Sparkle 2.10.0 (the update fix above, and no more leaked temporary files when a delta update fails) and swift-subprocess 1.0.0, its first stable release.</li>
+<li><strong>Two actions at once no longer undo each other.</strong> A click queued behind a long move could let two moves run together for the rest of the session.</li>
+<li><strong>Switching profiles quickly no longer leaves apps closed.</strong> A second switch during the first one's app restart used to stop the restart halfway.</li>
+<li><strong>Automation sees your settings' real values.</strong> Several settings that are on by default read as off to scripts and Shortcuts until you changed them once.</li>
+<li><strong>thawctl lists only the settings it can change.</strong></li>
+<li><strong>Launch at login uses macOS's own login items.</strong></li>
+</ul>
+<h3>Try the new things</h3>
+<ul>
+<li><strong>Stand-ins:</strong> open Settings &gt; Experiments. Turn on "Replace Time Machine", or "Replace Control Center items while hidden" for Focus, AirDrop, Now Playing and Fast User Switching. Then move those items into Hidden.</li>
+<li><strong>Swap from the icon:</strong> search Settings for "swap" and turn on the Thaw icon option.</li>
+<li><strong>Keyboard layout editing:</strong> open Layout, press Tab until an item is focused, then use the arrow keys. Hold Option to move the item.</li>
+<li><strong>Profile undo:</strong> change a profile, then press Command-Z while Settings is open.</li>
+<li><strong>Thaw Bar keyboard:</strong> open the Thaw Bar with its keyboard shortcut, then use the arrow keys and Return.</li>
+<li><strong>System glass and accent color:</strong> in Appearance, choose "Match System" under Effect, or turn on "Accent" next to a color.</li>
+</ul>
+<h3>Still under investigation</h3>
+<ul>
+<li><strong>Thaw may not stay the frontmost app.</strong> This build logs every activation change to find out why. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/jimbobbibong-max/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/jimbobbibong-max">@jimbobbibong-max</a> in <a href="https://github.com/thaw-app/Thaw/issues/1167" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1167/hovercard">#1167</a>.</li>
+<li><strong>Several items from one app still hide and show together</strong>, such as Stats' network and CPU items. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Vicjjh/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Vicjjh">@Vicjjh</a> in <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a>.</li>
+<li><strong>Uneven gaps after a spacing change.</strong> Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/woofingcough/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/woofingcough">@woofingcough</a> in <a href="https://github.com/thaw-app/Thaw/issues/1126" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1126/hovercard">#1126</a>.</li>
+<li><strong>Webcam and microphone controls can be hard to reach while Thaw runs.</strong> Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/colemickens/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/colemickens">@colemickens</a> in <a href="https://github.com/thaw-app/Thaw/issues/1174" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1174/hovercard">#1174</a>.</li>
+<li><strong>After logging in, Thaw can miss some apps' menu bar items until it's relaunched.</strong> They then sit outside your menu bar look and don't hide. The Layout pane now names those apps and offers a Relaunch button, and the log records why each app's items are missing. If it happens to you, send a log before relaunching.</li>
+<li><strong>Item positions can be wrong with a right-to-left system language</strong>, such as Arabic or Hebrew. <a href="https://github.com/thaw-app/Thaw/issues/1063" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1063/hovercard">#1063</a></li>
+<li><strong>Timer has no stand-in yet.</strong> Thaw can't remove Apple's Timer, so there is no switch for it.</li>
+</ul>
+<h3>What's next for 3.0.0-beta</h3>
+<p>This is the plan as it stands, not a promise, and your reports decide the order. Open bugs are listed under "Still under investigation" above.</p>
+<ul>
+<li><strong>Fewer switches.</strong> Thaw has grown a lot of settings. For the beta we're going through every one: some become default behavior, some move under Advanced, and some go away. Experiments either graduate or get removed.</li>
+<li><strong>Stand-ins without a switch.</strong> When you drag an Apple item Thaw can't hide into Hidden, Thaw should put a stand-in there for you.</li>
+<li><strong>Undo for drags.</strong> Command-Z will undo mouse moves in Layout, the way it already undoes keyboard moves.</li>
+<li><strong>Scripts, next.</strong> The scripts feature from Thaw 2.1.0 is the next thing coming to 3.0.</li>
+</ul>
+<h4>Blocked by macOS 27, looking for workarounds</h4>
+<p>These run into limits in macOS 27 itself (see the macOS 27 limitations in the Layout pane). We're actively looking for ways around them, but can't promise them for the beta.</p>
+<ul>
+<li><strong>Separate items from the same app.</strong> macOS 27 hides and shows an app's items together, so Stats' network item can't yet go in Hidden while its CPU item stays in Visible. <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a></li>
+<li><strong>Even spacing.</strong> Each app adds its own padding around its items, so the same spacing setting can still leave uneven gaps. <a href="https://github.com/thaw-app/Thaw/issues/1126" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1126/hovercard">#1126</a></li>
+<li><strong>The Shortcuts item.</strong> macOS 27 can hide it at launch, and Thaw can't bring it back yet. Reported by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/gzebadua/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/gzebadua">@gzebadua</a> in <a href="https://github.com/thaw-app/Thaw/issues/1154" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1154/hovercard">#1154</a>.</li>
+<li><strong>A Timer stand-in.</strong> Thaw can't remove Apple's Timer, so it can't put one of its own in its place.</li>
+</ul>
+<h4>Further out</h4>
+<p>These come after the beta is solid. We intend to build them, but none of them has a date yet.</p>
+<ul>
+<li><strong>Rounded screen corners</strong>, carried over from the 2.x roadmap.</li>
+<li><strong>An Alfred workflow</strong> you can install, on top of the <code class="notranslate">thaw://</code> links that already work with Alfred.</li>
+<li><strong>iCloud sync</strong> for profiles, appearance and preferences between your Macs. Anything tied to one Mac's displays stays local.</li>
+<li><strong>Item hints.</strong> Press a shortcut, every menu bar item gets a letter, type the letter to click it.</li>
+<li><strong>Import your setup from another menu bar manager</strong>, so switching to Thaw doesn't mean starting over.</li>
+<li><strong>Isolation mode.</strong> Show just one item for a while, with everything else out of the way. Requested by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/RyloRiz/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/RyloRiz">@RyloRiz</a> in <a href="https://github.com/thaw-app/Thaw/issues/970" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/970/hovercard">#970</a>.</li>
+<li><strong>Custom icons.</strong> Give any menu bar item an icon of your choosing, without changing the app. Requested by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Snowman833/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Snowman833">@Snowman833</a> in <a href="https://github.com/thaw-app/Thaw/issues/912" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/912/hovercard">#912</a>.</li>
+</ul>
+<p>If something matters more to you than what's here, say so on GitHub or Discord.</p>
+<h3>Thank you</h3>
+<p>These people reported what's fixed above, or tested the fixes:</p>
+<ul>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/afrazkhan/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/afrazkhan">@afrazkhan</a>, changing titles (<a href="https://github.com/thaw-app/Thaw/issues/973" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/973/hovercard">#973</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/CoolJosh0221/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/CoolJosh0221">@CoolJosh0221</a>, the notched display (<a href="https://github.com/thaw-app/Thaw/issues/1081" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1081/hovercard">#1081</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/jmstacey/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/jmstacey">@jmstacey</a>, Focus, both second-display menus and Notification Center (<a href="https://github.com/thaw-app/Thaw/issues/1124" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1124/hovercard">#1124</a>, <a href="https://github.com/thaw-app/Thaw/issues/1137" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1137/hovercard">#1137</a>, <a href="https://github.com/thaw-app/Thaw/issues/1138" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1138/hovercard">#1138</a>, <a href="https://github.com/thaw-app/Thaw/issues/1152" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1152/hovercard">#1152</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Vicjjh/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Vicjjh">@Vicjjh</a>, WeChat and borrowed icons (<a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/etibes303/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/etibes303">@etibes303</a>, the look on other desktops (<a href="https://github.com/thaw-app/Thaw/issues/1139" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1139/hovercard">#1139</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lucifercraig12345-create/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lucifercraig12345-create">@lucifercraig12345-create</a>, the Timer (<a href="https://github.com/thaw-app/Thaw/issues/1143" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1143/hovercard">#1143</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/MHX792/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/MHX792">@MHX792</a>, <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/nullsin/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/nullsin">@nullsin</a> and <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Mudflapper/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Mudflapper">@Mudflapper</a>, solid bars, Time Machine and the Settings crash (<a href="https://github.com/thaw-app/Thaw/issues/1153" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1153/hovercard">#1153</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Dominik-esb/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Dominik-esb">@Dominik-esb</a>, auto-rehide (<a href="https://github.com/thaw-app/Thaw/issues/1158" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1158/hovercard">#1158</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/majn4-hub/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/majn4-hub">@majn4-hub</a>, second-display positions (<a href="https://github.com/thaw-app/Thaw/issues/1159" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1159/hovercard">#1159</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/rtheodoro/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/rtheodoro">@rtheodoro</a>, the blue dot (<a href="https://github.com/thaw-app/Thaw/issues/1161" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1161/hovercard">#1161</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/djbclark/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/djbclark">@djbclark</a>, the full-width Layout editor (<a href="https://github.com/thaw-app/Thaw/issues/1166" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1166/hovercard">#1166</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/MetzgerHund/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/MetzgerHund">@MetzgerHund</a>, clicks below the clock (<a href="https://github.com/thaw-app/Thaw/issues/1171" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1171/hovercard">#1171</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Nisgrak/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Nisgrak">@Nisgrak</a>, Dato (<a href="https://github.com/thaw-app/Thaw/issues/1175" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1175/hovercard">#1175</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/hamishC0/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/hamishC0">@hamishC0</a>, the spacing prompt (<a href="https://github.com/thaw-app/Thaw/issues/1180" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1180/hovercard">#1180</a>)</li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/volcbs/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/volcbs">@volcbs</a>, the clock flash (<a href="https://github.com/thaw-app/Thaw/issues/1181" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1181/hovercard">#1181</a>)</li>
+<li>Sal on Discord, icons in the Thaw Bar and Always Hidden</li>
+<li>siren on Discord, slow clock clicks</li>
+<li>crazyJosh and xX-Mordran-Xx on Discord, the notched display and What Thaw sees</li>
+<li>Kristian Kruse on Discord, hiding Wi-Fi and Bluetooth</li>
+<li>Probert on Discord, Bluetooth, Wi-Fi and Fast User Switching</li>
+</ul>]]></description>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.7/Thaw_3.0.0-alpha.7.zip" length="8509831" type="application/octet-stream" sparkle:edSignature="+cNM0HLbdVpJiZNFlmAklQtdk9BsHKHfMysiWrwdxtEFo3cYNztJBOxzp5zJIoS2XTX5au38T1+BN/J6OnkMDw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.7/Thaw108-106.delta" sparkle:deltaFrom="106" length="2708562" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="lRLf7JFWiODo/Dcv79Tubv1KFJ6mVHWjMe5X+TjO1CEzoj7TK8I6qxB61rsG9Q7imP5nSEognwFXAyAmoxnUDQ=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.7/Thaw108-105.delta" sparkle:deltaFrom="105" length="3078878" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="mQVDrWVoPW1wc/fPh7jW51iFnaRk27rQvbi+zP7d/UkrSOkYCjZCpHZei+YDxUeiuRiU8Gl53iH5ZdP1+qg7DA=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.7/Thaw108-104.delta" sparkle:deltaFrom="104" length="3163258" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="YMxG1Z62AfrMPJOU6ziVFep+6YsHpsTId1FRq03jN2pubCvkTCLaCJjxiIK9jzkjlOIa9VQTD6rvhnkppKD1Bg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>3.0.0-alpha.6</title>
             <pubDate>Mon, 21 Sep 2026 13:47:20 +0000</pubDate>
             <link>https://github.com/thaw-app/Thaw/releases/tag/3.0.0-alpha.6</link>
@@ -10,78 +280,6 @@
             <sparkle:version>106</sparkle:version>
             <sparkle:shortVersionString>3.0.0-alpha.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>27.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<p><strong>macOS 27 only · Build 106</strong></p>
-<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg data-component="Octicon" class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p><strong>Missing a fix?</strong></p>
-<p>If an issue you reported is not fixed in this build, comment on it and tell us. We had a wave of new reports and duplicates and lost track of some.</p>
-</div>
-<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg data-component="Octicon" class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p><strong>iStat Menus and Little Snitch</strong></p>
-<p>Thaw and iStat Menus work well together since iStat Menus 7.5.1. For Little Snitch, turn on <strong>Security → Allow GUI Scripting access to Little Snitch</strong>.</p>
-</div>
-<h3>Expected behavior and current limits</h3>
-<ul>
-<li><strong>Several items from one app:</strong> some apps' menu bar items cannot be hidden independently with the current macOS 27 mechanism. An item you put in Hidden can stay visible when another item from the same app is in Visible. <a href="https://github.com/thaw-app/Thaw/issues/1125" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1125/hovercard">#1125</a></li>
-<li><strong>App icons instead of menu bar previews:</strong> when Thaw has no usable capture, including when Screen Recording permission is off, it shows the item's app icon instead of leaving a hole. That fallback is on purpose. If an item still disappears completely, report it. <a href="https://github.com/thaw-app/Thaw/issues/1119" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1119/hovercard">#1119</a></li>
-<li><strong>Spacing changes:</strong> applying spacing can restart menu bar apps so they pick up the new value. Each app adds its own padding, so the same setting does not always produce the same gaps. <a href="https://github.com/thaw-app/Thaw/issues/1126" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1126/hovercard">#1126</a></li>
-<li><strong>macOS-pinned items stay where they are:</strong> Clock, Control Center and Siri cannot be moved. The macOS items toggle covers only those three.</li>
-<li><strong>The Layout editor does not reorder under Manual arrangement:</strong> a drag there is refused with a warning instead of overwriting the order you saved by hand.</li>
-<li><strong>Live Activities:</strong> macOS 27 hides some Live Activity items and gives Thaw no way to bring them back on demand. This is a system limitation, not a setting. <a href="https://github.com/thaw-app/Thaw/issues/1095" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1095/hovercard">#1095</a></li>
-<li><strong>Shortcuts and the Focus icon:</strong> macOS 27 can hide the Shortcuts item, and the Focus icon may not be visible to Thaw at all, so Thaw cannot manage either one. <a href="https://github.com/thaw-app/Thaw/issues/1105" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1105/hovercard">#1105</a>, <a href="https://github.com/thaw-app/Thaw/issues/1124" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1124/hovercard">#1124</a></li>
-</ul>
-<h3>New</h3>
-<ul>
-<li><strong>Swap bar:</strong> one press trades your shown and hidden items, and the next trades them back, each group keeping its own order. It is a real layout change, so it survives a relaunch. The bar sits under the menu bar on the display your pointer is on, with the swap beside the active profile, the section toggles, and zen mode. Thaw's right-click menu, a hotkey, or a Shortcuts action reach the same swap. Turn it on with "Show Swap bar".</li>
-<li><strong>Panel instead of the status menu (Alpha):</strong> right-click Thaw's icon to get a panel of controls instead of a menu of text. It shows the sections, zen mode, the active profile, and the Swap bar. Everything else stays in the menu, which comes back when this is off.</li>
-<li><strong>macOS 27 limits in the Layout pane:</strong> the pane opens with a list of what macOS 27 does not let Thaw do, and keeps it behind an info button after you dismiss it.</li>
-<li><strong>Glow warning:</strong> Thaw tells you when Glow is also managing the menu bar. Two apps hiding the same items fight each other, and Thaw cannot win that quietly.</li>
-<li><strong>Reorder circuit breaker:</strong> when automatic reordering starts looping, Thaw stops, waits longer on each repeat, and a single manual move clears it.</li>
-<li><strong>System item toggle scoped to macOS items:</strong> the show/hide toggle now covers Clock, Control Center and Siri only, the items macOS pins.</li>
-</ul>
-<h3>Fixes</h3>
-<ul>
-<li><strong>Supporting text and warning pills are readable in light mode.</strong> Both use ink that meets contrast instead of the dimmed grey.</li>
-<li><strong>The settings panes got a consistency pass.</strong> Panes that had no title now have one, buttons that do the same thing look the same and sit in the same place, and error alerts name what failed.</li>
-<li><strong>The Displays pane leads with the display selector</strong>, and its Customized label reflects the whole configuration rather than one setting.</li>
-<li><strong>The Thaw Bar pane opens on the real-spacing preview</strong>, and the panel no longer shows two sets of controls for the same thing.</li>
-<li><strong>Missing dividers explain themselves.</strong> The empty state says Thaw is placing the dividers and only sends you to System Settings if they stay missing.</li>
-<li><strong>Thaw no longer reopens the last Settings pane at launch</strong>, and a crash loop no longer stacks Troubleshooting windows.</li>
-<li><strong>A Core Foundation result that is not an array or a dictionary no longer crashes the app.</strong> Five bridging sites are checked before use.</li>
-<li><strong>A Manual-arrangement reorder is refused with a warning</strong> instead of silently overwriting the order you saved.</li>
-<li><strong>A missing capture no longer leaves a blank slot.</strong> An item with no app icon and no capture, such as a concealed Apple module, now falls back to a substitute glyph instead of an empty cell.</li>
-<li><strong>Right-clicking an item in the Thaw Bar opens its menu again.</strong> Alpha 6 sent the right click through the move path, so an item macOS would not let Thaw move never got a context menu.</li>
-<li><strong>A failed menu bar capture falls back to the app icon</strong> instead of leaving the slot blank or black.</li>
-<li><strong>A reveal whose menu bar capture fails no longer pegs a CPU core.</strong> The join loop spun the main thread, which is the system-wide lag some of you saw during a reveal.</li>
-<li><strong>Time Machine is recognized by name.</strong> macOS 27 stopped reporting a title for it, so Thaw filed it as an unnamed item and could not place it.</li>
-</ul>
-<h3>Menu bar reliability</h3>
-<ul>
-<li><strong>The Notification Center shortcut works while Thaw holds the menu bar assertion.</strong> <a href="https://github.com/thaw-app/Thaw/issues/1146" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1146/hovercard">#1146</a></li>
-<li><strong>Clicking an empty part of the bar no longer opens the Thaw Bar or reveals Always Hidden items.</strong> <a href="https://github.com/thaw-app/Thaw/issues/1145" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1145/hovercard">#1145</a></li>
-<li><strong>Right-clicking Thaw's icon keeps its context menu open</strong> instead of showing it and hiding it again. <a href="https://github.com/thaw-app/Thaw/issues/1147" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1147/hovercard">#1147</a></li>
-<li><strong>Clicking an item inside the hidden section no longer closes the whole section.</strong> <a href="https://github.com/thaw-app/Thaw/issues/1148" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1148/hovercard">#1148</a></li>
-<li><strong>A quit app's item no longer stays behind as a dead icon in the Thaw Bar.</strong> <a href="https://github.com/thaw-app/Thaw/issues/1149" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1149/hovercard">#1149</a></li>
-<li><strong>Concealed icons are no longer painted onto the bar while Thaw captures them.</strong> The reveal mask is captured in-process, so a Clock click opens Notification Center faster, and the mask is captured even when no Thaw panel is open.</li>
-<li><strong>A hidden row keeps its own glyph.</strong> It no longer borrows a neighbour's pixels or draws an empty row.</li>
-<li><strong>A concealed item gets one fresh capture attempt</strong> each time a visible consumer asks for it, instead of staying blacklisted.</li>
-<li><strong>Full-frame icons such as Little Snitch keep their glyph.</strong> The background for the knock-out is sampled from the edge of the crop instead of its corners. <a href="https://github.com/thaw-app/Thaw/issues/1119" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1119/hovercard">#1119</a></li>
-<li><strong>Item crops no longer include the desktop behind the bar</strong>, and status items are taken from the window they are drawn in.</li>
-<li><strong>Wallpaper captures work</strong> even though the wallpaper window belongs to a system process.</li>
-<li><strong>Items the window server parks stay in the inventory</strong>, and the repeated Thaw Bar warnings and Clock relocation loops stop.</li>
-<li><strong>Dropping an item in the Layout pane puts it where you dropped it</strong>, in the order you dropped a group, without dragging the cursor across the bar. A drop still works while the reorder breaker is cooling down.</li>
-<li><strong>Hiding a batch of items no longer walks the cursor</strong> into the hidden section.</li>
-<li><strong>A move the position store cannot express still completes</strong> through the Command-drag fallback. Drops can land next to parked-band items, and two icons of one app sitting on one weight are separated.</li>
-<li><strong>The Thaw icon honours a held Option</strong>, and Always Hidden presents the Thaw Bar when it is on.</li>
-<li><strong>The capture helper no longer aborts while ScreenCaptureKit builds its window filter</strong>, and Layout opens right after the Thaw Bar without the multi-second wait.</li>
-<li><strong>The Thaw Bar stays beside the Thaw icon when macOS parks it.</strong> It used to anchor to the parked position and land at the left edge of the screen.</li>
-<li><strong>The Thaw icon comes back after a display change.</strong> Recovery used to give up for the rest of the session.</li>
-</ul>
-<h3>Still under investigation</h3>
-<ul>
-<li><strong>Thaw's own menu bar item can still go missing on macOS 27.</strong> Thaw now treats a parked Thaw icon as parked, so the bar and the layout engine stop planning on that position, and recovery retries after a display change. macOS can still park the item, so this needs a live test before it is called fixed. <a href="https://github.com/thaw-app/Thaw/issues/1135" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1135/hovercard">#1135</a></li>
-<li><strong>Hidden section items still look wrong in some cases.</strong> Always-hidden icons are captured after the section settles, and edge-ring knock-out helps full-frame icons, but the reports stay open. <a href="https://github.com/thaw-app/Thaw/issues/1119" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1119/hovercard">#1119</a></li>
-<li><strong>The five clicking bugs reported against alpha.5 have fixes in this build.</strong> The reports stay open until someone confirms them on a live macOS 27 setup: empty-spot clicks, the Notification Center shortcut, the right-click menu, hidden-section collapse, and a dead Thaw Bar icon. <a href="https://github.com/thaw-app/Thaw/issues/1145" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1145/hovercard">#1145</a>, <a href="https://github.com/thaw-app/Thaw/issues/1146" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1146/hovercard">#1146</a>, <a href="https://github.com/thaw-app/Thaw/issues/1147" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1147/hovercard">#1147</a>, <a href="https://github.com/thaw-app/Thaw/issues/1148" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1148/hovercard">#1148</a>, <a href="https://github.com/thaw-app/Thaw/issues/1149" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1149/hovercard">#1149</a></li>
-<li><strong>Uneven gaps after a spacing change are not resolved.</strong> <a href="https://github.com/thaw-app/Thaw/issues/1126" data-hovercard-type="issue" data-hovercard-url="/thaw-app/Thaw/issues/1126/hovercard">#1126</a></li>
-<li><strong>The reported Accessibility crash is still under investigation.</strong> This release keeps compact crash diagnostics even when regular logging is off. If Thaw crashes, attach the crash report and the files available through <strong>Troubleshooting → Show Log Files in Finder</strong>.</li>
-</ul>]]></description>
             <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.6/Thaw_3.0.0-alpha.6.zip" length="8368750" type="application/octet-stream" sparkle:edSignature="4PxvVJdqVns9jFMLnpO7int8S9qCxr8f/hJHTC3RUqivMmP4D76stHKqL+SRTHcb9v+HFAxyk5PrWiLR82tGBQ=="/>
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.6/Thaw106-105.delta" sparkle:deltaFrom="105" length="1794710" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="yhtmguafdTnqQSb/90zlshYJEshXlg5uwhLt7DUjL8m5W5eMUb7r3iZiR9+qPnIbl0J6v2vIH+QZQiVhkE/jBQ=="/>
@@ -102,21 +300,6 @@
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.4/Thaw105-104.delta" sparkle:deltaFrom="104" length="1091218" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="lZUFFMUW+lWPwn4Eg1uNj6Ht3GpravZ54oYt3OF6WSNrxC2qO366BLu4eZiz24d1S82qFsCXssRcXWE89/hnAA=="/>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.4/Thaw105-103.delta" sparkle:deltaFrom="103" length="1108466" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="VwwmnncL2ztJZxEtWXnkXWRW/j7KErXAOQoFakhDk0Vz935mS19QYPzUCBB7IcesSSSCgeRk9OyOKK2LeRtXBQ=="/>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.4/Thaw105-60.delta" sparkle:deltaFrom="60" length="4657870" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="RexTvp715YlDnUKLaFxa8OPq7uovAs0YZBJxV47cOM5xU7hegTHKSb3Wl0Hh5El2AJvLk/hfdFp8Ap9GRznhCw=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>3.0.0-alpha.4.1</title>
-            <pubDate>Tue, 15 Sep 2026 03:53:53 +0000</pubDate>
-            <link>https://github.com/thaw-app/Thaw/releases/tag/3.0.0-alpha.4.1</link>
-            <sparkle:channel>alpha</sparkle:channel>
-            <sparkle:version>104</sparkle:version>
-            <sparkle:shortVersionString>3.0.0-alpha.4.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>27.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4.1/Thaw_3.0.0-alpha.4.1.zip" length="8393635" type="application/octet-stream" sparkle:edSignature="b9VJWQKQxtX4CEqEz1K1NKn1iSofNeqO4qWTyWgjSObU/TYjRurLFKo94pREbdrlYWDEEjvDKyqd5ttssJO5Cw=="/>
-            <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4.1/Thaw104-103.delta" sparkle:deltaFrom="103" length="522094" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="XYnqnoJab9paRHakNCfOoRkLjXBsz2ZSNJX53GUT6tqRPRu0tcYFVdGvbjyqk36NUnDn0pqL1DY3ZHKhk5wrDg=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4.1/Thaw104-102.delta" sparkle:deltaFrom="102" length="1771430" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="IBrOD8QSedEbNqwULyQPqcztpkOf6omt/2+W5qewCulzl2C+YqQczWHYb4V3I/IsouG62clkAp7fksdSI773CQ=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-alpha.4.1/Thaw104-58.delta" sparkle:deltaFrom="58" length="4556882" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="viiFlbUc5Il20nSJoqgC3saipVho4k4D2xxVzbeNtpBFDfMv11EpKzsHD7uSgqWtYCXkH6w/faF4Vic3dgWzCQ=="/>
             </sparkle:deltas>
         </item>
         <item>
