@@ -5,6 +5,8 @@
         
         
         
+        
+        
         <item>
             <title>2.1.0</title>
             <pubDate>Wed, 14 Oct 2026 23:24:07 +0000</pubDate>
@@ -129,32 +131,6 @@
             <sparkle:deltas>
                 <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-beta.2/Thaw62-61.delta" sparkle:deltaFrom="61" length="2042074" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="XyKWRv9dJNGNEMMUCQAYT6Mlb0izuAToVrkME43HMM2JJ9jEV246rqBpN4Sh6/zVePENbaOGS9/Cp8bcovMKAg=="/>
             </sparkle:deltas>
-        </item>
-        <item>
-            <title>2.1.0-beta.5</title>
-            <pubDate>Fri, 25 Sep 2026 18:26:26 +0000</pubDate>
-            <link>https://github.com/thaw-app/Thaw/releases/tag/2.1.0-beta.5</link>
-            <sparkle:channel>beta</sparkle:channel>
-            <sparkle:version>61</sparkle:version>
-            <sparkle:shortVersionString>2.1.0-beta.5</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:maximumSystemVersion>26.99</sparkle:maximumSystemVersion>
-            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.5/Thaw_2.1.0-beta.5.zip" length="13696857" type="application/octet-stream" sparkle:edSignature="tFUiFX1HKiArDbx/0694pauu+gYvB0KNGI+zOsRkVPc6Oe8a4fsqrrZykp//k2dsh/6i//Tisxm9d3L8fIaUCw=="/>
-            <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.6/Thaw61-60.delta" sparkle:deltaFrom="60" length="2195414" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Z5RZ6J4p6lOTgUZakRcb5Jf1KGhXxgl84gKs9bZoG3mrg12a8gWFrJMUrn8adXHjrYScRJD37LhnbT1li/n1Dg=="/>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.6/Thaw61-58.delta" sparkle:deltaFrom="58" length="2469158" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="qKW9GaqfjkSpz7OFcckpuzVZVtAzmMqLPWdIF2LVj2RqhB7rmDegPK86TUFRb+uoP/SEmC4DVUX9FDDPeagEDg=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>2.1.0-beta.4</title>
-            <pubDate>Fri, 25 Sep 2026 18:26:29 +0000</pubDate>
-            <link>https://github.com/thaw-app/Thaw/releases/tag/2.1.0-beta.5</link>
-            <sparkle:channel>beta</sparkle:channel>
-            <sparkle:version>60</sparkle:version>
-            <sparkle:shortVersionString>2.1.0-beta.4</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:maximumSystemVersion>26.99</sparkle:maximumSystemVersion>
-            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.4/Thaw_2.1.0-beta.4.zip" length="13689936" type="application/octet-stream" sparkle:edSignature="MpNLI4+lXU2DOEQFV1jA0H7p7pa3U6qxTSHsHfDgqt1E7FeqlJOZKLXz3pbJObkrJPPLPi1azFMRHVJQmdExBA=="/>
         </item>
         <item>
             <title>2.0.1</title>
