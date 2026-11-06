@@ -7,12 +7,16 @@
         
         
         
+        
+        
+        
         <item>
             <title>2.1.0</title>
             <pubDate>Wed, 14 Oct 2026 23:24:07 +0000</pubDate>
             <link>https://github.com/thaw-app/Thaw/releases/tag/2.1.0</link>
             <sparkle:version>63</sparkle:version>
             <sparkle:shortVersionString>2.1.0</sparkle:shortVersionString>
+            <sparkle:phasedRolloutInterval>14400</sparkle:phasedRolloutInterval>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:maximumSystemVersion>26.99</sparkle:maximumSystemVersion>
             <description><![CDATA[<p><strong>macOS 26 only</strong></p>
@@ -125,6 +129,7 @@
             <sparkle:channel>beta</sparkle:channel>
             <sparkle:version>62</sparkle:version>
             <sparkle:shortVersionString>2.1.0-beta.6</sparkle:shortVersionString>
+            <sparkle:phasedRolloutInterval>14400</sparkle:phasedRolloutInterval>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:maximumSystemVersion>26.99</sparkle:maximumSystemVersion>
             <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.6/Thaw_2.1.0-beta.6.zip" length="13735652" type="application/octet-stream" sparkle:edSignature="0eOsRdfQ92DUS1KozN3d/r0vVbbMhE0obllZQX7NG1tzM03mHwx+mZM4Q7jzYRdb2uharyoeHa+iHJ+nwPdrDA=="/>
@@ -138,6 +143,7 @@
             <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.1</link>
             <sparkle:version>56</sparkle:version>
             <sparkle:shortVersionString>2.0.1</sparkle:shortVersionString>
+            <sparkle:phasedRolloutInterval>14400</sparkle:phasedRolloutInterval>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:maximumSystemVersion>26.99</sparkle:maximumSystemVersion>
             <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.1/Thaw_2.0.1.zip" length="11256807" type="application/octet-stream" sparkle:edSignature="R1BZhQqvkV2P/wUVpiRqvNB6zSiRNoWJ+/+o6EL3zaj9khETNXHrw/bUqZaMDZMH3orVRgnf3isK0N+4OJ1hCQ=="/>
@@ -151,6 +157,7 @@
             <link>https://github.com/thaw-app/Thaw/releases/tag/2.0.0</link>
             <sparkle:version>53</sparkle:version>
             <sparkle:shortVersionString>2.0.0</sparkle:shortVersionString>
+            <sparkle:phasedRolloutInterval>14400</sparkle:phasedRolloutInterval>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:maximumSystemVersion>26.99</sparkle:maximumSystemVersion>
             <enclosure url="https://github.com/thaw-app/updates/releases/download/2.0.0/Thaw_2.0.0.zip" length="11212081" type="application/octet-stream" sparkle:edSignature="3XsOc2enEvMbqSVTMn4P5mb83wODZLdG4ronOxqfSYrD8GDyqEY2dl2vN9BAYOLQa2XcMf6caQim3buCewOsDA=="/>
@@ -164,6 +171,7 @@
             <sparkle:channel>beta</sparkle:channel>
             <sparkle:version>31</sparkle:version>
             <sparkle:shortVersionString>1.3.0-beta.1</sparkle:shortVersionString>
+            <sparkle:phasedRolloutInterval>14400</sparkle:phasedRolloutInterval>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[<h3>1.3.0-beta.1: Profiles & Reliability</h3>
 
@@ -284,6 +292,7 @@
             <pubDate>Mon, 13 Apr 2026 23:32:49 +0200</pubDate>
             <sparkle:version>30</sparkle:version>
             <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
+            <sparkle:phasedRolloutInterval>14400</sparkle:phasedRolloutInterval>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[<h3>1.2.0: Icon Management Evolved</h3>
 
@@ -477,6 +486,7 @@
             <sparkle:channel>beta</sparkle:channel>
             <sparkle:version>29</sparkle:version>
             <sparkle:shortVersionString>1.2.0-rc.4</sparkle:shortVersionString>
+            <sparkle:phasedRolloutInterval>14400</sparkle:phasedRolloutInterval>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[<h3>1.2.0-rc.4: Localization Refinement & Stability Improvements</h3>
 
@@ -515,6 +525,7 @@
             <pubDate>Tue, 17 Feb 2026 08:17:19 +0100</pubDate>
             <sparkle:version>14</sparkle:version>
             <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <sparkle:phasedRolloutInterval>14400</sparkle:phasedRolloutInterval>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[<h3>1.1.0: Breaking the Ice</h3>
 
@@ -644,6 +655,7 @@
             <pubDate>Thu, 05 Feb 2026 13:43:24 +0100</pubDate>
             <sparkle:version>5</sparkle:version>
             <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:phasedRolloutInterval>14400</sparkle:phasedRolloutInterval>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[<h3>1.0.0: The Official Release</h3>
 
