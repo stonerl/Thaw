@@ -11,6 +11,52 @@
         
         
         <item>
+            <title>2.2.0-beta.2</title>
+            <pubDate>Fri, 06 Nov 2026 11:27:32 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/2.2.0-beta.2</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>65</sparkle:version>
+            <sparkle:shortVersionString>2.2.0-beta.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:maximumSystemVersion>26.99</sparkle:maximumSystemVersion>
+            <description><![CDATA[<p><strong>macOS 15 and 26 · Build 65</strong></p>
+<p>A Homebrew tap for Thaw 2, a simpler Settings and three fixes. Your settings carry over.</p>
+<p>You can also <a href="https://www.getthaw.app/generate" rel="nofollow">make your own Thaw icon</a> on the website. It's drawn in your browser, and Get Info in Finder puts it on Thaw.</p>
+<h3>New</h3>
+<ul>
+<li><strong>Thaw 2 has its own Homebrew tap.</strong> Homebrew's thaw cask moves to Thaw 3 with 3.0.0. Thaw shows the commands to switch once, with a button that copies them, and the <a href="https://github.com/thaw-app/homebrew-tap">tap's page</a> lists them too.</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li><strong>Settings has fewer pages.</strong> Trigger Sources is part of Triggers, Tools is now Troubleshooting, and Language is in General.</li>
+<li><strong>One Show hidden items choice in Displays:</strong> in the menu bar, in the Thaw Bar or always in the menu bar. It replaces two switches.</li>
+<li><strong>Quit and Clear Cache is gone</strong> from Troubleshooting. Thaw already drops old item pictures when it starts.</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li><strong>A trigger no longer leaves the pointer at the top right of the screen</strong> when it shows an item for the app in front.</li>
+<li><strong>No screen recording dot over full-screen apps.</strong> Thaw stops capturing the menu bar while a full-screen app covers it.</li>
+<li><strong>Importing a profile no longer takes its Space or display</strong> from the profile that already uses it.</li>
+</ul>]]></description>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.2.0-beta.2/Thaw_2.2.0-beta.2.zip" length="15441387" type="application/octet-stream" sparkle:edSignature="61S74bZj457JobUakCGGZvJxjofC5iNP5BMH0lOArWocJ6sDlUc8GtNnQYR7JsOjiY1kyISoHQU5yOJYr21QDA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.2.0-beta.2/Thaw65-64.delta" sparkle:deltaFrom="64" length="1512338" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="XazOqlCZ1opElOJNmqZu6O32PWdAnQJG63ZpcShLCSYKCPxTAU+MlHOSc4jRvIeXfdAZEuzpuhfccLySRJJwAg=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.2.0-beta.2/Thaw65-62.delta" sparkle:deltaFrom="62" length="3914626" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="O2MSqvm7iCD5DkikKHSz+OXlqVRF9xmj4qakH2BxyjNBlsoHTJzfrhmfk1ZPVFClwVQwFYijBnzTVF7FjIaeDg=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.2.0-beta.2/Thaw65-61.delta" sparkle:deltaFrom="61" length="4291682" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="j+6Bt386fX+lpLuJZ36FFvV2YJZdEjoPj1nkjVKnYPRaUlJ/ojyPVhlCq0XZ7Of6XRzOM5eX+8GzjJj6fhEJAg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>2.2.0-beta.1</title>
+            <pubDate>Fri, 06 Nov 2026 11:27:36 +0000</pubDate>
+            <link>https://github.com/thaw-app/Thaw/releases/tag/2.2.0-beta.2</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>64</sparkle:version>
+            <sparkle:shortVersionString>2.2.0-beta.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:maximumSystemVersion>26.99</sparkle:maximumSystemVersion>
+            <enclosure url="https://github.com/thaw-app/updates/releases/download/2.2.0-beta.1/Thaw_2.2.0-beta.1.zip" length="15443263" type="application/octet-stream" sparkle:edSignature="FDYQEe6XcIP5XrNgKUS7OQL/HefKf5rwvrb2HqhBqQrvoUuts8jlHOL7kfrgxuw5eumsACwloqWSN6R5GacaAw=="/>
+        </item>
+        <item>
             <title>2.1.0</title>
             <pubDate>Wed, 14 Oct 2026 23:24:07 +0000</pubDate>
             <link>https://github.com/thaw-app/Thaw/releases/tag/2.1.0</link>
@@ -134,7 +180,7 @@
             <sparkle:maximumSystemVersion>26.99</sparkle:maximumSystemVersion>
             <enclosure url="https://github.com/thaw-app/updates/releases/download/2.1.0-beta.6/Thaw_2.1.0-beta.6.zip" length="13735652" type="application/octet-stream" sparkle:edSignature="0eOsRdfQ92DUS1KozN3d/r0vVbbMhE0obllZQX7NG1tzM03mHwx+mZM4Q7jzYRdb2uharyoeHa+iHJ+nwPdrDA=="/>
             <sparkle:deltas>
-                <enclosure url="https://github.com/thaw-app/updates/releases/download/3.0.0-beta.2/Thaw62-61.delta" sparkle:deltaFrom="61" length="2042074" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="XyKWRv9dJNGNEMMUCQAYT6Mlb0izuAToVrkME43HMM2JJ9jEV246rqBpN4Sh6/zVePENbaOGS9/Cp8bcovMKAg=="/>
+                <enclosure url="https://github.com/thaw-app/updates/releases/download/2.2.0-beta.2/Thaw62-61.delta" sparkle:deltaFrom="61" length="2042074" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="XyKWRv9dJNGNEMMUCQAYT6Mlb0izuAToVrkME43HMM2JJ9jEV246rqBpN4Sh6/zVePENbaOGS9/Cp8bcovMKAg=="/>
             </sparkle:deltas>
         </item>
         <item>
